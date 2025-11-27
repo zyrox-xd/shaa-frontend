@@ -2432,7 +2432,7 @@ const Navigation = ({ currentPage, setCurrentPage, cartCount, toggleCart, mobile
             <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300">
              <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
                 <div className="cursor-pointer flex items-center gap-2" onClick={() => setCurrentPage('home')}>
-                    <img src="/image/logo.png" alt="SHAA TRADING" className="h-10 md:h-16 w-auto object-contain" />
+                    <img src="/image/logo.jpg" alt="SHAA TRADING" className="h-10 md:h-16 w-auto object-contain" />
                 </div>
                 <nav className="hidden md:flex items-center gap-8">
                     {navLinks.map(link => (
@@ -2761,7 +2761,7 @@ const Footer = ({ setCurrentPage, showToast }) => {
         
         {/* Brand Column */}
         <div className="space-y-6">
-          <img src="/image/logo-r.png" alt="SHAA TRADING" className="h-14 w-auto object-contain invert brightness-0 filter bg-white p-1 rounded" />
+          <img src="/image/logo-r.jpg" alt="SHAA TRADING" className="h-14 w-auto object-contain invert brightness-0 filter bg-white p-1 rounded" />
           <p className="text-gray-400 text-sm leading-relaxed font-light max-w-xs">
             Bengaluru-based distributor, supplier, and wholesaler since 2012. Providing trusted healthcare and skincare products to professionals across India.
           </p>
