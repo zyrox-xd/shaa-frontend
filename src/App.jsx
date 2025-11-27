@@ -92,7 +92,7 @@ const PRODUCTS = [
     name: "Glutax 50000000GS Advanced",
     category: "Injection",
     brand: "Glutax",
-    price: 14500,
+    price: 1,
     image: "/image/5gs.jpg",
     description: "ReCombined White RNA | 50 Million GS",
     details: `<strong>Glutax 50000000GS</strong><br/>High-performance 10-session treatment engineered for those who have plateaued with standard whitening therapies.`,
