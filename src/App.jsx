@@ -12,7 +12,7 @@ const API_BASE_URL = "https://shaa-backend.onrender.com";
 
 /* --- RAZORPAY CONFIGURATION --- */
 // Replace with your actual Key ID from Razorpay Dashboard
-const RAZORPAY_KEY_ID = "YOUR_RAZORPAY_KEY_ID"; 
+const RAZORPAY_KEY_ID = "rzp_live_Rgl2NCpQcyFajX"; 
 
 /* --- Data & Constants --- */
 const BRANDS_LIST = [
