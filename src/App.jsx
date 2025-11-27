@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingBag, Menu, X, Instagram, Facebook, Linkedin, ArrowRight, Trash2, Plus, Minus, Mail, Phone, MapPin, ShieldCheck, Building2, Stethoscope, FileText, Award, Search, ChevronRight, Check, ChevronDown, Sparkles, Truck, Globe, ArrowLeft, Grid, List, ArrowUpDown, Thermometer, Clock, User, SlidersHorizontal } from 'lucide-react';
 
-/* --- EMAILJS CONFIGURATION (SHAA TRADING) --- */
+/* --- EMAILJS CONFIGURATION --- */
 const EMAILJS_SERVICE_ID = "service_h64g36k";
 const EMAILJS_TEMPLATE_ID = "template_5gaadeg";
 const EMAILJS_PUBLIC_KEY = "4025kcdA_kwN4-yDH";
 
 /* --- API CONFIGURATION --- */
-// Updated to point to your live Render Backend
 const API_BASE_URL = "https://shaa-backend.onrender.com";
 
 /* --- RAZORPAY CONFIGURATION --- */
-// Replace with your actual Key ID from Razorpay Dashboard
 const RAZORPAY_KEY_ID = "rzp_live_Rgl2NCpQcyFajX"; 
 
 /* --- Data & Constants --- */
@@ -92,7 +90,7 @@ const PRODUCTS = [
     name: "Glutax 50000000GS Advanced",
     category: "Injection",
     brand: "Glutax",
-    price: 1,
+    price: 14500,
     image: "/image/5gs.jpg",
     description: "ReCombined White RNA | 50 Million GS",
     details: `<strong>Glutax 50000000GS</strong><br/>High-performance 10-session treatment engineered for those who have plateaued with standard whitening therapies.`,
@@ -303,22 +301,23 @@ const PaymentSuccessView = ({ navigateTo, showToast, transactionId }) => {
         const storedCart = JSON.parse(localStorage.getItem('temp_cart') || '[]');
         const storedUser = JSON.parse(localStorage.getItem('temp_user') || '{}');
         
-        // Use passed transactionId or fallback to URL param for manual visits
         const queryParams = new URLSearchParams(window.location.search);
         const txnId = transactionId || queryParams.get('tid') || 'DEMO-' + Date.now();
   
         if (storedCart.length === 0) {
-          setStatus('error');
+          // If no cart, maybe it was already cleared by a previous run or user went back
+          setStatus('sent'); 
           return;
         }
   
         const orderItemsHTML = storedCart.map(item => 
-          `• <b>${item.name}</b> (Brand: ${item.brand}) <br/>&nbsp;&nbsp; Qty: ${item.quantity} | Price: ₹${item.price}`
-        ).join('<br/><br/>');
+          `• ${item.name} (Brand: ${item.brand}) - Qty: ${item.quantity} | Price: ₹${item.price}`
+        ).join('\n');
   
         const totalAmount = storedCart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   
         const emailParams = {
+          to_name: "Admin", 
           customer_name: storedUser.name,
           customer_email: storedUser.email || "Not Provided", 
           customer_phone: storedUser.phone,
@@ -338,12 +337,18 @@ const PaymentSuccessView = ({ navigateTo, showToast, transactionId }) => {
               await new Promise(resolve => script.onload = resolve);
           }
           
-          await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailParams, EMAILJS_PUBLIC_KEY);
+          await window.emailjs.send(
+            EMAILJS_SERVICE_ID, 
+            EMAILJS_TEMPLATE_ID, 
+            emailParams, 
+            EMAILJS_PUBLIC_KEY
+          );
           
           localStorage.removeItem('temp_cart');
           localStorage.removeItem('temp_user');
           setStatus('sent');
           showToast("Order confirmed and email sent!", "success");
+
         } catch (error) {
           console.error('Email Failed:', error);
           setStatus('error'); 
@@ -378,9 +383,9 @@ const PaymentSuccessView = ({ navigateTo, showToast, transactionId }) => {
         )}
   
         {status === 'error' && (
-          <div className="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full">
+          <div className="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full border-l-4 border-red-500">
              <h2 className="text-2xl font-serif text-red-500 mb-2">Something went wrong</h2>
-             <p className="text-gray-500 mb-6">We received your payment, but couldn't generate the order receipt automatically. Please contact support.</p>
+             <p className="text-gray-500 mb-6">We received your payment, but couldn't generate the email receipt automatically. Please contact support.</p>
              <Button onClick={() => navigateTo('contact')}>Contact Support</Button>
           </div>
         )}
