@@ -6,6 +6,10 @@ const EMAILJS_SERVICE_ID = "service_h64g36k";
 const EMAILJS_TEMPLATE_ID = "template_5gaadeg";
 const EMAILJS_PUBLIC_KEY = "4025kcdA_kwN4-yDH";
 
+/* --- API CONFIGURATION --- */
+// Updated to point to your live Render Backend
+const API_BASE_URL = "https://shaa-backend.onrender.com";
+
 /* --- RAZORPAY CONFIGURATION --- */
 // Replace with your actual Key ID from Razorpay Dashboard
 const RAZORPAY_KEY_ID = "YOUR_RAZORPAY_KEY_ID"; 
@@ -1071,6 +1075,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
   
     return (
       <div className="animate-fade-in bg-[#fbfbfb] min-h-screen pb-24">
+        {/* HERO */}
         <div className="bg-black text-white pt-28 pb-12 px-6 text-center relative overflow-hidden">
            <div className="absolute inset-0 opacity-30 bg-[url('/image/ban1.jpg')] bg-cover bg-center pointer-events-none"></div>
            <div className="relative z-10 max-w-3xl mx-auto">
@@ -1705,7 +1710,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
   
       // NOTE: In production, create order on server to get order_id
       try {
-        const data = await fetch('http://localhost:5000/api/payment/order', {
+        const data = await fetch(`${API_BASE_URL}/api/payment/order`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
@@ -1723,7 +1728,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
             image: "/image/shaa-logo.png",
             order_id: data.id, 
             handler: async function (response) {
-                const verifyRes = await fetch('http://localhost:5000/api/payment/verify', {
+                const verifyRes = await fetch(`${API_BASE_URL}/api/payment/verify`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
