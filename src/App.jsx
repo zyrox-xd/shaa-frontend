@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { ShoppingBag, Menu, X, Instagram, Facebook, Linkedin, ArrowRight, Trash2, Plus, Minus, Mail, Phone, MapPin, ShieldCheck, Building2, Stethoscope, FileText, Award, Search, ChevronRight, Check, ChevronDown, Sparkles, Truck, Globe, ArrowLeft, Grid, List, ArrowUpDown, Thermometer, Clock, User, SlidersHorizontal, Printer, Download } from 'lucide-react';
 
 /* --- EMAILJS CONFIGURATION (SHAA TRADING) --- */
@@ -3879,6 +3880,147 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
     );
   };
   
+/* --- SEO CONFIG (SHAA TRADING) --- */
+const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
+  // Base defaults
+  let title = 'Shaa Trading | Skin Whitening, Injectables & Aesthetic Supplies';
+  let description = 'Shaa Trading is a Bengaluru-based distributor and supplier of skin whitening creams, glutathione injections, Korean injectables and aesthetic clinic essentials.';
+  let jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Shaa Trading',
+    url: 'https://shaatrading.in',
+    logo: 'https://shaatrading.in/image/logo-t.jpg'
+  };
+
+  switch (currentPage) {
+    case 'home':
+      title = 'Shaa Trading | Skin Whitening & Glutathione Injection Distributor in India';
+      description = 'Discover authentic glutathione injections, Aqua Skin, Glutax, Glowtiqa Paris creams and clinical whitening products supplied to clinics and resellers across India.';
+      jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        name: 'Shaa Trading',
+        url: 'https://shaatrading.in',
+        image: 'https://shaatrading.in/image/logo-t.jpg',
+        logo: 'https://shaatrading.in/image/logo-t.jpg',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Bengaluru',
+          addressRegion: 'Karnataka',
+          addressCountry: 'IN'
+        }
+      };
+      break;
+
+    case 'shop':
+      title = 'Shop | Glutathione Injections, Glowtiqa Creams & Whitening Kits – Shaa Trading';
+      description = 'Browse Aqua Skin, Glutax, Dr James, Glowtiqa and other advanced skin whitening injections, creams, soaps and supplements from Shaa Trading.';
+      break;
+
+    case 'about':
+      title = 'About Shaa Trading | Bengaluru-based Skin Whitening Product Supplier';
+      description = 'Learn about Shaa Trading, a Bengaluru-based distributor of glutathione injectables, glutathione drips, whitening creams and professional aesthetic supplies since 2012.';
+      break;
+
+    case 'contact':
+      title = 'Contact Shaa Trading | Wholesale & Clinic Supply Enquiries';
+      description = 'Get in touch with Shaa Trading for wholesale price lists, bulk orders, reseller opportunities and clinic partnerships for skin whitening and injectable products.';
+      break;
+
+    case 'blog':
+      title = 'Clinical Insights | Glutathione, PDRN & IV Therapy – Shaa Trading Journal';
+      description = 'Read educational articles on glutathione science, PDRN, IV therapy protocols and safety guidance for clinics and practitioners.';
+      break;
+
+    case 'blog-post':
+      if (selectedPost) {
+        title = `${selectedPost.title} | Shaa Trading Clinical Journal`;
+        description = selectedPost.excerpt || description;
+        jsonLd = {
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: selectedPost.title,
+          description: selectedPost.excerpt,
+          author: selectedPost.author || 'Shaa Trading Editorial',
+          datePublished: selectedPost.date,
+          image: `https://shaatrading.in${selectedPost.image}`,
+          publisher: {
+            '@type': 'Organization',
+            name: 'Shaa Trading',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://shaatrading.in/image/logo-t.jpg'
+            }
+          }
+        };
+      }
+      break;
+
+    case 'product':
+      if (selectedProduct) {
+        const shortDesc = selectedProduct.description || description;
+        title = `${selectedProduct.name} | ${selectedProduct.brand} Supplier – Shaa Trading`;
+        description = shortDesc.length > 155 ? shortDesc.slice(0, 152) + '…' : shortDesc;
+        jsonLd = {
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: selectedProduct.name,
+          image: [`https://shaatrading.in${selectedProduct.image}`],
+          description: description,
+          brand: {
+            '@type': 'Brand',
+            name: selectedProduct.brand
+          },
+          sku: selectedProduct.sku || undefined,
+          offers: {
+            '@type': 'Offer',
+            priceCurrency: 'INR',
+            price: selectedProduct.price,
+            availability: 'https://schema.org/InStock',
+            url: 'https://shaatrading.in'
+          }
+        };
+      }
+      break;
+
+    case 'terms':
+      title = 'Terms & Conditions | Shaa Trading';
+      description = 'Read the professional use terms, liability and purchasing eligibility for Shaa Trading clients, clinics and resellers.';
+      break;
+
+    case 'privacy':
+      title = 'Privacy Policy | Shaa Trading';
+      description = 'Understand how Shaa Trading handles, stores and protects your personal, clinic and order data.';
+      break;
+
+    case 'shipping':
+      title = 'Shipping Policy | Shaa Trading';
+      description = 'Learn about domestic shipping timelines, handling and packaging processes for Shaa Trading orders across India.';
+      break;
+
+    case 'return-policy':
+      title = 'Return Policy | Shaa Trading';
+      description = 'View our guidelines for damaged, incorrect or compromised products and return eligibility for customers and clinics.';
+      break;
+
+    case 'refund-policy':
+      title = 'Refund Policy | Shaa Trading';
+      description = 'Read our refund conditions for cancelled orders, payment failures and exceptional disputes.';
+      break;
+
+    case 'success':
+      title = 'Order Confirmed | Shaa Trading';
+      description = 'Your order and payment have been received by Shaa Trading. Our team will confirm dispatch and shipping details shortly.';
+      break;
+
+    default:
+      break;
+  }
+
+  return { title, description, jsonLd };
+};
+
   /* --- Main App --- */
   
   export default function ShaaTradingApp() {
@@ -4032,8 +4174,22 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
       }
     };
   
+    const { title, description, jsonLd } = getSeoConfig(currentPage, selectedProduct, selectedPost);
     return (
       <div className="font-sans text-gray-900 bg-[#fbfbfb] min-h-screen flex flex-col selection:bg-gray-800 selection:text-white">
+        <Helmet>
+          <title>{title}</title>
+          <meta name="description" content={description} />
+          <link rel="canonical" href="https://shaatrading.in" />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={description} />
+          <meta property="og:type" content={currentPage === 'product' ? 'product' : 'website'} />
+          <meta property="og:url" content="https://shaatrading.in" />
+          <meta property="og:image" content="https://shaatrading.in/image/logo-t.jpg" />
+          <script type="application/ld+json">
+            {JSON.stringify(jsonLd)}
+          </script>
+        </Helmet>
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@200;300;400;500;600&display=swap');
           .font-serif { font-family: 'Cormorant Garamond', serif; }
