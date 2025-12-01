@@ -91,7 +91,7 @@ const PRODUCTS = [
     category: "Cream",
     brand: "Vita Glow",
     price: 1800,
-    image: "/image/vita-glow-night-cream.jpg",
+    image: "/image/adv-vita-glow-night.jpg",
     description: "Advanced night repair cream with glutathione complex",
     details: `
       <strong>Advanced Vita Glow Skin Whitening Night Cream</strong><br/><br/>
@@ -253,7 +253,7 @@ const PRODUCTS = [
   },
   {
     id: 6,
-    name: "Aqua Skin Veniscy 8 - DualNa Octa Strenght Glutathione 3,500,000mg",
+    name: "Aqua Skin Veniscy 8 - DualNa Octa Strength Glutathione 3,500,000mg",
     category: "Injection",
     brand: "Aqua Skin",
     price: 10800,
@@ -880,7 +880,7 @@ const PRODUCTS = [
 },
 {
   id: 25,
-  name: "Glutax 20000000GN+ Pico-QuadNA ReCombined White Glutathione injection",
+  name: "Glutax 20000000 GN+ Pico-QuadNA ReCombined White Glutathione injection",
   category: "Injection",
   brand: "Glutax",
   price: 9500,
