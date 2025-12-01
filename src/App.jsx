@@ -2379,168 +2379,6 @@ const CATEGORIES = [
   { name: "Treatment", id: "Treatment" }
 ];
 
-
-const COLLECTION_CATEGORIES = [
-  {
-    id: 'glutathione-injections',
-    name: 'Glutathione Injections',
-    subtitle: 'Premium injectable glutathione solutions for clinics and advanced skin protocols.',
-    heroNote: 'For professional use only. Not a cosmetic OTC product.',
-    matches: (product) =>
-      product.category === 'Injection' &&
-      /glutathione|glutax|aqua skin|dr james|miracle white/i.test(product.name),
-  },
-  {
-    id: 'aqua-skin-glutax',
-    name: 'Aqua Skin & Glutax Range',
-    subtitle: 'Focused selection of Aqua Skin and Glutax formulations preferred by clinics.',
-    heroNote: 'Original products only. Verification support available for clinics.',
-    matches: (product) =>
-      /aqua skin|glutax/i.test(product.name),
-  },
-  {
-    id: 'whitening-creams',
-    name: 'Skin Whitening Creams & Lotions',
-    subtitle: 'Topical whitening solutions for maintenance, support and home-care protocols.',
-    heroNote: 'We recommend creams as support, not a replacement for medical advice.',
-    matches: (product) =>
-      /cream|lotion|gel/i.test(product.category || '') ||
-      /glowtiqa|vita glow|kojic|arbutin/i.test(product.name),
-  },
-  {
-    id: 'korean-fillers',
-    name: 'Korean Fillers & Skin Boosters',
-    subtitle: 'HA fillers and skin boosters for structural support and hydration.',
-    heroNote: 'For licensed professionals only. KYC and verification required.',
-    matches: (product) =>
-      /filler|neuramis|revolax|dermal/i.test(product.name),
-  },
-  {
-    id: 'iv-drips-wellness',
-    name: 'IV Drips & Wellness Infusions',
-    subtitle: 'Glutathione, Vitamin C and wellness drips curated for infusion protocols.',
-    heroNote: 'Intended for clinical IV setups – not for self-administration.',
-    matches: (product) =>
-      /drip|iv|infusion/i.test(product.name),
-  },
-  {
-    id: 'whitening-kits',
-    name: 'Whitening Kits & Treatment Combos',
-    subtitle: 'Structured multi-step kits for sustained skin tone management.',
-    heroNote: 'Kits are best paired with lifestyle and sun-care protocols.',
-    matches: (product) =>
-      /kit|set|combo/i.test(product.name),
-  },
-  {
-    id: 'clinic-essentials',
-    name: 'Aesthetic Clinic Essentials',
-    subtitle: 'Supportive skincare and essentials that sit around your core whitening/injectable protocols.',
-    heroNote: 'Ideal for stocking your clinic shelves with trusted support products.',
-    matches: (product) =>
-      /serum|sunscreen|face wash|cleanser|toner/i.test(product.name),
-  },
-];
-
-function CategoryView({ categoryId, navigateTo, addToCart }) {
-  const category = COLLECTION_CATEGORIES.find(c => c.id === categoryId);
-
-  if (!category) {
-    return (
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        <p
-          className="text-sm text-gray-500 mb-4 cursor-pointer hover:text-gray-800"
-          onClick={() => navigateTo('shop')}
-        >
-          ← Back to Shop
-        </p>
-        <h1 className="text-2xl font-semibold mb-2">Category not found</h1>
-        <p className="text-gray-500 text-sm">
-          The category you’re looking for is unavailable. Please browse the main catalogue instead.
-        </p>
-      </div>
-    );
-  }
-
-  const products = PRODUCTS.filter(p => category.matches(p));
-
-  return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
-      <p className="text-xs text-gray-400 mb-4">
-        Home / Shop / <span className="text-gray-700 font-medium">{category.name}</span>
-      </p>
-
-      <div className="mb-8">
-        <h1 className="text-2xl md:text-3xl font-semibold tracking-tight mb-2">
-          {category.name}
-        </h1>
-        <p className="text-sm md:text-base text-gray-600 mb-3">
-          {category.subtitle}
-        </p>
-        <p className="text-[11px] text-amber-800 bg-amber-50 inline-flex items-center gap-2 px-3 py-1.5 rounded-full">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500" />
-          {category.heroNote}
-        </p>
-      </div>
-
-      {products.length === 0 ? (
-        <p className="text-gray-500 text-sm">
-          No products found in this category yet. Contact us on WhatsApp for availability and alternatives.
-        </p>
-      ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {products.map(product => (
-            <div
-              key={product.id}
-              className="group cursor-pointer bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col"
-              onClick={() => navigateTo('product', product)}
-            >
-              <div className="relative bg-[#f8f5ff] aspect-[4/5] overflow-hidden">
-                <img
-                  loading="lazy"
-                  src={product.image}
-                  alt={`${product.name} by ${product.brand} - ${category.name} from Shaa Trading`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-
-              <div className="p-3 flex flex-col flex-1">
-                <div className="text-[10px] text-gray-400 font-semibold uppercase tracking-[0.16em] mb-1">
-                  {product.brand}
-                </div>
-                <div className="text-xs font-medium text-gray-900 line-clamp-2 mb-2">
-                  {product.name}
-                </div>
-                <div className="mt-auto flex items-center justify-between">
-                  <span className="text-[11px] text-gray-500">
-                    {product.piecesPerBox ? `${product.piecesPerBox} pcs/box` : 'Clinic-use pack'}
-                  </span>
-                  <button
-                    className="text-[11px] font-medium px-2 py-1 rounded-full border border-gray-900 hover:bg-gray-900 hover:text-white transition-colors"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      addToCart(product, 1);
-                    }}
-                  >
-                    Add to cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      <div className="mt-10 border-t pt-6 text-xs text-gray-500 leading-relaxed">
-        <p className="mb-2">
-          Shaa Trading supplies authentic {category.name.toLowerCase()} to clinics, resellers and professional
-          buyers across India. For full price lists, MOQs and verification support, reach out to us directly on WhatsApp.
-        </p>
-      </div>
-    </div>
-  );
-}
-
-
 const Toast = ({ message, type, onClose }) => {
   useEffect(() => {
     const timer = setTimeout(onClose, 3000);
@@ -4042,32 +3880,215 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
     );
   };
   
+/* --- URL & SLUG HELPERS (CLEAN PATHS) --- */
+const slugify = (str) => {
+  if (!str) return '';
+  return String(str)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+};
+
+const getProductSlug = (product) => {
+  if (!product) return '';
+  const base = slugify(product.name || '');
+  return product.id != null ? `${base}-${product.id}` : base;
+};
+
+const getPostSlug = (post) => {
+  if (!post) return '';
+  const base = slugify(post.title || '');
+  return post.id != null ? `${base}-${post.id}` : base;
+};
+
+const buildPathForPage = (page, opts = {}) => {
+  switch (page) {
+    case 'home':
+      return '/';
+    case 'shop':
+      return '/shop';
+    case 'about':
+      return '/about';
+    case 'contact':
+      return '/contact';
+    case 'blog':
+      return '/blog';
+    case 'blog-post':
+      return opts.post ? `/blog/${getPostSlug(opts.post)}` : '/blog';
+    case 'product':
+      return opts.product ? `/product/${getProductSlug(opts.product)}` : '/shop';
+    case 'terms':
+      return '/terms';
+    case 'privacy':
+      return '/privacy';
+    case 'shipping':
+      return '/shipping';
+    case 'return-policy':
+      return '/return-policy';
+    case 'refund-policy':
+      return '/refund-policy';
+    case 'success':
+      return '/order-success';
+    default:
+      return '/';
+  }
+};
+
+/**
+ * Derive initial route (page + entities) from the current URL.
+ * Supports both new clean paths (/product/slug) and legacy ?page=product&id= syntax.
+ */
+const getRouteFromLocation = () => {
+  if (typeof window === 'undefined') {
+    return { page: 'home', product: null, post: null, path: '/' };
+  }
+
+  const { pathname, search } = window.location;
+  const cleanPath = pathname.replace(/\/+$|^$/g, '') || '/';
+  const segments = cleanPath.split('/').filter(Boolean);
+  const params = new URLSearchParams(search || '');
+  const pageParam = params.get('page');
+  const idParam = params.get('id');
+
+  let page = 'home';
+  let product = null;
+  let post = null;
+
+  if (segments.length === 0) {
+    // No path segments – fall back to legacy query params if present
+    if (pageParam === 'product' && idParam) {
+      const found = PRODUCTS.find(p => String(p.id) === String(idParam));
+      if (found) {
+        page = 'product';
+        product = found;
+        return { page, product, post, path: buildPathForPage('product', { product }) };
+      }
+    } else if (pageParam === 'blog-post' && idParam) {
+      const foundPost = BLOG_POSTS.find(p => String(p.id) === String(idParam));
+      if (foundPost) {
+        page = 'blog-post';
+        post = foundPost;
+        return { page, product, post, path: buildPathForPage('blog-post', { post }) };
+      }
+    } else if (pageParam === 'shop') {
+      page = 'shop';
+    } else if (pageParam === 'about') {
+      page = 'about';
+    } else if (pageParam === 'contact') {
+      page = 'contact';
+    } else if (pageParam === 'blog') {
+      page = 'blog';
+    } else if (pageParam === 'terms') {
+      page = 'terms';
+    } else if (pageParam === 'privacy') {
+      page = 'privacy';
+    } else if (pageParam === 'shipping') {
+      page = 'shipping';
+    } else if (pageParam === 'return-policy') {
+      page = 'return-policy';
+    } else if (pageParam === 'refund-policy') {
+      page = 'refund-policy';
+    } else if (pageParam === 'success') {
+      page = 'success';
+    } else {
+      page = 'home';
+    }
+
+    return { page, product, post, path: buildPathForPage(page, { product, post }) };
+  }
+
+  const [first, second] = segments;
+
+  switch (first) {
+    case '':
+      page = 'home';
+      break;
+    case 'shop':
+      page = 'shop';
+      break;
+    case 'about':
+      page = 'about';
+      break;
+    case 'contact':
+      page = 'contact';
+      break;
+    case 'blog':
+      if (second) {
+        const slug = second;
+        const foundPost = BLOG_POSTS.find(p => getPostSlug(p) === slug);
+        if (foundPost) {
+          page = 'blog-post';
+          post = foundPost;
+        } else {
+          page = 'blog';
+        }
+      } else {
+        page = 'blog';
+      }
+      break;
+    case 'product':
+      if (second) {
+        const slug = second;
+        const found = PRODUCTS.find(p => getProductSlug(p) === slug);
+        if (found) {
+          page = 'product';
+          product = found;
+        } else {
+          page = 'shop';
+        }
+      } else {
+        page = 'shop';
+      }
+      break;
+    case 'terms':
+      page = 'terms';
+      break;
+    case 'privacy':
+      page = 'privacy';
+      break;
+    case 'shipping':
+      page = 'shipping';
+      break;
+    case 'return-policy':
+      page = 'return-policy';
+      break;
+    case 'refund-policy':
+      page = 'refund-policy';
+      break;
+    case 'order-success':
+      page = 'success';
+      break;
+    default:
+      page = 'home';
+      break;
+  }
+
+  const path = buildPathForPage(page, { product, post });
+  return { page, product, post, path };
+};
+
 /* --- SEO CONFIG (SHAA TRADING) --- */
-const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCategory) => {
+const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
   // Base defaults
   let title = 'Shaa Trading | Skin Whitening, Injectables & Aesthetic Supplies';
-  let description =
-    'Shaa Trading is a Bengaluru-based distributor and supplier of skin whitening creams, glutathione injections, Korean injectables and aesthetic clinic essentials.';
+  let description = 'Shaa Trading is a Bengaluru-based distributor and supplier of skin whitening creams, glutathione injections, Korean injectables and aesthetic clinic essentials.';
   let jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Shaa Trading',
     url: 'https://shaatrading.in',
-    logo: 'https://shaatrading.in/image/logo-t.jpg',
+    logo: 'https://shaatrading.in/image/logo-t.jpg'
   };
-  let keywords =
-    'Shaa Trading, skin whitening distributor, glutathione injections India, Aqua Skin, Glutax, Glowtiqa, clinic supplier, whitening creams, whitening soaps';
+  let keywords = 'Shaa Trading, skin whitening distributor, glutathione injections India, Aqua Skin, Glutax, Glowtiqa, clinic supplier, whitening creams, whitening soaps';
   let canonical = 'https://shaatrading.in/';
   let robots = 'index,follow';
 
   switch (currentPage) {
     case 'home':
       title = 'Shaa Trading | Skin Whitening & Glutathione Injection Distributor in India';
-      description =
-        'Discover authentic glutathione injections, Aqua Skin, Glutax, Glowtiqa creams and advanced whitening products supplied to clinics and resellers across India.';
+      description = 'Discover authentic glutathione injections, Aqua Skin, Glutax, Glowtiqa creams and advanced whitening products supplied to clinics and resellers across India.';
       canonical = 'https://shaatrading.in/';
-      keywords =
-        'Shaa Trading, glutathione distributor India, skin whitening supplier, Aqua Skin injections, Glutax distributor, Glowtiqa creams, skin whitening wholesaler Bengaluru';
+      keywords = 'Shaa Trading, glutathione distributor India, skin whitening supplier, Aqua Skin injections, Glutax distributor, Glowtiqa creams, skin whitening wholesaler Bengaluru';
       jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'LocalBusiness',
@@ -4079,78 +4100,44 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
           '@type': 'PostalAddress',
           addressLocality: 'Bengaluru',
           addressRegion: 'Karnataka',
-          addressCountry: 'IN',
-        },
+          addressCountry: 'IN'
+        }
       };
       break;
 
     case 'shop':
       title = 'Shop | Glutathione Injections, Glowtiqa Creams & Whitening Kits – Shaa Trading';
-      description =
-        'Browse Aqua Skin, Glutax, Dr James, Glowtiqa and other advanced skin whitening injections, creams, soaps and supplements from Shaa Trading.';
-      canonical = 'https://shaatrading.in/?page=shop';
-      keywords =
-        'buy glutathione injections, Aqua Skin India, Glutax injections, Dr James injection, Glowtiqa whitening cream, skin whitening products online, clinic supplies India';
-      break;
-
-    case 'category':
-      if (selectedCategory) {
-        title = `${selectedCategory.name} | ${selectedCategory.subtitle} – Shaa Trading`;
-        description =
-          selectedCategory.subtitle +
-          ' Explore curated products for clinics and professional buyers, sourced and supplied by Shaa Trading in Bengaluru.';
-        canonical = `https://shaatrading.in/?page=category&slug=${selectedCategory.id}`;
-        keywords = `${selectedCategory.name}, ${selectedCategory.id}, glutathione distributor India, skin whitening supplier, clinic category Shaa Trading`;
-        jsonLd = {
-          '@context': 'https://schema.org',
-          '@type': 'CollectionPage',
-          name: selectedCategory.name,
-          description,
-          url: canonical,
-          publisher: {
-            '@type': 'Organization',
-            name: 'Shaa Trading',
-            logo: {
-              '@type': 'ImageObject',
-              url: 'https://shaatrading.in/image/logo-t.jpg',
-            },
-          },
-        };
-      }
+      description = 'Browse Aqua Skin, Glutax, Dr James, Glowtiqa and other advanced skin whitening injections, creams, soaps and supplements from Shaa Trading.';
+      canonical = `https://shaatrading.in${buildPathForPage('shop')}`;
+      keywords = 'buy glutathione injections, Aqua Skin India, Glutax injections, Dr James injection, Glowtiqa whitening cream, skin whitening products online, clinic supplies India';
       break;
 
     case 'about':
       title = 'About Shaa Trading | Bengaluru-based Skin Whitening Product Supplier';
-      description =
-        'Learn about Shaa Trading, a Bengaluru-based distributor of glutathione injectables, whitening creams and professional aesthetic supplies since 2012.';
-      canonical = 'https://shaatrading.in/?page=about';
-      keywords =
-        'about Shaa Trading, skin whitening supplier Bengaluru, glutathione wholesale India, aesthetic products distributor';
+      description = 'Learn about Shaa Trading, a Bengaluru-based distributor of glutathione injectables, whitening creams and professional aesthetic supplies since 2012.';
+      canonical = `https://shaatrading.in${buildPathForPage('about')}`;
+      keywords = 'about Shaa Trading, skin whitening supplier Bengaluru, glutathione wholesale India, aesthetic products distributor';
       break;
 
     case 'contact':
       title = 'Contact Shaa Trading | Wholesale & Clinic Supply Enquiries';
-      description =
-        'Get in touch with Shaa Trading for wholesale price lists, bulk orders, reseller opportunities and clinic partnerships for skin whitening and injectable products.';
-      canonical = 'https://shaatrading.in/?page=contact';
-      keywords =
-        'contact Shaa Trading, glutathione wholesale enquiry, clinic supply contact, skin whitening distributor contact';
+      description = 'Get in touch with Shaa Trading for wholesale price lists, bulk orders, reseller opportunities and clinic partnerships for skin whitening and injectable products.';
+      canonical = `https://shaatrading.in${buildPathForPage('contact')}`;
+      keywords = 'contact Shaa Trading, glutathione wholesale enquiry, clinic supply contact, skin whitening distributor contact';
       break;
 
     case 'blog':
       title = 'Clinical Insights | Glutathione, PDRN & IV Therapy – Shaa Trading Journal';
-      description =
-        'Read educational articles on glutathione science, PDRN, IV therapy protocols and safety guidance for clinics and practitioners.';
-      canonical = 'https://shaatrading.in/?page=blog';
-      keywords =
-        'glutathione science, PDRN information, IV therapy protocols, skin whitening education, Shaa Trading blog';
+      description = 'Read educational articles on glutathione science, PDRN, IV therapy protocols and safety guidance for clinics and practitioners.';
+      canonical = `https://shaatrading.in${buildPathForPage('blog')}`;
+      keywords = 'glutathione science, PDRN information, IV therapy protocols, skin whitening education, Shaa Trading blog';
       break;
 
     case 'blog-post':
       if (selectedPost) {
         title = `${selectedPost.title} | Shaa Trading Clinical Journal`;
         description = selectedPost.excerpt || description;
-        canonical = `https://shaatrading.in/?page=blog-post&id=${selectedPost.id}`;
+        canonical = `https://shaatrading.in${buildPathForPage('blog-post', { post: selectedPost })}`;
         keywords = `${selectedPost.title}, ${selectedPost.category}, glutathione articles, clinical aesthetics, Shaa Trading journal`;
         jsonLd = {
           '@context': 'https://schema.org',
@@ -4165,9 +4152,9 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
             name: 'Shaa Trading',
             logo: {
               '@type': 'ImageObject',
-              url: 'https://shaatrading.in/image/logo-t.jpg',
-            },
-          },
+              url: 'https://shaatrading.in/image/logo-t.jpg'
+            }
+          }
         };
       }
       break;
@@ -4177,7 +4164,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
         const shortDesc = selectedProduct.description || description;
         title = `${selectedProduct.name} | ${selectedProduct.brand} Supplier – Shaa Trading`;
         description = shortDesc.length > 155 ? shortDesc.slice(0, 152) + '…' : shortDesc;
-        canonical = `https://shaatrading.in/?page=product&id=${selectedProduct.id}`;
+        canonical = `https://shaatrading.in${buildPathForPage('product', { product: selectedProduct })}`;
         const baseKeywords = [
           selectedProduct.name,
           selectedProduct.brand,
@@ -4186,7 +4173,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
           'skin whitening',
           'whitening product',
           'clinic supply',
-          'wholesaler India',
+          'wholesaler India'
         ].filter(Boolean);
         keywords = baseKeywords.join(', ');
         jsonLd = {
@@ -4194,10 +4181,10 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
           '@type': 'Product',
           name: selectedProduct.name,
           image: [`https://shaatrading.in${selectedProduct.image}`],
-          description,
+          description: description,
           brand: {
             '@type': 'Brand',
-            name: selectedProduct.brand,
+            name: selectedProduct.brand
           },
           sku: selectedProduct.sku || undefined,
           offers: {
@@ -4205,67 +4192,56 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
             priceCurrency: 'INR',
             price: selectedProduct.price,
             availability: 'https://schema.org/InStock',
-            url: canonical,
-          },
+            url: canonical
+          }
         };
       }
       break;
 
     case 'terms':
       title = 'Terms & Conditions | Shaa Trading';
-      description =
-        'Read the professional use terms, liability and purchasing eligibility for Shaa Trading clients, clinics and resellers.';
-      canonical = 'https://shaatrading.in/?page=terms';
-      keywords =
-        'Shaa Trading terms and conditions, skin whitening product terms, clinic supply terms';
+      description = 'Read the professional use terms, liability and purchasing eligibility for Shaa Trading clients, clinics and resellers.';
+      canonical = `https://shaatrading.in${buildPathForPage('terms')}`;
+      keywords = 'Shaa Trading terms and conditions, skin whitening product terms, clinic supply terms';
       robots = 'noindex,follow';
       break;
 
     case 'privacy':
       title = 'Privacy Policy | Shaa Trading';
-      description =
-        'Understand how Shaa Trading handles, stores and protects your personal, clinic and order data.';
-      canonical = 'https://shaatrading.in/?page=privacy';
-      keywords =
-        'Shaa Trading privacy policy, data handling, data protection, clinic data privacy';
+      description = 'Understand how Shaa Trading handles, stores and protects your personal, clinic and order data.';
+      canonical = `https://shaatrading.in${buildPathForPage('privacy')}`;
+      keywords = 'Shaa Trading privacy policy, data handling, data protection, clinic data privacy';
       robots = 'noindex,follow';
       break;
 
     case 'shipping':
       title = 'Shipping Policy | Shaa Trading';
-      description =
-        'Learn about domestic shipping timelines, handling and packaging processes for Shaa Trading orders across India.';
-      canonical = 'https://shaatrading.in/?page=shipping';
-      keywords =
-        'Shaa Trading shipping policy, delivery time, order handling, India shipping whitening products';
+      description = 'Learn about domestic shipping timelines, handling and packaging processes for Shaa Trading orders across India.';
+      canonical = `https://shaatrading.in${buildPathForPage('shipping')}`;
+      keywords = 'Shaa Trading shipping policy, delivery time, order handling, India shipping whitening products';
       robots = 'noindex,follow';
       break;
 
     case 'return-policy':
       title = 'Return Policy | Shaa Trading';
-      description =
-        'View our guidelines for damaged, incorrect or compromised products and return eligibility for customers and clinics.';
-      canonical = 'https://shaatrading.in/?page=return-policy';
-      keywords =
-        'Shaa Trading return policy, damaged product return, clinic returns, whitening injection returns';
+      description = 'View our guidelines for damaged, incorrect or compromised products and return eligibility for customers and clinics.';
+      canonical = `https://shaatrading.in${buildPathForPage('return-policy')}`;
+      keywords = 'Shaa Trading return policy, damaged product return, clinic returns, whitening injection returns';
       robots = 'noindex,follow';
       break;
 
     case 'refund-policy':
       title = 'Refund Policy | Shaa Trading';
-      description =
-        'Read our refund conditions for cancelled orders, payment failures and exceptional disputes.';
-      canonical = 'https://shaatrading.in/?page=refund-policy';
-      keywords =
-        'Shaa Trading refund policy, payment refund, order cancellation refund';
+      description = 'Read our refund conditions for cancelled orders, payment failures and exceptional disputes.';
+      canonical = `https://shaatrading.in${buildPathForPage('refund-policy')}`;
+      keywords = 'Shaa Trading refund policy, payment refund, order cancellation refund';
       robots = 'noindex,follow';
       break;
 
     case 'success':
       title = 'Order Confirmed | Shaa Trading';
-      description =
-        'Your order and payment have been received by Shaa Trading. Our team will confirm dispatch and shipping details shortly.';
-      canonical = 'https://shaatrading.in/?page=success';
+      description = 'Your order and payment have been received by Shaa Trading. Our team will confirm dispatch and shipping details shortly.';
+      canonical = `https://shaatrading.in${buildPathForPage('success')}`;
       keywords = 'Shaa Trading order success, payment success, whitening order confirmed';
       robots = 'noindex,follow';
       break;
@@ -4286,26 +4262,41 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [selectedPost, setSelectedPost] = useState(null); // State for selected blog post
-    const [selectedCategoryId, setSelectedCategoryId] = useState(null);
     const [shopFilter, setShopFilter] = useState('All');
     const [toast, setToast] = useState(null); // { message, type }
     const [transactionId, setTransactionId] = useState(null); // To store razorpay transaction id
   
     // Listen for History Navigation (Back/Forward buttons)
     useEffect(() => {
+      // Initial route resolution from current URL (supports clean paths + legacy query params)
+      const initialRoute = getRouteFromLocation();
+      setCurrentPage(initialRoute.page);
+      if (initialRoute.product) setSelectedProduct(initialRoute.product);
+      if (initialRoute.post) setSelectedPost(initialRoute.post);
+
+      // Sync history state with resolved route
+      const initialState = {
+        page: initialRoute.page,
+        product: initialRoute.product || null,
+        post: initialRoute.post || null,
+      };
+      window.history.replaceState(initialState, '', initialRoute.path);
+
       const handlePopState = (event) => {
         if (event.state && event.state.page) {
           setCurrentPage(event.state.page);
-          if (event.state.product) setSelectedProduct(event.state.product);
-          if (event.state.post) setSelectedPost(event.state.post);
-          if (event.state.categoryId) setSelectedCategoryId(event.state.categoryId);
+          setSelectedProduct(event.state.product || null);
+          setSelectedPost(event.state.post || null);
         } else {
-          setCurrentPage('home');
+          // Fallback: derive from location again if state is missing
+          const route = getRouteFromLocation();
+          setCurrentPage(route.page);
+          setSelectedProduct(route.product || null);
+          setSelectedPost(route.post || null);
         }
         setMobileMenuOpen(false);
       };
-      // Set initial history state
-      window.history.replaceState({ page: 'home' }, '', window.location.search);
+
       window.addEventListener('popstate', handlePopState);
       return () => window.removeEventListener('popstate', handlePopState);
     }, []);
@@ -4316,25 +4307,23 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
   
     const navigateTo = (page, item = null) => {
       if (page === 'product' && item) setSelectedProduct(item);
+    const navigateTo = (page, item = null) => {
+      if (page === 'product' && item) setSelectedProduct(item);
       if (page === 'blog-post' && item) setSelectedPost(item); // Handle blog post navigation
-      if (page === 'category' && item) setSelectedCategoryId(item.id);
 
       setCurrentPage(page);
       setMobileMenuOpen(false);
       window.scrollTo(0, 0);
 
-      // Push State for history navigation
-      const stateObj = { 
+      // Build clean path and push history state for navigation
+      const stateObj = {
         page,
         product: page === 'product' ? item : null,
         post: page === 'blog-post' ? item : null,
-        categoryId: page === 'category' && item ? item.id : null,
       };
-      const url = `?page=${page}${page === 'product' && item ? `&id=${item.id}` : ''}${page === 'blog-post' && item ? `&id=${item.id}` : ''}${page === 'category' && item ? `&slug=${item.id}` : ''}`; 
-      window.history.pushState(stateObj, '', url);
+      const path = buildPathForPage(page, { product: stateObj.product, post: stateObj.post });
+      window.history.pushState(stateObj, '', path);
     };
-  
-    const addToCart = (product, quantity = 1) => {
       setCart(prev => {
         const existing = prev.find(item => item.id === product.id);
         if (existing) return prev.map(item => item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item);
@@ -4434,8 +4423,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
       }
     };
   
-    const selectedCategory = selectedCategoryId ? COLLECTION_CATEGORIES.find(c => c.id === selectedCategoryId) : null;
-    const { title, description, jsonLd, keywords, canonical, robots } = getSeoConfig(currentPage, selectedProduct, selectedPost, selectedCategory);
+    const { title, description, jsonLd, keywords, canonical, robots } = getSeoConfig(currentPage, selectedProduct, selectedPost);
     return (
       <div className="font-sans text-gray-900 bg-[#fbfbfb] min-h-screen flex flex-col selection:bg-gray-800 selection:text-white">
         <Helmet>
@@ -4491,7 +4479,6 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
               {currentPage === 'home' && <HomeView navigateTo={navigateTo} addToCart={addToCart} setShopFilter={setShopFilter} />}
               {currentPage === 'shop' && <ShopView navigateTo={navigateTo} addToCart={addToCart} filter={shopFilter} setFilter={setShopFilter} />}
               {currentPage === 'product' && selectedProduct && <ProductView product={selectedProduct} addToCart={addToCart} navigateTo={navigateTo} />}
-              {currentPage === 'category' && selectedCategoryId && <CategoryView categoryId={selectedCategoryId} navigateTo={navigateTo} addToCart={addToCart} />}
               {currentPage === 'blog' && <BlogView navigateTo={navigateTo} />}
               {currentPage === 'blog-post' && selectedPost && <BlogPostView post={selectedPost} navigateTo={navigateTo} />}
               {currentPage === 'about' && <AboutView />}
@@ -4516,4 +4503,3 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
       </div>
     );
   };
-  
