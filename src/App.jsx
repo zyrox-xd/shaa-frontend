@@ -1375,7 +1375,7 @@ const PRODUCTS = [
 },
 {
   id: 40,
-  name: "Laroscobine Palladium E-UF PN Vitamin C 126g - Collagen 54g - Pink Box",
+  name: "Laroscorbine Palladium E-UF PN Vitamin C 126 g - Collagen 54g - Pink Box",
   category: "Injection",
   brand: "Laroscobine",
   price: 5700,
@@ -2299,39 +2299,6 @@ const PRODUCTS = [
 },
 {
   id: 68,
-  name: "Vita Glow Night Cream for Skin Whitening Authentic",
-  category: "Cream",
-  brand: "Vita Glow",
-  price: 10500,
-  image: "/image/vita-glow-night-cream-auth.jpg",
-  description: "Authentic night cream for skin whitening",
-  details: `
-    <strong>Vita Glow Night Cream for Skin Whitening Authentic</strong><br/><br/>
-    Experience the authentic Vita Glow Night Cream for comprehensive overnight skin whitening. This genuine formulation works while you sleep, delivering potent whitening agents and nourishment for waking up to brighter, more radiant skin every morning.<br/><br/>
-    <strong>Key Active Components:</strong><br/>
-    <ul class="list-disc pl-5 mt-2 space-y-1">
-      <li>Authentic Whitening Complex</li>
-      <li>Overnight Repair Technology</li>
-      <li>Deep Nourishment Matrix</li>
-      <li>Genuine Formula</li>
-    </ul>
-    <br/>
-    <strong>Why it works:</strong>
-    <ul class="list-disc pl-5 mt-2 space-y-1">
-      <li>Works during nighttime repair cycle</li>
-      <li>Authentic and genuine formulation</li>
-      <li>Provides deep overnight nourishment</li>
-    </ul>
-    <br/>
-    Wake up to authentically brighter skin.<br/>
-    <em class="text-xs text-gray-400">Note: Authentic Vita Glow formulation.</em>
-  `,
-  benefits: ["Authentic Formula", "Overnight Repair", "Genuine Product", "Deep Nourishment"],
-  sku: "VITA-GLOW-NIGHT-AUTH",
-  volume: "50g Jar"
-},
-{
-  id: 69,
   name: "Zaguta Glutathione Whitening Injections",
   category: "Injection",
   brand: "Zaguta",
@@ -2362,6 +2329,39 @@ const PRODUCTS = [
   benefits: ["Zaguta Quality", "Reliable Results", "Proven Formula", "Consistent Whitening"],
   sku: "ZAGUTA-GLUTATHIONE",
   volume: "10 Sessions"
+},
+{
+  id: 69,
+  name: "Vita Glow Skin Whitening Cream",
+  category: "Cream",
+  brand: "Vita Glow",
+  price: 2000,
+  image: "/image/vita-glow-cream.jpg",
+  description: "Skin whitening cream by Vita Glow",
+  details: `
+    <strong>Vita Glow Skin Whitening Cream</strong><br/><br/>
+    Experience effective skin lightening with Vita Glow Skin Whitening Cream. This nourishing cream is designed to improve skin tone, reduce dark spots, and enhance overall brightness with regular use, providing a radiant complexion.<br/><br/>
+    <strong>Key Active Components:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Whitening Agents</li>
+      <li>Moisturizing Complex</li>
+      <li>Skin Tone Enhancers</li>
+      <li>Nourishing Ingredients</li>
+    </ul>
+    <br/>
+    <strong>Why it works:</ strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Improves skin tone</li>
+      <li>Reduces dark spots</li>
+      <li>Enhances overall brightness</li>
+    </ul>
+    <br/>
+    Achieve a radiant and even complexion.<br/>
+    <em class="text-xs text-gray-400">Note: For regular use in whitening regimen.</em>
+  `,
+  benefits: ["Skin Lightening", "Dark Spot Reduction", "Moisturizing", "Radiant Complexion"],
+  sku: "VITA-GLOW-CREAM",
+  volume: "50g Jar"
 }
 
 ];
