@@ -4266,7 +4266,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
     const [toast, setToast] = useState(null); // { message, type }
     const [transactionId, setTransactionId] = useState(null); // To store razorpay transaction id
   
-    // Listen for History Navigation (Back/Forward buttons)
+        // Listen for History Navigation (Back/Forward buttons)
     useEffect(() => {
       // Initial route resolution from current URL (supports clean paths + legacy query params)
       const initialRoute = getRouteFromLocation();
@@ -4300,13 +4300,11 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
       window.addEventListener('popstate', handlePopState);
       return () => window.removeEventListener('popstate', handlePopState);
     }, []);
-  
+
     const showToast = (message, type = 'success') => {
       setToast({ message, type });
     };
-  
-    const navigateTo = (page, item = null) => {
-      if (page === 'product' && item) setSelectedProduct(item);
+
     const navigateTo = (page, item = null) => {
       if (page === 'product' && item) setSelectedProduct(item);
       if (page === 'blog-post' && item) setSelectedPost(item); // Handle blog post navigation
@@ -4316,30 +4314,42 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
       window.scrollTo(0, 0);
 
       // Build clean path and push history state for navigation
-      const stateObj = {
-        page,
+      const stateObj = { 
+        page, 
         product: page === 'product' ? item : null,
-        post: page === 'blog-post' ? item : null,
+        post: page === 'blog-post' ? item : null
       };
       const path = buildPathForPage(page, { product: stateObj.product, post: stateObj.post });
       window.history.pushState(stateObj, '', path);
     };
+
+    const addToCart = (product, quantity = 1) => {
       setCart(prev => {
         const existing = prev.find(item => item.id === product.id);
-        if (existing) return prev.map(item => item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item);
+        if (existing) {
+          return prev.map(item =>
+            item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item
+          );
+        }
         return [...prev, { ...product, quantity }];
       });
       setCartOpen(true);
       showToast(`Added ${product.name} to cart`, 'success');
     };
-  
-    const removeFromCart = (id) => setCart(prev => prev.filter(item => item.id !== id));
-    
-    const updateQuantity = (id, delta) => {
-      setCart(prev => prev.map(item => item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item));
+
+    const removeFromCart = (id) => {
+      setCart(prev => prev.filter(item => item.id !== id));
     };
 
-    // --- RAZORPAY INTEGRATION ---
+    const updateQuantity = (id, delta) => {
+      setCart(prev =>
+        prev.map(item =>
+          item.id === id
+            ? { ...item, quantity: Math.max(1, item.quantity + delta) }
+            : item
+        )
+      );
+    };// --- RAZORPAY INTEGRATION ---
     const loadRazorpay = () => {
       return new Promise((resolve) => {
         const script = document.createElement('script');
