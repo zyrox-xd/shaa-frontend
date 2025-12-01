@@ -2433,7 +2433,7 @@ const Navigation = ({ currentPage, setCurrentPage, cartCount, toggleCart, mobile
             <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300">
              <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
                 <div className="cursor-pointer flex items-center gap-2" onClick={() => setCurrentPage('home')}>
-                    <img src="/image/logo.jpg" alt="SHAA TRADING" className="h-10 md:h-16 w-auto object-contain" />
+                    <img loading="lazy" src="/image/logo.jpg" alt="SHAA TRADING" className="h-10 md:h-16 w-auto object-contain" />
                 </div>
                 <nav className="hidden md:flex items-center gap-8">
                     {navLinks.map(link => (
@@ -2612,7 +2612,7 @@ const PaymentSuccessView = ({ navigateTo, showToast, transactionId }) => {
                             <div key={item.id} className="flex justify-between items-start">
                                 <div className="flex gap-4">
                                     <div className="w-12 h-12 bg-gray-50 rounded-md overflow-hidden shrink-0 border border-gray-100">
-                                        <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                                        <img loading="lazy" src={item.image} alt={item.name} className="w-full h-full object-cover" />
                                     </div>
                                     <div>
                                         <p className="text-sm font-medium text-gray-900 line-clamp-1">{item.name}</p>
@@ -2690,7 +2690,7 @@ const CartDrawer = ({ isOpen, onClose, cart, updateQuantity, removeFromCart, che
                             {cart.map(item => (
                                 <div key={item.id} className="flex gap-4">
                                     <div className="w-20 h-20 bg-gray-50 rounded-lg overflow-hidden shrink-0">
-                                        <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                                        <img loading="lazy" src={item.image} alt={item.name} className="w-full h-full object-cover" />
                                     </div>
                                     <div className="flex-1">
                                         <div className="flex justify-between items-start mb-1">
@@ -2762,7 +2762,7 @@ const Footer = ({ setCurrentPage, showToast }) => {
         
         {/* Brand Column */}
         <div className="space-y-6">
-          <img src="/image/logo-r.jpg" alt="SHAA TRADING" className="h-12 w-auto object-contain" />
+          <img loading="lazy" src="/image/logo-r.jpg" alt="SHAA TRADING" className="h-12 w-auto object-contain" />
           <p className="text-gray-400 text-sm leading-relaxed font-light max-w-xs">
             Bengaluru-based distributor, supplier, and wholesaler since 2012. Providing trusted healthcare and skincare products to professionals across India.
           </p>
@@ -2920,7 +2920,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
                       className="group relative h-[250px] md:h-[400px] overflow-hidden rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500"
                   >
                       <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors z-10" />
-                      <img src={cat.img} alt={cat.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <img loading="lazy" src={cat.img} alt={cat.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                       <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-20 bg-gradient-to-t from-black/90 to-transparent">
                           <h3 className="text-white font-serif text-2xl md:text-3xl mb-1 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">{cat.name}</h3>
                           <p className="text-white/80 text-xs md:text-sm font-light mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">{cat.desc}</p>
@@ -2969,7 +2969,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
               {PRODUCTS.slice(0, 4).map(product => (
                    <div key={product.id} className="group cursor-pointer min-w-[260px] md:min-w-0 snap-start" onClick={() => navigateTo('product', product)}>
                       <div className="relative aspect-[4/5] bg-gray-50 rounded-lg overflow-hidden mb-4">
-                          <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                          <img loading="lazy" src={product.image} alt={`${product.name} by ${product.brand} - ${product.category} from Shaa Trading`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                       </div>
                       <div className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">{product.brand}</div>
                       <h3 className="font-serif text-lg leading-tight mb-2 group-hover:text-gray-800 transition-colors truncate">{product.name}</h3>
@@ -3013,7 +3013,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
               </div>
               <div className="relative hidden md:block">
                   <div className="aspect-[4/5] rounded-lg overflow-hidden border border-white/10">
-                       <img src="/image/ban2.jpg" alt="Clinical Lab" className="w-full h-full object-cover opacity-80" />
+                       <img loading="lazy" src="/image/ban2.jpg" alt="Clinical Lab" className="w-full h-full object-cover opacity-80" />
                   </div>
               </div>
           </div>
@@ -3192,7 +3192,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
                               onClick={() => navigateTo('product', product)}
                           >
                               <div className={`relative bg-[#f8f8f8] overflow-hidden ${viewMode === 'list' ? 'w-32 h-32 rounded-lg shrink-0' : 'aspect-[4/5]'}`}>
-                                  <img src={product.image} alt={product.name} className="w-full h-full object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105" />
+                                  <img loading="lazy" src={product.image} alt={`${product.name} by ${product.brand} - ${product.category} from Shaa Trading`} className="w-full h-full object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105" />
                                   
                                   {viewMode === 'grid' && (
                                       <div className="absolute top-3 left-3 right-3 flex justify-between items-start opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -3320,7 +3320,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
           </div>
   
           <div className="aspect-video w-full bg-gray-100 rounded-xl overflow-hidden mb-10 shadow-sm">
-              <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+              <img loading="lazy" src={post.image} alt={post.title} className="w-full h-full object-cover" />
           </div>
   
           <div className="prose prose-lg prose-gray mx-auto">
@@ -3367,7 +3367,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
             {filteredPosts.map(post => (
                <div key={post.id} onClick={() => navigateTo('blog-post', post)} className="group cursor-pointer flex flex-col h-full">
                   <div className="relative aspect-[16/9] overflow-hidden mb-4 rounded-lg bg-gray-100">
-                     <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                     <img loading="lazy" src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                      <div className="absolute top-3 left-3 bg-white/90 backdrop-blur text-[9px] px-2 py-1 rounded-full font-bold tracking-wider uppercase shadow-sm">
                         {post.category}
                      </div>
@@ -3409,11 +3409,11 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start">
             <div className="space-y-4">
               <div className="aspect-[4/5] bg-gray-50 rounded-xl overflow-hidden w-full relative">
-                  <img src={images[activeImg]} alt={product.name} className="w-full h-full object-cover" />
+                  <img loading="lazy" src={images[activeImg]} alt={product.name} className="w-full h-full object-cover" />
               </div>
               <div className="flex gap-2 overflow-x-auto pb-2">
                 {images.map((img, idx) => (
-                  <div key={idx} onClick={() => setActiveImg(idx)} className={`w-20 h-20 shrink-0 rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${activeImg === idx ? 'border-gray-800' : 'border-transparent'}`}><img src={img} alt="" className="w-full h-full object-cover" /></div>
+                  <div key={idx} onClick={() => setActiveImg(idx)} className={`w-20 h-20 shrink-0 rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${activeImg === idx ? 'border-gray-800' : 'border-transparent'}`}><img loading="lazy" src={img} alt="" className="w-full h-full object-cover" /></div>
                 ))}
               </div>
             </div>
@@ -3464,7 +3464,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
                       {similarProducts.map(product => (
                             <div key={product.id} className="group cursor-pointer min-w-[260px] md:min-w-0 snap-start" onClick={() => navigateTo('product', product)}>
                               <div className="relative aspect-[4/5] bg-gray-50 rounded-lg overflow-hidden mb-4">
-                                  <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                                  <img loading="lazy" src={product.image} alt={`${product.name} by ${product.brand} - ${product.category} from Shaa Trading`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                               </div>
                               <div className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">{product.brand}</div>
                               <h3 className="font-serif text-lg leading-tight mb-2 group-hover:text-gray-800 transition-colors truncate">{product.name}</h3>
@@ -3645,7 +3645,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
              <div className="relative aspect-[4/5] md:aspect-square bg-gray-100 rounded-lg overflow-hidden">
-                <img src="/image/blog4.jpg" alt="Laboratory" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                <img loading="lazy" src="/image/blog4.jpg" alt="Laboratory" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
                 <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur p-4 rounded max-w-xs shadow-lg">
                    <p className="font-serif text-lg italic">"Quality is not a feature. It is the foundation of healthcare supply."</p>
                    <p className="text-xs font-bold uppercase tracking-widest mt-2">— Director's Note</p>
@@ -3892,11 +3892,16 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
     url: 'https://shaatrading.in',
     logo: 'https://shaatrading.in/image/logo-t.jpg'
   };
+  let keywords = 'Shaa Trading, skin whitening distributor, glutathione injections India, Aqua Skin, Glutax, Glowtiqa, clinic supplier, whitening creams, whitening soaps';
+  let canonical = 'https://shaatrading.in/';
+  let robots = 'index,follow';
 
   switch (currentPage) {
     case 'home':
       title = 'Shaa Trading | Skin Whitening & Glutathione Injection Distributor in India';
-      description = 'Discover authentic glutathione injections, Aqua Skin, Glutax, Glowtiqa Paris creams and clinical whitening products supplied to clinics and resellers across India.';
+      description = 'Discover authentic glutathione injections, Aqua Skin, Glutax, Glowtiqa creams and advanced whitening products supplied to clinics and resellers across India.';
+      canonical = 'https://shaatrading.in/';
+      keywords = 'Shaa Trading, glutathione distributor India, skin whitening supplier, Aqua Skin injections, Glutax distributor, Glowtiqa creams, skin whitening wholesaler Bengaluru';
       jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'LocalBusiness',
@@ -3916,27 +3921,37 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
     case 'shop':
       title = 'Shop | Glutathione Injections, Glowtiqa Creams & Whitening Kits – Shaa Trading';
       description = 'Browse Aqua Skin, Glutax, Dr James, Glowtiqa and other advanced skin whitening injections, creams, soaps and supplements from Shaa Trading.';
+      canonical = 'https://shaatrading.in/?page=shop';
+      keywords = 'buy glutathione injections, Aqua Skin India, Glutax injections, Dr James injection, Glowtiqa whitening cream, skin whitening products online, clinic supplies India';
       break;
 
     case 'about':
       title = 'About Shaa Trading | Bengaluru-based Skin Whitening Product Supplier';
-      description = 'Learn about Shaa Trading, a Bengaluru-based distributor of glutathione injectables, glutathione drips, whitening creams and professional aesthetic supplies since 2012.';
+      description = 'Learn about Shaa Trading, a Bengaluru-based distributor of glutathione injectables, whitening creams and professional aesthetic supplies since 2012.';
+      canonical = 'https://shaatrading.in/?page=about';
+      keywords = 'about Shaa Trading, skin whitening supplier Bengaluru, glutathione wholesale India, aesthetic products distributor';
       break;
 
     case 'contact':
       title = 'Contact Shaa Trading | Wholesale & Clinic Supply Enquiries';
       description = 'Get in touch with Shaa Trading for wholesale price lists, bulk orders, reseller opportunities and clinic partnerships for skin whitening and injectable products.';
+      canonical = 'https://shaatrading.in/?page=contact';
+      keywords = 'contact Shaa Trading, glutathione wholesale enquiry, clinic supply contact, skin whitening distributor contact';
       break;
 
     case 'blog':
       title = 'Clinical Insights | Glutathione, PDRN & IV Therapy – Shaa Trading Journal';
       description = 'Read educational articles on glutathione science, PDRN, IV therapy protocols and safety guidance for clinics and practitioners.';
+      canonical = 'https://shaatrading.in/?page=blog';
+      keywords = 'glutathione science, PDRN information, IV therapy protocols, skin whitening education, Shaa Trading blog';
       break;
 
     case 'blog-post':
       if (selectedPost) {
         title = `${selectedPost.title} | Shaa Trading Clinical Journal`;
         description = selectedPost.excerpt || description;
+        canonical = `https://shaatrading.in/?page=blog-post&id=${selectedPost.id}`;
+        keywords = `${selectedPost.title}, ${selectedPost.category}, glutathione articles, clinical aesthetics, Shaa Trading journal`;
         jsonLd = {
           '@context': 'https://schema.org',
           '@type': 'Article',
@@ -3962,6 +3977,18 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
         const shortDesc = selectedProduct.description || description;
         title = `${selectedProduct.name} | ${selectedProduct.brand} Supplier – Shaa Trading`;
         description = shortDesc.length > 155 ? shortDesc.slice(0, 152) + '…' : shortDesc;
+        canonical = `https://shaatrading.in/?page=product&id=${selectedProduct.id}`;
+        const baseKeywords = [
+          selectedProduct.name,
+          selectedProduct.brand,
+          selectedProduct.category,
+          'glutathione injection',
+          'skin whitening',
+          'whitening product',
+          'clinic supply',
+          'wholesaler India'
+        ].filter(Boolean);
+        keywords = baseKeywords.join(', ');
         jsonLd = {
           '@context': 'https://schema.org',
           '@type': 'Product',
@@ -3978,7 +4005,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
             priceCurrency: 'INR',
             price: selectedProduct.price,
             availability: 'https://schema.org/InStock',
-            url: 'https://shaatrading.in'
+            url: canonical
           }
         };
       }
@@ -3987,39 +4014,58 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
     case 'terms':
       title = 'Terms & Conditions | Shaa Trading';
       description = 'Read the professional use terms, liability and purchasing eligibility for Shaa Trading clients, clinics and resellers.';
+      canonical = 'https://shaatrading.in/?page=terms';
+      keywords = 'Shaa Trading terms and conditions, skin whitening product terms, clinic supply terms';
+      robots = 'noindex,follow';
       break;
 
     case 'privacy':
       title = 'Privacy Policy | Shaa Trading';
       description = 'Understand how Shaa Trading handles, stores and protects your personal, clinic and order data.';
+      canonical = 'https://shaatrading.in/?page=privacy';
+      keywords = 'Shaa Trading privacy policy, data handling, data protection, clinic data privacy';
+      robots = 'noindex,follow';
       break;
 
     case 'shipping':
       title = 'Shipping Policy | Shaa Trading';
       description = 'Learn about domestic shipping timelines, handling and packaging processes for Shaa Trading orders across India.';
+      canonical = 'https://shaatrading.in/?page=shipping';
+      keywords = 'Shaa Trading shipping policy, delivery time, order handling, India shipping whitening products';
+      robots = 'noindex,follow';
       break;
 
     case 'return-policy':
       title = 'Return Policy | Shaa Trading';
       description = 'View our guidelines for damaged, incorrect or compromised products and return eligibility for customers and clinics.';
+      canonical = 'https://shaatrading.in/?page=return-policy';
+      keywords = 'Shaa Trading return policy, damaged product return, clinic returns, whitening injection returns';
+      robots = 'noindex,follow';
       break;
 
     case 'refund-policy':
       title = 'Refund Policy | Shaa Trading';
       description = 'Read our refund conditions for cancelled orders, payment failures and exceptional disputes.';
+      canonical = 'https://shaatrading.in/?page=refund-policy';
+      keywords = 'Shaa Trading refund policy, payment refund, order cancellation refund';
+      robots = 'noindex,follow';
       break;
 
     case 'success':
       title = 'Order Confirmed | Shaa Trading';
       description = 'Your order and payment have been received by Shaa Trading. Our team will confirm dispatch and shipping details shortly.';
+      canonical = 'https://shaatrading.in/?page=success';
+      keywords = 'Shaa Trading order success, payment success, whitening order confirmed';
+      robots = 'noindex,follow';
       break;
 
     default:
       break;
   }
 
-  return { title, description, jsonLd };
+  return { title, description, jsonLd, keywords, canonical, robots };
 };
+
 
   /* --- Main App --- */
   
@@ -4174,17 +4220,19 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
       }
     };
   
-    const { title, description, jsonLd } = getSeoConfig(currentPage, selectedProduct, selectedPost);
+    const { title, description, jsonLd, keywords, canonical, robots } = getSeoConfig(currentPage, selectedProduct, selectedPost);
     return (
       <div className="font-sans text-gray-900 bg-[#fbfbfb] min-h-screen flex flex-col selection:bg-gray-800 selection:text-white">
         <Helmet>
           <title>{title}</title>
           <meta name="description" content={description} />
-          <link rel="canonical" href="https://shaatrading.in" />
+          {keywords && <meta name="keywords" content={keywords} />}
+          {robots && <meta name="robots" content={robots} />}
+          <link rel="canonical" href={canonical} />
           <meta property="og:title" content={title} />
           <meta property="og:description" content={description} />
           <meta property="og:type" content={currentPage === 'product' ? 'product' : 'website'} />
-          <meta property="og:url" content="https://shaatrading.in" />
+          <meta property="og:url" content={canonical} />
           <meta property="og:image" content="https://shaatrading.in/image/logo-t.jpg" />
           <script type="application/ld+json">
             {JSON.stringify(jsonLd)}
