@@ -2910,9 +2910,9 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
           <SectionHeader title="Curated Collections" subtitle="Explore our specialized range of healthcare formulations" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                  { name: 'Healthcare Injections', img: '/image/Glutax-50000000GS.jpg', desc: 'Glutathione & Medical Solutions', filter: 'Injection' },
-                  { name: 'Dermal Fillers', img: '/image/IMG_1838.jpg', desc: 'HA & PDRN Boosters', filter: 'Filler' },
-                  { name: 'Oral Supplements', img: '/image/jp-boost.jpg', desc: 'Maintenance & Care', filter: 'Supplement' }
+                  { name: 'Healthcare Injections', img: '/image/glutax-5gs-adv-12s.jpg', desc: 'Glutathione & Medical Solutions', filter: 'Injection' },
+                  { name: 'Cream', img: '/image/glowtiqa-advance.jpg', desc: 'Skincare & Topicals', filter: 'Filler' },
+                  { name: 'Oral Supplements', img: '/image/japan-beauty-booster.jpg', desc: 'Maintenance & Care', filter: 'Supplement' }
               ].map((cat, idx) => (
                   <div 
                       key={idx}
@@ -3934,10 +3934,6 @@ const buildPathForPage = (page, opts = {}) => {
   }
 };
 
-/**
- * Derive initial route (page + entities) from the current URL.
- * Supports both new clean paths (/product/slug) and legacy ?page=product&id= syntax.
- */
 const getRouteFromLocation = () => {
   if (typeof window === 'undefined') {
     return { page: 'home', product: null, post: null, path: '/' };
