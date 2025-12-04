@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { ShoppingBag, Menu, X, Instagram, Facebook, Linkedin, ArrowRight, Trash2, Plus, Minus, Mail, Phone, MapPin, ShieldCheck, Building2, Stethoscope, FileText, Award, Search, ChevronRight, Check, ChevronDown, Sparkles, Truck, Globe, ArrowLeft, Grid, List, ArrowUpDown, Thermometer, Clock, User, SlidersHorizontal, Printer, Download } from 'lucide-react';
+import { ShoppingBag, Menu, X, Instagram, Facebook, Linkedin, ArrowRight, Trash2, Plus, Minus, Mail, Phone, MapPin, ShieldCheck, Building2, Stethoscope, FileText, Award, Search, ChevronRight, Check, ChevronDown, Sparkles, Truck, Globe, ArrowLeft, Grid, List, ArrowUpDown, Thermometer, Clock, User, SlidersHorizontal, Printer, Download ,Quote} from 'lucide-react';
 
 /* --- EMAILJS CONFIGURATION (SHAA TRADING) --- */
 const EMAILJS_SERVICE_ID = "service_h64g36k";
@@ -91,37 +91,36 @@ const BEST_SELLER_IDS = [33, 62, 20, 14];
 const PRODUCTS = [
   {
     id: 1,
-    name: "Advanced Vita Glow Skin Whitening Night Cream",
-    category: "Cream",
-    brand: "Vita Glow",
-    price: 1800,
-    image: "/image/adv-vita-glow-night.jpg",
-    description: "Advanced night repair cream with glutathione complex",
-    details: `
-      <strong>Advanced Vita Glow Skin Whitening Night Cream</strong><br/><br/>
-      Experience overnight skin transformation with this advanced whitening night cream. Formulated to work while you sleep, it delivers potent whitening agents deep into the skin during the body's natural repair cycle.<br/><br/>
-      <strong>Key Active Components:</strong><br/>
-      <ul class="list-disc pl-5 mt-2 space-y-1">
-        <li>Glutathione Complex - 2%</li>
-        <li>Vitamin C Derivative - 5%</li>
-        <li>Niacinamide - 4%</li>
-        <li>Hyaluronic Acid - 3%</li>
-        <li>Natural Plant Extracts</li>
-      </ul>
-      <br/>
-      <strong>Why it works:</strong>
-      <ul class="list-disc pl-5 mt-2 space-y-1">
-        <li>Works during nighttime repair cycle</li>
-        <li>Deeply moisturizes while whitening</li>
-        <li>Reduces appearance of dark spots</li>
-      </ul>
-      <br/>
-      Wake up to brighter, more radiant skin every morning.<br/>
-      <em class="text-xs text-gray-400">Note: Apply evenly on face and neck before bedtime.</em>
-    `,
-    benefits: ["Overnight Repair", "Deep Moisturization", "Spot Reduction", "Non-Greasy"],
-    sku: "VG-NIGHT-50",
-    volume: "50g Jar"
+    name: "Miracle White Purple 60000mg Glutathione Injection",
+  category: "Injection",
+  brand: "Miracle White",
+  price: 8800,
+  image: "/image/miracle-white-purple.jpg",
+  description: "Purple series 60,000mg glutathione injection",
+  details: `
+    <strong>Miracle White Purple 60000mg Glutathione Injection</strong><br/><br/>
+    Experience the premium Purple series of Miracle White with 60,000mg glutathione potency. This special edition formulation provides enhanced whitening with the distinctive purple series technology for superior results.<br/><br/>
+    <strong>Key Active Components:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Glutathione - 60,000 mg</li>
+      <li>Purple Series Technology</li>
+      <li>Enhanced Whitening Complex</li>
+      <li>Special Edition Formula</li>
+    </ul>
+    <br/>
+    <strong>Why it works:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Premium purple series</li>
+      <li>Enhanced whitening technology</li>
+      <li>Special edition formulation</li>
+    </ul>
+    <br/>
+    Experience premium purple series whitening.<br/>
+    <em class="text-xs text-gray-400">Note: Purple series special edition.</em>
+  `,
+  benefits: ["Purple Series", "60,000mg Strength", "Premium Edition", "Enhanced Whitening"],
+  sku: "MIRACLE-PURPLE-60K",
+  volume: "8 Sessions"
   },
   {
     id: 2,
@@ -1610,36 +1609,37 @@ const PRODUCTS = [
 },
 {
   id: 47,
-  name: "Miracle White 55000mg Skin Whitening Injection, For Body",
-  category: "Injection",
-  brand: "Miracle White",
-  price: 8800,
-  image: "/image/miracle-white-body.jpg",
-  description: "55,000mg skin whitening injection for body",
-  details: `
-    <strong>Miracle White 55000mg Skin Whitening Injection, For Body</strong><br/><br/>
-    Experience comprehensive body whitening with Miracle White 55,000mg formulation. Specifically designed for body application, this formulation addresses larger surface areas and provides even skin tone across the entire body.<br/><br/>
-    <strong>Key Active Components:</strong><br/>
-    <ul class="list-disc pl-5 mt-2 space-y-1">
-      <li>Glutathione - 55,000 mg</li>
-      <li>Body Whitening Complex</li>
-      <li>Even Tone Technology</li>
-      <li>Large Area Formula</li>
-    </ul>
-    <br/>
-    <strong>Why it works:</strong>
-    <ul class="list-disc pl-5 mt-2 space-y-1">
-      <li>Specifically for body application</li>
-      <li>Addresses larger surface areas</li>
-      <li>Provides even body tone</li>
-    </ul>
-    <br/>
-    Achieve even skin tone across your entire body.<br/>
-    <em class="text-xs text-gray-400">Note: Specifically formulated for body whitening.</em>
-  `,
-  benefits: ["Body Formula", "55,000mg Strength", "Even Tone", "Large Area Coverage"],
-  sku: "MIRACLE-BODY-55K",
-  volume: "8 Sessions"
+  name: "Advanced Vita Glow Skin Whitening Night Cream",
+    category: "Cream",
+    brand: "Vita Glow",
+    price: 1800,
+    image: "/image/adv-vita-glow-night.jpg",
+    description: "Advanced night repair cream with glutathione complex",
+    details: `
+      <strong>Advanced Vita Glow Skin Whitening Night Cream</strong><br/><br/>
+      Experience overnight skin transformation with this advanced whitening night cream. Formulated to work while you sleep, it delivers potent whitening agents deep into the skin during the body's natural repair cycle.<br/><br/>
+      <strong>Key Active Components:</strong><br/>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>Glutathione Complex - 2%</li>
+        <li>Vitamin C Derivative - 5%</li>
+        <li>Niacinamide - 4%</li>
+        <li>Hyaluronic Acid - 3%</li>
+        <li>Natural Plant Extracts</li>
+      </ul>
+      <br/>
+      <strong>Why it works:</strong>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>Works during nighttime repair cycle</li>
+        <li>Deeply moisturizes while whitening</li>
+        <li>Reduces appearance of dark spots</li>
+      </ul>
+      <br/>
+      Wake up to brighter, more radiant skin every morning.<br/>
+      <em class="text-xs text-gray-400">Note: Apply evenly on face and neck before bedtime.</em>
+    `,
+    benefits: ["Overnight Repair", "Deep Moisturization", "Spot Reduction", "Non-Greasy"],
+    sku: "VG-NIGHT-50",
+    volume: "50g Jar"
 },
 {
   id: 48,
@@ -2423,41 +2423,127 @@ const SectionHeader = ({ title, subtitle, center = true }) => (
   </div>
 );
 
-const Navigation = ({ currentPage, setCurrentPage, cartCount, toggleCart, mobileMenuOpen, setMobileMenuOpen, setShopFilter }) => {
-    const navLinks = [
-        { name: 'Home', id: 'home' },
-        { name: 'About', id: 'about' },
-        { name: 'Shop', id: 'shop' },
-        { name: 'Blog', id: 'blog' }, 
-        { name: 'Contact', id: 'contact' },
-    ];
+const Navigation = ({ 
+  currentPage, 
+  setCurrentPage, 
+  cartCount, 
+  toggleCart, 
+  mobileMenuOpen, 
+  setMobileMenuOpen, 
+  setShopFilter,
+  setBrandFilter, // New prop
+  searchQuery,    // New prop
+  setSearchQuery  // New prop
+}) => {
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [shopDropdownOpen, setShopDropdownOpen] = useState(false);
+    const [mobileExpanded, setMobileExpanded] = useState({ categories: false, brands: false });
+
+    // Handle Search Input
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+        if (e.target.value.length > 0 && currentPage !== 'shop') {
+            setCurrentPage('shop');
+        }
+    };
+
+    // Toggle Mobile Accordions
+    const toggleMobileSection = (section) => {
+        setMobileExpanded(prev => ({ ...prev, [section]: !prev[section] }));
+    };
+
     return (
         <>
             <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300">
-             <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
-                <div className="cursor-pointer flex items-center gap-2" onClick={() => setCurrentPage('home')}>
-                    <img loading="lazy" src="/image/logo.jpg" alt="SHAA TRADING" className="h-10 md:h-16 w-auto object-contain" />
+             <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between gap-4">
+                
+                {/* Logo */}
+                <div className="cursor-pointer flex items-center gap-2 shrink-0" onClick={() => setCurrentPage('home')}>
+                    <img loading="lazy" src="/image/logo.jpg" alt="SHAA TRADING" className="h-10 md:h-12 w-auto object-contain" />
                 </div>
-                <nav className="hidden md:flex items-center gap-8">
-                    {navLinks.map(link => (
-                      <button key={link.id} onClick={() => setCurrentPage(link.id)} className={`text-sm font-medium tracking-wide transition-colors duration-300 ${currentPage === link.id ? 'text-gray-900' : 'text-gray-600 hover:text-black'}`}>
-                        {link.name}
-                      </button>
-                    ))}
+
+                {/* DESKTOP NAV */}
+                <nav className="hidden lg:flex items-center gap-8 flex-1 justify-center">
+                    <button onClick={() => setCurrentPage('home')} className={`text-sm font-medium tracking-wide ${currentPage === 'home' ? 'text-black' : 'text-gray-600 hover:text-black'}`}>Home</button>
+                    
+                    {/* Shop Dropdown */}
+                    <div 
+                        className="relative group"
+                        onMouseEnter={() => setShopDropdownOpen(true)}
+                        onMouseLeave={() => setShopDropdownOpen(false)}
+                    >
+                        <button 
+                            onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('shop'); }} 
+                            className={`flex items-center gap-1 text-sm font-medium tracking-wide py-6 ${currentPage === 'shop' ? 'text-black' : 'text-gray-600 hover:text-black'}`}
+                        >
+                            Shop <ChevronDown size={14}/>
+                        </button>
+
+                        {/* Mega Menu Dropdown */}
+                        <div className={`absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-white shadow-xl border border-gray-100 rounded-xl p-6 grid grid-cols-2 gap-8 transition-all duration-200 origin-top ${shopDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}`}>
+                            <div>
+                                <h4 className="font-serif text-lg mb-4 text-gray-900 border-b border-gray-100 pb-2">Categories</h4>
+                                <div className="grid grid-cols-2 gap-2">
+                                    <button onClick={() => { setShopFilter('All'); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-left text-sm text-gray-500 hover:text-black hover:bg-gray-50 p-1 rounded">View All</button>
+                                    {CATEGORIES.map(cat => (
+                                        <button key={cat.id} onClick={() => { setShopFilter(cat.name); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-left text-sm text-gray-500 hover:text-black hover:bg-gray-50 p-1 rounded">{cat.name}</button>
+                                    ))}
+                                </div>
+                            </div>
+                            <div>
+                                <h4 className="font-serif text-lg mb-4 text-gray-900 border-b border-gray-100 pb-2">Top Brands</h4>
+                                <div className="grid grid-cols-2 gap-2">
+                                    <button onClick={() => { setBrandFilter('All Brands'); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-left text-sm text-gray-500 hover:text-black hover:bg-gray-50 p-1 rounded">All Brands</button>
+                                    {BRANDS_LIST.slice(1, 12).map(brand => (
+                                        <button key={brand} onClick={() => { setBrandFilter(brand); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-left text-sm text-gray-500 hover:text-black hover:bg-gray-50 p-1 rounded">{brand}</button>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onClick={() => setCurrentPage('blog')} className={`text-sm font-medium tracking-wide ${currentPage === 'blog' ? 'text-black' : 'text-gray-600 hover:text-black'}`}>Blog</button>
+                    <button onClick={() => setCurrentPage('contact')} className={`text-sm font-medium tracking-wide ${currentPage === 'contact' ? 'text-black' : 'text-gray-600 hover:text-black'}`}>Contact</button>
                 </nav>
-                <div className="flex items-center gap-4 md:gap-6">
-                    <button onClick={() => setCurrentPage('shop')} className="hidden md:block text-gray-800 hover:text-black"><Search size={22} /></button>
-                    <button className="relative p-2 text-gray-800 hover:text-black" onClick={toggleCart}>
+
+                {/* ICONS & SEARCH */}
+                <div className="flex items-center gap-2 md:gap-4 shrink-0">
+                    {/* Search Bar */}
+                    <div className={`flex items-center bg-gray-100 rounded-full transition-all duration-300 overflow-hidden ${isSearchOpen ? 'w-48 md:w-64 px-3' : 'w-10 h-10 justify-center bg-transparent hover:bg-gray-100'}`}>
+                         <Search 
+                            size={20} 
+                            className="text-gray-800 cursor-pointer shrink-0" 
+                            onClick={() => {
+                                setIsSearchOpen(!isSearchOpen); 
+                                if(!isSearchOpen) setTimeout(() => document.getElementById('nav-search')?.focus(), 100);
+                            }} 
+                         />
+                         <input 
+                            id="nav-search"
+                            type="text" 
+                            placeholder="Search..." 
+                            value={searchQuery}
+                            onChange={handleSearchChange}
+                            className={`bg-transparent border-none outline-none text-sm ml-2 w-full ${isSearchOpen ? 'block' : 'hidden'}`}
+                         />
+                         {isSearchOpen && searchQuery && (
+                             <button onClick={() => setSearchQuery('')}><X size={14} className="text-gray-400"/></button>
+                         )}
+                    </div>
+
+                    <button className="relative p-2 text-gray-800 hover:text-black hover:bg-gray-100 rounded-full transition-colors" onClick={toggleCart}>
                         <ShoppingBag size={22} />
                         {cartCount > 0 && <span className="absolute -top-1 -right-1 bg-black text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full">{cartCount}</span>}
                     </button>
-                    <button className="md:hidden p-2 text-gray-800" onClick={() => setMobileMenuOpen(true)}>
+                    
+                    <button className="lg:hidden p-2 text-gray-800 hover:bg-gray-100 rounded-full" onClick={() => setMobileMenuOpen(true)}>
                         <Menu size={24} />
                     </button>
                 </div>
              </div>
             </header>
             
+            {/* MOBILE DRAWER */}
             <div className={`fixed inset-0 z-[60] flex ${mobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
                 <div className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-100' : 'opacity-0'}`} onClick={() => setMobileMenuOpen(false)} />
                 <div className={`relative bg-white w-[85%] max-w-xs h-full shadow-2xl transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
@@ -2468,16 +2554,40 @@ const Navigation = ({ currentPage, setCurrentPage, cartCount, toggleCart, mobile
                         </div>
                         <div className="flex-1 overflow-y-auto py-4">
                             <div className="flex flex-col">
-                                <button onClick={() => { setShopFilter('All'); setCurrentPage('shop'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50 flex justify-between items-center">Shop All <ChevronRight size={16} className="text-gray-400"/></button>
-                                <div className="py-2">
-                                    <p className="px-6 py-2 text-xs text-gray-400 font-bold tracking-widest uppercase">Categories</p>
-                                    <button onClick={() => { setShopFilter('Injection'); setCurrentPage('shop'); setMobileMenuOpen(false); }} className="w-full px-6 py-3 text-left text-gray-600 hover:text-gray-900 transition-colors">Injections</button>
-                                    <button onClick={() => { setShopFilter('Supplement'); setCurrentPage('shop'); setMobileMenuOpen(false); }} className="w-full px-6 py-3 text-left text-gray-600 hover:text-gray-900 transition-colors">Supplements</button>
-                                    <button onClick={() => { setShopFilter('Filler'); setCurrentPage('shop'); setMobileMenuOpen(false); }} className="w-full px-6 py-3 text-left text-gray-600 hover:text-gray-900 transition-colors">Fillers</button>
+                                <button onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">Home</button>
+                                
+                                {/* Mobile Shop Accordion */}
+                                <div className="border-b border-gray-50">
+                                    <button onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('shop'); setMobileMenuOpen(false); }} className="w-full px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 bg-gray-50/50">Shop All</button>
+                                    
+                                    {/* Categories Accordion */}
+                                    <button onClick={() => toggleMobileSection('categories')} className="w-full px-6 py-3 text-left flex justify-between items-center text-sm font-bold text-gray-500 uppercase tracking-widest bg-white">
+                                        Categories <ChevronDown size={14} className={`transition-transform ${mobileExpanded.categories ? 'rotate-180' : ''}`}/>
+                                    </button>
+                                    {mobileExpanded.categories && (
+                                        <div className="bg-gray-50 px-6 py-2 space-y-2">
+                                            {CATEGORIES.map(cat => (
+                                                <button key={cat.id} onClick={() => { setShopFilter(cat.name); setCurrentPage('shop'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600 py-1">{cat.name}</button>
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    {/* Brands Accordion */}
+                                    <button onClick={() => toggleMobileSection('brands')} className="w-full px-6 py-3 text-left flex justify-between items-center text-sm font-bold text-gray-500 uppercase tracking-widest bg-white border-t border-gray-50">
+                                        Brands <ChevronDown size={14} className={`transition-transform ${mobileExpanded.brands ? 'rotate-180' : ''}`}/>
+                                    </button>
+                                    {mobileExpanded.brands && (
+                                        <div className="bg-gray-50 px-6 py-2 space-y-2 max-h-60 overflow-y-auto">
+                                            {BRANDS_LIST.map(brand => (
+                                                <button key={brand} onClick={() => { setBrandFilter(brand); setCurrentPage('shop'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600 py-1">{brand}</button>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
-                                <button onClick={() => { setCurrentPage('blog'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-t border-gray-50">BLOG</button>
-                                <button onClick={() => { setCurrentPage('about'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-t border-gray-50">ABOUT US</button>
-                                <button onClick={() => { setCurrentPage('contact'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">CONTACT</button>
+
+                                <button onClick={() => { setCurrentPage('blog'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">Blog</button>
+                                <button onClick={() => { setCurrentPage('about'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">About Us</button>
+                                <button onClick={() => { setCurrentPage('contact'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">Contact</button>
                             </div>
                         </div>
                     </div>
@@ -2841,216 +2951,319 @@ const Footer = ({ setCurrentPage, showToast }) => {
   );
 };
 
-const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
-    <div className="animate-fade-in bg-[#fbfbfb]">
-      {/* TICKER - MOVED ABOVE HERO WITH PROPER LOOP */}
-      <div className="bg-black text-white/80 py-3 border-b border-white/10 overflow-hidden relative z-20">
-          <div className="flex animate-marquee whitespace-nowrap">
-              <div className="flex items-center gap-8 md:gap-12 px-4 text-[10px] md:text-xs tracking-widest uppercase font-medium">
-                  <span className="flex items-center gap-2"><ShieldCheck size={14} className="text-white"/> 100% Authentic</span>
-                  <span className="flex items-center gap-2"><Truck size={14} className="text-white"/> Pan India Shipping</span>
-                  <span className="flex items-center gap-2"><Award size={14} className="text-white"/> Authorized Distributor</span>
-                  <span className="flex items-center gap-2"><MapPin size={14} className="text-white"/> 24-48h Dispatch</span>
-                  <span className="flex items-center gap-2"><Globe size={14} className="text-white"/> Direct Sourcing</span>
-                  {/* Duplicate for seamless loop */}
-                  <span className="flex items-center gap-2"><ShieldCheck size={14} className="text-white"/> 100% Authentic</span>
-                  <span className="flex items-center gap-2"><Truck size={14} className="text-white"/> Pan India Shipping</span>
-                  <span className="flex items-center gap-2"><Award size={14} className="text-white"/> Authorized Distributor</span>
-                  <span className="flex items-center gap-2"><MapPin size={14} className="text-white"/> 24-48h Dispatch</span>
-                  <span className="flex items-center gap-2"><Globe size={14} className="text-white"/> Direct Sourcing</span>
-              </div>
+const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
+  // Get a few specific products for the "Trending" section (different from best sellers)
+  const NEW_ARRIVALS = PRODUCTS.filter(p => p.price > 10000).slice(0, 4);
+
+  return (
+    <div className="animate-fade-in bg-white">
+      {/* --- TOP TICKER (Refined) --- */}
+      <div className="bg-[#0f0f0f] text-white/70 py-2.5 overflow-hidden relative z-20 border-b border-white/5">
+        <div className="flex animate-marquee whitespace-nowrap">
+          <div className="flex items-center gap-12 px-4 text-[10px] font-bold tracking-[0.2em] uppercase">
+             {[...Array(4)].map((_, i) => (
+                <React.Fragment key={i}>
+                  <span className="flex items-center gap-2 text-white"><ShieldCheck size={12}/> 100% Authentic Distributor</span>
+                  <span className="flex items-center gap-2"><Truck size={12}/> Pan-India Cold Chain</span>
+                  <span className="flex items-center gap-2"><Building2 size={12}/> Est. 2012</span>
+                  <span className="flex items-center gap-2"><Stethoscope size={12}/> Clinical Supplies</span>
+                </React.Fragment>
+             ))}
           </div>
+        </div>
       </div>
 
-      {/* HERO SECTION */}
-      <div className="relative w-full min-h-[85vh] bg-black flex flex-col justify-center items-center text-center overflow-hidden">
-          <div 
-              className="absolute inset-0 z-0 bg-cover bg-center opacity-60 transition-opacity duration-1000 animate-fade-in"
-              style={{ 
-                  backgroundImage: 'url("/image/ban1.jpg")',
-                  backgroundPosition: 'center 20%'
-              }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/60 z-0" />
-          
-          <div className="relative z-10 max-w-5xl mx-auto px-6 w-full pt-20 pb-12">
-              <div className="animate-slide-up">
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white text-[10px] font-bold tracking-[0.2em] uppercase mb-8">
-                      <Sparkles size={12} /> Premium Healthcare Supply
-                  </span>
-                  <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-8 leading-tight">
-                      Professional <br/>
-                      <span className="italic text-white font-light">Healthcare Solutions</span>
-                  </h1>
-                  <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed mb-10 max-w-2xl mx-auto">
-                      Trusted supplier of medical-grade skincare and healthcare products. 
-                      Authorized distributor for licensed professionals since 2012.
-                  </p>
-                  <div className="flex flex-col sm:flex-row justify-center gap-5">
-                      <Button onClick={() => navigateTo('shop')} variant="secondary" className="px-10 py-4 text-sm font-bold tracking-widest uppercase w-full sm:w-auto shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                          Shop Now
-                      </Button>
-                      <Button onClick={() => navigateTo('shop')} variant="outline" className="px-10 py-4 text-sm font-bold tracking-widest uppercase w-full sm:w-auto hover:bg-white hover:text-black border-white/30">
-                          View Collections
-                      </Button>
-                  </div>
-              </div>
-          </div>
-          
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce hidden md:block">
-              <ArrowUpDown size={20} />
-          </div>
-      </div>
-  
-      {/* BRAND MARQUEE */}
-      <section className="py-8 md:py-12 bg-white border-b border-gray-100 overflow-hidden">
-          <p className="text-center text-[10px] text-gray-400 font-bold tracking-[0.2em] uppercase mb-6">Trusted Brand Partners</p>
-          <div className="flex gap-8 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 justify-center flex-wrap px-6">
-              {['Glutax', 'Miracle White', 'Aqua Skin', 'Nc24', 'Relumins', 'Daehan'].map(brand => (
-                  <span key={brand} className="text-lg md:text-2xl font-serif font-bold text-gray-800 cursor-default">{brand}</span>
-              ))}
-          </div>
-      </section>
-  
-      {/* CURATED CATEGORIES */}
-      <section className="py-12 md:py-20 px-6 max-w-7xl mx-auto">
-          <SectionHeader title="Curated Collections" subtitle="Explore our specialized range of healthcare formulations" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                  { name: 'Healthcare Injections', img: '/image/glutax-5gs-adv-12s.jpg', desc: 'Glutathione & Medical Solutions', filter: 'Injection' },
-                  { name: 'Whitening Creams', img: '/image/glowtiqa-advance.jpg', desc: 'Topical Skincare Products', filter: 'Cream' },
-                  { name: 'Oral Supplements', img: '/image/japan-beauty-booster.jpg', desc: 'Maintenance & Care', filter: 'Supplement' }
-              ].map((cat, idx) => (
-                  <div 
-                      key={idx}
-                      onClick={() => { setShopFilter(cat.filter); navigateTo('shop'); }}
-                      className="group relative h-[250px] md:h-[400px] overflow-hidden rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500"
-                  >
-                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors z-10" />
-                      <img loading="lazy" src={cat.img} alt={cat.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-20 bg-gradient-to-t from-black/90 to-transparent">
-                          <h3 className="text-white font-serif text-2xl md:text-3xl mb-1 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">{cat.name}</h3>
-                          <p className="text-white/80 text-xs md:text-sm font-light mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">{cat.desc}</p>
-                          <span className="text-white text-[10px] font-bold tracking-widest uppercase flex items-center gap-2 group-hover:gap-3 transition-all">Shop Now <ArrowRight size={12}/></span>
-                      </div>
-                  </div>
-              ))}
-          </div>
-      </section>
-  
-      {/* NEW SECTION: TRUSTED BY INDIA */}
-      <section className="py-16 md:py-20 bg-gray-50 border-y border-gray-100">
-          <div className="max-w-7xl mx-auto px-6 text-center">
-              <h2 className="font-serif text-2xl md:text-3xl text-gray-900 mb-4">Trusted Across India</h2>
-              <p className="text-gray-500 font-light max-w-2xl mx-auto mb-10">From Bangalore to Delhi, Mumbai to Kolkata. We serve clinics and hospitals with guaranteed authentic supplies.</p>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-                  {[
-                      { label: "Partner Clinics", val: "500+" },
-                      { label: "Cities Covered", val: "40+" },
-                      { label: "Years of Trust", val: "12+" },
-                      { label: "Happy Clients", val: "10k+" },
-                  ].map((stat, idx) => (
-                      <div key={idx} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                          <div className="text-3xl font-serif text-gray-900 mb-1">{stat.val}</div>
-                          <div className="text-[10px] uppercase tracking-widest text-gray-800 font-bold">{stat.label}</div>
-                      </div>
-                  ))}
-              </div>
-          </div>
-      </section>
-  
-      {/* BEST SELLERS GRID */}
-      <section className="py-12 md:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-between items-end mb-8 md:mb-10">
-              <div>
-                  <h2 className="font-serif text-2xl md:text-3xl text-gray-900">Bestselling Formulations</h2>
-                  <div className="h-0.5 w-12 bg-gray-800 mt-3"></div>
-              </div>
-              <button onClick={() => navigateTo('shop')} className="hidden md:flex items-center gap-2 text-sm font-medium hover:text-gray-800 transition-colors">View All <ArrowRight size={16}/></button>
-          </div>
-          
-          {/* Mobile Horizontal Scroll */}
-          <div className="flex md:grid md:grid-cols-4 gap-6 overflow-x-auto md:overflow-visible pb-6 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">
-                    {BEST_SELLER_IDS.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean).map(product => (
-                       <div key={product.id} className="group cursor-pointer min-w-[260px] md:min-w-0 snap-start" onClick={() => navigateTo('product', product)}>
-                        <div className="relative aspect-[4/5] bg-gray-50 rounded-lg overflow-hidden mb-4">
-                          <img loading="lazy" src={product.image} alt={`${product.name} by ${product.brand} - ${product.category} from Shaa Trading`} className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105" />
-                        </div>
-                      <div className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">{product.brand}</div>
-                      <h3 className="font-serif text-lg leading-tight mb-2 group-hover:text-gray-800 transition-colors truncate">{product.name}</h3>
-                      <p className="text-gray-900 font-medium">₹{product.price.toLocaleString()}</p>
-                   </div>
-              ))}
-          </div>
-          
-          <div className="mt-6 text-center md:hidden">
-              <button onClick={() => navigateTo('shop')} className="inline-flex items-center gap-2 text-sm font-medium border-b border-black pb-1">View All Products <ArrowRight size={14}/></button>
-          </div>
-        </div>
-      </section>
-  
-      {/* CLINICAL SCIENCE */}
-      <section className="py-16 md:py-24 bg-gray-900 text-white relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-gray-800 rounded-full filter blur-[80px] md:blur-[120px] opacity-10 pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                   <span className="text-white font-bold tracking-widest uppercase text-xs mb-2 block">The Shaa Trading Standard</span>
-                   <h2 className="font-serif text-3xl md:text-5xl mb-6 leading-tight">Precision Science Meets <br/> Healthcare Excellence</h2>
-                   <p className="text-gray-400 leading-relaxed mb-8 font-light text-base md:text-lg">
-                      We maintain a rigorous supply chain to ensure that every product reaching your clinic performs exactly as intended.
-                   </p>
-                   <div className="space-y-6">
-                      {[
-                          { icon: Stethoscope, title: "Clinical Potency", desc: "High-concentration formulations." },
-                          { icon: Sparkles, title: "Advanced Tech", desc: "Medical-grade technology." },
-                          { icon: Building2, title: "Stable Supply", desc: "Consistent inventory since 2012." }
-                      ].map((item, idx) => (
-                          <div key={idx} className="flex gap-4">
-                              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 text-white"><item.icon size={20}/></div>
-                              <div>
-                                  <h4 className="text-base font-serif mb-0.5">{item.title}</h4>
-                                  <p className="text-xs md:text-sm text-gray-500">{item.desc}</p>
-                              </div>
-                          </div>
-                      ))}
-                   </div>
-              </div>
-              <div className="relative hidden md:block">
-                  <div className="aspect-[4/5] rounded-lg overflow-hidden border border-white/10">
-                       <img loading="lazy" src="/image/ban2.jpg" alt="Clinical Lab" className="w-full h-full object-cover opacity-80" />
-                  </div>
-              </div>
-          </div>
-        </div>
-      </section>
-  
-      {/* CTA SECTION */}
-      <section className="py-16 md:py-24 bg-black text-center px-6 relative overflow-hidden border-t border-white/10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gray-800 rounded-full filter blur-[150px] opacity-10 pointer-events-none"></div>
+      {/* --- HERO SECTION (Cinematic) --- */}
+      <section className="relative h-[85vh] w-full bg-[#050505] overflow-hidden flex items-center justify-center">
+        {/* Background Image with Parallax-like feel */}
+        <div 
+          className="absolute inset-0 z-0 opacity-60 bg-cover bg-center transition-transform duration-[20s] hover:scale-105"
+          style={{ backgroundImage: 'url("/image/shaa-ban.jpg")' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80 z-0" />
         
-        <div className="max-w-3xl mx-auto relative z-10">
-          <h2 className="font-serif text-3xl md:text-4xl mb-4 text-white">Partner With Excellence</h2>
-          <p className="text-gray-400 mb-8 font-light text-base md:text-lg">Join clinics and hospitals sourcing their premium inventory from Shaa Trading.</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button onClick={() => navigateTo('contact')} variant="secondary" className="py-4 w-full sm:w-auto font-medium">Register Wholesale Account</Button>
-              <Button onClick={() => navigateTo('shop')} variant="outline" className="py-4 w-full sm:w-auto border-white/20 hover:bg-white hover:text-black">Browse Catalog</Button>
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white space-y-8">
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 mx-auto animate-slide-up">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+              <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/90">Official Distributor</span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[0.9] tracking-tight animate-slide-up" style={{animationDelay: '0.1s'}}>
+              The Science <br/>
+              <span className="italic font-light text-white/80">of Radiance</span>
+            </h1>
+
+            <p className="max-w-xl mx-auto text-gray-300 font-light text-lg leading-relaxed animate-slide-up" style={{animationDelay: '0.2s'}}>
+              Supplying India's leading clinics with authentic glutathione injectables, advanced dermatology solutions, and medical-grade skincare since 2012.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 animate-slide-up" style={{animationDelay: '0.3s'}}>
+              <Button onClick={() => navigateTo('shop')} className="w-full sm:w-auto min-w-[160px]">
+                Shop Catalog
+              </Button>
+              <Button onClick={() => navigateTo('contact')} variant="outline" className="w-full sm:w-auto min-w-[160px] border-white/30 hover:bg-white/10 text-white">
+                Partner With Us
+              </Button>
+            </div>
+        </div>
+      </section>
+
+      {/* --- TRUST BADGES (Clean Strip) --- */}
+      <section className="py-10 border-b border-gray-100 bg-white">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+           {[
+             { icon: ShieldCheck, title: "Authenticity", sub: "Manufacturer Verified" },
+             { icon: Thermometer, title: "Cold Chain", sub: "Temp-Controlled" },
+             { icon: Truck, title: "Fast Dispatch", sub: "24-48hr Processing" },
+             { icon: Building2, title: "Wholesale", sub: "Clinic Pricing" },
+           ].map((item, idx) => (
+             <div key={idx} className="flex items-center gap-4 justify-center md:justify-start">
+                <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-black shrink-0">
+                  <item.icon size={18} strokeWidth={1.5}/>
+                </div>
+                <div className="text-left">
+                  <h4 className="font-serif text-lg leading-none mb-1">{item.title}</h4>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">{item.sub}</p>
+                </div>
+             </div>
+           ))}
+        </div>
+      </section>
+
+      {/* --- CURATED COLLECTIONS (Bento Grid) --- */}
+      <section className="py-20 px-6 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+          <div>
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-2 block">The Edit</span>
+            <h2 className="font-serif text-4xl text-black">Curated Categories</h2>
           </div>
+          <button onClick={() => navigateTo('shop')} className="group flex items-center gap-2 text-sm font-medium border-b border-black pb-1">
+            View All Categories <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform"/>
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[600px]">
+          {/* Main Large Item */}
+          <div 
+            onClick={() => { setShopFilter('Injection'); navigateTo('shop'); }}
+            className="group relative md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden cursor-pointer bg-gray-100 min-h-[300px]"
+          >
+             <img src="/image/glutax-5gs-adv-12s.jpg" alt="Injections" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+             <div className="absolute bottom-0 left-0 p-8 text-white">
+                <p className="text-[10px] font-bold tracking-widest uppercase mb-2">Best Sellers</p>
+                <h3 className="font-serif text-4xl mb-2">Glutathione Injections</h3>
+                <span className="inline-flex items-center gap-2 text-sm font-medium border-b border-white/30 pb-1 group-hover:border-white transition-colors">
+                  Shop Collection
+                </span>
+             </div>
+          </div>
+
+          {/* Top Right Item */}
+          <div 
+             onClick={() => { setShopFilter('Cream'); navigateTo('shop'); }}
+             className="group relative md:col-span-2 md:row-span-1 rounded-2xl overflow-hidden cursor-pointer bg-gray-100 min-h-[250px]"
+          >
+             <img src="/image/glowtiqa-advance.jpg" alt="Creams" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+             <div className="absolute top-0 left-0 p-8">
+                <h3 className="font-serif text-3xl text-gray-900 mb-1">Whitening Creams</h3>
+                <p className="text-gray-600 text-sm">Topical solutions for maintenance</p>
+             </div>
+             <div className="absolute bottom-6 right-6 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+               <ArrowRight size={16} />
+             </div>
+          </div>
+
+          {/* Bottom Right 1 */}
+          <div 
+             onClick={() => { setShopFilter('Supplement'); navigateTo('shop'); }}
+             className="group relative md:col-span-1 md:row-span-1 rounded-2xl overflow-hidden cursor-pointer bg-gray-100 min-h-[200px]"
+          >
+             <img src="/image/japan-beauty-booster.jpg" alt="Supplements" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+             <div className="absolute inset-0 bg-black/40" />
+             <div className="absolute bottom-6 left-6 text-white">
+                <h3 className="font-serif text-2xl">Supplements</h3>
+             </div>
+          </div>
+
+           {/* Bottom Right 2 */}
+           <div 
+             onClick={() => { setShopFilter('Weight'); navigateTo('shop'); }}
+             className="group relative md:col-span-1 md:row-span-1 rounded-2xl overflow-hidden cursor-pointer bg-gray-100 min-h-[200px]"
+          >
+             <img src="/image/lipo-lab-ppc.jpg" alt="Weight Loss" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+             <div className="absolute inset-0 bg-black/40" />
+             <div className="absolute bottom-6 left-6 text-white">
+                <h3 className="font-serif text-2xl">Weight Loss</h3>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- BEST SELLERS (Minimalist Cards) --- */}
+      <section className="py-20 bg-[#f9f9f9]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-3 block">Professional Choice</span>
+            <h2 className="font-serif text-4xl text-black">Bestselling Formulations</h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+            {BEST_SELLER_IDS.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean).map((product) => (
+              <div key={product.id} className="group cursor-pointer flex flex-col" onClick={() => navigateTo('product', product)}>
+                <div className="relative aspect-[4/5] bg-white rounded-xl overflow-hidden mb-6 shadow-sm group-hover:shadow-md transition-shadow">
+                  <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-105 mix-blend-multiply" />
+                  
+                  {/* Floating Badge */}
+                  <div className="absolute top-4 left-4 bg-black text-white text-[9px] font-bold px-2 py-1 uppercase tracking-widest rounded-sm">
+                    {product.brand}
+                  </div>
+
+                  {/* Quick Add Button */}
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); addToCart(product); }}
+                    className="absolute bottom-4 right-4 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center shadow-lg translate-y-20 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black hover:text-white"
+                  >
+                    <Plus size={18} />
+                  </button>
+                </div>
+
+                <div className="space-y-1">
+                  <div className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">{product.category}</div>
+                  <h3 className="font-serif text-lg leading-tight group-hover:underline decoration-1 underline-offset-4">{product.name}</h3>
+                  <div className="pt-2 text-sm font-medium">₹{product.price.toLocaleString()}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <Button onClick={() => navigateTo('shop')} variant="secondary" className="px-10">View All Products</Button>
+          </div>
+        </div>
+      </section>
+
+      {/* --- CLINICAL AUTHORITY (Dark Section) --- */}
+      <section className="py-24 bg-[#0a0a0a] text-white relative overflow-hidden">
+        {/* Abstract Background Element */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-b from-gray-800 to-transparent rounded-full filter blur-[120px] opacity-20 pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-gray-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block">The Standard</span>
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-8 leading-tight">
+                Authenticity is <br/> 
+                <span className="text-gray-400">Our Signature</span>
+              </h2>
+              <p className="text-gray-400 font-light text-lg leading-relaxed mb-10 max-w-lg">
+                We understand that in aesthetic medicine, the integrity of the product determines the safety of the patient. Shaa Trading maintains a rigorous 3-step verification process for every batch imported.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-8 border-t border-white/10 pt-8">
+                <div>
+                   <div className="text-3xl font-serif mb-1">19k+</div>
+                   <div className="text-[10px] uppercase tracking-widest text-gray-500">Pincodes Served</div>
+                </div>
+                <div>
+                   <div className="text-3xl font-serif mb-1">24h</div>
+                   <div className="text-[10px] uppercase tracking-widest text-gray-500">Dispatch Protocol</div>
+                </div>
+              </div>
+
+              <div className="mt-10">
+                 <button onClick={() => navigateTo('about')} className="flex items-center gap-3 text-sm font-bold uppercase tracking-widest hover:gap-4 transition-all">
+                    Read Our Story <ArrowRight size={14}/>
+                 </button>
+              </div>
+            </div>
+
+            <div className="relative">
+               <div className="aspect-[4/5] rounded-sm overflow-hidden border border-white/10 relative">
+                  <img src="/image/blog4.jpg" alt="Clinical Safety" className="w-full h-full object-cover opacity-60 grayscale" />
+                  <div className="absolute bottom-8 left-8 right-8 border border-white/20 bg-black/50 backdrop-blur-md p-6">
+                     <Quote size={24} className="text-white/50 mb-4" />
+                     <p className="font-serif text-xl italic leading-relaxed text-white/90">
+                       "Consistent quality is the only metric that matters in healthcare distribution."
+                     </p>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- BRAND SCROLL (Styled) --- */}
+      <section className="py-16 border-b border-gray-100 overflow-hidden">
+        <p className="text-center text-[10px] text-gray-400 font-bold tracking-[0.2em] uppercase mb-10">Trusted Manufacturers</p>
+        <div className="relative w-full">
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
+            <div className="flex gap-16 md:gap-32 justify-center items-center flex-wrap px-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+               {['Glutax', 'Aqua Skin', 'Miracle White', 'Lipo Lab', 'Laroscorbine', 'Relumins'].map((brand, i) => (
+                 <span key={i} className="text-2xl md:text-4xl font-serif font-bold text-gray-300 hover:text-black cursor-default transition-colors select-none">
+                   {brand}
+                 </span>
+               ))}
+            </div>
+        </div>
+      </section>
+
+      {/* --- JOURNAL PREVIEW --- */}
+      <section className="py-24 max-w-7xl mx-auto px-6">
+         <div className="flex justify-between items-end mb-12">
+            <h2 className="font-serif text-4xl">Clinical Journal</h2>
+            <button onClick={() => navigateTo('blog')} className="hidden md:block text-xs font-bold uppercase tracking-widest border-b border-gray-200 pb-1 hover:border-black transition-colors">Read All Articles</button>
+         </div>
+         
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {BLOG_POSTS.slice(0, 3).map(post => (
+               <div key={post.id} onClick={() => navigateTo('blog-post', post)} className="group cursor-pointer">
+                  <div className="aspect-[3/2] overflow-hidden rounded-sm bg-gray-100 mb-5">
+                     <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0" />
+                  </div>
+                  <div className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-2">{post.category}</div>
+                  <h3 className="font-serif text-xl leading-tight mb-3 group-hover:underline decoration-1 underline-offset-4">{post.title}</h3>
+                  <p className="text-sm text-gray-500 font-light line-clamp-2">{post.excerpt}</p>
+               </div>
+            ))}
+         </div>
+         <div className="mt-8 text-center md:hidden">
+            <Button onClick={() => navigateTo('blog')} variant="outline">Read All</Button>
+         </div>
+      </section>
+
+      {/* --- FINAL CTA --- */}
+      <section className="py-24 bg-[#f4f4f4] text-center px-6">
+        <div className="max-w-2xl mx-auto space-y-6">
+           <h2 className="font-serif text-4xl md:text-5xl">Join our Wholesale Network</h2>
+           <p className="text-gray-600 font-light text-lg">
+             Exclusive pricing and bulk volume discounts available for registered clinics and distributors.
+           </p>
+           <div className="pt-4">
+             <Button onClick={() => navigateTo('contact')} className="h-14 px-10 text-sm tracking-widest">Register Now</Button>
+           </div>
+           <p className="text-xs text-gray-400 mt-4">Verification of professional credentials required.</p>
         </div>
       </section>
     </div>
-);
+  );
+};
   
-  const ShopView = ({ navigateTo, addToCart, filter, setFilter }) => {
-    const [brandFilter, setBrandFilter] = useState('All Brands');
-    const [searchQuery, setSearchQuery] = useState('');
+  const ShopView = ({ 
+    navigateTo, 
+    addToCart, 
+    filter, 
+    setFilter, 
+    brandFilter, 
+    setBrandFilter,
+    searchQuery,
+    setSearchQuery
+  }) => {
     const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'list'
     const [sortBy, setSortBy] = useState('featured'); // 'featured', 'price-asc', 'price-desc'
-    const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  
+   
     const filteredProducts = PRODUCTS.filter(p => {
       const matchesCategory = filter === 'All' || p.category === filter;
       const matchesBrand = brandFilter === 'All Brands' || p.brand === brandFilter;
@@ -3063,87 +3276,60 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
         if (sortBy === 'price-desc') return b.price - a.price;
         return 0; // featured (default order)
     });
-  
-    // Helper for category buttons
-    const CategoryButton = ({ name, active, onClick }) => (
-      <button 
-          onClick={onClick}
-          className={`w-full text-left px-4 py-2.5 rounded-lg text-sm transition-all flex items-center justify-between group ${active ? 'bg-black text-white font-medium' : 'text-gray-600 hover:bg-gray-50'}`}
-      >
-          {name}
-          {active && <Check size={14} className="text-white" />}
-      </button>
-    );
-  
+   
     return (
       <div className="animate-fade-in bg-[#fbfbfb] min-h-screen pb-24">
         {/* HERO */}
-        <div className="bg-black text-white pt-32 pb-16 px-6 text-center relative overflow-hidden">
+        <div className="bg-black text-white pt-20 pb-12 px-6 text-center relative overflow-hidden">
            <div className="absolute inset-0 opacity-30 bg-[url('/image/ban1.jpg')] bg-cover bg-center pointer-events-none"></div>
            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 pointer-events-none"></div>
            <div className="relative z-10 max-w-4xl mx-auto">
-              <span className="text-white tracking-[0.3em] uppercase text-[10px] font-bold mb-3 block animate-slide-up">Authorized Distribution</span>
-              <h1 className="font-serif text-4xl md:text-6xl mb-4 animate-slide-up" style={{animationDelay: '0.1s'}}>The Collection</h1>
-              <p className="text-gray-400 font-light max-w-lg mx-auto text-sm md:text-base animate-slide-up" style={{animationDelay: '0.2s'}}>Curated clinical formulations for professional healthcare use.</p>
+             <span className="text-white tracking-[0.3em] uppercase text-[10px] font-bold mb-3 block animate-slide-up">Authorized Distribution</span>
+             <h1 className="font-serif text-3xl md:text-5xl mb-2 animate-slide-up" style={{animationDelay: '0.1s'}}>The Collection</h1>
+             {searchQuery && <p className="text-gray-400 text-sm mt-2">Showing results for "{searchQuery}"</p>}
            </div>
         </div>
-  
-        {/* MOBILE TOOLBAR (Sticky) */}
-        <div className="lg:hidden sticky top-20 z-30 bg-white border-b border-gray-100 px-4 py-3 flex gap-3 items-center shadow-sm">
-           <div className="relative flex-1">
-              <Search className="absolute left-3 top-2.5 text-gray-400" size={16} />
-              <input 
-                  type="text" 
-                  placeholder="Search..." 
-                  value={searchQuery} 
-                  onChange={(e) => setSearchQuery(e.target.value)} 
-                  className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm outline-none focus:border-gray-800" 
-              />
-           </div>
-           <button 
-              onClick={() => setMobileFiltersOpen(true)}
-              className="p-2 bg-black text-white rounded-lg shrink-0"
-           >
-              <SlidersHorizontal size={20} />
-           </button>
+   
+        {/* HORIZONTAL TRANSLUCENT CATEGORY BAR */}
+        <div className="sticky top-20 z-40 bg-white/80 backdrop-blur-md border-b border-gray-200/50 py-4">
+            <div className="max-w-7xl mx-auto px-4 md:px-6">
+                <div className="flex gap-3 overflow-x-auto scrollbar-hide snap-x items-center">
+                     <button 
+                        onClick={() => setFilter('All')}
+                        className={`snap-start shrink-0 px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest border transition-all duration-300 ${
+                            filter === 'All' 
+                            ? 'bg-black text-white border-black shadow-md transform scale-105' 
+                            : 'bg-white/50 text-gray-500 border-gray-200 hover:border-black hover:text-black'
+                        }`}
+                    >
+                        All
+                    </button>
+                    {CATEGORIES.map(cat => (
+                        <button 
+                            key={cat.id}
+                            onClick={() => setFilter(cat.name)}
+                            className={`snap-start shrink-0 px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest border transition-all duration-300 ${
+                                filter === cat.name 
+                                ? 'bg-black text-white border-black shadow-md transform scale-105' 
+                                : 'bg-white/50 text-gray-500 border-gray-200 hover:border-black hover:text-black'
+                            }`}
+                        >
+                            {cat.name}
+                        </button>
+                    ))}
+                </div>
+            </div>
         </div>
-  
+
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 lg:py-12">
           <div className="flex flex-col lg:flex-row gap-12">
               
-              {/* SIDEBAR (Desktop) */}
-              <aside className="hidden lg:block w-64 shrink-0 space-y-10 sticky top-32 h-[calc(100vh-8rem)] overflow-y-auto pr-4 scrollbar-hide">
-                  {/* Search */}
+              {/* SIDEBAR (Brands) */}
+              <aside className="hidden lg:block w-64 shrink-0 space-y-10 sticky top-48 h-[calc(100vh-12rem)] overflow-y-auto pr-4 scrollbar-hide">
                   <div>
-                      <h3 className="font-serif text-lg mb-4">Search</h3>
-                      <div className="relative">
-                          <input 
-                              type="text" 
-                              placeholder="Product name..." 
-                              value={searchQuery} 
-                              onChange={(e) => setSearchQuery(e.target.value)} 
-                              className="w-full pl-3 pr-8 py-2 bg-transparent border-b border-gray-200 text-sm outline-none focus:border-black transition-colors" 
-                          />
-                          <Search className="absolute right-0 top-2 text-gray-400" size={16} />
-                      </div>
-                  </div>
-  
-                  {/* Categories */}
-                  <div>
-                      <h3 className="font-serif text-lg mb-4">Categories</h3>
-                      <div className="space-y-1">
-                          <CategoryButton name="View All" active={filter === 'All'} onClick={() => setFilter('All')} />
-                          {CATEGORIES.map(cat => (
-                              <CategoryButton key={cat.id} name={cat.name} active={filter === cat.name} onClick={() => setFilter(cat.name)} />
-                          ))}
-                      </div>
-                  </div>
-  
-                  {/* Brands */}
-                  <div>
-                      <h3 className="font-serif text-lg mb-4">Brands</h3>
-                      <div className="space-y-2 max-h-64 overflow-y-auto pr-2 custom-scrollbar">
-                          <label className="flex items-center gap-3 cursor-pointer group">
+                      <h3 className="font-serif text-lg mb-4">Filter by Brand</h3>
+                      <div className="space-y-2 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
+                          <label className="flex items-center gap-3 cursor-pointer group py-1">
                               <div className={`w-4 h-4 border rounded flex items-center justify-center transition-colors ${brandFilter === 'All Brands' ? 'bg-black border-black' : 'border-gray-300 group-hover:border-gray-400'}`}>
                                   {brandFilter === 'All Brands' && <Check size={10} className="text-white" />}
                               </div>
@@ -3151,7 +3337,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
                               <span className={`text-sm ${brandFilter === 'All Brands' ? 'text-black font-medium' : 'text-gray-600'}`}>All Brands</span>
                           </label>
                           {BRANDS_LIST.filter(b => b !== "All Brands").map(brand => (
-                              <label key={brand} className="flex items-center gap-3 cursor-pointer group">
+                              <label key={brand} className="flex items-center gap-3 cursor-pointer group py-1">
                                   <div className={`w-4 h-4 border rounded flex items-center justify-center transition-colors ${brandFilter === brand ? 'bg-black border-black' : 'border-gray-300 group-hover:border-gray-400'}`}>
                                       {brandFilter === brand && <Check size={10} className="text-white" />}
                                   </div>
@@ -3162,7 +3348,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
                       </div>
                   </div>
               </aside>
-  
+   
               {/* MAIN CONTENT */}
               <div className="flex-1 min-w-0">
                   {/* Sort & Count Bar */}
@@ -3189,7 +3375,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
                           </div>
                       </div>
                   </div>
-  
+   
                   {/* PRODUCTS GRID */}
                   <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
                       {filteredProducts.length > 0 ? (
@@ -3200,7 +3386,17 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
                               onClick={() => navigateTo('product', product)}
                           >
                               <div className={`relative bg-[#f8f8f8] overflow-hidden ${viewMode === 'list' ? 'w-32 h-32 rounded-lg shrink-0' : 'aspect-[4/5]'}`}>
-                                  <img loading="lazy" src={product.image} alt={`${product.name} by ${product.brand} - ${product.category} from Shaa Trading`} className="w-full h-full object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105" />
+                                  {/* UPDATED IMAGE LOGIC: 
+                                      - object-contain: Shows full image without cropping/zooming default
+                                      - p-4: Adds padding so image doesn't touch edges
+                                      - group-hover:scale-110: Zooms in ONLY on hover
+                                  */}
+                                  <img 
+                                      loading="lazy" 
+                                      src={product.image} 
+                                      alt={product.name} 
+                                      className="w-full h-full object-contain p-4 mix-blend-multiply transition-transform duration-500 group-hover:scale-110" 
+                                  />
                                   
                                   {viewMode === 'grid' && (
                                       <div className="absolute top-3 left-3 right-3 flex justify-between items-start opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -3208,9 +3404,9 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
                                       </div>
                                   )}
                                   {product.price > 12000 && viewMode === 'grid' && (
-                                       <div className="absolute top-3 right-3 bg-gray-800 text-white text-[8px] px-2 py-1 rounded font-bold tracking-wider uppercase shadow-sm">Best Seller</div>
+                                      <div className="absolute top-3 right-3 bg-gray-800 text-white text-[8px] px-2 py-1 rounded font-bold tracking-wider uppercase shadow-sm">Best Seller</div>
                                   )}
-  
+   
                                   {/* Quick Add Overlay (Desktop) */}
                                   {viewMode === 'grid' && (
                                       <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out hidden md:block bg-gradient-to-t from-black/60 to-transparent pt-12">
@@ -3223,13 +3419,12 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
                                       </div>
                                   )}
                               </div>
-  
+   
                               <div className={`${viewMode === 'list' ? 'flex-1 flex flex-col justify-center' : 'pt-4 pb-2 px-2'}`}>
                                   <div className="text-gray-400 text-[9px] font-bold tracking-widest uppercase mb-1.5">{product.category}</div>
                                   <h3 className={`font-serif text-gray-900 leading-tight ${viewMode === 'list' ? 'text-xl mb-2' : 'text-base mb-2 line-clamp-2 min-h-[2.5em]'}`}>{product.name}</h3>
                                   <div className="flex items-center justify-between mt-auto">
                                       <p className="text-base font-medium font-serif">₹{product.price.toLocaleString()}</p>
-                                      {/* Mobile/Grid Icon Add */}
                                       <button 
                                           className="md:hidden w-8 h-8 bg-black text-white rounded-full flex items-center justify-center active:scale-95"
                                           onClick={(e) => { e.stopPropagation(); addToCart(product); }}
@@ -3237,17 +3432,6 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
                                           <Plus size={16} />
                                       </button>
                                   </div>
-                                  {viewMode === 'list' && (
-                                      <div className="mt-4 flex gap-3">
-                                          <button 
-                                              className="bg-black text-white px-6 py-2 text-xs font-bold uppercase tracking-wider rounded hover:bg-gray-800 transition-colors"
-                                              onClick={(e) => { e.stopPropagation(); addToCart(product); }}
-                                          >
-                                              Add to Cart
-                                          </button>
-                                          <button className="text-xs font-medium border border-gray-200 px-4 py-2 rounded hover:border-black transition-colors">View Details</button>
-                                      </div>
-                                  )}
                               </div>
                           </div>
                           ))
@@ -3262,45 +3446,6 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
                   </div>
               </div>
           </div>
-        </div>
-  
-        {/* MOBILE FILTER DRAWER */}
-        <div className={`fixed inset-0 z-[70] flex justify-end pointer-events-none ${mobileFiltersOpen ? 'pointer-events-auto' : ''}`}>
-           <div 
-              className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${mobileFiltersOpen ? 'opacity-100' : 'opacity-0'}`}
-              onClick={() => setMobileFiltersOpen(false)}
-           ></div>
-           <div className={`relative bg-white w-full max-w-xs h-full shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col ${mobileFiltersOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-              <div className="p-5 border-b border-gray-100 flex justify-between items-center bg-white">
-                  <h3 className="font-serif text-xl">Filters</h3>
-                  <button onClick={() => setMobileFiltersOpen(false)} className="text-gray-500"><X size={24}/></button>
-              </div>
-              <div className="flex-1 overflow-y-auto p-6 space-y-8">
-                  {/* Mobile Categories */}
-                  <div>
-                      <h4 className="font-bold text-xs uppercase tracking-widest text-gray-400 mb-4">Category</h4>
-                      <div className="space-y-2">
-                          <button onClick={() => {setFilter('All'); setMobileFiltersOpen(false);}} className={`block w-full text-left text-sm py-2 px-2 rounded ${filter === 'All' ? 'bg-gray-100 font-medium' : ''}`}>All Categories</button>
-                          {CATEGORIES.map(cat => (
-                              <button key={cat.id} onClick={() => {setFilter(cat.name); setMobileFiltersOpen(false);}} className={`block w-full text-left text-sm py-2 px-2 rounded ${filter === cat.name ? 'bg-gray-100 font-medium' : ''}`}>{cat.name}</button>
-                          ))}
-                      </div>
-                  </div>
-                  {/* Mobile Brands */}
-                  <div>
-                      <h4 className="font-bold text-xs uppercase tracking-widest text-gray-400 mb-4">Brand</h4>
-                      <div className="space-y-2">
-                          <button onClick={() => {setBrandFilter('All Brands'); setMobileFiltersOpen(false);}} className={`block w-full text-left text-sm py-2 px-2 rounded ${brandFilter === 'All Brands' ? 'bg-gray-100 font-medium' : ''}`}>All Brands</button>
-                          {BRANDS_LIST.filter(b => b !== "All Brands").map(brand => (
-                              <button key={brand} onClick={() => {setBrandFilter(brand); setMobileFiltersOpen(false);}} className={`block w-full text-left text-sm py-2 px-2 rounded ${brandFilter === brand ? 'bg-gray-100 font-medium' : ''}`}>{brand}</button>
-                          ))}
-                      </div>
-                  </div>
-              </div>
-              <div className="p-5 border-t border-gray-100 bg-gray-50">
-                  <button onClick={() => setMobileFiltersOpen(false)} className="w-full bg-black text-white py-3 text-sm font-bold uppercase tracking-widest rounded-lg">View {filteredProducts.length} Results</button>
-              </div>
-           </div>
         </div>
       </div>
     );
@@ -4258,6 +4403,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
 };
 
   /* --- Main App --- */
+  /* --- Main App --- */
   
   export default function ShaaTradingApp() {
     const [currentPage, setCurrentPage] = useState('home');
@@ -4265,20 +4411,23 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
     const [cartOpen, setCartOpen] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
-    const [selectedPost, setSelectedPost] = useState(null); // State for selected blog post
+    const [selectedPost, setSelectedPost] = useState(null);
+    const [toast, setToast] = useState(null);
+    const [transactionId, setTransactionId] = useState(null);
+
+    // --- LIFTED STATE FOR FILTERS AND SEARCH ---
     const [shopFilter, setShopFilter] = useState('All');
-    const [toast, setToast] = useState(null); // { message, type }
-    const [transactionId, setTransactionId] = useState(null); // To store razorpay transaction id
+    const [brandFilter, setBrandFilter] = useState('All Brands'); // Lifted
+    const [searchQuery, setSearchQuery] = useState(''); // Lifted
   
         // Listen for History Navigation (Back/Forward buttons)
     useEffect(() => {
-      // Initial route resolution from current URL (supports clean paths + legacy query params)
+      // Initial route resolution from current URL
       const initialRoute = getRouteFromLocation();
       setCurrentPage(initialRoute.page);
       if (initialRoute.product) setSelectedProduct(initialRoute.product);
       if (initialRoute.post) setSelectedPost(initialRoute.post);
 
-      // Sync history state with resolved route
       const initialState = {
         page: initialRoute.page,
         product: initialRoute.product || null,
@@ -4292,7 +4441,6 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
           setSelectedProduct(event.state.product || null);
           setSelectedPost(event.state.post || null);
         } else {
-          // Fallback: derive from location again if state is missing
           const route = getRouteFromLocation();
           setCurrentPage(route.page);
           setSelectedProduct(route.product || null);
@@ -4311,13 +4459,12 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
 
     const navigateTo = (page, item = null) => {
       if (page === 'product' && item) setSelectedProduct(item);
-      if (page === 'blog-post' && item) setSelectedPost(item); // Handle blog post navigation
+      if (page === 'blog-post' && item) setSelectedPost(item); 
 
       setCurrentPage(page);
       setMobileMenuOpen(false);
       window.scrollTo(0, 0);
 
-      // Build clean path and push history state for navigation
       const stateObj = { 
         page, 
         product: page === 'product' ? item : null,
@@ -4353,7 +4500,10 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
             : item
         )
       );
-    };// --- RAZORPAY INTEGRATION ---
+    };
+
+    // ... (Keep Razorpay Integration code as is) ...
+    // Note: Insert loadRazorpay and handlePayment functions here (omitted for brevity as they didn't change logic, just placement)
     const loadRazorpay = () => {
       return new Promise((resolve) => {
         const script = document.createElement('script');
@@ -4372,19 +4522,17 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
         return;
       }
   
-      // Save temp data for success view
       localStorage.setItem('temp_cart', JSON.stringify(cart));
       localStorage.setItem('temp_user', JSON.stringify(customerDetails));
   
       const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   
-      // NOTE: In production, create order on server to get order_id
       try {
         const data = await fetch(`${API_BASE_URL}/api/payment/order`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
-                amount: total * 100, // Convert to paise
+                amount: total * 100, 
                 currency: "INR" 
             })
         }).then((t) => t.json());
@@ -4436,8 +4584,9 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
         showToast("Could not initiate payment. Server error.", "error");
       }
     };
-  
+
     const { title, description, jsonLd, keywords, canonical, robots } = getSeoConfig(currentPage, selectedProduct, selectedPost);
+    
     return (
       <div className="font-sans text-gray-900 bg-[#fbfbfb] min-h-screen flex flex-col selection:bg-gray-800 selection:text-white">
         <Helmet>
@@ -4472,7 +4621,6 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
           @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         `}</style>
   
-        {/* Toast Notification */}
         {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
   
         {currentPage === 'success' ? (
@@ -4486,12 +4634,30 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
               toggleCart={() => setCartOpen(true)}
               mobileMenuOpen={mobileMenuOpen}
               setMobileMenuOpen={setMobileMenuOpen}
+              // Passed Props for Search and Filtering
               setShopFilter={setShopFilter} 
+              setBrandFilter={setBrandFilter}
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
             />
   
             <main className="flex-grow">
               {currentPage === 'home' && <HomeView navigateTo={navigateTo} addToCart={addToCart} setShopFilter={setShopFilter} />}
-              {currentPage === 'shop' && <ShopView navigateTo={navigateTo} addToCart={addToCart} filter={shopFilter} setFilter={setShopFilter} />}
+              
+              {/* Passed props to ShopView */}
+              {currentPage === 'shop' && (
+                <ShopView 
+                  navigateTo={navigateTo} 
+                  addToCart={addToCart} 
+                  filter={shopFilter} 
+                  setFilter={setShopFilter} 
+                  brandFilter={brandFilter}
+                  setBrandFilter={setBrandFilter}
+                  searchQuery={searchQuery}
+                  setSearchQuery={setSearchQuery}
+                />
+              )}
+
               {currentPage === 'product' && selectedProduct && <ProductView product={selectedProduct} addToCart={addToCart} navigateTo={navigateTo} />}
               {currentPage === 'blog' && <BlogView navigateTo={navigateTo} />}
               {currentPage === 'blog-post' && selectedPost && <BlogPostView post={selectedPost} navigateTo={navigateTo} />}
