@@ -85,6 +85,9 @@ const BLOG_POSTS = [
   }
 ];
 
+// IDs for homepage bestselling products. Update this array to change displayed items.
+const BEST_SELLER_IDS = [33, 62, 20, 14]; 
+
 const PRODUCTS = [
   {
     id: 1,
@@ -2840,6 +2843,25 @@ const Footer = ({ setCurrentPage, showToast }) => {
 
 const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
     <div className="animate-fade-in bg-[#fbfbfb]">
+      {/* TICKER - MOVED ABOVE HERO WITH PROPER LOOP */}
+      <div className="bg-black text-white/80 py-3 border-b border-white/10 overflow-hidden relative z-20">
+          <div className="flex animate-marquee whitespace-nowrap">
+              <div className="flex items-center gap-8 md:gap-12 px-4 text-[10px] md:text-xs tracking-widest uppercase font-medium">
+                  <span className="flex items-center gap-2"><ShieldCheck size={14} className="text-white"/> 100% Authentic</span>
+                  <span className="flex items-center gap-2"><Truck size={14} className="text-white"/> Pan India Shipping</span>
+                  <span className="flex items-center gap-2"><Award size={14} className="text-white"/> Authorized Distributor</span>
+                  <span className="flex items-center gap-2"><MapPin size={14} className="text-white"/> 24-48h Dispatch</span>
+                  <span className="flex items-center gap-2"><Globe size={14} className="text-white"/> Direct Sourcing</span>
+                  {/* Duplicate for seamless loop */}
+                  <span className="flex items-center gap-2"><ShieldCheck size={14} className="text-white"/> 100% Authentic</span>
+                  <span className="flex items-center gap-2"><Truck size={14} className="text-white"/> Pan India Shipping</span>
+                  <span className="flex items-center gap-2"><Award size={14} className="text-white"/> Authorized Distributor</span>
+                  <span className="flex items-center gap-2"><MapPin size={14} className="text-white"/> 24-48h Dispatch</span>
+                  <span className="flex items-center gap-2"><Globe size={14} className="text-white"/> Direct Sourcing</span>
+              </div>
+          </div>
+      </div>
+
       {/* HERO SECTION */}
       <div className="relative w-full min-h-[85vh] bg-black flex flex-col justify-center items-center text-center overflow-hidden">
           <div 
@@ -2878,20 +2900,6 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
           {/* Scroll Indicator */}
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce hidden md:block">
               <ArrowUpDown size={20} />
-          </div>
-      </div>
-  
-      {/* TICKER - UPDATED FOR PAN INDIA */}
-      <div className="bg-black text-white/80 py-3 border-b border-white/10 overflow-hidden relative z-20">
-          <div className="flex items-center gap-8 md:gap-12 animate-marquee whitespace-nowrap min-w-full px-4 text-[10px] md:text-xs tracking-widest uppercase font-medium">
-              <span className="flex items-center gap-2"><ShieldCheck size={14} className="text-white"/> 100% Authentic</span>
-              <span className="flex items-center gap-2"><Truck size={14} className="text-white"/> Pan India Shipping</span>
-              <span className="flex items-center gap-2"><Award size={14} className="text-white"/> Authorized Distributor</span>
-              <span className="flex items-center gap-2"><MapPin size={14} className="text-white"/> 24-48h Dispatch</span>
-              <span className="flex items-center gap-2"><Globe size={14} className="text-white"/> Direct Sourcing</span>
-              {/* Duplicated for smooth loop on wide screens */}
-              <span className="flex items-center gap-2"><ShieldCheck size={14} className="text-white"/> 100% Authentic</span>
-              <span className="flex items-center gap-2"><Truck size={14} className="text-white"/> Pan India Shipping</span>
           </div>
       </div>
   
@@ -2966,11 +2974,11 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
           
           {/* Mobile Horizontal Scroll */}
           <div className="flex md:grid md:grid-cols-4 gap-6 overflow-x-auto md:overflow-visible pb-6 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">
-              {PRODUCTS.slice(0, 4).map(product => (
-                   <div key={product.id} className="group cursor-pointer min-w-[260px] md:min-w-0 snap-start" onClick={() => navigateTo('product', product)}>
-                      <div className="relative aspect-[4/5] bg-gray-50 rounded-lg overflow-hidden mb-4">
-                          <img loading="lazy" src={product.image} alt={`${product.name} by ${product.brand} - ${product.category} from Shaa Trading`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                      </div>
+                    {BEST_SELLER_IDS.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean).map(product => (
+                       <div key={product.id} className="group cursor-pointer min-w-[260px] md:min-w-0 snap-start" onClick={() => navigateTo('product', product)}>
+                        <div className="relative aspect-[4/5] bg-gray-50 rounded-lg overflow-hidden mb-4">
+                          <img loading="lazy" src={product.image} alt={`${product.name} by ${product.brand} - ${product.category} from Shaa Trading`} className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105" />
+                        </div>
                       <div className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">{product.brand}</div>
                       <h3 className="font-serif text-lg leading-tight mb-2 group-hover:text-gray-800 transition-colors truncate">{product.name}</h3>
                       <p className="text-gray-900 font-medium">₹{product.price.toLocaleString()}</p>
@@ -3034,7 +3042,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
         </div>
       </section>
     </div>
-  );
+);
   
   const ShopView = ({ navigateTo, addToCart, filter, setFilter }) => {
     const [brandFilter, setBrandFilter] = useState('All Brands');
@@ -3408,9 +3416,9 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
         <div className="max-w-7xl mx-auto px-6 py-8 md:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start">
             <div className="space-y-4">
-              <div className="aspect-[4/5] bg-gray-50 rounded-xl overflow-hidden w-full relative">
-                  <img loading="lazy" src={images[activeImg]} alt={product.name} className="w-full h-full object-cover" />
-              </div>
+                <div className="aspect-[4/5] bg-gray-50 rounded-xl overflow-hidden w-full relative group">
+                  <img loading="lazy" src={images[activeImg]} alt={product.name} className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105" />
+                </div>
               <div className="flex gap-2 overflow-x-auto pb-2">
                 {images.map((img, idx) => (
                   <div key={idx} onClick={() => setActiveImg(idx)} className={`w-20 h-20 shrink-0 rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${activeImg === idx ? 'border-gray-800' : 'border-transparent'}`}><img loading="lazy" src={img} alt="" className="w-full h-full object-cover" /></div>
@@ -3463,9 +3471,9 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
                   <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible pb-6 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">
                       {similarProducts.map(product => (
                             <div key={product.id} className="group cursor-pointer min-w-[260px] md:min-w-0 snap-start" onClick={() => navigateTo('product', product)}>
-                              <div className="relative aspect-[4/5] bg-gray-50 rounded-lg overflow-hidden mb-4">
-                                  <img loading="lazy" src={product.image} alt={`${product.name} by ${product.brand} - ${product.category} from Shaa Trading`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                              </div>
+                                <div className="relative aspect-[4/5] bg-gray-50 rounded-lg overflow-hidden mb-4">
+                                  <img loading="lazy" src={product.image} alt={`${product.name} by ${product.brand} - ${product.category} from Shaa Trading`} className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105" />
+                                </div>
                               <div className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">{product.brand}</div>
                               <h3 className="font-serif text-lg leading-tight mb-2 group-hover:text-gray-800 transition-colors truncate">{product.name}</h3>
                               <p className="text-gray-900 font-medium">₹{product.price.toLocaleString()}</p>
