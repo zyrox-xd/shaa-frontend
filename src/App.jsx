@@ -2919,7 +2919,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                   { name: 'Healthcare Injections', img: '/image/glutax-5gs-adv-12s.jpg', desc: 'Glutathione & Medical Solutions', filter: 'Injection' },
-                  { name: 'Cream', img: '/image/glowtiqa-advance.jpg', desc: 'Skincare & Topicals', filter: 'Filler' },
+                  { name: 'Whitening Creams', img: '/image/glowtiqa-advance.jpg', desc: 'Topical Skincare Products', filter: 'Cream' },
                   { name: 'Oral Supplements', img: '/image/japan-beauty-booster.jpg', desc: 'Maintenance & Care', filter: 'Supplement' }
               ].map((cat, idx) => (
                   <div 
