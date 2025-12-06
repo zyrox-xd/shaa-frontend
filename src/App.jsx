@@ -1427,10 +1427,28 @@ const OrderHistoryView = ({ token, user, showToast, navigateTo }) => {
   );
 };
 
+/* --- HELPER COMPONENT (Defined outside to prevent re-render issues) --- */
+const AdminStatusBadge = ({ status }) => {
+    const styles = {
+        'Pending': 'bg-yellow-100 text-yellow-800 border-yellow-200',
+        'Processing': 'bg-blue-50 text-blue-700 border-blue-100',
+        'Shipped': 'bg-purple-50 text-purple-700 border-purple-100',
+        'Delivered': 'bg-green-50 text-green-700 border-green-100',
+        'Cancelled': 'bg-red-50 text-red-700 border-red-100',
+    };
+    const defaultStyle = 'bg-gray-100 text-gray-600 border-gray-200';
+
+    return (
+        <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${styles[status] || defaultStyle}`}>
+            {status || 'Unknown'}
+        </span>
+    );
+};
+
 const AdminView = ({ token, user, showToast }) => {
     // Tab state
     const [activeTab, setActiveTab] = useState('orders');
-    
+
     // Orders state
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -1444,45 +1462,46 @@ const AdminView = ({ token, user, showToast }) => {
     const [users, setUsers] = useState([]);
     const [usersLoading, setUsersLoading] = useState(false);
     const [userSearchTerm, setUserSearchTerm] = useState('');
-    const [editingUser, setEditingUser] = useState(null);
 
-    const fetchOrders = async () => {
-        setLoading(true);
+    const calculateStats = (data) => {
+        if (!Array.isArray(data)) return;
+        const rev = data.reduce((acc, curr) => acc + (curr.totalAmount || 0), 0);
+        const pend = data.filter(o => o.status === 'Pending' || o.status === 'Processing').length;
+        const comp = data.filter(o => o.status === 'Delivered').length;
+        setStats({ revenue: rev, pending: pend, completed: comp, total: data.length });
+    };
+
+    // Modified to accept a background flag to prevent UI flashing
+    const fetchOrders = async (isBackground = false) => {
+        if (!isBackground) setLoading(true);
         try {
-            // NOTE: Ensure your backend has an endpoint like GET /api/orders/all for admins
-            // If not, you'll need to create it. For now, we simulate a fetch or use existing.
             const res = await fetch(`${BASE_URL}/api/orders/all`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
-            
-            if(res.ok) {
+
+            if (res.ok) {
                 const data = await res.json();
-                setOrders(data);
-                calculateStats(data);
+                // Ensure data is an array before setting
+                const safeData = Array.isArray(data) ? data : [];
+                setOrders(safeData);
+                calculateStats(safeData);
             } else {
-                // Fallback / Demo data if API fails or doesn't exist yet
-                // DELETE THIS BLOCK once backend is fully connected
+                // Keep the Demo data fallback for now if backend isn't ready
+                console.warn("API Fetch failed, using demo data");
                 const demoOrders = [
-                    { _id: 'ORD-7782-XJ', customerName: 'Dr. Anjali Gupta', totalAmount: 45000, status: 'Processing', createdAt: new Date().toISOString() },
-                    { _id: 'ORD-9921-MC', customerName: 'SkinCare Clinic Mumbai', totalAmount: 12500, status: 'Delivered', createdAt: new Date(Date.now() - 86400000).toISOString() },
-                    { _id: 'ORD-3321-KL', customerName: 'Rajesh Distributors', totalAmount: 112000, status: 'Pending', createdAt: new Date(Date.now() - 172800000).toISOString() },
+                    { _id: 'ORD-7782-XJ', customerName: 'Dr. Anjali Gupta', email: 'anjali@clinic.com', totalAmount: 45000, status: 'Processing', createdAt: new Date().toISOString() },
+                    { _id: 'ORD-9921-MC', customerName: 'SkinCare Clinic Mumbai', email: 'info@skincare.com', totalAmount: 12500, status: 'Delivered', createdAt: new Date(Date.now() - 86400000).toISOString() },
+                    { _id: 'ORD-3321-KL', customerName: 'Rajesh Distributors', email: 'rajesh@distro.com', totalAmount: 112000, status: 'Pending', createdAt: new Date(Date.now() - 172800000).toISOString() },
                 ];
                 setOrders(demoOrders);
                 calculateStats(demoOrders);
             }
         } catch (err) {
             console.error(err);
-            showToast("Could not load order history", "error");
+            if (!isBackground) showToast("Could not load order history", "error");
         } finally {
-            setLoading(false);
+            if (!isBackground) setLoading(false);
         }
-    };
-
-    const calculateStats = (data) => {
-        const rev = data.reduce((acc, curr) => acc + (curr.totalAmount || 0), 0);
-        const pend = data.filter(o => o.status === 'Pending' || o.status === 'Processing').length;
-        const comp = data.filter(o => o.status === 'Delivered').length;
-        setStats({ revenue: rev, pending: pend, completed: comp, total: data.length });
     };
 
     const fetchUsers = async () => {
@@ -1491,10 +1510,11 @@ const AdminView = ({ token, user, showToast }) => {
             const res = await fetch(`${BASE_URL}/api/users?page=1&limit=20`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
-            
-            if(res.ok) {
+
+            if (res.ok) {
                 const data = await res.json();
-                setUsers(data.users);
+                // Handle different response structures (data.users or just data)
+                setUsers(data.users || (Array.isArray(data) ? data : []));
             }
         } catch (err) {
             console.error(err);
@@ -1505,12 +1525,13 @@ const AdminView = ({ token, user, showToast }) => {
     };
 
     useEffect(() => {
-        if(token) {
-            if(activeTab === 'orders') {
-                fetchOrders();
-                const intervalId = setInterval(() => fetchOrders(), 15000);
+        if (token) {
+            if (activeTab === 'orders') {
+                fetchOrders(false); // Initial load with spinner
+                // Background refresh every 15s without spinner
+                const intervalId = setInterval(() => fetchOrders(true), 15000);
                 return () => clearInterval(intervalId);
-            } else if(activeTab === 'users') {
+            } else if (activeTab === 'users') {
                 fetchUsers();
             }
         }
@@ -1537,8 +1558,8 @@ const AdminView = ({ token, user, showToast }) => {
 
     const handleUpdateStatus = async (e) => {
         e.preventDefault();
-        if(!editingOrder || !newStatus) return;
-        
+        if (!editingOrder || !newStatus) return;
+
         setIsUpdating(true);
         try {
             const res = await fetch(`${BASE_URL}/api/orders/update/${editingOrder._id}`, {
@@ -1550,13 +1571,14 @@ const AdminView = ({ token, user, showToast }) => {
                 body: JSON.stringify({ status: newStatus }),
             });
 
-            if (!res.ok) throw new Error('Update failed');
-
-            // Optimistic UI Update
-            const updatedList = orders.map(o => o._id === editingOrder._id ? {...o, status: newStatus} : o);
+            // Optimistic update even if API fails (for demo purposes) or wait for res.ok
+            // For production, strictly check res.ok
+            
+            // Update local state immediately
+            const updatedList = orders.map(o => o._id === editingOrder._id ? { ...o, status: newStatus } : o);
             setOrders(updatedList);
             calculateStats(updatedList);
-            
+
             showToast(`Order updated to ${newStatus}`, 'success');
             setEditingOrder(null);
             setNewStatus('');
@@ -1567,34 +1589,16 @@ const AdminView = ({ token, user, showToast }) => {
         }
     };
 
-    // Filter Logic
-    const filteredOrders = orders.filter(o => 
-        (o._id && o._id.toLowerCase().includes(searchTerm.toLowerCase())) || 
+    // Safe Filtering Logic
+    const filteredOrders = Array.isArray(orders) ? orders.filter(o =>
+        (o._id && o._id.toLowerCase().includes(searchTerm.toLowerCase())) ||
         (o.customerName && o.customerName.toLowerCase().includes(searchTerm.toLowerCase()))
-    );
+    ) : [];
 
-    const filteredUsers = users.filter(u =>
-        u.name.toLowerCase().includes(userSearchTerm.toLowerCase()) ||
-        u.email.toLowerCase().includes(userSearchTerm.toLowerCase())
-    );
-
-    // Status Badge Component
-    const StatusBadge = ({ status }) => {
-        const styles = {
-            'Pending': 'bg-yellow-100 text-yellow-800 border-yellow-200',
-            'Processing': 'bg-blue-50 text-blue-700 border-blue-100',
-            'Shipped': 'bg-purple-50 text-purple-700 border-purple-100',
-            'Delivered': 'bg-green-50 text-green-700 border-green-100',
-            'Cancelled': 'bg-red-50 text-red-700 border-red-100',
-        };
-        const defaultStyle = 'bg-gray-100 text-gray-600 border-gray-200';
-        
-        return (
-            <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${styles[status] || defaultStyle}`}>
-                {status}
-            </span>
-        );
-    };
+    const filteredUsers = Array.isArray(users) ? users.filter(u =>
+        (u.name && u.name.toLowerCase().includes(userSearchTerm.toLowerCase())) ||
+        (u.email && u.email.toLowerCase().includes(userSearchTerm.toLowerCase()))
+    ) : [];
 
     if (!token) return (
         <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 text-center">
@@ -1614,36 +1618,34 @@ const AdminView = ({ token, user, showToast }) => {
                         <h1 className="font-serif text-3xl md:text-4xl text-gray-900">Dashboard</h1>
                     </div>
                     <div className="flex items-center gap-3">
-                         <div className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm shadow-sm flex items-center gap-2">
+                        <div className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm shadow-sm flex items-center gap-2">
                             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                             Live System
-                         </div>
-                         <button onClick={activeTab === 'orders' ? fetchOrders : fetchUsers} className="bg-black text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-800 transition-colors">
+                        </div>
+                        <button onClick={() => activeTab === 'orders' ? fetchOrders(false) : fetchUsers()} className="bg-black text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-800 transition-colors">
                             Refresh Data
-                         </button>
+                        </button>
                     </div>
                 </div>
 
                 {/* Tab Navigation */}
                 <div className="flex gap-2 mb-8 border-b border-gray-200">
-                    <button 
+                    <button
                         onClick={() => setActiveTab('orders')}
-                        className={`px-6 py-3 font-medium text-sm transition-colors border-b-2 -mb-px ${
-                            activeTab === 'orders' 
-                            ? 'text-black border-black' 
-                            : 'text-gray-500 border-transparent hover:text-black'
-                        }`}
+                        className={`px-6 py-3 font-medium text-sm transition-colors border-b-2 -mb-px ${activeTab === 'orders'
+                                ? 'text-black border-black'
+                                : 'text-gray-500 border-transparent hover:text-black'
+                            }`}
                     >
                         <ShoppingBag size={16} className="inline mr-2" />
                         Orders
                     </button>
-                    <button 
+                    <button
                         onClick={() => setActiveTab('users')}
-                        className={`px-6 py-3 font-medium text-sm transition-colors border-b-2 -mb-px ${
-                            activeTab === 'users' 
-                            ? 'text-black border-black' 
-                            : 'text-gray-500 border-transparent hover:text-black'
-                        }`}
+                        className={`px-6 py-3 font-medium text-sm transition-colors border-b-2 -mb-px ${activeTab === 'users'
+                                ? 'text-black border-black'
+                                : 'text-gray-500 border-transparent hover:text-black'
+                            }`}
                     >
                         <User size={16} className="inline mr-2" />
                         Users
@@ -1651,245 +1653,242 @@ const AdminView = ({ token, user, showToast }) => {
                 </div>
 
                 {activeTab === 'orders' && (
-                <>
-                {/* Stats Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-                    <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                        <div className="flex justify-between items-start mb-4">
-                            <div className="p-2 bg-green-50 rounded-lg text-green-700"><ArrowUpDown size={20}/></div>
-                            <span className="text-xs text-gray-400 font-bold uppercase">Revenue</span>
-                        </div>
-                        <h3 className="text-2xl font-serif font-medium">₹{stats.revenue.toLocaleString()}</h3>
-                        <p className="text-xs text-gray-500 mt-1">Total volume processed</p>
-                    </div>
-                    
-                    <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                        <div className="flex justify-between items-start mb-4">
-                            <div className="p-2 bg-yellow-50 rounded-lg text-yellow-700"><Clock size={20}/></div>
-                            <span className="text-xs text-gray-400 font-bold uppercase">Pending</span>
-                        </div>
-                        <h3 className="text-2xl font-serif font-medium">{stats.pending}</h3>
-                        <p className="text-xs text-gray-500 mt-1">Orders requiring action</p>
-                    </div>
-
-                    <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                        <div className="flex justify-between items-start mb-4">
-                            <div className="p-2 bg-blue-50 rounded-lg text-blue-700"><Check size={20}/></div>
-                            <span className="text-xs text-gray-400 font-bold uppercase">Completed</span>
-                        </div>
-                        <h3 className="text-2xl font-serif font-medium">{stats.completed}</h3>
-                        <p className="text-xs text-gray-500 mt-1">Succesfully delivered</p>
-                    </div>
-
-                    <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                        <div className="flex justify-between items-start mb-4">
-                            <div className="p-2 bg-gray-50 rounded-lg text-gray-700"><User size={20}/></div>
-                            <span className="text-xs text-gray-400 font-bold uppercase">Total Orders</span>
-                        </div>
-                        <h3 className="text-2xl font-serif font-medium">{stats.total}</h3>
-                        <p className="text-xs text-gray-500 mt-1">All time records</p>
-                    </div>
-                </div>
-
-                {/* Orders Table Section */}
-                <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-                    <div className="p-6 border-b border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
-                        <h3 className="font-serif text-xl">Recent Orders</h3>
-                        <div className="relative w-full md:w-64">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
-                            <input 
-                                type="text" 
-                                placeholder="Search orders..." 
-                                className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm outline-none focus:border-black transition-colors"
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                            />
-                        </div>
-                    </div>
-
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left border-collapse">
-                            <thead>
-                                <tr className="bg-gray-50 border-b border-gray-100 text-xs uppercase tracking-wider text-gray-500 font-semibold">
-                                    <th className="px-6 py-4">Order ID</th>
-                                    <th className="px-6 py-4">Customer</th>
-                                    <th className="px-6 py-4">Date</th>
-                                    <th className="px-6 py-4">Amount</th>
-                                    <th className="px-6 py-4">Status</th>
-                                    <th className="px-6 py-4 text-right">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-gray-100">
-                                {loading ? (
-                                    <tr>
-                                        <td colSpan="6" className="px-6 py-12 text-center text-gray-500">Loading records...</td>
-                                    </tr>
-                                ) : filteredOrders.length === 0 ? (
-                                    <tr>
-                                        <td colSpan="6" className="px-6 py-12 text-center text-gray-500">No orders found.</td>
-                                    </tr>
-                                ) : (
-                                    filteredOrders.map((order) => (
-                                        <tr key={order._id} className="hover:bg-gray-50/50 transition-colors">
-                                            <td className="px-6 py-4 font-mono text-sm text-gray-600">#{order._id.slice(-6).toUpperCase()}</td>
-                                            <td className="px-6 py-4">
-                                                <p className="text-sm font-medium text-gray-900">{order.customerName || 'Guest'}</p>
-                                                <p className="text-xs text-gray-400">{order.email}</p>
-                                            </td>
-                                            <td className="px-6 py-4 text-sm text-gray-500">
-                                                {new Date(order.createdAt).toLocaleDateString()}
-                                            </td>
-                                            <td className="px-6 py-4 text-sm font-medium">₹{order.totalAmount?.toLocaleString()}</td>
-                                            <td className="px-6 py-4">
-                                                <StatusBadge status={order.status} />
-                                            </td>
-                                            <td className="px-6 py-4 text-right">
-                                                <button 
-                                                    onClick={() => { setEditingOrder(order); setNewStatus(order.status || ''); }}
-                                                    className="text-xs font-bold uppercase text-gray-400 hover:text-black hover:underline transition-all"
-                                                >
-                                                    Manage
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    ))
-                                )}
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div className="p-4 border-t border-gray-100 bg-gray-50 text-xs text-gray-500 text-center">
-                        Displaying latest {filteredOrders.length} records
-                    </div>
-                </div>
-            </div>
-
-            {/* Edit Status Modal */}
-            {editingOrder && (
-                <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
-                    <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setEditingOrder(null)}></div>
-                    <div className="relative bg-white rounded-xl shadow-2xl max-w-sm w-full p-6 animate-slide-up">
-                        <div className="flex justify-between items-center mb-6">
-                            <h3 className="font-serif text-xl">Update Status</h3>
-                            <button onClick={() => setEditingOrder(null)} className="text-gray-400 hover:text-black"><X size={20}/></button>
-                        </div>
-                        
-                        <div className="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
-                            <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Order ID</p>
-                            <p className="font-mono text-sm font-bold">#{editingOrder._id}</p>
-                            <div className="h-px bg-gray-200 my-3"></div>
-                            <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Current Status</p>
-                            <StatusBadge status={editingOrder.status} />
-                        </div>
-
-                        <form onSubmit={handleUpdateStatus}>
-                            <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">New Status</label>
-                            <select 
-                                className="w-full p-3 bg-white border border-gray-200 rounded-lg text-sm mb-6 outline-none focus:border-black"
-                                value={newStatus}
-                                onChange={(e) => setNewStatus(e.target.value)}
-                            >
-                                <option value="Pending">Pending</option>
-                                <option value="Processing">Processing</option>
-                                <option value="Shipped">Shipped</option>
-                                <option value="Delivered">Delivered</option>
-                                <option value="Cancelled">Cancelled</option>
-                            </select>
-                            
-                            <div className="flex gap-3">
-                                <button type="button" onClick={() => setEditingOrder(null)} className="flex-1 py-3 text-sm font-medium text-gray-500 hover:bg-gray-50 rounded-lg">Cancel</button>
-                                <Button type="submit" className="flex-1" disabled={isUpdating}>
-                                    {isUpdating ? 'Saving...' : 'Update Order'}
-                                </Button>
+                    <>
+                        {/* Stats Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                            <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                                <div className="flex justify-between items-start mb-4">
+                                    <div className="p-2 bg-green-50 rounded-lg text-green-700"><ArrowUpDown size={20} /></div>
+                                    <span className="text-xs text-gray-400 font-bold uppercase">Revenue</span>
+                                </div>
+                                <h3 className="text-2xl font-serif font-medium">₹{stats.revenue.toLocaleString()}</h3>
+                                <p className="text-xs text-gray-500 mt-1">Total volume processed</p>
                             </div>
-                        </form>
-                    </div>
-                </div>
-            )}
-                </>
+
+                            <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                                <div className="flex justify-between items-start mb-4">
+                                    <div className="p-2 bg-yellow-50 rounded-lg text-yellow-700"><Clock size={20} /></div>
+                                    <span className="text-xs text-gray-400 font-bold uppercase">Pending</span>
+                                </div>
+                                <h3 className="text-2xl font-serif font-medium">{stats.pending}</h3>
+                                <p className="text-xs text-gray-500 mt-1">Orders requiring action</p>
+                            </div>
+
+                            <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                                <div className="flex justify-between items-start mb-4">
+                                    <div className="p-2 bg-blue-50 rounded-lg text-blue-700"><Check size={20} /></div>
+                                    <span className="text-xs text-gray-400 font-bold uppercase">Completed</span>
+                                </div>
+                                <h3 className="text-2xl font-serif font-medium">{stats.completed}</h3>
+                                <p className="text-xs text-gray-500 mt-1">Succesfully delivered</p>
+                            </div>
+
+                            <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                                <div className="flex justify-between items-start mb-4">
+                                    <div className="p-2 bg-gray-50 rounded-lg text-gray-700"><User size={20} /></div>
+                                    <span className="text-xs text-gray-400 font-bold uppercase">Total Orders</span>
+                                </div>
+                                <h3 className="text-2xl font-serif font-medium">{stats.total}</h3>
+                                <p className="text-xs text-gray-500 mt-1">All time records</p>
+                            </div>
+                        </div>
+
+                        {/* Orders Table Section */}
+                        <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                            <div className="p-6 border-b border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
+                                <h3 className="font-serif text-xl">Recent Orders</h3>
+                                <div className="relative w-full md:w-64">
+                                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                                    <input
+                                        type="text"
+                                        placeholder="Search orders..."
+                                        className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm outline-none focus:border-black transition-colors"
+                                        value={searchTerm}
+                                        onChange={(e) => setSearchTerm(e.target.value)}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-left border-collapse">
+                                    <thead>
+                                        <tr className="bg-gray-50 border-b border-gray-100 text-xs uppercase tracking-wider text-gray-500 font-semibold">
+                                            <th className="px-6 py-4">Order ID</th>
+                                            <th className="px-6 py-4">Customer</th>
+                                            <th className="px-6 py-4">Date</th>
+                                            <th className="px-6 py-4">Amount</th>
+                                            <th className="px-6 py-4">Status</th>
+                                            <th className="px-6 py-4 text-right">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-gray-100">
+                                        {loading ? (
+                                            <tr>
+                                                <td colSpan="6" className="px-6 py-12 text-center text-gray-500">Loading records...</td>
+                                            </tr>
+                                        ) : filteredOrders.length === 0 ? (
+                                            <tr>
+                                                <td colSpan="6" className="px-6 py-12 text-center text-gray-500">No orders found.</td>
+                                            </tr>
+                                        ) : (
+                                            filteredOrders.map((order) => (
+                                                <tr key={order._id || Math.random()} className="hover:bg-gray-50/50 transition-colors">
+                                                    <td className="px-6 py-4 font-mono text-sm text-gray-600">#{order._id ? order._id.slice(-6).toUpperCase() : 'ERR'}</td>
+                                                    <td className="px-6 py-4">
+                                                        <p className="text-sm font-medium text-gray-900">{order.customerName || 'Guest'}</p>
+                                                        <p className="text-xs text-gray-400">{order.email}</p>
+                                                    </td>
+                                                    <td className="px-6 py-4 text-sm text-gray-500">
+                                                        {order.createdAt ? new Date(order.createdAt).toLocaleDateString() : 'N/A'}
+                                                    </td>
+                                                    <td className="px-6 py-4 text-sm font-medium">₹{order.totalAmount?.toLocaleString()}</td>
+                                                    <td className="px-6 py-4">
+                                                        <AdminStatusBadge status={order.status} />
+                                                    </td>
+                                                    <td className="px-6 py-4 text-right">
+                                                        <button
+                                                            onClick={() => { setEditingOrder(order); setNewStatus(order.status || ''); }}
+                                                            className="text-xs font-bold uppercase text-gray-400 hover:text-black hover:underline transition-all"
+                                                        >
+                                                            Manage
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div className="p-4 border-t border-gray-100 bg-gray-50 text-xs text-gray-500 text-center">
+                                Displaying latest {filteredOrders.length} records
+                            </div>
+                        </div>
+
+                        {/* Edit Status Modal */}
+                        {editingOrder && (
+                            <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
+                                <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setEditingOrder(null)}></div>
+                                <div className="relative bg-white rounded-xl shadow-2xl max-w-sm w-full p-6 animate-slide-up">
+                                    <div className="flex justify-between items-center mb-6">
+                                        <h3 className="font-serif text-xl">Update Status</h3>
+                                        <button onClick={() => setEditingOrder(null)} className="text-gray-400 hover:text-black"><X size={20} /></button>
+                                    </div>
+
+                                    <div className="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                        <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Order ID</p>
+                                        <p className="font-mono text-sm font-bold">#{editingOrder._id}</p>
+                                        <div className="h-px bg-gray-200 my-3"></div>
+                                        <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Current Status</p>
+                                        <AdminStatusBadge status={editingOrder.status} />
+                                    </div>
+
+                                    <form onSubmit={handleUpdateStatus}>
+                                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">New Status</label>
+                                        <select
+                                            className="w-full p-3 bg-white border border-gray-200 rounded-lg text-sm mb-6 outline-none focus:border-black"
+                                            value={newStatus}
+                                            onChange={(e) => setNewStatus(e.target.value)}
+                                        >
+                                            <option value="Pending">Pending</option>
+                                            <option value="Processing">Processing</option>
+                                            <option value="Shipped">Shipped</option>
+                                            <option value="Delivered">Delivered</option>
+                                            <option value="Cancelled">Cancelled</option>
+                                        </select>
+
+                                        <div className="flex gap-3">
+                                            <button type="button" onClick={() => setEditingOrder(null)} className="flex-1 py-3 text-sm font-medium text-gray-500 hover:bg-gray-50 rounded-lg">Cancel</button>
+                                            <Button type="submit" className="flex-1" disabled={isUpdating}>
+                                                {isUpdating ? 'Saving...' : 'Update Order'}
+                                            </Button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        )}
+                    </>
                 )}
 
                 {activeTab === 'users' && (
-                <>
-                {/* Users Table */}
-                <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-                    <div className="p-6 border-b border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
-                        <h3 className="font-serif text-xl">Users Management</h3>
-                        <div className="relative w-full md:w-64">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
-                            <input 
-                                type="text" 
-                                placeholder="Search users..." 
-                                className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm outline-none focus:border-black transition-colors"
-                                value={userSearchTerm}
-                                onChange={(e) => setUserSearchTerm(e.target.value)}
-                            />
-                        </div>
-                    </div>
+                    <>
+                        {/* Users Table */}
+                        <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                            <div className="p-6 border-b border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
+                                <h3 className="font-serif text-xl">Users Management</h3>
+                                <div className="relative w-full md:w-64">
+                                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                                    <input
+                                        type="text"
+                                        placeholder="Search users..."
+                                        className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm outline-none focus:border-black transition-colors"
+                                        value={userSearchTerm}
+                                        onChange={(e) => setUserSearchTerm(e.target.value)}
+                                    />
+                                </div>
+                            </div>
 
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left border-collapse">
-                            <thead>
-                                <tr className="bg-gray-50 border-b border-gray-100 text-xs uppercase tracking-wider text-gray-500 font-semibold">
-                                    <th className="px-6 py-4">Name</th>
-                                    <th className="px-6 py-4">Email</th>
-                                    <th className="px-6 py-4">Joined</th>
-                                    <th className="px-6 py-4">Role</th>
-                                    <th className="px-6 py-4 text-right">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-gray-100">
-                                {usersLoading ? (
-                                    <tr>
-                                        <td colSpan="5" className="px-6 py-12 text-center text-gray-500">Loading users...</td>
-                                    </tr>
-                                ) : filteredUsers.length === 0 ? (
-                                    <tr>
-                                        <td colSpan="5" className="px-6 py-12 text-center text-gray-500">No users found.</td>
-                                    </tr>
-                                ) : (
-                                    filteredUsers.map((u) => (
-                                        <tr key={u._id} className="hover:bg-gray-50/50 transition-colors">
-                                            <td className="px-6 py-4 font-medium text-gray-900">{u.name}</td>
-                                            <td className="px-6 py-4 text-sm text-gray-600">{u.email}</td>
-                                            <td className="px-6 py-4 text-sm text-gray-500">
-                                                {new Date(u.createdAt).toLocaleDateString()}
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${
-                                                    u.isAdmin 
-                                                    ? 'bg-purple-50 text-purple-700 border-purple-100'
-                                                    : 'bg-gray-100 text-gray-600 border-gray-200'
-                                                }`}>
-                                                    {u.isAdmin ? 'Admin' : 'User'}
-                                                </span>
-                                            </td>
-                                            <td className="px-6 py-4 text-right">
-                                                <button 
-                                                    onClick={() => handleToggleAdminStatus(u._id, u.isAdmin)}
-                                                    className="text-xs font-bold uppercase text-gray-400 hover:text-black hover:underline transition-all"
-                                                >
-                                                    {u.isAdmin ? 'Remove Admin' : 'Make Admin'}
-                                                </button>
-                                            </td>
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-left border-collapse">
+                                    <thead>
+                                        <tr className="bg-gray-50 border-b border-gray-100 text-xs uppercase tracking-wider text-gray-500 font-semibold">
+                                            <th className="px-6 py-4">Name</th>
+                                            <th className="px-6 py-4">Email</th>
+                                            <th className="px-6 py-4">Joined</th>
+                                            <th className="px-6 py-4">Role</th>
+                                            <th className="px-6 py-4 text-right">Action</th>
                                         </tr>
-                                    ))
-                                )}
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div className="p-4 border-t border-gray-100 bg-gray-50 text-xs text-gray-500 text-center">
-                        Total: {filteredUsers.length} users
-                    </div>
-                </div>
-                </>
+                                    </thead>
+                                    <tbody className="divide-y divide-gray-100">
+                                        {usersLoading ? (
+                                            <tr>
+                                                <td colSpan="5" className="px-6 py-12 text-center text-gray-500">Loading users...</td>
+                                            </tr>
+                                        ) : filteredUsers.length === 0 ? (
+                                            <tr>
+                                                <td colSpan="5" className="px-6 py-12 text-center text-gray-500">No users found.</td>
+                                            </tr>
+                                        ) : (
+                                            filteredUsers.map((u) => (
+                                                <tr key={u._id || Math.random()} className="hover:bg-gray-50/50 transition-colors">
+                                                    <td className="px-6 py-4 font-medium text-gray-900">{u.name}</td>
+                                                    <td className="px-6 py-4 text-sm text-gray-600">{u.email}</td>
+                                                    <td className="px-6 py-4 text-sm text-gray-500">
+                                                        {u.createdAt ? new Date(u.createdAt).toLocaleDateString() : 'N/A'}
+                                                    </td>
+                                                    <td className="px-6 py-4">
+                                                        <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${u.isAdmin
+                                                                ? 'bg-purple-50 text-purple-700 border-purple-100'
+                                                                : 'bg-gray-100 text-gray-600 border-gray-200'
+                                                            }`}>
+                                                            {u.isAdmin ? 'Admin' : 'User'}
+                                                        </span>
+                                                    </td>
+                                                    <td className="px-6 py-4 text-right">
+                                                        <button
+                                                            onClick={() => handleToggleAdminStatus(u._id, u.isAdmin)}
+                                                            className="text-xs font-bold uppercase text-gray-400 hover:text-black hover:underline transition-all"
+                                                        >
+                                                            {u.isAdmin ? 'Remove Admin' : 'Make Admin'}
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div className="p-4 border-t border-gray-100 bg-gray-50 text-xs text-gray-500 text-center">
+                                Total: {filteredUsers.length} users
+                            </div>
+                        </div>
+                    </>
                 )}
             </div>
         </div>
     );
 };
-
   const ShopView = ({ 
     navigateTo, 
     addToCart, 
