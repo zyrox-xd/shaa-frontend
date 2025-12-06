@@ -1223,7 +1223,17 @@ const AdminView = ({ token, user, showToast }) => {
     };
 
     useEffect(() => {
-        if(token) fetchOrders();
+        if(token) {
+            fetchOrders(); // Fetch immediately on load
+
+            // Set up a timer to fetch every 15 seconds
+            const intervalId = setInterval(() => {
+                fetchOrders();
+            }, 15000);
+
+            // Cleanup the timer when you leave the page
+            return () => clearInterval(intervalId);
+        }
     }, [token]);
 
     const handleUpdateStatus = async (e) => {
@@ -2749,7 +2759,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
       });
     };
   
-    const handlePayment = async (customerDetails) => {
+   const handlePayment = async (customerDetails) => {
       const res = await loadRazorpay();
       
       if (!res) {
@@ -2757,12 +2767,14 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
         return;
       }
   
+      // Save temp data for the Success Page View
       localStorage.setItem('temp_cart', JSON.stringify(cart));
       localStorage.setItem('temp_user', JSON.stringify(customerDetails));
   
       const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   
       try {
+        // 1. Create Order on Server
         const data = await fetch(`${API_BASE_URL}/api/payment/order`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -2781,6 +2793,8 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
             image: "/image/shaa-logo.png",
             order_id: data.id, 
             handler: async function (response) {
+                
+                // 2. Verify Payment on Server
                 const verifyRes = await fetch(`${API_BASE_URL}/api/payment/verify`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -2792,8 +2806,33 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
                 }).then((t) => t.json());
 
                 if (verifyRes.success) {
+                    // --- NEW STEP: SAVE ORDER TO DATABASE ---
+                    // This ensures it shows up in your Admin Dashboard
+                    try {
+                        await fetch(`${BASE_URL}/api/orders/create`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                customerName: customerDetails.name,
+                                email: customerDetails.email,
+                                phone: customerDetails.phone,
+                                address: customerDetails.address,
+                                items: cart,
+                                totalAmount: total,
+                                paymentId: response.razorpay_payment_id,
+                                status: 'Pending'
+                            })
+                        });
+                        console.log("Order saved to DB");
+                    } catch (saveError) {
+                        console.error("Failed to save order to DB", saveError);
+                        // We still continue to success page, but maybe show a warning log
+                    }
+                    // ----------------------------------------
+
                     setTransactionId(response.razorpay_payment_id);
                     setCartOpen(false);
+                    setCart([]); // Clear the cart in state
                     navigateTo('success');
                 } else {
                     showToast("Payment verification failed", "error");
