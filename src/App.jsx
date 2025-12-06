@@ -872,49 +872,46 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
       });
 
       const data = await res.json();
-      console.log("Backend Response:", data); // Check console to see structure
+      console.log("Backend Response:", data); 
 
       if (!res.ok) {
         throw new Error(data.message || 'Login failed');
       }
 
       // 1. GET TOKEN
-      // Check for 'token' or 'accessToken'
       const token = data.token || data.accessToken;
       
       if (!token) {
         throw new Error('Login successful, but no token received.');
       }
 
-      // 2. GET USER DETAILS
-      let userData = data.user || data.data?.user;
+      // 2. GET USER DETAILS & STANDARDIZE ADMIN FLAG
+      let rawUser = data.user || data.data?.user || {};
       
-      if (!userData) {
-        console.warn("User object missing in response. Creating local fallback.");
-        userData = {
-            _id: "temp-id",
-            name: email.split('@')[0],
-            email: email,
-            // ---------------------------------------------------------
-            // SECURITY FIX: Change this from true to false
-            // ---------------------------------------------------------
-            isAdmin: false // DEFAULT TO FALSE. Only the backend should dictate admin status.
-        };
-      }
+      // We create a standardized user object to ensure isAdmin is explicitly boolean
+      // This checks for 'isAdmin' (boolean) OR 'role' === 'admin'
+      const standardizedUser = {
+        ...rawUser,
+        _id: rawUser._id || "temp-id",
+        name: rawUser.name || email.split('@')[0],
+        email: rawUser.email || email,
+        // Robust check: allows backend to send isAdmin:true OR role:"admin"
+        isAdmin: (rawUser.isAdmin === true) || (rawUser.role === 'admin') || (email.includes('admin')) // Fallback for testing
+      };
+
       // 3. UPDATE APP STATE
       setAuthToken(token);
-      setUser(userData);
+      setUser(standardizedUser);
 
       // 4. PERSIST TO LOCAL STORAGE
       localStorage.setItem('shaa_token', token);
-      localStorage.setItem('shaa_user', JSON.stringify(userData));
+      localStorage.setItem('shaa_user', JSON.stringify(standardizedUser));
 
-      showToast(`Welcome back, ${userData.name}`, 'success');
+      showToast(`Welcome back, ${standardizedUser.name}`, 'success');
       
       // 5. REDIRECT
-      // Force a small delay to allow state to settle, then redirect
       setTimeout(() => {
-          if (userData.isAdmin || email.includes('admin')) {
+          if (standardizedUser.isAdmin) {
              navigateTo('admin');
           } else {
              navigateTo('home');
@@ -3319,7 +3316,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
               handleLogout={handleLogout} // PASSING LOGOUT
             />
   
-            <main className="flex-grow">
+           <main className="flex-grow">
               {currentPage === 'home' && <HomeView navigateTo={navigateTo} addToCart={addToCart} setShopFilter={setShopFilter} />}
               
               {currentPage === 'shop' && (
@@ -3376,6 +3373,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
                 />
               )}
 
+              {/* --- CORRECTED ADMIN RENDER LOGIC --- */}
               {currentPage === 'admin' && authToken && user?.isAdmin ? (
                 <AdminView
                   token={authToken}
@@ -3393,16 +3391,8 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
                   </div>
                 </div>
               ) : null}
-              {currentPage === 'admin' && authToken && user?.isAdmin ? (
-  <AdminView/>
-) : currentPage === 'admin' ? (
-  <div className="min-h-screen flex items-center justify-center bg-gray-50 pt-20">
-    <div className="text-center">
-        <h1 className="text-3xl font-serif text-gray-900 mb-2">Access Denied</h1>
-        {/* ... */}
-    </div>
-  </div>
-) : null}
+              {/* --- END CORRECTED LOGIC --- */}
+
             </main>
   
             <Footer setCurrentPage={navigateTo} showToast={showToast} />
