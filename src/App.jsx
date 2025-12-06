@@ -83,13 +83,16 @@ const Navigation = ({
   mobileMenuOpen, 
   setMobileMenuOpen, 
   setShopFilter,
-  setBrandFilter, // New prop
-  searchQuery,    // New prop
-  setSearchQuery  // New prop
+  setBrandFilter,
+  searchQuery,
+  setSearchQuery,
+  user,           // NEW PROP
+  handleLogout    // NEW PROP
 }) => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [shopDropdownOpen, setShopDropdownOpen] = useState(false);
-    const [mobileExpanded, setMobileExpanded] = useState({ categories: false, brands: false });
+    const [userDropdownOpen, setUserDropdownOpen] = useState(false); // NEW STATE
+    const [mobileExpanded, setMobileExpanded] = useState({ categories: false, brands: false, account: false });
 
     // Handle Search Input
     const handleSearchChange = (e) => {
@@ -99,7 +102,6 @@ const Navigation = ({
         }
     };
 
-    // Toggle Mobile Accordions
     const toggleMobileSection = (section) => {
         setMobileExpanded(prev => ({ ...prev, [section]: !prev[section] }));
     };
@@ -183,6 +185,38 @@ const Navigation = ({
                          )}
                     </div>
 
+                    {/* NEW: User/Account Dropdown */}
+                    <div 
+                        className="relative hidden lg:block"
+                        onMouseEnter={() => setUserDropdownOpen(true)}
+                        onMouseLeave={() => setUserDropdownOpen(false)}
+                    >
+                        <button className="p-2 text-gray-800 hover:text-black hover:bg-gray-100 rounded-full transition-colors">
+                            <User size={22} />
+                        </button>
+                        
+                        <div className={`absolute top-full right-0 w-48 bg-white shadow-xl border border-gray-100 rounded-xl p-2 transition-all duration-200 origin-top-right ${userDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}`}>
+                            {user ? (
+                                <>
+                                    <div className="px-3 py-2 border-b border-gray-50 mb-1">
+                                        <p className="text-xs text-gray-500">Signed in as</p>
+                                        <p className="text-sm font-bold truncate">{user.name}</p>
+                                    </div>
+                                    <button onClick={() => { setCurrentPage('track'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><Truck size={14}/> Track Order</button>
+                                    <button onClick={() => { setCurrentPage('admin'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><ShieldCheck size={14}/> Admin Panel</button>
+                                    <button onClick={() => { handleLogout(); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded mt-1 flex items-center gap-2"><ArrowRight size={14}/> Logout</button>
+                                </>
+                            ) : (
+                                <>
+                                    <button onClick={() => { setCurrentPage('login'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded">Login</button>
+                                    <button onClick={() => { setCurrentPage('signup'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded">Register</button>
+                                    <div className="h-px bg-gray-50 my-1"></div>
+                                    <button onClick={() => { setCurrentPage('track'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><Truck size={14}/> Track Order</button>
+                                </>
+                            )}
+                        </div>
+                    </div>
+
                     <button className="relative p-2 text-gray-800 hover:text-black hover:bg-gray-100 rounded-full transition-colors" onClick={toggleCart}>
                         <ShoppingBag size={22} />
                         {cartCount > 0 && <span className="absolute -top-1 -right-1 bg-black text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full">{cartCount}</span>}
@@ -212,7 +246,6 @@ const Navigation = ({
                                 <div className="border-b border-gray-50">
                                     <button onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('shop'); setMobileMenuOpen(false); }} className="w-full px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 bg-gray-50/50">Shop All</button>
                                     
-                                    {/* Categories Accordion */}
                                     <button onClick={() => toggleMobileSection('categories')} className="w-full px-6 py-3 text-left flex justify-between items-center text-sm font-bold text-gray-500 uppercase tracking-widest bg-white">
                                         Categories <ChevronDown size={14} className={`transition-transform ${mobileExpanded.categories ? 'rotate-180' : ''}`}/>
                                     </button>
@@ -224,7 +257,6 @@ const Navigation = ({
                                         </div>
                                     )}
 
-                                    {/* Brands Accordion */}
                                     <button onClick={() => toggleMobileSection('brands')} className="w-full px-6 py-3 text-left flex justify-between items-center text-sm font-bold text-gray-500 uppercase tracking-widest bg-white border-t border-gray-50">
                                         Brands <ChevronDown size={14} className={`transition-transform ${mobileExpanded.brands ? 'rotate-180' : ''}`}/>
                                     </button>
@@ -238,7 +270,30 @@ const Navigation = ({
                                 </div>
 
                                 <button onClick={() => { setCurrentPage('blog'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">Blog</button>
-                                <button onClick={() => { setCurrentPage('about'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">About Us</button>
+                                
+                                {/* Mobile Account Section */}
+                                <button onClick={() => toggleMobileSection('account')} className="w-full px-6 py-4 text-left flex justify-between items-center text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">
+                                    Account {user && <span className="text-xs bg-black text-white px-2 py-0.5 rounded-full ml-2">Logged In</span>}
+                                    <ChevronDown size={14} className={`transition-transform ${mobileExpanded.account ? 'rotate-180' : ''}`}/>
+                                </button>
+                                {mobileExpanded.account && (
+                                    <div className="bg-gray-50 px-6 py-4 space-y-3">
+                                        {user ? (
+                                            <>
+                                                <button onClick={() => { setCurrentPage('track'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Track Orders</button>
+                                                <button onClick={() => { setCurrentPage('admin'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Admin Panel</button>
+                                                <button onClick={() => { handleLogout(); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-red-500">Logout</button>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <button onClick={() => { setCurrentPage('login'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Login</button>
+                                                <button onClick={() => { setCurrentPage('signup'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Register</button>
+                                                <button onClick={() => { setCurrentPage('track'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Track Order</button>
+                                            </>
+                                        )}
+                                    </div>
+                                )}
+
                                 <button onClick={() => { setCurrentPage('contact'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">Contact</button>
                             </div>
                         </div>
@@ -806,20 +861,13 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
       });
       const data = await res.json();
 
-      if (!res.ok) {
-        throw new Error(data.message || 'Login failed');
-      }
-
-      if (!data.token) {
-        throw new Error('No token received from server');
-      }
+      if (!res.ok) throw new Error(data.message || 'Login failed');
+      if (!data.token) throw new Error('No token received');
 
       setAuthToken(data.token);
       setUser(data.user || null);
       localStorage.setItem('shaa_token', data.token);
-      if (data.user) {
-        localStorage.setItem('shaa_user', JSON.stringify(data.user));
-      }
+      if (data.user) localStorage.setItem('shaa_user', JSON.stringify(data.user));
 
       showToast('Logged in successfully', 'success');
       navigateTo('home');
@@ -832,51 +880,61 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
   };
 
   return (
-    <div className="bg-[#fbfbfb] min-h-screen pt-28 pb-16 px-6">
-      <div className="max-w-md mx-auto bg-white border border-gray-100 rounded-2xl shadow-sm p-8">
-        <h1 className="font-serif text-3xl mb-2 text-gray-900">Clinic / Admin Login</h1>
-        <p className="text-sm text-gray-500 mb-6">
-          Secure access for internal staff to manage orders and clients.
-        </p>
+    <div className="min-h-[calc(100vh-80px)] flex flex-col md:flex-row bg-white animate-fade-in">
+      {/* Image Section */}
+      <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-gray-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/image/ban1.jpg')] bg-cover bg-center opacity-60 mix-blend-overlay"></div>
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-12 text-center">
+            <h2 className="font-serif text-4xl mb-4">Partner Portal</h2>
+            <p className="font-light text-white/80 max-w-sm">Access exclusive wholesale pricing, track bulk shipments, and manage your clinic profile.</p>
+        </div>
+      </div>
+      
+      {/* Form Section */}
+      <div className="w-full md:w-1/2 flex items-center justify-center p-8 md:p-16 bg-white">
+        <div className="w-full max-w-md space-y-8">
+            <div className="text-center md:text-left">
+                <h1 className="font-serif text-3xl md:text-4xl text-gray-900 mb-2">Welcome Back</h1>
+                <p className="text-gray-500 text-sm">Please enter your details to sign in.</p>
+            </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Email</label>
-            <input
-              type="email"
-              required
-              className="mt-1 w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div>
-            <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Password</label>
-            <input
-              type="password"
-              required
-              className="mt-1 w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Email Address</label>
+                    <input
+                        type="email"
+                        required
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black focus:bg-white outline-none transition-all"
+                        placeholder="clinic@example.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div>
+                    <div className="flex justify-between items-center mb-2">
+                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500">Password</label>
+                        <button type="button" className="text-xs text-gray-400 hover:text-black">Forgot?</button>
+                    </div>
+                    <input
+                        type="password"
+                        required
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black focus:bg-white outline-none transition-all"
+                        placeholder="••••••••"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-black text-white py-3 rounded-lg text-sm font-semibold tracking-widest uppercase hover:bg-gray-900 disabled:opacity-60"
-          >
-            {loading ? 'Signing in…' : 'Login'}
-          </button>
+                <Button type="submit" className="w-full py-4 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all" disabled={loading}>
+                    {loading ? 'Authenticating...' : 'Sign In'}
+                </Button>
+            </form>
 
-          <button
-            type="button"
-            onClick={() => navigateTo('signup')}
-            className="w-full text-xs text-gray-500 mt-3 underline underline-offset-4"
-          >
-            Need an account? Go to Signup
-          </button>
-        </form>
+            <p className="text-center text-sm text-gray-500">
+                Don't have an account?{' '}
+                <button onClick={() => navigateTo('signup')} className="font-semibold text-black hover:underline underline-offset-4">Apply for Access</button>
+            </p>
+        </div>
       </div>
     </div>
   );
@@ -898,12 +956,8 @@ const SignupView = ({ navigateTo, showToast }) => {
         body: JSON.stringify({ name, email, password })
       });
       const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.message || 'Signup failed');
-      }
-
-      showToast('Signup successful. You can now log in.', 'success');
+      if (!res.ok) throw new Error(data.message || 'Signup failed');
+      showToast('Account created. Please login.', 'success');
       navigateTo('login');
     } catch (err) {
       console.error(err);
@@ -914,63 +968,47 @@ const SignupView = ({ navigateTo, showToast }) => {
   };
 
   return (
-    <div className="bg-[#fbfbfb] min-h-screen pt-28 pb-16 px-6">
-      <div className="max-w-md mx-auto bg-white border border-gray-100 rounded-2xl shadow-sm p-8">
-        <h1 className="font-serif text-3xl mb-2 text-gray-900">Create Account</h1>
-        <p className="text-sm text-gray-500 mb-6">
-          For internal staff / trusted partners only.
-        </p>
+    <div className="min-h-[calc(100vh-80px)] flex flex-col md:flex-row bg-white animate-fade-in">
+       {/* Image Section - Flipped for visual variety */}
+       <div className="w-full md:w-1/2 h-64 md:h-auto md:order-2 relative bg-gray-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/image/blog4.jpg')] bg-cover bg-center opacity-50 mix-blend-luminosity"></div>
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-12 text-center">
+            <h2 className="font-serif text-4xl mb-4">Join the Network</h2>
+            <p className="font-light text-white/80 max-w-sm">Verified clinics receive priority dispatch, cold-chain assurance, and wholesale rates.</p>
+        </div>
+      </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Full Name</label>
-            <input
-              type="text"
-              required
-              className="mt-1 w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
+      <div className="w-full md:w-1/2 md:order-1 flex items-center justify-center p-8 md:p-16 bg-white">
+        <div className="w-full max-w-md space-y-8">
+            <div className="text-center md:text-left">
+                <h1 className="font-serif text-3xl md:text-4xl text-gray-900 mb-2">Create Account</h1>
+                <p className="text-gray-500 text-sm">Strictly for medical professionals & clinics.</p>
+            </div>
 
-          <div>
-            <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Email</label>
-            <input
-              type="email"
-              required
-              className="mt-1 w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
+            <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Clinic / Full Name</label>
+                    <input type="text" required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none" value={name} onChange={(e) => setName(e.target.value)} />
+                </div>
+                <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Work Email</label>
+                    <input type="email" required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none" value={email} onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Password</label>
+                    <input type="password" required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none" value={password} onChange={(e) => setPassword(e.target.value)} />
+                </div>
 
-          <div>
-            <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Password</label>
-            <input
-              type="password"
-              required
-              className="mt-1 w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
+                <Button type="submit" className="w-full py-4 shadow-lg hover:shadow-xl" disabled={loading}>
+                    {loading ? 'Creating...' : 'Register Clinic'}
+                </Button>
+            </form>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-black text-white py-3 rounded-lg text-sm font-semibold tracking-widest uppercase hover:bg-gray-900 disabled:opacity-60"
-          >
-            {loading ? 'Creating…' : 'Sign Up'}
-          </button>
-
-          <button
-            type="button"
-            onClick={() => navigateTo('login')}
-            className="w-full text-xs text-gray-500 mt-3 underline underline-offset-4"
-          >
-            Already have an account? Login
-          </button>
-        </form>
+            <p className="text-center text-sm text-gray-500">
+                Already registered?{' '}
+                <button onClick={() => navigateTo('login')} className="font-semibold text-black hover:underline underline-offset-4">Login here</button>
+            </p>
+        </div>
       </div>
     </div>
   );
@@ -984,17 +1022,12 @@ const TrackOrderView = ({ navigateTo, showToast }) => {
   const handleTrack = async (e) => {
     e.preventDefault();
     if (!orderId.trim()) return;
-
     setLoading(true);
     setOrder(null);
     try {
       const res = await fetch(`${BASE_URL}/api/orders/${orderId.trim()}`);
       const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.message || 'Order not found');
-      }
-
+      if (!res.ok) throw new Error(data.message || 'Order not found');
       setOrder(data);
     } catch (err) {
       console.error(err);
@@ -1004,79 +1037,94 @@ const TrackOrderView = ({ navigateTo, showToast }) => {
     }
   };
 
-  return (
-    <div className="bg-[#fbfbfb] min-h-screen pt-28 pb-16 px-6">
-      <div className="max-w-xl mx-auto bg-white border border-gray-100 rounded-2xl shadow-sm p-8">
-        <h1 className="font-serif text-3xl mb-2 text-gray-900">Track Your Order</h1>
-        <p className="text-sm text-gray-500 mb-6">
-          Enter the Order ID shared on WhatsApp / email after your purchase.
-        </p>
+  // Helper to determine active step
+  const getStepStatus = (currentStatus) => {
+      const steps = ['Pending', 'Processing', 'Shipped', 'Delivered'];
+      const normalized = (currentStatus || 'Pending').charAt(0).toUpperCase() + (currentStatus || 'Pending').slice(1).toLowerCase();
+      // Simple logic: if status contains the step name, or implies it
+      if(normalized.includes('Deliver')) return 4;
+      if(normalized.includes('Ship') || normalized.includes('Dispatch')) return 3;
+      if(normalized.includes('Process') || normalized.includes('Pack')) return 2;
+      return 1;
+  };
 
-        <form onSubmit={handleTrack} className="flex gap-3 mb-6">
+  const currentStep = order ? getStepStatus(order.status) : 0;
+
+  return (
+    <div className="bg-[#fbfbfb] min-h-screen pt-32 pb-16 px-6 animate-fade-in">
+      <div className="max-w-xl mx-auto">
+        <div className="text-center mb-10">
+            <h1 className="font-serif text-3xl md:text-4xl text-gray-900 mb-2">Track Shipment</h1>
+            <p className="text-sm text-gray-500">Enter your Order ID (e.g. order_Pz...) to see real-time status.</p>
+        </div>
+
+        <form onSubmit={handleTrack} className="flex gap-2 mb-10 relative z-10">
           <input
             type="text"
-            placeholder="e.g. SHAA-2025-0001"
-            className="flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none"
+            placeholder="Order ID"
+            className="flex-1 px-6 py-4 bg-white border border-gray-200 rounded-lg text-sm shadow-sm focus:border-black outline-none transition-all"
             value={orderId}
             onChange={(e) => setOrderId(e.target.value)}
           />
           <button
             type="submit"
             disabled={loading || !orderId.trim()}
-            className="px-5 py-3 bg-black text-white rounded-lg text-sm font-semibold tracking-widest uppercase hover:bg-gray-900 disabled:opacity-60"
+            className="px-8 py-4 bg-black text-white rounded-lg text-sm font-bold uppercase tracking-widest hover:bg-gray-800 disabled:opacity-60 transition-colors shadow-lg"
           >
-            {loading ? 'Checking…' : 'Track'}
+            {loading ? '...' : 'Track'}
           </button>
         </form>
 
         {order && (
-          <div className="border border-gray-100 rounded-xl p-5 bg-gray-50">
-            <div className="flex justify-between items-center mb-3">
-              <div>
-                <p className="text-xs uppercase tracking-widest text-gray-400">Order ID</p>
-                <p className="font-mono text-sm text-gray-900">{order.orderId || order._id}</p>
-              </div>
-              <span className="px-3 py-1 text-xs rounded-full bg-black text-white uppercase tracking-widest">
-                {order.status || 'Pending'}
-              </span>
+          <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-xl animate-slide-up">
+            <div className="flex justify-between items-start mb-8 pb-6 border-b border-gray-50">
+                <div>
+                    <p className="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1">Order Status</p>
+                    <p className="text-2xl font-serif text-gray-900">{order.status || 'Pending'}</p>
+                </div>
+                <div className="text-right">
+                    <p className="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1">Estimated Arrival</p>
+                    <p className="text-sm font-medium">
+                        {order.expectedDelivery ? new Date(order.expectedDelivery).toLocaleDateString() : 'Calculating...'}
+                    </p>
+                </div>
             </div>
 
-            {order.customerName && (
-              <p className="text-sm text-gray-600 mb-1">
-                <span className="font-semibold">Customer:</span> {order.customerName}
-              </p>
-            )}
-            {order.totalAmount && (
-              <p className="text-sm text-gray-600 mb-1">
-                <span className="font-semibold">Amount:</span> ₹{order.totalAmount.toLocaleString()}
-              </p>
-            )}
-            {order.shippingProvider && (
-              <p className="text-sm text-gray-600 mb-1">
-                <span className="font-semibold">Courier:</span> {order.shippingProvider}
-              </p>
-            )}
-            {order.trackingNumber && (
-              <p className="text-sm text-gray-600 mb-1">
-                <span className="font-semibold">Tracking No:</span> {order.trackingNumber}
-              </p>
-            )}
-            {order.expectedDelivery && (
-              <p className="text-sm text-gray-600">
-                <span className="font-semibold">ETA:</span>{' '}
-                {new Date(order.expectedDelivery).toLocaleDateString('en-IN')}
-              </p>
-            )}
+            {/* Visual Timeline */}
+            <div className="relative flex justify-between items-center mb-10 mt-4 px-2">
+                <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-100 -z-0 rounded-full"></div>
+                <div className={`absolute top-1/2 left-0 h-1 bg-black -z-0 rounded-full transition-all duration-1000`} style={{width: `${((currentStep-1)/3)*100}%`}}></div>
+                
+                {['Ordered', 'Processing', 'Shipped', 'Delivered'].map((label, idx) => {
+                    const stepNum = idx + 1;
+                    const isActive = stepNum <= currentStep;
+                    return (
+                        <div key={label} className="relative z-10 flex flex-col items-center gap-2">
+                            <div className={`w-3 h-3 rounded-full border-2 ${isActive ? 'bg-black border-black' : 'bg-white border-gray-300'}`}></div>
+                            <span className={`text-[10px] uppercase tracking-wider font-bold ${isActive ? 'text-black' : 'text-gray-300'}`}>{label}</span>
+                        </div>
+                    )
+                })}
+            </div>
+
+            <div className="space-y-3 bg-gray-50 p-6 rounded-xl">
+                 <div className="flex justify-between text-sm">
+                    <span className="text-gray-500">Customer</span>
+                    <span className="font-medium">{order.customerName || 'Guest'}</span>
+                 </div>
+                 <div className="flex justify-between text-sm">
+                    <span className="text-gray-500">Total Amount</span>
+                    <span className="font-medium">₹{order.totalAmount?.toLocaleString()}</span>
+                 </div>
+                 {order.trackingNumber && (
+                    <div className="flex justify-between text-sm pt-2 border-t border-gray-200/50">
+                        <span className="text-gray-500">Courier Tracking</span>
+                        <span className="font-mono bg-white px-2 py-1 rounded border border-gray-200">{order.trackingNumber}</span>
+                    </div>
+                 )}
+            </div>
           </div>
         )}
-
-        <button
-          type="button"
-          onClick={() => navigateTo('home')}
-          className="mt-6 text-xs text-gray-500 underline underline-offset-4"
-        >
-          ← Back to Home
-        </button>
       </div>
     </div>
   );
@@ -2554,24 +2602,14 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
           {keywords && <meta name="keywords" content={keywords} />}
           {robots && <meta name="robots" content={robots} />}
           <link rel="canonical" href={canonical} />
-          <meta property="og:title" content={title} />
-          <meta property="og:description" content={description} />
-          <meta property="og:type" content={currentPage === 'product' ? 'product' : 'website'} />
-          <meta property="og:url" content={canonical} />
-          <meta property="og:image" content="https://shaatrading.in/image/logo-t.jpg" />
-          <script type="application/ld+json">
-            {JSON.stringify(jsonLd)}
-          </script>
         </Helmet>
+        
+        {/* Global Styles */}
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@200;300;400;500;600&display=swap');
           .font-serif { font-family: 'Cormorant Garamond', serif; }
           .font-sans { font-family: 'Inter', sans-serif; }
           .scrollbar-hide::-webkit-scrollbar { display: none; }
-          .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-          .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
-          .custom-scrollbar::-webkit-scrollbar-thumb { background: #ddd; border-radius: 4px; }
-          .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #ccc; }
           .animate-fade-in { animation: fade-in 0.6s ease-out forwards; }
           .animate-slide-up { animation: slide-up 0.8s ease-out forwards; }
           .animate-marquee { animation: marquee 20s linear infinite; }
@@ -2593,17 +2631,17 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
               toggleCart={() => setCartOpen(true)}
               mobileMenuOpen={mobileMenuOpen}
               setMobileMenuOpen={setMobileMenuOpen}
-              // Passed Props for Search and Filtering
               setShopFilter={setShopFilter} 
               setBrandFilter={setBrandFilter}
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
+              user={user}                 // PASSING USER
+              handleLogout={handleLogout} // PASSING LOGOUT
             />
   
             <main className="flex-grow">
               {currentPage === 'home' && <HomeView navigateTo={navigateTo} addToCart={addToCart} setShopFilter={setShopFilter} />}
               
-              {/* Passed props to ShopView */}
               {currentPage === 'shop' && (
                 <ShopView 
                   navigateTo={navigateTo} 
@@ -2625,6 +2663,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
               {currentPage === 'privacy' && <PrivacyPolicyView />}
               {currentPage === 'terms' && <TermsOfServiceView />}
               {currentPage === 'shipping' && <ShippingPolicyView />}
+              
               {currentPage === 'login' && (
                 <LoginView
                   navigateTo={navigateTo}
