@@ -3393,6 +3393,16 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
                   </div>
                 </div>
               ) : null}
+              {currentPage === 'admin' && authToken && user?.isAdmin ? (
+  <AdminView/>
+) : currentPage === 'admin' ? (
+  <div className="min-h-screen flex items-center justify-center bg-gray-50 pt-20">
+    <div className="text-center">
+        <h1 className="text-3xl font-serif text-gray-900 mb-2">Access Denied</h1>
+        {/* ... */}
+    </div>
+  </div>
+) : null}
             </main>
   
             <Footer setCurrentPage={navigateTo} showToast={showToast} />
