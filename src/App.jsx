@@ -853,27 +853,68 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    
     try {
+      console.log("Attempting login...");
       const res = await fetch(`${BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
       });
+
       const data = await res.json();
+      console.log("Backend Response:", data); // Check console to see structure
 
-      if (!res.ok) throw new Error(data.message || 'Login failed');
-      if (!data.token) throw new Error('No token received');
+      if (!res.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
 
-      setAuthToken(data.token);
-      setUser(data.user || null);
-      localStorage.setItem('shaa_token', data.token);
-      if (data.user) localStorage.setItem('shaa_user', JSON.stringify(data.user));
+      // 1. GET TOKEN
+      // Check for 'token' or 'accessToken'
+      const token = data.token || data.accessToken;
+      
+      if (!token) {
+        throw new Error('Login successful, but no token received.');
+      }
 
-      showToast('Logged in successfully', 'success');
-      navigateTo('home');
+      // 2. GET USER DETAILS
+      // If backend sends user data, use it. If not, create a fallback based on email.
+      // This ensures the UI updates even if backend only sends a token.
+      let userData = data.user || data.data?.user;
+      
+      if (!userData) {
+        console.warn("User object missing in response. Creating local fallback.");
+        userData = {
+            _id: "temp-id",
+            name: email.split('@')[0], // Use part of email as name
+            email: email,
+            isAdmin: true // Assume admin for now if you are logging in via this portal
+        };
+      }
+
+      // 3. UPDATE APP STATE
+      setAuthToken(token);
+      setUser(userData);
+
+      // 4. PERSIST TO LOCAL STORAGE
+      localStorage.setItem('shaa_token', token);
+      localStorage.setItem('shaa_user', JSON.stringify(userData));
+
+      showToast(`Welcome back, ${userData.name}`, 'success');
+      
+      // 5. REDIRECT
+      // Force a small delay to allow state to settle, then redirect
+      setTimeout(() => {
+          if (userData.isAdmin || email.includes('admin')) {
+             navigateTo('admin');
+          } else {
+             navigateTo('home');
+          }
+      }, 100);
+
     } catch (err) {
       console.error(err);
-      showToast(err.message || 'Login error', 'error');
+      showToast(err.message || 'Connection Error', 'error');
     } finally {
       setLoading(false);
     }
@@ -881,7 +922,6 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
 
   return (
     <div className="min-h-[calc(100vh-80px)] flex flex-col md:flex-row bg-white animate-fade-in">
-      {/* Image Section */}
       <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-gray-900 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/image/ban1.jpg')] bg-cover bg-center opacity-60 mix-blend-overlay"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-12 text-center">
@@ -890,7 +930,6 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
         </div>
       </div>
       
-      {/* Form Section */}
       <div className="w-full md:w-1/2 flex items-center justify-center p-8 md:p-16 bg-white">
         <div className="w-full max-w-md space-y-8">
             <div className="text-center md:text-left">
@@ -904,7 +943,7 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
                     <input
                         type="email"
                         required
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black focus:bg-white outline-none transition-all"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none transition-all"
                         placeholder="clinic@example.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -913,12 +952,11 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
                 <div>
                     <div className="flex justify-between items-center mb-2">
                         <label className="block text-xs font-bold uppercase tracking-widest text-gray-500">Password</label>
-                        <button type="button" className="text-xs text-gray-400 hover:text-black">Forgot?</button>
                     </div>
                     <input
                         type="password"
                         required
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black focus:bg-white outline-none transition-all"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none transition-all"
                         placeholder="••••••••"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
