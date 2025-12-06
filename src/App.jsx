@@ -2962,13 +2962,23 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
                 />
               )}
 
-              {currentPage === 'admin' && (
+              {currentPage === 'admin' && authToken && user?.isAdmin ? (
                 <AdminView
                   token={authToken}
                   user={user}
                   showToast={showToast}
                 />
-              )}
+              ) : currentPage === 'admin' ? (
+                <div className="min-h-screen flex items-center justify-center bg-gray-50 pt-20">
+                  <div className="text-center">
+                    <h1 className="text-3xl font-serif text-gray-900 mb-2">Access Denied</h1>
+                    <p className="text-gray-500 mb-6">You do not have permission to access the admin dashboard.</p>
+                    <button onClick={() => navigateTo('home')} className="px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800">
+                      Back to Home
+                    </button>
+                  </div>
+                </div>
+              ) : null}
             </main>
   
             <Footer setCurrentPage={navigateTo} showToast={showToast} />
