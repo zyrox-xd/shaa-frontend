@@ -199,6 +199,7 @@ const Navigation = ({
                                         <p className="text-xs text-gray-500">Signed in as</p>
                                         <p className="text-sm font-bold truncate">{user.name}</p>
                                     </div>
+                                    <button onClick={() => { setCurrentPage('orders'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><ShoppingBag size={14}/> My Orders</button>
                                     <button onClick={() => { setCurrentPage('track'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><Truck size={14}/> Track Order</button>
                                     
                                     {/* --- SECURITY CHECK HERE --- */}
@@ -1176,20 +1177,274 @@ const TrackOrderView = ({ navigateTo, showToast }) => {
   );
 };
 
+const OrderHistoryView = ({ token, user, showToast, navigateTo }) => {
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
+  useEffect(() => {
+    if (token) {
+      fetchOrders();
+    }
+  }, [token, page]);
+
+  const fetchOrders = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch(`${BASE_URL}/api/orders/user/history?page=${page}&limit=10`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      
+      if (res.ok) {
+        const data = await res.json();
+        setOrders(data.orders);
+        setTotalPages(data.pages);
+      } else {
+        showToast('Failed to load orders', 'error');
+      }
+    } catch (err) {
+      console.error(err);
+      showToast('Connection error', 'error');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const StatusBadge = ({ status }) => {
+    const styles = {
+      'Pending': 'bg-yellow-100 text-yellow-800 border-yellow-200',
+      'Paid': 'bg-blue-50 text-blue-700 border-blue-100',
+      'Processing': 'bg-blue-50 text-blue-700 border-blue-100',
+      'Packed': 'bg-purple-50 text-purple-700 border-purple-100',
+      'Shipped': 'bg-purple-50 text-purple-700 border-purple-100',
+      'Delivered': 'bg-green-50 text-green-700 border-green-100',
+      'Cancelled': 'bg-red-50 text-red-700 border-red-100',
+    };
+    const defaultStyle = 'bg-gray-100 text-gray-600 border-gray-200';
+    
+    return (
+      <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${styles[status] || defaultStyle}`}>
+        {status || 'Pending'}
+      </span>
+    );
+  };
+
+  if (!token) {
+    return (
+      <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 text-center">
+        <Truck size={48} className="text-gray-300 mb-4" />
+        <h2 className="text-2xl font-serif text-gray-900">Sign In Required</h2>
+        <p className="text-gray-500 mb-6">Please log in to view your order history.</p>
+        <button onClick={() => navigateTo('login')} className="px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800">
+          Sign In
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-[#f8f9fa] min-h-screen pt-10 pb-20 px-4 md:px-8 animate-fade-in">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
+        <div className="mb-10">
+          <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">My Account</p>
+          <h1 className="font-serif text-3xl md:text-4xl text-gray-900 mb-1">Order History</h1>
+          <p className="text-gray-500 text-sm">Track and manage all your orders</p>
+        </div>
+
+        {/* Orders List */}
+        <div className="space-y-4">
+          {loading ? (
+            <div className="flex justify-center py-12">
+              <p className="text-gray-400">Loading orders...</p>
+            </div>
+          ) : orders.length === 0 ? (
+            <div className="bg-white border border-gray-100 rounded-xl p-12 text-center">
+              <ShoppingBag size={40} className="text-gray-300 mx-auto mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 mb-1">No Orders Yet</h3>
+              <p className="text-gray-500 mb-6">Start shopping to see your orders here.</p>
+              <button onClick={() => navigateTo('shop')} className="px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800">
+                Continue Shopping
+              </button>
+            </div>
+          ) : (
+            orders.map((order) => (
+              <div key={order._id} className="bg-white border border-gray-100 rounded-xl p-6 hover:shadow-md transition-shadow">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+                  <div>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1">Order ID</p>
+                    <p className="font-mono text-sm font-bold text-gray-900">{order._id.slice(-8).toUpperCase()}</p>
+                  </div>
+                  
+                  <div>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1">Date</p>
+                    <p className="text-sm text-gray-900">{new Date(order.createdAt).toLocaleDateString()}</p>
+                  </div>
+                  
+                  <div>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1">Amount</p>
+                    <p className="text-sm font-medium text-gray-900">₹{order.amount?.toLocaleString()}</p>
+                  </div>
+                  
+                  <div className="flex items-center justify-between md:justify-end gap-4">
+                    <StatusBadge status={order.status} />
+                    <button 
+                      onClick={() => setSelectedOrder(order)}
+                      className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-lg border border-gray-200 transition-colors"
+                    >
+                      Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex justify-center gap-2 mt-10">
+            <button 
+              onClick={() => setPage(p => Math.max(1, p - 1))}
+              disabled={page === 1}
+              className="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium disabled:opacity-50"
+            >
+              Previous
+            </button>
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-gray-600">Page {page} of {totalPages}</span>
+            </div>
+            <button 
+              onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+              disabled={page === totalPages}
+              className="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Order Details Modal */}
+      {selectedOrder && (
+        <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setSelectedOrder(null)}></div>
+          <div className="relative bg-white rounded-xl shadow-2xl max-w-2xl w-full p-8 animate-slide-up max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="font-serif text-2xl">Order Details</h3>
+              <button onClick={() => setSelectedOrder(null)} className="text-gray-400 hover:text-black"><X size={20}/></button>
+            </div>
+            
+            <div className="space-y-6">
+              {/* Order Info */}
+              <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-xs text-gray-400 uppercase tracking-wide font-bold mb-1">Order ID</p>
+                    <p className="font-mono text-sm font-bold">{selectedOrder._id}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-400 uppercase tracking-wide font-bold mb-1">Status</p>
+                    <StatusBadge status={selectedOrder.status} />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-400 uppercase tracking-wide font-bold mb-1">Order Date</p>
+                    <p className="text-sm">{new Date(selectedOrder.createdAt).toLocaleDateString()}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-400 uppercase tracking-wide font-bold mb-1">Total Amount</p>
+                    <p className="text-sm font-medium">₹{selectedOrder.amount?.toLocaleString()}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Products */}
+              <div>
+                <h4 className="font-medium text-gray-900 mb-3">Products</h4>
+                <div className="space-y-2 bg-gray-50 p-4 rounded-lg border border-gray-100">
+                  {selectedOrder.products && selectedOrder.products.length > 0 ? (
+                    selectedOrder.products.map((product, idx) => (
+                      <div key={idx} className="flex justify-between text-sm border-b border-gray-200 pb-2 last:border-0">
+                        <div>
+                          <p className="font-medium text-gray-900">{product.name}</p>
+                          <p className="text-xs text-gray-500">Qty: {product.qty}</p>
+                        </div>
+                        <p className="font-medium">₹{(product.price * product.qty).toLocaleString()}</p>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-gray-500 text-sm">No product details available</p>
+                  )}
+                </div>
+              </div>
+
+              {/* Tracking */}
+              {selectedOrder.trackingNumber && (
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-2">Tracking Information</h4>
+                  <div className="p-4 bg-blue-50 border border-blue-100 rounded-lg">
+                    <p className="text-xs text-blue-600 uppercase tracking-wide font-bold mb-1">Tracking Number</p>
+                    <p className="font-mono text-sm font-bold text-blue-900">{selectedOrder.trackingNumber}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Payment Info */}
+              <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                <p className="text-xs text-gray-400 uppercase tracking-wide font-bold mb-2">Payment Details</p>
+                <div className="space-y-1 text-sm text-gray-600">
+                  <div className="flex justify-between">
+                    <span>Razorpay Order ID:</span>
+                    <span className="font-mono text-xs">{selectedOrder.razorpayOrderId?.slice(0, 20)}...</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Currency:</span>
+                    <span>{selectedOrder.currency || 'INR'}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <a 
+                  href={`${BASE_URL}/api/pdf/invoice/${selectedOrder._id}`}
+                  download
+                  className="flex-1 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 text-center transition-colors"
+                >
+                  <Download size={16} className="inline mr-2" />
+                  Download Invoice
+                </a>
+                <button onClick={() => setSelectedOrder(null)} className="flex-1 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const AdminView = ({ token, user, showToast }) => {
-    // State for dashboard data
+    // Tab state
+    const [activeTab, setActiveTab] = useState('orders');
+    
+    // Orders state
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
-    
-    // State for Modals
     const [editingOrder, setEditingOrder] = useState(null);
     const [newStatus, setNewStatus] = useState('');
     const [isUpdating, setIsUpdating] = useState(false);
-
-    // Mock Data for visualization (Replace with actual fetch in useEffect)
-    // If your backend isn't ready to return "All Orders", this ensures the UI still looks good.
     const [stats, setStats] = useState({ revenue: 0, pending: 0, completed: 0, total: 0 });
+
+    // Users state
+    const [users, setUsers] = useState([]);
+    const [usersLoading, setUsersLoading] = useState(false);
+    const [userSearchTerm, setUserSearchTerm] = useState('');
+    const [editingUser, setEditingUser] = useState(null);
 
     const fetchOrders = async () => {
         setLoading(true);
@@ -1230,19 +1485,55 @@ const AdminView = ({ token, user, showToast }) => {
         setStats({ revenue: rev, pending: pend, completed: comp, total: data.length });
     };
 
+    const fetchUsers = async () => {
+        setUsersLoading(true);
+        try {
+            const res = await fetch(`${BASE_URL}/api/users?page=1&limit=20`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            
+            if(res.ok) {
+                const data = await res.json();
+                setUsers(data.users);
+            }
+        } catch (err) {
+            console.error(err);
+            showToast("Could not load users", "error");
+        } finally {
+            setUsersLoading(false);
+        }
+    };
+
     useEffect(() => {
         if(token) {
-            fetchOrders(); // Fetch immediately on load
-
-            // Set up a timer to fetch every 15 seconds
-            const intervalId = setInterval(() => {
+            if(activeTab === 'orders') {
                 fetchOrders();
-            }, 15000);
-
-            // Cleanup the timer when you leave the page
-            return () => clearInterval(intervalId);
+                const intervalId = setInterval(() => fetchOrders(), 15000);
+                return () => clearInterval(intervalId);
+            } else if(activeTab === 'users') {
+                fetchUsers();
+            }
         }
-    }, [token]);
+    }, [token, activeTab]);
+
+    const handleToggleAdminStatus = async (userId, currentStatus) => {
+        try {
+            const res = await fetch(`${BASE_URL}/api/users/${userId}/toggle-admin`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
+
+            if (!res.ok) throw new Error('Update failed');
+
+            fetchUsers();
+            showToast(`Admin status updated`, 'success');
+        } catch (err) {
+            showToast(err.message, 'error');
+        }
+    };
 
     const handleUpdateStatus = async (e) => {
         e.preventDefault();
@@ -1280,6 +1571,11 @@ const AdminView = ({ token, user, showToast }) => {
     const filteredOrders = orders.filter(o => 
         (o._id && o._id.toLowerCase().includes(searchTerm.toLowerCase())) || 
         (o.customerName && o.customerName.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+
+    const filteredUsers = users.filter(u =>
+        u.name.toLowerCase().includes(userSearchTerm.toLowerCase()) ||
+        u.email.toLowerCase().includes(userSearchTerm.toLowerCase())
     );
 
     // Status Badge Component
@@ -1322,12 +1618,40 @@ const AdminView = ({ token, user, showToast }) => {
                             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                             Live System
                          </div>
-                         <button onClick={fetchOrders} className="bg-black text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-800 transition-colors">
+                         <button onClick={activeTab === 'orders' ? fetchOrders : fetchUsers} className="bg-black text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-800 transition-colors">
                             Refresh Data
                          </button>
                     </div>
                 </div>
 
+                {/* Tab Navigation */}
+                <div className="flex gap-2 mb-8 border-b border-gray-200">
+                    <button 
+                        onClick={() => setActiveTab('orders')}
+                        className={`px-6 py-3 font-medium text-sm transition-colors border-b-2 -mb-px ${
+                            activeTab === 'orders' 
+                            ? 'text-black border-black' 
+                            : 'text-gray-500 border-transparent hover:text-black'
+                        }`}
+                    >
+                        <ShoppingBag size={16} className="inline mr-2" />
+                        Orders
+                    </button>
+                    <button 
+                        onClick={() => setActiveTab('users')}
+                        className={`px-6 py-3 font-medium text-sm transition-colors border-b-2 -mb-px ${
+                            activeTab === 'users' 
+                            ? 'text-black border-black' 
+                            : 'text-gray-500 border-transparent hover:text-black'
+                        }`}
+                    >
+                        <User size={16} className="inline mr-2" />
+                        Users
+                    </button>
+                </div>
+
+                {activeTab === 'orders' && (
+                <>
                 {/* Stats Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
                     <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
@@ -1482,6 +1806,86 @@ const AdminView = ({ token, user, showToast }) => {
                     </div>
                 </div>
             )}
+                </>
+                )}
+
+                {activeTab === 'users' && (
+                <>
+                {/* Users Table */}
+                <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                    <div className="p-6 border-b border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <h3 className="font-serif text-xl">Users Management</h3>
+                        <div className="relative w-full md:w-64">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                            <input 
+                                type="text" 
+                                placeholder="Search users..." 
+                                className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm outline-none focus:border-black transition-colors"
+                                value={userSearchTerm}
+                                onChange={(e) => setUserSearchTerm(e.target.value)}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-left border-collapse">
+                            <thead>
+                                <tr className="bg-gray-50 border-b border-gray-100 text-xs uppercase tracking-wider text-gray-500 font-semibold">
+                                    <th className="px-6 py-4">Name</th>
+                                    <th className="px-6 py-4">Email</th>
+                                    <th className="px-6 py-4">Joined</th>
+                                    <th className="px-6 py-4">Role</th>
+                                    <th className="px-6 py-4 text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-gray-100">
+                                {usersLoading ? (
+                                    <tr>
+                                        <td colSpan="5" className="px-6 py-12 text-center text-gray-500">Loading users...</td>
+                                    </tr>
+                                ) : filteredUsers.length === 0 ? (
+                                    <tr>
+                                        <td colSpan="5" className="px-6 py-12 text-center text-gray-500">No users found.</td>
+                                    </tr>
+                                ) : (
+                                    filteredUsers.map((u) => (
+                                        <tr key={u._id} className="hover:bg-gray-50/50 transition-colors">
+                                            <td className="px-6 py-4 font-medium text-gray-900">{u.name}</td>
+                                            <td className="px-6 py-4 text-sm text-gray-600">{u.email}</td>
+                                            <td className="px-6 py-4 text-sm text-gray-500">
+                                                {new Date(u.createdAt).toLocaleDateString()}
+                                            </td>
+                                            <td className="px-6 py-4">
+                                                <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${
+                                                    u.isAdmin 
+                                                    ? 'bg-purple-50 text-purple-700 border-purple-100'
+                                                    : 'bg-gray-100 text-gray-600 border-gray-200'
+                                                }`}>
+                                                    {u.isAdmin ? 'Admin' : 'User'}
+                                                </span>
+                                            </td>
+                                            <td className="px-6 py-4 text-right">
+                                                <button 
+                                                    onClick={() => handleToggleAdminStatus(u._id, u.isAdmin)}
+                                                    className="text-xs font-bold uppercase text-gray-400 hover:text-black hover:underline transition-all"
+                                                >
+                                                    {u.isAdmin ? 'Remove Admin' : 'Make Admin'}
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div className="p-4 border-t border-gray-100 bg-gray-50 text-xs text-gray-500 text-center">
+                        Total: {filteredUsers.length} users
+                    </div>
+                </div>
+                </>
+                )}
+            </div>
         </div>
     );
 };
@@ -2959,6 +3363,15 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
                 <TrackOrderView
                   navigateTo={navigateTo}
                   showToast={showToast}
+                />
+              )}
+
+              {currentPage === 'orders' && (
+                <OrderHistoryView
+                  token={authToken}
+                  user={user}
+                  showToast={showToast}
+                  navigateTo={navigateTo}
                 />
               )}
 
