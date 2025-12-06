@@ -887,20 +887,20 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
       }
 
       // 2. GET USER DETAILS
-      // If backend sends user data, use it. If not, create a fallback based on email.
-      // This ensures the UI updates even if backend only sends a token.
       let userData = data.user || data.data?.user;
       
       if (!userData) {
         console.warn("User object missing in response. Creating local fallback.");
         userData = {
             _id: "temp-id",
-            name: email.split('@')[0], // Use part of email as name
+            name: email.split('@')[0],
             email: email,
-            isAdmin: true // Assume admin for now if you are logging in via this portal
+            // ---------------------------------------------------------
+            // SECURITY FIX: Change this from true to false
+            // ---------------------------------------------------------
+            isAdmin: false // DEFAULT TO FALSE. Only the backend should dictate admin status.
         };
       }
-
       // 3. UPDATE APP STATE
       setAuthToken(token);
       setUser(userData);
@@ -1473,36 +1473,38 @@ const AdminView = ({ token, user, showToast }) => {
 
     // Modified to accept a background flag to prevent UI flashing
     const fetchOrders = async (isBackground = false) => {
-        if (!isBackground) setLoading(true);
-        try {
-            const res = await fetch(`${BASE_URL}/api/orders/all`, {
-                headers: { 'Authorization': `Bearer ${token}` }
-            });
+    if (!isBackground) setLoading(true);
+    try {
+        const res = await fetch(`${BASE_URL}/api/orders/all`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
 
-            if (res.ok) {
-                const data = await res.json();
-                // Ensure data is an array before setting
-                const safeData = Array.isArray(data) ? data : [];
-                setOrders(safeData);
-                calculateStats(safeData);
-            } else {
-                // Keep the Demo data fallback for now if backend isn't ready
-                console.warn("API Fetch failed, using demo data");
-                const demoOrders = [
-                    { _id: 'ORD-7782-XJ', customerName: 'Dr. Anjali Gupta', email: 'anjali@clinic.com', totalAmount: 45000, status: 'Processing', createdAt: new Date().toISOString() },
-                    { _id: 'ORD-9921-MC', customerName: 'SkinCare Clinic Mumbai', email: 'info@skincare.com', totalAmount: 12500, status: 'Delivered', createdAt: new Date(Date.now() - 86400000).toISOString() },
-                    { _id: 'ORD-3321-KL', customerName: 'Rajesh Distributors', email: 'rajesh@distro.com', totalAmount: 112000, status: 'Pending', createdAt: new Date(Date.now() - 172800000).toISOString() },
-                ];
-                setOrders(demoOrders);
-                calculateStats(demoOrders);
+        if (res.ok) {
+            const data = await res.json();
+            const safeData = Array.isArray(data) ? data : [];
+            setOrders(safeData);
+            calculateStats(safeData);
+        } else {
+            // ---------------------------------------------------------
+            // SECURITY FIX: Remove the Demo Data fallback.
+            // If API fails (401/403), do not show dashboard.
+            // ---------------------------------------------------------
+            if (res.status === 401 || res.status === 403) {
+                 showToast("Session expired or unauthorized", "error");
+                 // Optional: Trigger logout here if you had access to the handler
+                 return; 
             }
-        } catch (err) {
-            console.error(err);
-            if (!isBackground) showToast("Could not load order history", "error");
-        } finally {
-            if (!isBackground) setLoading(false);
+            // Do not set demo orders
+            setOrders([]); 
+            if (!isBackground) showToast("Failed to load orders", "error");
         }
-    };
+    } catch (err) {
+        console.error(err);
+        if (!isBackground) showToast("Could not load order history", "error");
+    } finally {
+        if (!isBackground) setLoading(false);
+    }
+};
 
     const fetchUsers = async () => {
         setUsersLoading(true);
