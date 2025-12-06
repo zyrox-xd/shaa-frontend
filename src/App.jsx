@@ -864,7 +864,6 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
     setLoading(true);
     
     try {
-      console.log("Attempting login...");
       const res = await fetch(`${BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -872,48 +871,45 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
       });
 
       const data = await res.json();
-      console.log("Backend Response:", data); 
+      
+      // --- DEBUGGING LOG ---
+      // Open your browser console (F12) -> Console tab to see this
+      console.log("Login Response from Backend:", data); 
 
       if (!res.ok) {
         throw new Error(data.message || 'Login failed');
       }
 
-      // 1. GET TOKEN
       const token = data.token || data.accessToken;
       
-      if (!token) {
-        throw new Error('Login successful, but no token received.');
-      }
+      // Handle the user object structure
+      const rawUser = data.user || data.data?.user || {};
 
-      // 2. GET USER DETAILS & STANDARDIZE ADMIN FLAG
-      let rawUser = data.user || data.data?.user || {};
-      
-      // We create a standardized user object to ensure isAdmin is explicitly boolean
-      // This checks for 'isAdmin' (boolean) OR 'role' === 'admin'
+      // --- CRITICAL FIX FOR MONGODB isADMIN ---
+      // This forces the app to use the exact value from your MongoDB
       const standardizedUser = {
         ...rawUser,
-        _id: rawUser._id || "temp-id",
-        name: rawUser.name || email.split('@')[0],
-        email: rawUser.email || email,
-        // Robust check: allows backend to send isAdmin:true OR role:"admin"
-        isAdmin: (rawUser.isAdmin === true) || (rawUser.role === 'admin') || (email.includes('admin')) // Fallback for testing
+        // We check if it is explicitly true
+        isAdmin: rawUser.isAdmin === true 
       };
 
-      // 3. UPDATE APP STATE
+      console.log("User being saved to state:", standardizedUser);
+
+      // Save to State and LocalStorage
       setAuthToken(token);
       setUser(standardizedUser);
-
-      // 4. PERSIST TO LOCAL STORAGE
       localStorage.setItem('shaa_token', token);
       localStorage.setItem('shaa_user', JSON.stringify(standardizedUser));
 
       showToast(`Welcome back, ${standardizedUser.name}`, 'success');
       
-      // 5. REDIRECT
+      // Redirect based on the flag
       setTimeout(() => {
           if (standardizedUser.isAdmin) {
+             console.log("Redirecting to Admin Panel...");
              navigateTo('admin');
           } else {
+             console.log("Redirecting to Home...");
              navigateTo('home');
           }
       }, 100);
@@ -928,19 +924,21 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
 
   return (
     <div className="min-h-[calc(100vh-80px)] flex flex-col md:flex-row bg-white animate-fade-in">
+      {/* Visual Side */}
       <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-gray-900 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/image/ban1.jpg')] bg-cover bg-center opacity-60 mix-blend-overlay"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-12 text-center">
             <h2 className="font-serif text-4xl mb-4">Partner Portal</h2>
-            <p className="font-light text-white/80 max-w-sm">Access exclusive wholesale pricing, track bulk shipments, and manage your clinic profile.</p>
+            <p className="font-light text-white/80 max-w-sm">Admin & Clinic Access</p>
         </div>
       </div>
       
+      {/* Form Side */}
       <div className="w-full md:w-1/2 flex items-center justify-center p-8 md:p-16 bg-white">
         <div className="w-full max-w-md space-y-8">
             <div className="text-center md:text-left">
-                <h1 className="font-serif text-3xl md:text-4xl text-gray-900 mb-2">Welcome Back</h1>
-                <p className="text-gray-500 text-sm">Please enter your details to sign in.</p>
+                <h1 className="font-serif text-3xl md:text-4xl text-gray-900 mb-2">Login</h1>
+                <p className="text-gray-500 text-sm">Sign in to your account.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -949,41 +947,35 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
                     <input
                         type="email"
                         required
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none transition-all"
-                        placeholder="clinic@example.com"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
                 <div>
-                    <div className="flex justify-between items-center mb-2">
-                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500">Password</label>
-                    </div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Password</label>
                     <input
                         type="password"
                         required
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none transition-all"
-                        placeholder="••••••••"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
 
-                <Button type="submit" className="w-full py-4 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all" disabled={loading}>
-                    {loading ? 'Authenticating...' : 'Sign In'}
+                <Button type="submit" className="w-full py-4 shadow-lg" disabled={loading}>
+                    {loading ? 'Checking Access...' : 'Sign In'}
                 </Button>
             </form>
-
-            <p className="text-center text-sm text-gray-500">
-                Don't have an account?{' '}
-                <button onClick={() => navigateTo('signup')} className="font-semibold text-black hover:underline underline-offset-4">Apply for Access</button>
-            </p>
+            
+            <div className="text-center">
+               <button onClick={() => navigateTo('signup')} className="text-sm text-gray-500 hover:text-black">Create new account</button>
+            </div>
         </div>
       </div>
     </div>
   );
 };
-
 const SignupView = ({ navigateTo, showToast }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
