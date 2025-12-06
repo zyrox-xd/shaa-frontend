@@ -86,15 +86,14 @@ const Navigation = ({
   setBrandFilter,
   searchQuery,
   setSearchQuery,
-  user,           // NEW PROP
-  handleLogout    // NEW PROP
+  user,           
+  handleLogout    
 }) => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [shopDropdownOpen, setShopDropdownOpen] = useState(false);
-    const [userDropdownOpen, setUserDropdownOpen] = useState(false); // NEW STATE
+    const [userDropdownOpen, setUserDropdownOpen] = useState(false);
     const [mobileExpanded, setMobileExpanded] = useState({ categories: false, brands: false, account: false });
 
-    // Handle Search Input
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
         if (e.target.value.length > 0 && currentPage !== 'shop') {
@@ -133,7 +132,6 @@ const Navigation = ({
                             Shop <ChevronDown size={14}/>
                         </button>
 
-                        {/* Mega Menu Dropdown */}
                         <div className={`absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-white shadow-xl border border-gray-100 rounded-xl p-6 grid grid-cols-2 gap-8 transition-all duration-200 origin-top ${shopDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}`}>
                             <div>
                                 <h4 className="font-serif text-lg mb-4 text-gray-900 border-b border-gray-100 pb-2">Categories</h4>
@@ -162,7 +160,6 @@ const Navigation = ({
 
                 {/* ICONS & SEARCH */}
                 <div className="flex items-center gap-2 md:gap-4 shrink-0">
-                    {/* Search Bar */}
                     <div className={`flex items-center bg-gray-100 rounded-full transition-all duration-300 overflow-hidden ${isSearchOpen ? 'w-48 md:w-64 px-3' : 'w-10 h-10 justify-center bg-transparent hover:bg-gray-100'}`}>
                          <Search 
                             size={20} 
@@ -185,7 +182,7 @@ const Navigation = ({
                          )}
                     </div>
 
-                    {/* NEW: User/Account Dropdown */}
+                    {/* USER DROPDOWN (DESKTOP) */}
                     <div 
                         className="relative hidden lg:block"
                         onMouseEnter={() => setUserDropdownOpen(true)}
@@ -203,7 +200,13 @@ const Navigation = ({
                                         <p className="text-sm font-bold truncate">{user.name}</p>
                                     </div>
                                     <button onClick={() => { setCurrentPage('track'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><Truck size={14}/> Track Order</button>
-                                    <button onClick={() => { setCurrentPage('admin'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><ShieldCheck size={14}/> Admin Panel</button>
+                                    
+                                    {/* --- SECURITY CHECK HERE --- */}
+                                    {user.isAdmin && (
+                                        <button onClick={() => { setCurrentPage('admin'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><ShieldCheck size={14}/> Admin Panel</button>
+                                    )}
+                                    {/* --------------------------- */}
+
                                     <button onClick={() => { handleLogout(); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded mt-1 flex items-center gap-2"><ArrowRight size={14}/> Logout</button>
                                 </>
                             ) : (
@@ -242,7 +245,6 @@ const Navigation = ({
                             <div className="flex flex-col">
                                 <button onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">Home</button>
                                 
-                                {/* Mobile Shop Accordion */}
                                 <div className="border-b border-gray-50">
                                     <button onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('shop'); setMobileMenuOpen(false); }} className="w-full px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 bg-gray-50/50">Shop All</button>
                                     
@@ -281,7 +283,13 @@ const Navigation = ({
                                         {user ? (
                                             <>
                                                 <button onClick={() => { setCurrentPage('track'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Track Orders</button>
-                                                <button onClick={() => { setCurrentPage('admin'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Admin Panel</button>
+                                                
+                                                {/* --- SECURITY CHECK HERE (MOBILE) --- */}
+                                                {user.isAdmin && (
+                                                    <button onClick={() => { setCurrentPage('admin'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Admin Panel</button>
+                                                )}
+                                                {/* ------------------------------------ */}
+
                                                 <button onClick={() => { handleLogout(); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-red-500">Logout</button>
                                             </>
                                         ) : (
@@ -302,7 +310,7 @@ const Navigation = ({
             </div>
         </>
     )
-};
+};;
 
 const PaymentSuccessView = ({ navigateTo, showToast, transactionId }) => {
     const [status, setStatus] = useState('processing');
