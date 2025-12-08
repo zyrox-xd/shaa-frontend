@@ -854,129 +854,122 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
 };
   // ---------- AUTH & ORDER PAGES ----------
 
+// =========================
+// LOGIN VIEW (FULL + FIXED)
+// =========================
+
 const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
+
     try {
       const res = await fetch(`${BASE_URL}/api/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await res.json();
-      
-      // --- DEBUGGING LOG ---
-      // Open your browser console (F12) -> Console tab to see this
-      console.log("Login Response from Backend:", data); 
+      console.log("🔥 LOGIN RESPONSE:", data);
 
       if (!res.ok) {
-        throw new Error(data.message || 'Login failed');
+        throw new Error(data.message || "Invalid login credentials");
       }
 
       const token = data.token || data.accessToken;
-      
-      // Handle the user object structure
-      const rawUser = data.user || data.data?.user || {};
 
-      // --- CRITICAL FIX FOR MONGODB isADMIN ---
-      // This forces the app to use the exact value from your MongoDB
+      // Your backend returns user fields at top-level → map directly
       const standardizedUser = {
-  ...rawUser,
-  isAdmin: Boolean(rawUser.isAdmin)
+        _id: data._id,
+        name: data.name,
+        email: data.email,
+        isAdmin: Boolean(data.isAdmin), // ← critical fix
+      };
 
-};
+      console.log("🔥 FINAL USER STORED:", standardizedUser);
 
-
-      console.log("User being saved to state:", standardizedUser);
-
-      // Save to State and LocalStorage
+      // Store auth details
       setAuthToken(token);
       setUser(standardizedUser);
-      localStorage.setItem('shaa_token', token);
-      localStorage.setItem('shaa_user', JSON.stringify(standardizedUser));
+      localStorage.setItem("shaa_token", token);
+      localStorage.setItem("shaa_user", JSON.stringify(standardizedUser));
 
-      showToast(`Welcome back, ${standardizedUser.name}`, 'success');
-      
-      // Redirect based on the flag
+      showToast(`Welcome back, ${standardizedUser.name}`, "success");
+
+      // Delay redirect slightly so React updates state
       setTimeout(() => {
-          if (standardizedUser.isAdmin) {
-             console.log("Redirecting to Admin Panel...");
-             navigateTo('admin');
-          } else {
-             console.log("Redirecting to Home...");
-             navigateTo('home');
-          }
-      }, 100);
-
+        if (standardizedUser.isAdmin) {
+          console.log("🔥 Redirecting: ADMIN PANEL");
+          navigateTo("admin");
+        } else {
+          console.log("🔥 Redirecting: HOME");
+          navigateTo("home");
+        }
+      }, 200);
     } catch (err) {
-      console.error(err);
-      showToast(err.message || 'Connection Error', 'error');
-    } finally {
-      setLoading(false);
+      console.error("🔥 LOGIN ERROR:", err);
+      showToast(err.message || "Something went wrong", "error");
     }
+
+    setLoading(false);
   };
 
   return (
-    <div className="min-h-[calc(100vh-80px)] flex flex-col md:flex-row bg-white animate-fade-in">
-      {/* Visual Side */}
-      <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-gray-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/image/ban1.jpg')] bg-cover bg-center opacity-60 mix-blend-overlay"></div>
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-12 text-center">
-            <h2 className="font-serif text-4xl mb-4">Partner Portal</h2>
-            <p className="font-light text-white/80 max-w-sm">Admin & Clinic Access</p>
-        </div>
-      </div>
-      
-      {/* Form Side */}
-      <div className="w-full md:w-1/2 flex items-center justify-center p-8 md:p-16 bg-white">
-        <div className="w-full max-w-md space-y-8">
-            <div className="text-center md:text-left">
-                <h1 className="font-serif text-3xl md:text-4xl text-gray-900 mb-2">Login</h1>
-                <p className="text-gray-500 text-sm">Sign in to your account.</p>
-            </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+      <div className="w-full max-w-md bg-white shadow-md rounded-lg p-6">
+        <h2 className="text-2xl font-semibold text-center mb-4">Login to Your Account</h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Email Address</label>
-                    <input
-                        type="email"
-                        required
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Password</label>
-                    <input
-                        type="password"
-                        required
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:border-black outline-none"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block mb-1 text-sm font-medium">Email</label>
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-2 border rounded-lg outline-none"
+            />
+          </div>
 
-                <Button type="submit" className="w-full py-4 shadow-lg" disabled={loading}>
-                    {loading ? 'Checking Access...' : 'Sign In'}
-                </Button>
-            </form>
-            
-            <div className="text-center">
-               <button onClick={() => navigateTo('signup')} className="text-sm text-gray-500 hover:text-black">Create new account</button>
-            </div>
-        </div>
+          <div>
+            <label className="block mb-1 text-sm font-medium">Password</label>
+            <input
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-2 border rounded-lg outline-none"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-900 transition"
+          >
+            {loading ? "Logging in..." : "Login"}
+          </button>
+        </form>
+
+        <p className="text-center text-sm text-gray-600 mt-4">
+          Don't have an account?{" "}
+          <span
+            className="text-black underline cursor-pointer"
+            onClick={() => navigateTo("signup")}
+          >
+            Sign up
+          </span>
+        </p>
       </div>
     </div>
   );
 };
+
 const SignupView = ({ navigateTo, showToast }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
