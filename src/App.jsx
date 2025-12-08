@@ -889,7 +889,8 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
       // This forces the app to use the exact value from your MongoDB
       const standardizedUser = {
   ...rawUser,
-  isAdmin: rawUser.isAdmin ? true : false
+  isAdmin: Boolean(rawUser.isAdmin)
+
 };
 
 
