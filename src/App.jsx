@@ -888,10 +888,10 @@ const LoginView = ({ navigateTo, setAuthToken, setUser, showToast }) => {
       // --- CRITICAL FIX FOR MONGODB isADMIN ---
       // This forces the app to use the exact value from your MongoDB
       const standardizedUser = {
-        ...rawUser,
-        // We check if it is explicitly true
-        isAdmin: rawUser.isAdmin === true 
-      };
+  ...rawUser,
+  isAdmin: rawUser.isAdmin ? true : false
+};
+
 
       console.log("User being saved to state:", standardizedUser);
 
