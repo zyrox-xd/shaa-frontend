@@ -1571,6 +1571,45 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
         }
     };
 
+    const fetchOrderDetails = async (orderId) => {
+        setCustomerLoading(true);
+        setCustomerModalOpen(true);
+        try {
+            const res = await fetch(`${BASE_URL}/api/orders/details/${orderId}`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+
+            if (res.status === 401 || res.status === 403) {
+                showToast("Session expired or unauthorized", "error");
+                if (typeof handleLogout === 'function') handleLogout();
+                else if (typeof navigateTo === 'function') navigateTo('login');
+                setCustomerModalOpen(false);
+                return;
+            }
+
+            if (res.ok) {
+                const order = await res.json();
+                // Compute amount in rupees and formatted
+                const baseAmt = order.amount !== undefined ? Number(order.amount)/100 : (order.products?.reduce((s,p)=>s + Number(p.price || 0) * Number(p.qty || 0),0) || 0);
+                const amountFormatted = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(baseAmt);
+
+                const customer = order.userId ? order.userId : { name: order.customerName || 'Guest', email: order.email, phone: order.phone, address: order.address, createdAt: order.createdAt };
+
+                setCustomerDetails({ user: customer, orders: [{ ...order, amountRupees: baseAmt, amountFormatted }], metrics: { totalOrders: 1, totalSpent: baseAmt, totalSpentFormatted: amountFormatted, lastOrderDate: order.createdAt } });
+            } else {
+                const body = await res.json().catch(()=>({}));
+                showToast(body.message || "Failed to load order details", "error");
+                setCustomerModalOpen(false);
+            }
+        } catch (err) {
+            console.error(err);
+            showToast("Could not load order details", "error");
+            setCustomerModalOpen(false);
+        } finally {
+            setCustomerLoading(false);
+        }
+    };
+
     const closeCustomerModal = () => {
         setCustomerModalOpen(false);
         setCustomerDetails(null);
@@ -1816,10 +1855,11 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                                                     <td className="px-6 py-4 font-mono text-sm text-gray-600">#{order._id ? order._id.slice(-6).toUpperCase() : 'ERR'}</td>
                                                     <td className="px-6 py-4">
                                                         <button onClick={() => {
-                                                            if (order.userId) fetchCustomerDetails(order.userId._id || order.userId);
+                                                            if (order.userId) fetchOrderDetails(order._id);
                                                             else {
                                                                 // Guest — build a lightweight details view
-                                                                setCustomerDetails({ user: { name: order.customerName || 'Guest', email: order.email, phone: order.phone, address: order.address }, orders: [order], metrics: { totalOrders: 1, totalSpent: order.amount !== undefined ? Number(order.amount)/100 : (order.products?.reduce((s,p)=>s + Number(p.price || 0) * Number(p.qty || 0),0)||0), lastOrderDate: order.createdAt } });
+                                                                const amt = order.amount !== undefined ? Number(order.amount)/100 : (order.products?.reduce((s,p)=>s + Number(p.price || 0) * Number(p.qty || 0),0)||0);
+                                                                setCustomerDetails({ user: { name: order.customerName || 'Guest', email: order.email, phone: order.phone, address: order.address, createdAt: order.createdAt }, orders: [{ ...order, amountRupees: amt, amountFormatted: new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(amt) }], metrics: { totalOrders: 1, totalSpent: amt, totalSpentFormatted: new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(amt), lastOrderDate: order.createdAt } });
                                                                 setCustomerModalOpen(true);
                                                             }
                                                         }} className="text-left">
