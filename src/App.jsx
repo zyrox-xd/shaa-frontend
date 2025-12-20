@@ -1907,9 +1907,16 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                             <div className="flex justify-between items-start gap-4">
                                 <div>
                                     <h3 className="font-serif text-xl">{customerDetails?.user?.name || 'Customer'}</h3>
-                                    <p className="text-xs text-gray-500">{customerDetails?.user?.email}</p>
+                                    <p className="text-xs text-gray-500">{customerDetails?.user?.email ? (<a href={`mailto:${customerDetails.user.email}`} className="underline hover:text-black">{customerDetails.user.email}</a>) : 'No email'}</p>
+                                    <p className="text-xs text-gray-400 mt-1">Joined: {customerDetails?.user?.createdAt ? new Date(customerDetails.user.createdAt).toLocaleDateString() : 'N/A'}</p>
                                 </div>
-                                <button onClick={closeCustomerModal} className="text-gray-400 hover:text-black"><X size={20} /></button>
+                                <div className="flex items-center gap-4">
+                                    <div className="text-right">
+                                        <p className="text-xs text-gray-400">Total Spent</p>
+                                        <p className="font-medium text-lg">{customerDetails?.metrics?.totalSpentFormatted || `₹${Number(customerDetails?.metrics?.totalSpent || 0).toLocaleString()}`}</p>
+                                    </div>
+                                    <button onClick={closeCustomerModal} className="text-gray-400 hover:text-black"><X size={20} /></button>
+                                </div>
                             </div>
 
                             {customerLoading ? (
@@ -1918,8 +1925,11 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                                 <>
                                     <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="bg-gray-50 p-4 rounded border">
+                                            <p className="text-xs text-gray-400 uppercase">Email</p>
+                                            <p className="font-medium"><a href={`mailto:${customerDetails?.user?.email}`} className="underline">{customerDetails?.user?.email || 'N/A'}</a></p>
+                                            <div className="h-px bg-gray-200 my-3"></div>
                                             <p className="text-xs text-gray-400 uppercase">Phone</p>
-                                            <p className="font-medium">{customerDetails?.user?.phone || (customerDetails?.orders && customerDetails.orders[0]?.phone) || 'N/A'}</p>
+                                            <p className="font-medium"><a href={`tel:${customerDetails?.user?.phone || (customerDetails?.orders && customerDetails.orders[0]?.phone)}`} className={`${(customerDetails?.user?.phone || (customerDetails?.orders && customerDetails.orders[0]?.phone)) ? 'underline' : ''}`}>{customerDetails?.user?.phone || (customerDetails?.orders && customerDetails.orders[0]?.phone) || 'N/A'}</a></p>
                                             <div className="h-px bg-gray-200 my-3"></div>
                                             <p className="text-xs text-gray-400 uppercase">Address</p>
                                             <p className="text-sm">{customerDetails?.user?.address || customerDetails?.orders?.[0]?.address || 'N/A'}</p>
@@ -1927,9 +1937,6 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                                         <div className="bg-gray-50 p-4 rounded border">
                                             <p className="text-xs text-gray-400 uppercase">Total Orders</p>
                                             <p className="font-medium">{customerDetails?.metrics?.totalOrders ?? (customerDetails?.orders ? customerDetails.orders.length : 0)}</p>
-                                            <div className="h-px bg-gray-200 my-3"></div>
-                                            <p className="text-xs text-gray-400 uppercase">Total Spent</p>
-                                            <p className="font-medium">₹{Number(customerDetails?.metrics?.totalSpent || 0).toLocaleString()}</p>
                                             <div className="h-px bg-gray-200 my-3"></div>
                                             <p className="text-xs text-gray-400 uppercase">Last Order</p>
                                             <p className="font-medium">{customerDetails?.metrics?.lastOrderDate ? new Date(customerDetails.metrics.lastOrderDate).toLocaleDateString() : 'N/A'}</p>
@@ -1950,7 +1957,7 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                                                             <tr key={o._id} className="border-t">
                                                                 <td className="px-3 py-2 font-mono">#{o._id ? o._id.slice(-6).toUpperCase() : o._id}</td>
                                                                 <td className="px-3 py-2">{o.createdAt ? new Date(o.createdAt).toLocaleDateString() : 'N/A'}</td>
-                                                                <td className="px-3 py-2">₹{Number(o.amount !== undefined ? o.amount/100 : (o.products?.reduce((s,p)=>s + p.price * p.qty,0)||0)).toLocaleString()}</td>
+                                                                <td className="px-3 py-2">{o.amountFormatted || `₹${Number(o.amountRupees || 0).toLocaleString()}`}</td>
                                                                 <td className="px-3 py-2">{o.status}</td>
                                                             </tr>
                                                         ))}
