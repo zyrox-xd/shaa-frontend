@@ -1482,9 +1482,15 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                  else if (typeof navigateTo === 'function') navigateTo('login');
                  return; 
             }
+
+            // Try to surface server error message for easier debugging
+            const errorBody = await res.json().catch(() => ({}));
+            const errMsg = errorBody.message || res.statusText || 'Failed to load orders';
+            console.error('fetchOrders error', res.status, errorBody);
+
             // Do not set demo orders
-            setOrders([]); 
-            if (!isBackground) showToast("Failed to load orders", "error");
+            setOrders([]);
+            if (!isBackground) showToast(errMsg, 'error');
         }
     } catch (err) {
         console.error(err);
