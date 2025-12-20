@@ -574,6 +574,18 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
   const BEST_SELLERS = PRODUCTS.filter(p => [33, 62, 20, 14].includes(p.id));
   const NEW_LAUNCHES = PRODUCTS.filter(p => [20, 14].includes(p.id));
 
+  // --- UPDATED CATEGORY DATA WITH PATHS ---
+  const CATEGORY_LIST = [
+    { id: 1, name: 'Injection', image: '/image/injection.jpeg' },
+    { id: 2, name: 'Cream', image: '/image/cream.jpeg' },
+    { id: 3, name: 'Weight', image: '/image/weight.jpeg' },
+    { id: 4, name: 'Soap', image: '/image/soap.jpeg' },
+    { id: 5, name: 'Combo', image: '/image/combo.jpeg' },
+    { id: 6, name: 'Filler', image: '/image/filler.jpeg' },
+    { id: 7, name: 'Supplement', image: '/image/supplement.jpeg' },
+    { id: 8, name: 'Lotion', image: '/image/lotion.jpeg' },
+  ];
+
   return (
     <div className="animate-fade-in bg-white">
       {/* --- PROMO BAR --- */}
@@ -647,26 +659,30 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
         </div>
       </section>
 
-      {/* --- SHOP BY CATEGORY (Slidable) --- */}
+      {/* --- SHOP BY CATEGORY (UPDATED) --- */}
       <section className="py-16 bg-white border-t border-gray-50">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-gray-400 mb-10 text-center">Shop by Category</h2>
           
           {/* Horizontal Scroll Container */}
           <div className="flex overflow-x-auto gap-8 pb-6 scrollbar-hide snap-x items-start">
-             {CATEGORIES.map((cat) => (
+             {/* Using the new CATEGORY_LIST defined at the top of the component */}
+             {CATEGORY_LIST.map((cat) => (
                <div 
                 key={cat.id} 
                 onClick={() => { setShopFilter(cat.name); navigateTo('shop'); }}
                 className="snap-start flex-shrink-0 flex flex-col items-center group cursor-pointer w-24 md:w-32"
                >
                  {/* Circular Image Tile */}
-                 <div className="relative aspect-square w-full overflow-hidden rounded-full mb-4 bg-gray-50 border border-gray-100 transition-all duration-300 group-hover:shadow-md">
-                    <img 
-                      src={cat.image || "/image/logo.jpg"} 
-                      alt={cat.name}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" 
-                    />
+                 <div className="relative aspect-square w-full overflow-hidden rounded-full mb-4 bg-white border border-gray-100 transition-all duration-300 group-hover:shadow-md group-hover:border-black/10">
+                    <div className="absolute inset-0 flex items-center justify-center p-6">
+                        <img 
+                          src={cat.image} 
+                          alt={cat.name}
+                          onError={(e) => {e.target.src = '/image/logo.jpg'}} // Fallback to logo if file not found
+                          className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" 
+                        />
+                    </div>
                  </div>
                  
                  {/* Category Label */}
@@ -678,24 +694,25 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
           </div>
         </div>
       </section>
+      
       {/* --- SHOP BY CONCERN --- */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-2xl font-serif mb-10 text-gray-900">Shop by Concerns</h2>
           <div className="flex overflow-x-auto gap-4 scrollbar-hide">
-             {[
-               { name: 'Uneven Tone', img: '/image/blog1.jpg' },
-               { name: 'Acne Control', img: '/image/blog2.jpg' },
-               { name: 'Aging', img: '/image/blog3.jpg' },
-               { name: 'Brightening', img: '/image/blog4.jpg' }
-             ].map((concern) => (
-               <div key={concern.name} className="min-w-[160px] md:min-w-[240px] group cursor-pointer">
-                  <div className="aspect-[4/3] rounded-lg overflow-hidden mb-3">
-                    <img src={concern.img} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" />
-                  </div>
-                  <p className="text-center font-medium text-gray-800">{concern.name}</p>
-               </div>
-             ))}
+              {[
+                { name: 'Uneven Tone', img: '/image/blog1.jpg' },
+                { name: 'Acne Control', img: '/image/blog2.jpg' },
+                { name: 'Aging', img: '/image/blog3.jpg' },
+                { name: 'Brightening', img: '/image/blog4.jpg' }
+              ].map((concern) => (
+                <div key={concern.name} className="min-w-[160px] md:min-w-[240px] group cursor-pointer">
+                   <div className="aspect-[4/3] rounded-lg overflow-hidden mb-3">
+                     <img src={concern.img} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" />
+                   </div>
+                   <p className="text-center font-medium text-gray-800">{concern.name}</p>
+                </div>
+              ))}
           </div>
         </div>
       </section>
@@ -705,19 +722,19 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-2xl font-serif mb-8 text-gray-900 text-center">New Launches</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-             {NEW_LAUNCHES.map(product => (
-               <div key={product.id} className="flex flex-col items-center text-center">
-                  <img src={product.image} className="h-64 object-contain mb-4" />
-                  <h3 className="font-serif text-xl">{product.name}</h3>
-                  <p className="text-sm text-gray-500 mt-1 mb-4">₹{product.price.toLocaleString()}</p>
-                  <button 
-                    onClick={() => addToCart(product)}
-                    className="bg-black text-white w-full max-w-xs py-3 text-xs font-bold uppercase tracking-widest"
-                  >
-                    Add to Cart
-                  </button>
-               </div>
-             ))}
+              {NEW_LAUNCHES.map(product => (
+                <div key={product.id} className="flex flex-col items-center text-center">
+                   <img src={product.image} className="h-64 object-contain mb-4" />
+                   <h3 className="font-serif text-xl">{product.name}</h3>
+                   <p className="text-sm text-gray-500 mt-1 mb-4">₹{product.price.toLocaleString()}</p>
+                   <button 
+                     onClick={() => addToCart(product)}
+                     className="bg-black text-white w-full max-w-xs py-3 text-xs font-bold uppercase tracking-widest"
+                   >
+                     Add to Cart
+                   </button>
+                </div>
+              ))}
           </div>
         </div>
       </section>
