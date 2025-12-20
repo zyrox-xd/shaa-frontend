@@ -594,15 +594,9 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
       </div>
       {/* --- HERO BANNER --- */}
       <section className="relative bg-white pt-6 pb-12 overflow-hidden border-b border-gray-50">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-          <div className="space-y-6 text-center md:text-left order-2 md:order-1">
-            <span className="bg-gray-100 text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded">New Launch</span>
-            <h1 className="text-4xl md:text-6xl font-serif text-gray-900 leading-tight">
-              Vitamin B12 + <br/> NMF 03% <span className="text-xl block mt-2 font-sans text-gray-500">Face Toner</span>
-            </h1>
-            <p className="text-gray-500 font-light text-sm max-w-md mx-auto md:mx-0">
-              Restore balance to your skin's barrier with our new <span className="italic">calming & hydrating toner</span>.
-            </p>
+        <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center gap-8">
+          <div className="flex-1 order-2 md:order-1 space-y-4 text-center md:text-left">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold leading-tight text-gray-900">Experience the Power of <span className="text-[#e67e22]">Glutax 5GS ADV</span></h1>
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-800">Soothe. Hydrate. Balance.</p>
             <button 
               onClick={() => navigateTo('shop')}
@@ -695,7 +689,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
         </div>
       </section>
       
-      {/* --- SHOP BY CONCERN --- */}
+    {/* --- SHOP BY CONCERN --- */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-2xl font-serif mb-10 text-gray-900">Shop by Concerns</h2>
@@ -708,8 +702,15 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
               ].map((concern) => (
                 <div 
                   key={concern.name} 
-                  // --- ADDED ONCLICK HANDLER HERE ---
-                  onClick={() => { setShopFilter(concern.name); navigateTo('shop'); }}
+                  onClick={() => { 
+                    // CONDITIONAL LOGIC:
+                    // If "Uneven Tone" -> Go to Cream
+                    // All others -> Go to Injection
+                    const targetCategory = concern.name === 'Uneven Tone' ? 'Cream' : 'Injection';
+                    
+                    setShopFilter(targetCategory); 
+                    navigateTo('shop'); 
+                  }}
                   className="min-w-[160px] md:min-w-[240px] group cursor-pointer"
                 >
                    <div className="aspect-[4/3] rounded-lg overflow-hidden mb-3">
@@ -721,7 +722,6 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
           </div>
         </div>
       </section>
-
       {/* --- NEW LAUNCHES --- */}
       <section className="py-16 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
@@ -1990,19 +1990,19 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
         </div>
     );
 };
-  const ShopView = ({ 
+ const ShopView = ({ 
     navigateTo, 
     addToCart, 
     filter, 
     setFilter, 
     brandFilter, 
-    setBrandFilter,
-    searchQuery,
+    setBrandFilter, 
+    searchQuery, 
     setSearchQuery
   }) => {
     const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'list'
     const [sortBy, setSortBy] = useState('featured'); // 'featured', 'price-asc', 'price-desc'
-   
+    
     const filteredProducts = PRODUCTS.filter(p => {
       const matchesCategory = filter === 'All' || p.category === filter;
       const matchesBrand = brandFilter === 'All Brands' || p.brand === brandFilter;
@@ -2015,7 +2015,7 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
         if (sortBy === 'price-desc') return b.price - a.price;
         return 0; // featured (default order)
     });
-   
+    
     return (
       <div className="animate-fade-in bg-[#fbfbfb] min-h-screen pb-24">
         {/* HERO */}
@@ -2028,12 +2028,12 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
              {searchQuery && <p className="text-gray-400 text-sm mt-2">Showing results for "{searchQuery}"</p>}
            </div>
         </div>
-   
+    
         {/* HORIZONTAL TRANSLUCENT CATEGORY BAR */}
         <div className="sticky top-20 z-40 bg-white/80 backdrop-blur-md border-b border-gray-200/50 py-4">
             <div className="max-w-7xl mx-auto px-4 md:px-6">
                 <div className="flex gap-3 overflow-x-auto scrollbar-hide snap-x items-center">
-                     <button 
+                      <button 
                         onClick={() => setFilter('All')}
                         className={`snap-start shrink-0 px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest border transition-all duration-300 ${
                             filter === 'All' 
@@ -2059,7 +2059,7 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                 </div>
             </div>
         </div>
-
+  
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 lg:py-12">
           <div className="flex flex-col lg:flex-row gap-12">
               
@@ -2087,7 +2087,7 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                       </div>
                   </div>
               </aside>
-   
+    
               {/* MAIN CONTENT */}
               <div className="flex-1 min-w-0">
                   {/* Sort & Count Bar */}
@@ -2114,9 +2114,9 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                           </div>
                       </div>
                   </div>
-   
-                  {/* PRODUCTS GRID */}
-                  <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
+    
+                  {/* PRODUCTS GRID - UPDATED FOR 2 COLUMNS ON MOBILE */}
+                  <div className={`grid gap-3 md:gap-6 ${viewMode === 'grid' ? 'grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
                       {filteredProducts.length > 0 ? (
                           filteredProducts.map(product => (
                           <div 
@@ -2125,11 +2125,6 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                               onClick={() => navigateTo('product', product)}
                           >
                               <div className={`relative bg-[#f8f8f8] overflow-hidden ${viewMode === 'list' ? 'w-32 h-32 rounded-lg shrink-0' : 'aspect-[4/5]'}`}>
-                                  {/* UPDATED IMAGE LOGIC: 
-                                      - object-contain: Shows full image without cropping/zooming default
-                                      - p-4: Adds padding so image doesn't touch edges
-                                      - group-hover:scale-110: Zooms in ONLY on hover
-                                  */}
                                   <img 
                                       loading="lazy" 
                                       src={product.image} 
@@ -2145,7 +2140,7 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                                   {product.price > 12000 && viewMode === 'grid' && (
                                       <div className="absolute top-3 right-3 bg-gray-800 text-white text-[8px] px-2 py-1 rounded font-bold tracking-wider uppercase shadow-sm">Best Seller</div>
                                   )}
-   
+    
                                   {/* Quick Add Overlay (Desktop) */}
                                   {viewMode === 'grid' && (
                                       <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out hidden md:block bg-gradient-to-t from-black/60 to-transparent pt-12">
@@ -2158,12 +2153,12 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                                       </div>
                                   )}
                               </div>
-   
+    
                               <div className={`${viewMode === 'list' ? 'flex-1 flex flex-col justify-center' : 'pt-4 pb-2 px-2'}`}>
                                   <div className="text-gray-400 text-[9px] font-bold tracking-widest uppercase mb-1.5">{product.category}</div>
-                                  <h3 className={`font-serif text-gray-900 leading-tight ${viewMode === 'list' ? 'text-xl mb-2' : 'text-base mb-2 line-clamp-2 min-h-[2.5em]'}`}>{product.name}</h3>
+                                  <h3 className={`font-serif text-gray-900 leading-tight ${viewMode === 'list' ? 'text-xl mb-2' : 'text-sm md:text-base mb-2 line-clamp-2 min-h-[2.5em]'}`}>{product.name}</h3>
                                   <div className="flex items-center justify-between mt-auto">
-                                      <p className="text-base font-medium font-serif">₹{product.price.toLocaleString()}</p>
+                                      <p className="text-sm md:text-base font-medium font-serif">₹{product.price.toLocaleString()}</p>
                                       <button 
                                           className="md:hidden w-8 h-8 bg-black text-white rounded-full flex items-center justify-center active:scale-95"
                                           onClick={(e) => { e.stopPropagation(); addToCart(product); }}
@@ -2188,7 +2183,7 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
         </div>
       </div>
     );
-  };
+};
   
   const BlogPostView = ({ post, navigateTo }) => {
     return (
