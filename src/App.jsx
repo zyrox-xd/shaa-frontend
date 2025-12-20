@@ -1428,7 +1428,7 @@ const AdminStatusBadge = ({ status }) => {
     );
 };
 
-const AdminView = ({ token, user, showToast }) => {
+const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
     // Tab state
     const [activeTab, setActiveTab] = useState('orders');
 
@@ -1448,7 +1448,11 @@ const AdminView = ({ token, user, showToast }) => {
 
     const calculateStats = (data) => {
         if (!Array.isArray(data)) return;
-        const rev = data.reduce((acc, curr) => acc + (curr.totalAmount || 0), 0);
+        // Revenue: prefer `amount` (stored in paise) and convert to rupees; fallback to `totalAmount` (rupees)
+        const rev = data.reduce((acc, curr) => {
+            const amt = curr.amount !== undefined ? Number(curr.amount) / 100 : Number(curr.totalAmount || 0);
+            return acc + (isNaN(amt) ? 0 : amt);
+        }, 0);
         const pend = data.filter(o => o.status === 'Pending' || o.status === 'Processing').length;
         const comp = data.filter(o => o.status === 'Delivered').length;
         setStats({ revenue: rev, pending: pend, completed: comp, total: data.length });
@@ -1464,17 +1468,18 @@ const AdminView = ({ token, user, showToast }) => {
 
         if (res.ok) {
             const data = await res.json();
-            const safeData = Array.isArray(data) ? data : [];
+            // API may return either an array or an object { orders, total, pages }
+            const safeData = Array.isArray(data) ? data : (Array.isArray(data.orders) ? data.orders : []);
             setOrders(safeData);
             calculateStats(safeData);
         } else {
             // ---------------------------------------------------------
-            // SECURITY FIX: Remove the Demo Data fallback.
-            // If API fails (401/403), do not show dashboard.
+            // SECURITY: If API fails with 401/403, force logout or redirect.
             // ---------------------------------------------------------
             if (res.status === 401 || res.status === 403) {
                  showToast("Session expired or unauthorized", "error");
-                 // Optional: Trigger logout here if you had access to the handler
+                 if (typeof handleLogout === 'function') handleLogout();
+                 else if (typeof navigateTo === 'function') navigateTo('login');
                  return; 
             }
             // Do not set demo orders
@@ -1496,10 +1501,20 @@ const AdminView = ({ token, user, showToast }) => {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
 
+            if (res.status === 401 || res.status === 403) {
+                showToast("Session expired or unauthorized", "error");
+                if (typeof handleLogout === 'function') handleLogout();
+                else if (typeof navigateTo === 'function') navigateTo('login');
+                return;
+            }
+
             if (res.ok) {
                 const data = await res.json();
                 // Handle different response structures (data.users or just data)
                 setUsers(data.users || (Array.isArray(data) ? data : []));
+            } else {
+                const body = await res.json().catch(() => ({}));
+                showToast(body.message || "Failed to load users", "error");
             }
         } catch (err) {
             console.error(err);
@@ -1523,6 +1538,12 @@ const AdminView = ({ token, user, showToast }) => {
     }, [token, activeTab]);
 
     const handleToggleAdminStatus = async (userId, currentStatus) => {
+        // Prevent modifying own admin status client-side
+        if (user && String(user._id) === String(userId)) {
+            showToast("Cannot modify your own admin status", "error");
+            return;
+        }
+
         try {
             const res = await fetch(`${BASE_URL}/api/users/${userId}/toggle-admin`, {
                 method: 'PUT',
@@ -1532,14 +1553,25 @@ const AdminView = ({ token, user, showToast }) => {
                 }
             });
 
-            if (!res.ok) throw new Error('Update failed');
+            const data = await res.json().catch(() => ({}));
+
+            if (res.status === 401 || res.status === 403) {
+                showToast("Session expired or unauthorized", "error");
+                if (typeof handleLogout === 'function') handleLogout();
+                else if (typeof navigateTo === 'function') navigateTo('login');
+                return;
+            }
+
+            if (!res.ok) {
+                throw new Error(data?.message || 'Update failed');
+            }
 
             fetchUsers();
-            showToast(`Admin status updated`, 'success');
+            showToast(data?.message || 'Admin status updated', 'success');
         } catch (err) {
-            showToast(err.message, 'error');
+            showToast(err.message || 'Update failed', 'error');
         }
-    };
+    }; 
 
     const handleUpdateStatus = async (e) => {
         e.preventDefault();
@@ -1547,7 +1579,8 @@ const AdminView = ({ token, user, showToast }) => {
 
         setIsUpdating(true);
         try {
-            const res = await fetch(`${BASE_URL}/api/orders/update/${editingOrder._id}`, {
+            // Use the ID-based admin update route
+            const res = await fetch(`${BASE_URL}/api/orders/details/${editingOrder._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1556,10 +1589,19 @@ const AdminView = ({ token, user, showToast }) => {
                 body: JSON.stringify({ status: newStatus }),
             });
 
-            // Optimistic update even if API fails (for demo purposes) or wait for res.ok
-            // For production, strictly check res.ok
-            
-            // Update local state immediately
+            if (res.status === 401 || res.status === 403) {
+                showToast("Session expired or unauthorized", "error");
+                if (typeof handleLogout === 'function') handleLogout();
+                else if (typeof navigateTo === 'function') navigateTo('login');
+                return;
+            }
+
+            const body = await res.json().catch(() => ({}));
+            if (!res.ok) {
+                throw new Error(body.message || 'Update failed');
+            }
+
+            // Update local state only after success
             const updatedList = orders.map(o => o._id === editingOrder._id ? { ...o, status: newStatus } : o);
             setOrders(updatedList);
             calculateStats(updatedList);
@@ -1585,7 +1627,7 @@ const AdminView = ({ token, user, showToast }) => {
         (u.email && u.email.toLowerCase().includes(userSearchTerm.toLowerCase()))
     ) : [];
 
-    if (!token) return (
+    if (!token || !user || !user.isAdmin) return (
         <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 text-center">
             <ShieldCheck size={48} className="text-gray-300 mb-4" />
             <h2 className="text-2xl font-serif text-gray-900">Restricted Access</h2>
@@ -1726,7 +1768,7 @@ const AdminView = ({ token, user, showToast }) => {
                                                     <td className="px-6 py-4 text-sm text-gray-500">
                                                         {order.createdAt ? new Date(order.createdAt).toLocaleDateString() : 'N/A'}
                                                     </td>
-                                                    <td className="px-6 py-4 text-sm font-medium">₹{order.totalAmount?.toLocaleString()}</td>
+                                                    <td className="px-6 py-4 text-sm font-medium">₹{Number(order.amount !== undefined ? order.amount/100 : (order.totalAmount || 0)).toLocaleString()}</td> 
                                                     <td className="px-6 py-4">
                                                         <AdminStatusBadge status={order.status} />
                                                     </td>
@@ -1852,7 +1894,9 @@ const AdminView = ({ token, user, showToast }) => {
                                                     <td className="px-6 py-4 text-right">
                                                         <button
                                                             onClick={() => handleToggleAdminStatus(u._id, u.isAdmin)}
-                                                            className="text-xs font-bold uppercase text-gray-400 hover:text-black hover:underline transition-all"
+                                                            disabled={String(u._id) === String(user._id)}
+                                                            className={`text-xs font-bold uppercase text-gray-400 transition-all ${String(u._id) === String(user._id) ? 'opacity-50 cursor-not-allowed' : 'hover:text-black hover:underline'}`}
+                                                            title={String(u._id) === String(user._id) ? "You cannot change your own admin status" : (u.isAdmin ? "Remove admin privileges" : "Grant admin privileges")}
                                                         >
                                                             {u.isAdmin ? 'Remove Admin' : 'Make Admin'}
                                                         </button>
@@ -3174,9 +3218,12 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
         const data = await fetch(`${API_BASE_URL}/api/payment/order`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                amount: total * 100, 
-                currency: "INR" 
+            body: JSON.stringify({
+                // Send amount in rupees; server will convert to paise (amount * 100)
+                amount: total,
+                currency: "INR",
+                products: cart,
+                userId: user ? user._id : null
             })
         }).then((t) => t.json());
 
@@ -3205,19 +3252,25 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
                     // --- NEW STEP: SAVE ORDER TO DATABASE ---
                     // This ensures it shows up in your Admin Dashboard
                     try {
+                        const orderPayload = {
+                            userId: user ? user._id : null,
+                            razorpayOrderId: (verifyRes.order && verifyRes.order.razorpayOrderId) ? verifyRes.order.razorpayOrderId : response.razorpay_order_id,
+                            razorpayPaymentId: response.razorpay_payment_id,
+                            razorpaySignature: response.razorpay_signature,
+                            amount: (verifyRes.order && verifyRes.order.amount) ? verifyRes.order.amount : total * 100, // paise
+                            currency: (verifyRes.order && verifyRes.order.currency) ? verifyRes.order.currency : 'INR',
+                            products: cart,
+                            customerName: customerDetails.name,
+                            email: customerDetails.email,
+                            phone: customerDetails.phone,
+                            address: customerDetails.address,
+                            status: 'Paid'
+                        };
+
                         await fetch(`${BASE_URL}/api/orders/create`, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                customerName: customerDetails.name,
-                                email: customerDetails.email,
-                                phone: customerDetails.phone,
-                                address: customerDetails.address,
-                                items: cart,
-                                totalAmount: total,
-                                paymentId: response.razorpay_payment_id,
-                                status: 'Pending'
-                            })
+                            body: JSON.stringify(orderPayload)
                         });
                         console.log("Order saved to DB");
                     } catch (saveError) {
@@ -3365,6 +3418,8 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
                   token={authToken}
                   user={user}
                   showToast={showToast}
+                  navigateTo={navigateTo}
+                  handleLogout={handleLogout}
                 />
               ) : currentPage === 'admin' ? (
                 <div className="min-h-screen flex items-center justify-center bg-gray-50 pt-20">
