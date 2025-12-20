@@ -111,7 +111,7 @@ const Navigation = ({
     return (
         <>
             <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300">
-             <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between gap-4">
+             <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between gap-4">
                 
                 {/* LEFT: HAMBURGER + SIMPLE NAME */}
                 <div className="flex items-center gap-3 shrink-0">
@@ -141,10 +141,10 @@ const Navigation = ({
                             Shop <ChevronDown size={14}/>
                         </button>
 
-                        <div className={`absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-white shadow-xl border border-gray-100 rounded-xl p-6 grid grid-cols-2 gap-8 transition-all duration-200 origin-top ${shopDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}`}>
+                        <div className={`absolute top-full left-0 md:left-1/2 md:-translate-x-1/2 w-full md:w-[600px] bg-white shadow-xl border border-gray-100 rounded-xl p-4 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 transition-all duration-200 origin-top ${shopDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}`}>
                             <div>
                                 <h4 className="font-serif text-lg mb-4 text-gray-900 border-b border-gray-100 pb-2">Categories</h4>
-                                <div className="grid grid-cols-2 gap-2">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                     <button onClick={() => { setShopFilter('All'); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-left text-sm text-gray-500 hover:text-black hover:bg-gray-50 p-1 rounded">View All</button>
                                     {CATEGORIES.map(cat => (
                                         <button key={cat.id} onClick={() => { setShopFilter(cat.name); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-left text-sm text-gray-500 hover:text-black hover:bg-gray-50 p-1 rounded">{cat.name}</button>
@@ -153,7 +153,7 @@ const Navigation = ({
                             </div>
                             <div>
                                 <h4 className="font-serif text-lg mb-4 text-gray-900 border-b border-gray-100 pb-2">Top Brands</h4>
-                                <div className="grid grid-cols-2 gap-2">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                     <button onClick={() => { setBrandFilter('All Brands'); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-left text-sm text-gray-500 hover:text-black hover:bg-gray-50 p-1 rounded">All Brands</button>
                                     {BRANDS_LIST.slice(1, 12).map(brand => (
                                         <button key={brand} onClick={() => { setBrandFilter(brand); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-left text-sm text-gray-500 hover:text-black hover:bg-gray-50 p-1 rounded">{brand}</button>
@@ -606,7 +606,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-800">Soothe. Hydrate. Balance.</p>
             <button 
               onClick={() => navigateTo('shop')}
-              className="bg-black text-white px-10 py-3 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition-all"
+              className="bg-black text-white px-6 md:px-10 py-3 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition-all"
             >
               Shop Now
             </button>
@@ -1217,7 +1217,7 @@ const OrderHistoryView = ({ token, user, showToast, navigateTo }) => {
             <div className="space-y-6">
               {/* Order Info */}
               <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <p className="text-xs text-gray-400 uppercase tracking-wide font-bold mb-1">Order ID</p>
                     <p className="font-mono text-sm font-bold">{selectedOrder._id}</p>
@@ -2116,7 +2116,7 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                   </div>
    
                   {/* PRODUCTS GRID */}
-                  <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
+                  <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
                       {filteredProducts.length > 0 ? (
                           filteredProducts.map(product => (
                           <div 
@@ -2554,7 +2554,7 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                      Founded in 2012 by a team of healthcare professionals and logistics experts, we recognized a critical gap in the market: the disconnect between premium manufacturers and the clinics that need them. We closed that gap.
                    </p>
                 </div>
-                <div className="mt-8 pt-8 border-t border-gray-100 grid grid-cols-2 gap-6">
+                <div className="mt-8 pt-8 border-t border-gray-100 grid grid-cols-1 sm:grid-cols-2 gap-6">
                    <div>
                        <h4 className="font-serif text-xl mb-1">Bengaluru</h4>
                        <p className="text-xs text-gray-400 uppercase tracking-widest">Headquarters</p>
@@ -2570,7 +2570,7 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
    
         {/* STATS STRIP */}
         <div className="bg-black text-white py-16">
-           <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
+           <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x sm:divide-x md:divide-x divide-white/10">
               {stats.map(stat => (
                  <div key={stat.id} className="p-2">
                     <div className="font-serif text-4xl md:text-5xl text-white mb-2">{stat.val}</div>
