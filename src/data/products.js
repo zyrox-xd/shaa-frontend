@@ -2183,7 +2183,7 @@ const PRODUCTS = [
   name: "Vita Glow Glutathione Skin Whitening Soap",
   category: "Soap",
   brand: "Vita Glow",
-  price: 1800,
+  price: 600,
   image: "/image/vita-glow-soap.jpg",
   description: "Glutathione skin whitening soap",
   details: `
