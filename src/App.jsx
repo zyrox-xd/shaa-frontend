@@ -1449,6 +1449,11 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
     const [usersLoading, setUsersLoading] = useState(false);
     const [userSearchTerm, setUserSearchTerm] = useState('');
 
+    // Customer modal state
+    const [customerModalOpen, setCustomerModalOpen] = useState(false);
+    const [customerLoading, setCustomerLoading] = useState(false);
+    const [customerDetails, setCustomerDetails] = useState(null);
+
     const calculateStats = (data) => {
         if (!Array.isArray(data)) return;
         // Revenue: prefer `amount` (stored in paise) and convert to rupees; fallback to `totalAmount` (rupees)
@@ -1532,6 +1537,45 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
             setUsersLoading(false);
         }
     };
+
+    const fetchCustomerDetails = async (userId) => {
+        setCustomerLoading(true);
+        setCustomerModalOpen(true);
+        try {
+            const res = await fetch(`${BASE_URL}/api/users/${userId}/details`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+
+            if (res.status === 401 || res.status === 403) {
+                showToast("Session expired or unauthorized", "error");
+                if (typeof handleLogout === 'function') handleLogout();
+                else if (typeof navigateTo === 'function') navigateTo('login');
+                setCustomerModalOpen(false);
+                return;
+            }
+
+            if (res.ok) {
+                const data = await res.json();
+                setCustomerDetails(data);
+            } else {
+                const body = await res.json().catch(() => ({}));
+                showToast(body.message || "Failed to load customer details", "error");
+                setCustomerModalOpen(false);
+            }
+        } catch (err) {
+            console.error(err);
+            showToast("Could not load customer details", "error");
+            setCustomerModalOpen(false);
+        } finally {
+            setCustomerLoading(false);
+        }
+    };
+
+    const closeCustomerModal = () => {
+        setCustomerModalOpen(false);
+        setCustomerDetails(null);
+        setCustomerLoading(false);
+    }; 
 
     useEffect(() => {
         if (token) {
@@ -1771,8 +1815,17 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                                                 <tr key={order._id || Math.random()} className="hover:bg-gray-50/50 transition-colors">
                                                     <td className="px-6 py-4 font-mono text-sm text-gray-600">#{order._id ? order._id.slice(-6).toUpperCase() : 'ERR'}</td>
                                                     <td className="px-6 py-4">
-                                                        <p className="text-sm font-medium text-gray-900">{order.customerName || 'Guest'}</p>
-                                                        <p className="text-xs text-gray-400">{order.email}</p>
+                                                        <button onClick={() => {
+                                                            if (order.userId) fetchCustomerDetails(order.userId._id || order.userId);
+                                                            else {
+                                                                // Guest — build a lightweight details view
+                                                                setCustomerDetails({ user: { name: order.customerName || 'Guest', email: order.email, phone: order.phone, address: order.address }, orders: [order], metrics: { totalOrders: 1, totalSpent: order.amount !== undefined ? Number(order.amount)/100 : (order.products?.reduce((s,p)=>s + Number(p.price || 0) * Number(p.qty || 0),0)||0), lastOrderDate: order.createdAt } });
+                                                                setCustomerModalOpen(true);
+                                                            }
+                                                        }} className="text-left">
+                                                            <p className="text-sm font-medium text-gray-900 hover:underline">{order.customerName || 'Guest'}</p>
+                                                            <p className="text-xs text-gray-400">{order.email}</p>
+                                                        </button>
                                                     </td>
                                                     <td className="px-6 py-4 text-sm text-gray-500">
                                                         {order.createdAt ? new Date(order.createdAt).toLocaleDateString() : 'N/A'}
@@ -1846,6 +1899,71 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                     </>
                 )}
 
+                {/* Customer Details Modal */}
+                {customerModalOpen && (
+                    <div className="fixed inset-0 z-[80] flex items-center justify-center p-4">
+                        <div className="absolute inset-0 bg-black/40" onClick={closeCustomerModal}></div>
+                        <div className="relative bg-white rounded-xl shadow-2xl max-w-2xl w-full p-6 animate-slide-up overflow-y-auto max-h-[80vh]">
+                            <div className="flex justify-between items-start gap-4">
+                                <div>
+                                    <h3 className="font-serif text-xl">{customerDetails?.user?.name || 'Customer'}</h3>
+                                    <p className="text-xs text-gray-500">{customerDetails?.user?.email}</p>
+                                </div>
+                                <button onClick={closeCustomerModal} className="text-gray-400 hover:text-black"><X size={20} /></button>
+                            </div>
+
+                            {customerLoading ? (
+                                <div className="py-12 text-center text-gray-500">Loading customer details...</div>
+                            ) : (
+                                <>
+                                    <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div className="bg-gray-50 p-4 rounded border">
+                                            <p className="text-xs text-gray-400 uppercase">Phone</p>
+                                            <p className="font-medium">{customerDetails?.user?.phone || (customerDetails?.orders && customerDetails.orders[0]?.phone) || 'N/A'}</p>
+                                            <div className="h-px bg-gray-200 my-3"></div>
+                                            <p className="text-xs text-gray-400 uppercase">Address</p>
+                                            <p className="text-sm">{customerDetails?.user?.address || customerDetails?.orders?.[0]?.address || 'N/A'}</p>
+                                        </div>
+                                        <div className="bg-gray-50 p-4 rounded border">
+                                            <p className="text-xs text-gray-400 uppercase">Total Orders</p>
+                                            <p className="font-medium">{customerDetails?.metrics?.totalOrders ?? (customerDetails?.orders ? customerDetails.orders.length : 0)}</p>
+                                            <div className="h-px bg-gray-200 my-3"></div>
+                                            <p className="text-xs text-gray-400 uppercase">Total Spent</p>
+                                            <p className="font-medium">₹{Number(customerDetails?.metrics?.totalSpent || 0).toLocaleString()}</p>
+                                            <div className="h-px bg-gray-200 my-3"></div>
+                                            <p className="text-xs text-gray-400 uppercase">Last Order</p>
+                                            <p className="font-medium">{customerDetails?.metrics?.lastOrderDate ? new Date(customerDetails.metrics.lastOrderDate).toLocaleDateString() : 'N/A'}</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Recent Orders */}
+                                    {customerDetails?.orders && (
+                                        <div className="mt-6">
+                                            <h4 className="font-medium mb-3">Recent Orders</h4>
+                                            <div className="overflow-x-auto">
+                                                <table className="w-full text-left text-sm">
+                                                    <thead className="text-xs text-gray-500 uppercase">
+                                                        <tr><th className="px-3 py-2">Order ID</th><th className="px-3 py-2">Date</th><th className="px-3 py-2">Amount</th><th className="px-3 py-2">Status</th></tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {customerDetails.orders.map(o => (
+                                                            <tr key={o._id} className="border-t">
+                                                                <td className="px-3 py-2 font-mono">#{o._id ? o._id.slice(-6).toUpperCase() : o._id}</td>
+                                                                <td className="px-3 py-2">{o.createdAt ? new Date(o.createdAt).toLocaleDateString() : 'N/A'}</td>
+                                                                <td className="px-3 py-2">₹{Number(o.amount !== undefined ? o.amount/100 : (o.products?.reduce((s,p)=>s + p.price * p.qty,0)||0)).toLocaleString()}</td>
+                                                                <td className="px-3 py-2">{o.status}</td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    )}
+                                </>
+                            )}
+                        </div>
+                    </div>
+                )}
                 {activeTab === 'users' && (
                     <>
                         {/* Users Table */}
@@ -1900,7 +2018,14 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                                                             {u.isAdmin ? 'Admin' : 'User'}
                                                         </span>
                                                     </td>
-                                                    <td className="px-6 py-4 text-right">
+                                                    <td className="px-6 py-4 text-right flex justify-end gap-3">
+                                                        <button
+                                                            onClick={() => fetchCustomerDetails(u._id)}
+                                                            className="text-xs font-bold uppercase text-gray-500 hover:text-black hover:underline"
+                                                            title="View customer details"
+                                                        >
+                                                            View
+                                                        </button>
                                                         <button
                                                             onClick={() => handleToggleAdminStatus(u._id, u.isAdmin)}
                                                             disabled={String(u._id) === String(user._id)}
