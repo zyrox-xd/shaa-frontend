@@ -20,7 +20,10 @@ const API_BASE_URL = BASE_URL; // existing code keeps working
 
 
 /* --- RAZORPAY CONFIGURATION --- */
-const RAZORPAY_KEY_ID = "rzp_live_Rgl2NCpQcyFajX";
+const RAZORPAY_KEY_ID = import.meta.env.VITE_RAZORPAY_KEY_ID || '';
+if (!RAZORPAY_KEY_ID && import.meta.env.MODE === 'development') {
+  console.warn('VITE_RAZORPAY_KEY_ID not set. Add it to your .env file to test payments.');
+}
 
 /* --- Data & Constants --- */
 // `BRANDS_LIST` and `FAQS` moved to `src/data/brands.js` and `src/data/faqs.js` and imported above
@@ -3278,7 +3281,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(orderPayload)
                         });
-                        console.log("Order saved to DB");
+                        if (import.meta.env.MODE === 'development') console.debug("Order saved to DB");
                     } catch (saveError) {
                         console.error("Failed to save order to DB", saveError);
                         // We still continue to success page, but maybe show a warning log

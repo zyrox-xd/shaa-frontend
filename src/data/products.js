@@ -664,7 +664,7 @@ const PRODUCTS = [
   name: "Glowtiqa Skin Whitening Soap",
   category: "Soap",
   brand: "Glowtiqa",
-  price: 1,
+  price: 600,
   image: "/image/glowtiqa-soap.jpg",
   description: "Daily whitening soap for gradual lightening",
   details: `
@@ -697,7 +697,7 @@ const PRODUCTS = [
   name: "Gluta C Intense Whitening Face and Body Soap",
   category: "Soap",
   brand: "Gluta C",
-  price: 1,
+  price: 750,
   image: "/image/gluta-c-soap.jpg",
   description: "Intense whitening soap for face and body",
   details: `
@@ -1985,7 +1985,7 @@ const PRODUCTS = [
   name: "Renew Kojic Glutathione Skin Whitening Soap",
   category: "Soap",
   brand: "Renew",
-  price: 1,
+  price: 16500,
   image: "/image/renew-kojic-soap.jpg",
   description: "Kojic and glutathione skin whitening soap",
   details: `
@@ -2183,7 +2183,7 @@ const PRODUCTS = [
   name: "Vita Glow Glutathione Skin Whitening Soap",
   category: "Soap",
   brand: "Vita Glow",
-  price: 1,
+  price: 1800,
   image: "/image/vita-glow-soap.jpg",
   description: "Glutathione skin whitening soap",
   details: `
