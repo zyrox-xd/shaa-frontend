@@ -706,9 +706,14 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
                 { name: 'Aging', img: '/image/blog3.jpg' },
                 { name: 'Brightening', img: '/image/blog4.jpg' }
               ].map((concern) => (
-                <div key={concern.name} className="min-w-[160px] md:min-w-[240px] group cursor-pointer">
+                <div 
+                  key={concern.name} 
+                  // --- ADDED ONCLICK HANDLER HERE ---
+                  onClick={() => { setShopFilter(concern.name); navigateTo('shop'); }}
+                  className="min-w-[160px] md:min-w-[240px] group cursor-pointer"
+                >
                    <div className="aspect-[4/3] rounded-lg overflow-hidden mb-3">
-                     <img src={concern.img} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" />
+                     <img src={concern.img} alt={concern.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" />
                    </div>
                    <p className="text-center font-medium text-gray-800">{concern.name}</p>
                 </div>
