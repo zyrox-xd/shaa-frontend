@@ -573,13 +573,14 @@ const CartDrawer = ({ isOpen, onClose, cart, updateQuantity, removeFromCart, che
 };
 
 const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
-  // Select specific best-selling products
+  // Select specific best-selling products (keep existing logic)
   const BEST_SELLERS = PRODUCTS.filter(p => [33, 62, 20, 14].includes(p.id));
   
-  // --- UPDATED: ADDED MORE PRODUCTS HERE (IDs 33 and 62 added) ---
-  const NEW_LAUNCHES = PRODUCTS.filter(p => [20, 14, 33, 62].includes(p.id));
+  // --- AUTOMATICALLY GET LATEST 4 PRODUCTS ---
+  // Reverse a copy of the array to get the newest items first, then take the top 4
+  const NEW_LAUNCHES = [...PRODUCTS].reverse().slice(0, 4);
 
-  // --- UPDATED CATEGORY DATA WITH PATHS ---
+  // --- CATEGORY DATA ---
   const CATEGORY_LIST = [
     { id: 1, name: 'Injection', image: '/image/injection.jpeg' },
     { id: 2, name: 'Cream', image: '/image/cream.jpeg' },
@@ -593,8 +594,6 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
 
   return (
     <div className="animate-fade-in bg-white">
-      {/* --- PROMO BAR REMOVED FROM HERE (Moved to Main App) --- */}
-
       {/* --- HERO BANNER --- */}
       <section className="relative bg-white pt-6 pb-12 overflow-hidden border-b border-gray-50">
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center gap-8">
@@ -651,7 +650,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
             ))}
           </div>
           <div className="text-center mt-6">
-            <button onClick={() => navigateTo('shop')} className="border-b border-black pb-1 text-sm font-bold uppercase tracking-widest">View all products</button>
+            <button onClick={() => navigateTo('shop')} className="border-b border-black pb-1 text-sm font-bold uppercase tracking-widest hover:text-gray-600 transition-colors">View all products</button>
           </div>
         </div>
       </section>
@@ -718,11 +717,11 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
         </div>
       </section>
 
-      {/* --- NEW LAUNCHES (EXPANDED TO 4 ITEMS) --- */}
+      {/* --- NEW LAUNCHES --- */}
       <section className="py-16 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-2xl font-serif mb-8 text-gray-900 text-center">New Launches</h2>
-          {/* UPDATED GRID TO SHOW 4 COLUMNS ON DESKTOP */}
+          
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
               {NEW_LAUNCHES.map(product => (
                 <div key={product.id} className="flex flex-col items-center text-center group">
@@ -740,6 +739,14 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
                 </div>
               ))}
           </div>
+
+          {/* --- ADDED: VIEW ALL BUTTON --- */}
+          <div className="text-center mt-12">
+            <button onClick={() => navigateTo('shop')} className="border-b border-black pb-1 text-sm font-bold uppercase tracking-widest hover:text-gray-600 transition-colors">
+                View all products
+            </button>
+          </div>
+
         </div>
       </section>
     </div>
