@@ -1038,7 +1038,7 @@ const TrackOrderView = ({ navigateTo, showToast }) => {
                  </div>
                  <div className="flex justify-between text-sm">
                     <span className="text-gray-500">Total Amount</span>
-                    <span className="font-medium">₹{order.totalAmount?.toLocaleString()}</span>
+                    <span className="font-medium">{order.amountFormatted || `₹${(order.amount !== undefined ? Number(order.amount)/100 : (order.products?.reduce((s,p)=> s + Number(p.price||0) * Number(p.qty||p.quantity||0),0)||0)).toLocaleString()}`}</span>
                  </div>
                  {order.trackingNumber && (
                     <div className="flex justify-between text-sm pt-2 border-t border-gray-200/50">
@@ -1162,7 +1162,7 @@ const OrderHistoryView = ({ token, user, showToast, navigateTo }) => {
                   
                   <div>
                     <p className="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1">Amount</p>
-                    <p className="text-sm font-medium text-gray-900">₹{order.amount?.toLocaleString()}</p>
+                    <p className="text-sm font-medium text-gray-900">{order.amountFormatted || `₹${(order.amount !== undefined ? Number(order.amount)/100 : 0).toLocaleString()}`}</p>
                   </div>
                   
                   <div className="flex items-center justify-between md:justify-end gap-4">
@@ -1232,7 +1232,7 @@ const OrderHistoryView = ({ token, user, showToast, navigateTo }) => {
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 uppercase tracking-wide font-bold mb-1">Total Amount</p>
-                    <p className="text-sm font-medium">₹{selectedOrder.amount?.toLocaleString()}</p>
+                    <p className="text-sm font-medium">{selectedOrder.amountFormatted || `₹${(selectedOrder.amount !== undefined ? Number(selectedOrder.amount)/100 : (selectedOrder.products?.reduce((s,p)=> s + Number(p.price||0) * Number(p.qty||p.quantity||0),0)||0)).toLocaleString()}`}</p>
                   </div>
                 </div>
               </div>
@@ -1246,9 +1246,9 @@ const OrderHistoryView = ({ token, user, showToast, navigateTo }) => {
                       <div key={idx} className="flex justify-between text-sm border-b border-gray-200 pb-2 last:border-0">
                         <div>
                           <p className="font-medium text-gray-900">{product.name}</p>
-                          <p className="text-xs text-gray-500">Qty: {product.qty}</p>
+                          <p className="text-xs text-gray-500">Qty: {product.qty ?? product.quantity ?? 0}</p>
                         </div>
-                        <p className="font-medium">₹{(product.price * product.qty).toLocaleString()}</p>
+                        <p className="font-medium">₹{((Number(product.price || 0) * Number(product.qty ?? product.quantity ?? 0))).toLocaleString()}</p>
                       </div>
                     ))
                   ) : (
