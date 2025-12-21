@@ -110,6 +110,9 @@ const Navigation = ({
 
     return (
         <>
+            <div className="bg-[#e67e22] text-white py-2 text-center text-[11px] font-bold tracking-wider">
+                PAN INDIA SHIPPING AND COLD CHAIN DELIVERY AVAILABLE!
+            </div>
             <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300">
              <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between gap-4">
                 
@@ -572,7 +575,9 @@ const CartDrawer = ({ isOpen, onClose, cart, updateQuantity, removeFromCart, che
 const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
   // Select specific best-selling products
   const BEST_SELLERS = PRODUCTS.filter(p => [33, 62, 20, 14].includes(p.id));
-  const NEW_LAUNCHES = PRODUCTS.filter(p => [20, 14].includes(p.id));
+  
+  // --- UPDATED: ADDED MORE PRODUCTS HERE (IDs 33 and 62 added) ---
+  const NEW_LAUNCHES = PRODUCTS.filter(p => [20, 14, 33, 62].includes(p.id));
 
   // --- UPDATED CATEGORY DATA WITH PATHS ---
   const CATEGORY_LIST = [
@@ -588,10 +593,8 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
 
   return (
     <div className="animate-fade-in bg-white">
-      {/* --- PROMO BAR --- */}
-      <div className="bg-[#e67e22] text-white py-2 text-center text-[11px] font-bold tracking-wider">
-        PAN INDIA SHIPPING AND COLD CHAIN DELIVERY AVAILABLE!
-      </div>
+      {/* --- PROMO BAR REMOVED FROM HERE (Moved to Main App) --- */}
+
       {/* --- HERO BANNER --- */}
       <section className="relative bg-white pt-6 pb-12 overflow-hidden border-b border-gray-50">
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center gap-8">
@@ -653,33 +656,29 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
         </div>
       </section>
 
-      {/* --- SHOP BY CATEGORY (UPDATED) --- */}
+      {/* --- SHOP BY CATEGORY --- */}
       <section className="py-16 bg-white border-t border-gray-50">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-gray-400 mb-10 text-center">Shop by Category</h2>
           
-          {/* Horizontal Scroll Container */}
           <div className="flex overflow-x-auto gap-8 pb-6 scrollbar-hide snap-x items-start">
-             {/* Using the new CATEGORY_LIST defined at the top of the component */}
              {CATEGORY_LIST.map((cat) => (
                <div 
                 key={cat.id} 
                 onClick={() => { setShopFilter(cat.name); navigateTo('shop'); }}
                 className="snap-start flex-shrink-0 flex flex-col items-center group cursor-pointer w-24 md:w-32"
                >
-                 {/* Circular Image Tile */}
                  <div className="relative aspect-square w-full overflow-hidden rounded-full mb-4 bg-white border border-gray-100 transition-all duration-300 group-hover:shadow-md group-hover:border-black/10">
                     <div className="absolute inset-0 flex items-center justify-center p-6">
                         <img 
                           src={cat.image} 
                           alt={cat.name}
-                          onError={(e) => {e.target.src = '/image/logo.jpg'}} // Fallback to logo if file not found
+                          onError={(e) => {e.target.src = '/image/logo.jpg'}} 
                           className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" 
                         />
                     </div>
                  </div>
                  
-                 {/* Category Label */}
                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-500 group-hover:text-black text-center transition-colors">
                    {cat.name}
                  </span>
@@ -703,11 +702,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
                 <div 
                   key={concern.name} 
                   onClick={() => { 
-                    // CONDITIONAL LOGIC:
-                    // If "Uneven Tone" -> Go to Cream
-                    // All others -> Go to Injection
                     const targetCategory = concern.name === 'Uneven Tone' ? 'Cream' : 'Injection';
-                    
                     setShopFilter(targetCategory); 
                     navigateTo('shop'); 
                   }}
@@ -722,19 +717,23 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
           </div>
         </div>
       </section>
-      {/* --- NEW LAUNCHES --- */}
+
+      {/* --- NEW LAUNCHES (EXPANDED TO 4 ITEMS) --- */}
       <section className="py-16 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-2xl font-serif mb-8 text-gray-900 text-center">New Launches</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* UPDATED GRID TO SHOW 4 COLUMNS ON DESKTOP */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
               {NEW_LAUNCHES.map(product => (
-                <div key={product.id} className="flex flex-col items-center text-center">
-                   <img src={product.image} className="h-64 object-contain mb-4" />
-                   <h3 className="font-serif text-xl">{product.name}</h3>
+                <div key={product.id} className="flex flex-col items-center text-center group">
+                   <div className="w-full bg-[#f9f9f9] rounded-lg mb-4 p-4">
+                      <img src={product.image} className="h-48 w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500" />
+                   </div>
+                   <h3 className="font-serif text-lg md:text-xl line-clamp-1">{product.name}</h3>
                    <p className="text-sm text-gray-500 mt-1 mb-4">₹{product.price.toLocaleString()}</p>
                    <button 
                      onClick={() => addToCart(product)}
-                     className="bg-black text-white w-full max-w-xs py-3 text-xs font-bold uppercase tracking-widest"
+                     className="bg-black text-white w-full py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-gray-800"
                    >
                      Add to Cart
                    </button>
