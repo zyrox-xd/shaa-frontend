@@ -116,15 +116,20 @@ const Navigation = ({
             <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300">
              <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between gap-4">
                 
-                {/* LEFT: HAMBURGER + SIMPLE NAME */}
+                {/* LEFT: HAMBURGER + LOGO (mobile) / LOGO (desktop) */}
                 <div className="flex items-center gap-3 shrink-0">
                     <button className="lg:hidden p-2 text-gray-800 hover:bg-gray-100 rounded-full" onClick={() => setMobileMenuOpen(true)} aria-label="Open menu">
                         <Menu size={24} />
                     </button>
 
-                    <div className="cursor-pointer" onClick={() => setCurrentPage('home')}>
+                    <div className="cursor-pointer hidden lg:block" onClick={() => setCurrentPage('home')}>
                         <span className="text-base font-sans font-bold uppercase tracking-tight select-none">Shaa trading</span>
                     </div>
+                </div>
+
+                {/* CENTER: LOGO (mobile centered) */}
+                <div className="cursor-pointer lg:hidden flex-1 flex justify-center" onClick={() => setCurrentPage('home')}>
+                    <span className="text-base font-sans font-bold uppercase tracking-tight select-none">Shaa trading</span>
                 </div>
 
                 {/* DESKTOP NAV */}
