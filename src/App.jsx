@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import { ShoppingBag, Menu, X, Instagram, Facebook, Linkedin, ArrowRight, Trash2, Plus, Minus, Mail, Phone, MapPin, ShieldCheck, Building2, Stethoscope, FileText, Award, Search, ChevronRight, Check, ChevronDown, Sparkles, Truck, Globe, ArrowLeft, Grid, List, ArrowUpDown, Thermometer, Clock, User, SlidersHorizontal, Printer, Download ,Quote} from 'lucide-react';
 import Footer from './components/Footer';
 import Ticker from './components/Ticker';
+import ProductCard from './components/ProductCard';
 import PRODUCTS from './data/products';
 import BLOG_POSTS from './data/blogs';
 import CATEGORIES from './data/categories';
@@ -499,6 +500,82 @@ const PaymentSuccessView = ({ navigateTo, showToast, transactionId }) => {
     );
 };
 
+// full-screen cart page
+const CartView = ({ cart, updateQuantity, removeFromCart, checkout, navigateTo }) => {
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+        email: '', 
+        address: ''
+      });
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const isFormValid = formData.name && formData.phone && formData.address && formData.email;
+    const handleInputChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
+
+    return (
+      <div className="animate-fade-in bg-[#fbfbfb] min-h-screen pb-24">
+        {/* breadcrumb/header */}
+        <div className="px-6 py-4 border-b border-gray-100 sticky top-20 bg-white z-40 flex gap-2 text-xs text-gray-500 items-center">
+            <button onClick={() => navigateTo('shop')} className="hover:text-black flex items-center gap-1"><ArrowLeft size={12}/> Continue Shopping</button>
+            <span className="text-gray-300">/</span>
+            <span className="text-gray-800 font-serif text-lg">Your Cart</span>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          {cart.length === 0 ? (
+            <div className="h-full flex flex-col items-center justify-center text-center text-gray-400 py-32">
+                <ShoppingBag size={48} strokeWidth={1} className="mb-4 text-gray-200" />
+                <p className="text-lg font-light">Your cart is empty</p>
+                <button onClick={() => navigateTo('shop')} className="mt-4 text-gray-800 hover:text-black transition-colors font-medium text-sm">Continue Shopping</button>
+            </div>
+          ) : (
+            <div className="space-y-6">
+                {cart.map(item => (
+                    <div key={item.id} className="flex gap-4">
+                        <div className="w-20 h-20 bg-gray-50 rounded-lg overflow-hidden shrink-0">
+                            <img loading="lazy" src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                        </div>
+                        <div className="flex-1">
+                            <div className="flex justify-between items-start mb-1">
+                                <h3 className="font-serif text-lg leading-tight">{item.name}</h3>
+                                <button onClick={() => removeFromCart(item.id)} className="text-gray-300 hover:text-red-400 transition-colors p-1"><Trash2 size={16} /></button>
+                            </div>
+                            <p className="text-gray-800 text-sm mb-3">₹{item.price.toLocaleString()}</p>
+                            <div className="flex items-center gap-3">
+                                <div className="flex items-center border border-gray-200 rounded">
+                                    <button onClick={() => updateQuantity(item.id, -1)} className="px-2 py-1 hover:bg-gray-50 text-gray-600"><Minus size={12} /></button>
+                                    <span className="w-8 text-center text-sm font-medium">{item.quantity}</span>
+                                    <button onClick={() => updateQuantity(item.id, 1)} className="px-2 py-1 hover:bg-gray-50 text-gray-600"><Plus size={12} /></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+          )}
+
+          {cart.length > 0 && (
+              <div className="p-6 bg-gray-50 border-t border-gray-100 mt-8">
+                  <div className="flex justify-between items-center mb-4">
+                      <span className="text-gray-600">Subtotal</span>
+                      <span className="font-serif text-2xl">₹{total.toLocaleString()}</span>
+                  </div>
+                  <div className="space-y-3 mb-4">
+                      <input name="name" placeholder="Full Name" value={formData.name} onChange={handleInputChange} className="w-full p-2 border border-gray-200 rounded focus:border-gray-800 outline-none"/>
+                      <input name="phone" placeholder="Phone" value={formData.phone} onChange={handleInputChange} className="w-full p-2 border border-gray-200 rounded focus:border-gray-800 outline-none"/>
+                      <input name="email" type="email" placeholder="Email Address" value={formData.email} onChange={handleInputChange} className="w-full p-2 border border-gray-200 rounded focus:border-gray-800 outline-none"/>
+                      <textarea name="address" placeholder="Address" value={formData.address} onChange={handleInputChange} className="w-full p-2 border border-gray-200 rounded focus:border-gray-800 outline-none resize-none"/>
+                  </div>
+                  <Button className="w-full" onClick={() => checkout(formData)} disabled={!isFormValid}>
+                      Pay ₹{total.toLocaleString()}
+                  </Button>
+              </div>
+          )}
+        </div>
+      </div>
+    );
+};
+
+// existing drawer component stays in case it is still used
 const CartDrawer = ({ isOpen, onClose, cart, updateQuantity, removeFromCart, checkout }) => {
     const [formData, setFormData] = useState({
         name: '',
@@ -2014,18 +2091,21 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
     const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'list'
     const [sortBy, setSortBy] = useState('featured'); // 'featured', 'price-asc', 'price-desc'
     
-    const filteredProducts = PRODUCTS.filter(p => {
-      const matchesCategory = filter === 'All' || p.category === filter;
-      const matchesBrand = brandFilter === 'All Brands' || p.brand === brandFilter;
-      const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                            p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                            p.brand.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesBrand && matchesSearch;
-    }).sort((a, b) => {
-        if (sortBy === 'price-asc') return a.price - b.price;
-        if (sortBy === 'price-desc') return b.price - a.price;
-        return 0; // featured (default order)
-    });
+    // memoize filtered + sorted results so we only recalc when dependencies change
+    const filteredProducts = useMemo(() => {
+      return PRODUCTS.filter(p => {
+        const matchesCategory = filter === 'All' || p.category === filter;
+        const matchesBrand = brandFilter === 'All Brands' || p.brand === brandFilter;
+        const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              p.brand.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesBrand && matchesSearch;
+      }).sort((a, b) => {
+          if (sortBy === 'price-asc') return a.price - b.price;
+          if (sortBy === 'price-desc') return b.price - a.price;
+          return 0; // featured (default order)
+      });
+    }, [filter, brandFilter, searchQuery, sortBy]);
     
     return (
       <div className="animate-fade-in bg-[#fbfbfb] min-h-screen pb-24">
@@ -2130,55 +2210,13 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
                   <div className={`grid gap-3 md:gap-6 ${viewMode === 'grid' ? 'grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
                       {filteredProducts.length > 0 ? (
                           filteredProducts.map(product => (
-                          <div 
-                              key={product.id} 
-                              className={`group cursor-pointer bg-white rounded-xl overflow-hidden border border-transparent hover:border-gray-100 hover:shadow-2xl transition-all duration-500 ${viewMode === 'list' ? 'flex gap-6 p-4 border-gray-100' : ''}`} 
-                              onClick={() => navigateTo('product', product)}
-                          >
-                              <div className={`relative bg-[#f8f8f8] overflow-hidden ${viewMode === 'list' ? 'w-32 h-32 rounded-lg shrink-0' : 'aspect-[4/5]'}`}>
-                                  <img 
-                                      loading="lazy" 
-                                      src={product.image} 
-                                      alt={product.name} 
-                                      className="w-full h-full object-contain p-4 mix-blend-multiply transition-transform duration-500 group-hover:scale-110" 
-                                  />
-                                  
-                                  {viewMode === 'grid' && (
-                                      <div className="absolute top-3 left-3 right-3 flex justify-between items-start opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                          <span className="bg-white/90 backdrop-blur text-[9px] px-2 py-1 rounded font-bold tracking-wider uppercase shadow-sm">{product.brand}</span>
-                                      </div>
-                                  )}
-                                  {product.price > 12000 && viewMode === 'grid' && (
-                                      <div className="absolute top-3 right-3 bg-gray-800 text-white text-[8px] px-2 py-1 rounded font-bold tracking-wider uppercase shadow-sm">Best Seller</div>
-                                  )}
-    
-                                  {/* Quick Add Overlay (Desktop) */}
-                                  {viewMode === 'grid' && (
-                                      <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out hidden md:block bg-gradient-to-t from-black/60 to-transparent pt-12">
-                                          <button 
-                                              onClick={(e) => { e.stopPropagation(); addToCart(product); }}
-                                              className="w-full bg-white text-black py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors shadow-lg flex items-center justify-center gap-2 rounded-lg"
-                                          >
-                                              <ShoppingBag size={14} /> Add to Cart
-                                          </button>
-                                      </div>
-                                  )}
-                              </div>
-    
-                              <div className={`${viewMode === 'list' ? 'flex-1 flex flex-col justify-center' : 'pt-4 pb-2 px-2'}`}>
-                                  <div className="text-gray-400 text-[9px] font-bold tracking-widest uppercase mb-1.5">{product.category}</div>
-                                  <h3 className={`font-serif text-gray-900 leading-tight ${viewMode === 'list' ? 'text-xl mb-2' : 'text-sm md:text-base mb-2 line-clamp-2 min-h-[2.5em]'}`}>{product.name}</h3>
-                                  <div className="flex items-center justify-between mt-auto">
-                                      <p className="text-sm md:text-base font-medium font-serif">₹{product.price.toLocaleString()}</p>
-                                      <button 
-                                          className="md:hidden w-8 h-8 bg-black text-white rounded-full flex items-center justify-center active:scale-95"
-                                          onClick={(e) => { e.stopPropagation(); addToCart(product); }}
-                                      >
-                                          <Plus size={16} />
-                                      </button>
-                                  </div>
-                              </div>
-                          </div>
+                              <ProductCard
+                                key={product.id}
+                                product={product}
+                                viewMode={viewMode}
+                                navigateTo={navigateTo}
+                                addToCart={addToCart}
+                              />
                           ))
                       ) : (
                           <div className="col-span-full py-32 text-center">
@@ -2805,6 +2843,8 @@ const buildPathForPage = (page, opts = {}) => {
       return '/';
     case 'shop':
       return '/shop';
+    case 'cart':
+      return '/cart';
     case 'about':
       return '/about';
     case 'contact':
@@ -2902,6 +2942,9 @@ const getRouteFromLocation = () => {
       break;
     case 'about':
       page = 'about';
+      break;
+    case 'cart':
+      page = 'cart';
       break;
     case 'contact':
       page = 'contact';
@@ -3004,6 +3047,13 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
       description = 'Browse Aqua Skin, Glutax, Dr James, Glowtiqa and other advanced skin whitening injections, creams, soaps and supplements from Shaa Trading.';
       canonical = `https://shaatrading.in${buildPathForPage('shop')}`;
       keywords = 'buy glutathione injections, Aqua Skin India, Glutax injections, Dr James injection, Glowtiqa whitening cream, skin whitening products online, clinic supplies India';
+      break;
+
+    case 'cart':
+      title = 'Your Cart | Shaa Trading';
+      description = 'Review the items in your cart and proceed to payment for your Shaa Trading order.';
+      canonical = `https://shaatrading.in${buildPathForPage('cart')}`;
+      keywords = 'cart, shopping cart, sha a trading cart, checkout';
       break;
 
     case 'about':
@@ -3247,7 +3297,8 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
         }
         return [...prev, { ...product, quantity }];
       });
-      setCartOpen(true);
+      // navigate to cart page rather than opening drawer
+      navigateTo('cart');
       showToast(`Added ${product.name} to cart`, 'success');
     };
 
@@ -3422,7 +3473,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
               currentPage={currentPage} 
               setCurrentPage={navigateTo}
               cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)}
-              toggleCart={() => setCartOpen(true)}
+              toggleCart={() => navigateTo('cart')} // now opens cart page instead of drawer
               mobileMenuOpen={mobileMenuOpen}
               setMobileMenuOpen={setMobileMenuOpen}
               setShopFilter={setShopFilter} 
@@ -3450,6 +3501,15 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
               )}
 
               {currentPage === 'product' && selectedProduct && <ProductView product={selectedProduct} addToCart={addToCart} navigateTo={navigateTo} />}
+              {currentPage === 'cart' && (
+                <CartView
+                  cart={cart}
+                  updateQuantity={updateQuantity}
+                  removeFromCart={removeFromCart}
+                  checkout={handlePayment}
+                  navigateTo={navigateTo}
+                />
+              )}
               {currentPage === 'blog' && <BlogView navigateTo={navigateTo} />}
               {currentPage === 'blog-post' && selectedPost && <BlogPostView post={selectedPost} navigateTo={navigateTo} />}
               {currentPage === 'about' && <AboutView />}
