@@ -656,7 +656,7 @@ const CartDrawer = ({ isOpen, onClose, cart, updateQuantity, removeFromCart, che
 
 const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
   // Select specific best-selling products (keep existing logic)
-  const BEST_SELLERS = PRODUCTS.filter(p => [33, 62, 20, 14].includes(p.id));
+  const BEST_SELLERS = PRODUCTS.filter(p => [2, 1, 3, 4].includes(p.id));
   
   // --- AUTOMATICALLY GET LATEST 4 PRODUCTS ---
   // Reverse a copy of the array to get the newest items first, then take the top 4
@@ -690,7 +690,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
             </button>
           </div>
           <div className="relative order-1 md:order-2">
-             <img src="/image/glutax-5gs-adv-12s.jpg" alt="Featured Product" className="w-full h-auto object-contain max-h-[400px]" />
+             <img src="/image/glutax/gtx-5gs-adv.jpeg" alt="Featured Product" className="w-full h-auto object-contain max-h-[400px]" />
           </div>
         </div>
       </section>
@@ -2329,7 +2329,10 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
   const ProductView = ({ product, addToCart, navigateTo }) => {
     const [qty, setQty] = useState(1);
     const [activeImg, setActiveImg] = useState(0);
-    const images = [product.image, product.image, product.image, product.image];
+    // prefer using the images array defined in product data; fall back to single image replicated
+    const images = Array.isArray(product.images) && product.images.length > 0
+      ? product.images
+      : [product.image, product.image, product.image, product.image];
   
     const similarProducts = PRODUCTS.filter(
       (p) => p.category === product.category && p.id !== product.id
@@ -2360,7 +2363,14 @@ const AdminView = ({ token, user, showToast, navigateTo, handleLogout }) => {
               <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">{product.brand}</div>
               
               <div className="flex items-baseline gap-4 mb-6 border-b border-gray-100 pb-6">
-                  <span className="text-3xl font-medium">₹{product.price.toLocaleString()}</span>
+                  <span className="text-3xl font-medium flex items-center">
+                    {product.comparePrice && (
+                      <span className="text-gray-500 line-through mr-2 text-lg">
+                        ₹{product.comparePrice.toLocaleString()}
+                      </span>
+                    )}
+                    <span>₹{product.price.toLocaleString()}</span>
+                  </span>
                   <span className="text-sm text-green-600 font-medium bg-green-50 px-2 py-1 rounded">In Stock</span>
               </div>
               

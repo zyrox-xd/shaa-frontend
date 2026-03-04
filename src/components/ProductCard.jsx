@@ -72,8 +72,13 @@ const ProductCard = ({ product, viewMode, navigateTo, addToCart }) => {
           {product.name}
         </h3>
         <div className="flex items-center justify-between mt-auto">
-          <p className="text-sm md:text-base font-medium font-serif">
-            ₹{product.price.toLocaleString()}
+          <p className="text-sm md:text-base font-medium font-serif flex items-center">
+            {product.comparePrice && (
+              <span className="text-gray-500 line-through mr-2">
+                ₹{product.comparePrice.toLocaleString()}
+              </span>
+            )}
+            <span>₹{product.price.toLocaleString()}</span>
           </p>
         </div>
         {/* mobile-only buy button */}
