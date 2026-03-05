@@ -807,11 +807,11 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
               {NEW_LAUNCHES.map(product => (
                 <div key={product.id} className="flex flex-col items-center text-center group">
-                   <div className="w-full bg-[#f9f9f9] rounded-lg mb-4 p-4">
+                   <div className="w-full bg-[#f9f9f9] rounded-lg mb-4 p-4 cursor-pointer" onClick={() => navigateTo('product', product)}>
                       <img src={product.image} className="h-48 w-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500" />
                    </div>
-                   <h3 className="font-serif text-lg md:text-xl line-clamp-1">{product.name}</h3>
-                   <p className="text-sm text-gray-500 mt-1 mb-4">₹{product.price.toLocaleString()}</p>
+                   <h3 className="font-serif text-lg md:text-xl line-clamp-1 cursor-pointer hover:text-gray-600 transition-colors" onClick={() => navigateTo('product', product)}>{product.name}</h3>
+                   <p className="text-sm text-gray-500 mt-1 mb-4 cursor-pointer hover:text-gray-700 transition-colors" onClick={() => navigateTo('product', product)}>₹{product.price.toLocaleString()}</p>
                    <button 
                      onClick={() => addToCart(product)}
                      className="bg-black text-white w-full py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-gray-800"
