@@ -2705,6 +2705,141 @@ const PRODUCTS = [
     ],
     sku: "GLUTAX-2000GS-ADVANCED-II",
     volume: "10 Sessions"
+},
+{
+    id: 6,
+    name: "Glutax 50000000GS Advanced Glutathione Skin Whitening Injection – 10 Sessions",
+    category: "Injection",
+    brand: "Glutax",
+    price: 13499,
+    comparePrice: 17278,
+    image: "/image/glutax/gtx-50mgs.jpeg",
+    images: [
+        "/image/glutax/gtx-50mgs.jpeg",
+        "/image/glutax/gtx-50Mgs-3.jpeg",
+        "/image/glutax/gtx-50mgs-3.jpg",
+        "/image/glutax/gtx-50mgs-4.jpg"
+    ],
+    description: "Ultra-high potency Italian glutathione whitening therapy with dramatic whitening, deep detoxification, and visible anti-aging benefits.",
+    details: `
+    <strong>Glutax 50000000GS Advanced Glutathione Injection</strong><br/><br/>
+    One of the most powerful Italian glutathione whitening therapies available. Designed for advanced users seeking dramatic whitening, deep detoxification, and visible anti-aging benefits across 10 complete sessions.<br/><br/>
+    
+    <strong>Composition:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Ultra-High Glutathione Complex</li>
+      <li>Collagen Peptides & Vitamin C</li>
+      <li>Alpha Lipoic Acid & Coenzyme Q10</li>
+      <li>Hyaluronic Acid</li>
+      <li>Multivitamins, Minerals & Amino Acids</li>
+      <li>Natural Botanical Extracts</li>
+    </ul>
+    <br/>
+
+    <strong>Key Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Ultra-high glutathione dose for maximum whitening</li>
+      <li>Reduces pigmentation and dark patches</li>
+      <li>Improves elasticity and firmness with collagen</li>
+      <li>Supports detoxification and liver health</li>
+      <li>10 full sessions of professional results</li>
+      <li>Reduces oxidative stress and slows aging</li>
+    </ul>
+    <br/>
+
+    <strong>Why It Works:</strong> Glutathione suppresses melanin production while detoxifying the body. Vitamin C boosts absorption and accelerates brightening results.<br/><br/>
+
+    <strong>Features:</strong> Made in Italy • 10-Session Protocol • Professional-grade potency<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results vary by individual. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "10 Sessions Pack",
+        "Made in Italy",
+        "Ultra-High Potency",
+        "Maximum Whitening",
+        "Reduces Pigmentation",
+        "Detoxifies Body"
+    ],
+    sku: "GLUTAX-50000000GS-ADV",
+    volume: "10 Sessions"
+},
+{
+    id: 7,
+    name: "Glutax 22000000 GS Extremely Tremendous White SPF 100 UV Protection Skin Whitening Injection",
+    category: "Injection",
+    brand: "Glutax",
+    price: 9500,
+    comparePrice: null,
+    image: "/image/glutax/gtx-22Mgs.jpeg",
+    images: [
+        "/image/glutax/gtx-22Mgs.jpeg",
+        "/image/glutax/gtx-22Mgs-2.jpeg",
+        "/image/glutax/gtx-22Mgs-3.jpeg",
+        "/image/glutax/gtx-22Mgs-4.jpeg"
+    ],
+    description: "Extremely Tremendous White formula with SPF 100 UV protection, featuring grape seed extract, glutathione, collagen, and vitamin C for comprehensive skin whitening.",
+    details: `
+    <strong>Glutax 22000000 GS Extremely Tremendous White SPF 100 UV Protection Injection</strong><br/><br/>
+    Advanced skin whitening injection with built-in SPF 100 UV protection. Features a powerful combination of grape seed extract, glutathione, collagen, and vitamin C for comprehensive whitening and sun protection.<br/><br/>
+    
+    <strong>Composition:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Grape Seed Extract</li>
+      <li>Glutathione</li>
+      <li>Collagen</li>
+      <li>Vitamin C</li>
+      <li>Alpha Lipoic Acid</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 22,000,000 GS</li>
+      <li>Packaging Size: 10 vials kit</li>
+      <li>Formulation: Lyophilized Powder</li>
+      <li>Injection Type: IV (Drips)</li>
+      <li>Country of Origin: Italy</li>
+      <li>Paraben Free & Organic: Yes</li>
+      <li>Gender: Unisex</li>
+      <li>SPF 100 UV Protection</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Provides SPF 100 UV protection</li>
+      <li>Extremely tremendous whitening effect</li>
+      <li>Powerful antioxidant protection</li>
+      <li>Contains grape seed extract for enhanced results</li>
+      <li>Collagen for skin elasticity</li>
+      <li>Vitamin C for brightening</li>
+    </ul>
+    <br/>
+
+    <strong>Additional Information:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>PCD Pharma available</li>
+      <li>In Stock</li>
+      <li>Brand: Glutax</li>
+      <li>Form: Injection (Drips)</li>
+    </ul>
+    <br/>
+
+    <em class="text-xs text-gray-400">Note: Consult dermatologist before use. Results may vary by individual.</em>
+    `,
+    benefits: [
+        "10 Sessions Pack",
+        "Made in Italy",
+        "SPF 100 UV Protection",
+        "With Grape Seed Extract",
+        "Paraben Free",
+        "Unisex",
+        "Contains Collagen",
+        "IV Drips Format"
+    ],
+    sku: "GLUTAX-22000000GS-SPF",
+    volume: "10 Sessions"
 }
 ];
 
