@@ -2628,6 +2628,83 @@ const PRODUCTS = [
     ],
     sku: "GLUTAX-10000000GX-DUALNA",
     volume: "10 Sessions"
+},
+{
+    id: 5,
+    name: "Glutax 2000gs Advanced II Glutathione Injection",
+    category: "Injection",
+    brand: "Glutax",
+    price: 12000,
+    comparePrice: 18000,
+    image: "/image/glutax/gtx-50Mgs.png",
+    images: [
+        "/image/glutax/gtx-50Mgs.png",
+        "/image/glutax/glutax-2000gs-advanced-ii-2.jpg",
+        "/image/glutax/glutax-2000gs-advanced-ii-3.jpg",
+        "/image/glutax/glutax-2000gs-advanced-ii-4.jpg"
+    ],
+    description: "Advanced II Recombined White RNA Active Cells skin whitening injection with complete detoxification and immunity boosting benefits.",
+    details: `
+    <strong>Glutax 2000GS Advanced II Recombined White RNA Active Cells</strong><br/><br/>
+    Unlock the power of Glutax, featuring glutathione, the body's ultimate antioxidant. Each box offers ten sessions designed to brighten your skin.<br/><br/>
+    
+    <strong>What's Included (10 Sessions):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>10 ampoules: Multivitamin 3500mg, Natural Collagen 800mg, Selenium 600mg</li>
+      <li>10 ampoules: Recombined Stem Cell (Grape Seed, Apple, Argan Fruit, Rose Placenta Extract) 600mg</li>
+      <li>10 ampoules: Pure DNA & RNA Extract 2000 mcg, Cyanocobalamine 2000mg</li>
+      <li>10 vials: Glutathione 2000g, Epidermal Growth Factor 2000mg, Alpha Lipoic Acid 700mg, Kojic Acid 500mg</li>
+      <li>10 vials: Glutathione 2000g, ProCoenzyme Q10 600mg, Cinnamomum Subavenium 325mg</li>
+    </ul>
+    <br/>
+
+    <strong>Key Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Complete Detoxification: Supports liver, kidneys, GI tract, and intestines</li>
+      <li>Enhanced Immunity: Boosts T cell lymphocytes</li>
+      <li>Revitalized Skin: Glowing, youthful complexion with reduced aging signs</li>
+    </ul>
+    <br/>
+
+    <strong>Expected Results:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>1 Box: Radiant glow</li>
+      <li>2 Boxes: Noticeably brighter and lighter skin</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Combine contents of ampoules and vials</li>
+      <li>Administer slowly through intravenous injection</li>
+      <li>Dosage: Once weekly, or every four days for accelerated results</li>
+      <li>Hydrate adequately 1-2 hours prior</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Country of Origin: Italy</li>
+      <li>Paraben Free & Organic: Yes</li>
+      <li>Form: Injection</li>
+      <li>Usage: Skin Whitening</li>
+    </ul>
+    <br/>
+
+    <em class="text-xs text-gray-400">Note: Results vary based on individual usage, absorption rates, and lifestyle choices. Consistent use recommended for optimal results. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "10 Sessions Pack",
+        "Made in Italy",
+        "Complete Detoxification",
+        "Boosts Immunity",
+        "Revitalizes Skin",
+        "With Stem Cells & Q10",
+        "Paraben Free",
+        "Contains Kojic Acid"
+    ],
+    sku: "GLUTAX-2000GS-ADVANCED-II",
+    volume: "10 Sessions"
 }
 ];
 
