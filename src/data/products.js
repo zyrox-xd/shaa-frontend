@@ -2576,7 +2576,7 @@ const PRODUCTS = [
     image: "/image/glutax/gtx-10mgx.jpg",
     images: [
         "/image/glutax/gtx-10mgx.jpg",
-        "/image/glutax/gtx-10mgx-2.jpg",
+        "/image/glutax/gtx-10mgx-2.jpeg",
         "/image/glutax/gtx-10mgx-3.jpg",
         "/image/glutax/gtx-10mgx-4.jpg"
     ],
