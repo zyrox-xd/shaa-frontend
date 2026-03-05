@@ -2636,10 +2636,10 @@ const PRODUCTS = [
     brand: "Glutax",
     price: 12000,
     comparePrice: 18000,
-    image: "/image/glutax/gtx-50Mgs.png",
+    image: "/image/glutax/gtx-2kgs.jpeg",
     images: [
-        "/image/glutax/gtx-50Mgs.png",
-        "/image/glutax/glutax-2000gs-advanced-ii-2.jpg",
+        "/image/glutax/gtx-2kgs.jpeg",
+        "/image/glutax/gtx-2kgs-2.jpeg",
         "/image/glutax/glutax-2000gs-advanced-ii-3.jpg",
         "/image/glutax/glutax-2000gs-advanced-ii-4.jpg"
     ],
