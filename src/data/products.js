@@ -2770,7 +2770,7 @@ const PRODUCTS = [
     category: "Injection",
     brand: "Glutax",
     price: 9500,
-    comparePrice: null,
+    comparePrice: 15000,
     image: "/image/glutax/gtx-22Mgs.jpeg",
     images: [
         "/image/glutax/gtx-22Mgs.jpeg",
@@ -2840,7 +2840,86 @@ const PRODUCTS = [
     ],
     sku: "GLUTAX-22000000GS-SPF",
     volume: "10 Sessions"
-}
+},
+{
+    id: 8,
+    name: "Glutax 8000000GS Ultimate Recombined White Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Glutax",
+    price: 11600,
+    comparePrice: 20000,
+    image: "/image/glutax/gtx-80Mgs.jpeg",
+    images: [
+        "/image/glutax/gtx-80Mgs.jpeg",
+        "/image/glutax/gtx-80Mgs-2.jpeg",
+        "/image/glutax/gtx-80Mgs-3.jpeg",
+        "/image/glutax/gtx-80Mgs-4.jpeg"
+    ],
+    description: "Ultimate Recombined White formula with 8,000,000g glutathione, multivitamins, collagen, and growth factors for visible whitening and anti-aging results.",
+    details: `
+    <strong>Glutax 8000000GS Ultimate Recombined White Glutathione Injection</strong><br/><br/>
+    A popular glutathione brand featuring 8,000,000 grams of glutathione combined with multivitamins, collagen, natural extracts, and growth factors that reduce signs of aging. Suitable for those wanting clearer and firmer skin complexion.<br/><br/>
+    
+    <strong>Composition:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Ultrafiltration Glutathione - 8,000,000 g</li>
+      <li>Crithmum maritimum Cells CIC2 - 100,000 mg</li>
+      <li>Alpha Lipoic Acid - 100,000 mg</li>
+      <li>Multivitamin - 80,000 mg</li>
+      <li>miRNA White Element - 50,000 mg</li>
+      <li>Natural Collagen - 40,000 mg</li>
+      <li>Kojic Acid - 20,000 mg</li>
+      <li>Selenium - 20,000 mg</li>
+      <li>SOD (Superoxide Dismutase) - 8,000 mg</li>
+      <li>Epidermal Growth Factor - 5,000 mg</li>
+    </ul>
+    <br/>
+
+    <strong>Package Contents:</strong> 1 Box including 10 Injection Sets (1 Injection Set = 2 ampoules + 2 vials). Expiry: April 2029.<br/><br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Country of Origin: Italy</li>
+      <li>Paraben Free & Organic: Yes</li>
+      <li>Form: Injection</li>
+      <li>Usage: Skin Whitening</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin whitening and lightening</li>
+      <li>Anti-aging effects</li>
+      <li>Minimizes acne and pimples</li>
+      <li>Decreases pore size</li>
+      <li>Healing of scars</li>
+      <li>Promotes collagen production</li>
+      <li>Detoxification</li>
+      <li>Lightening dark areas</li>
+      <li>Protects cells from UV damage with high SOD content</li>
+    </ul>
+    <br/>
+
+    <strong>Usage:</strong> Administered intravenously (IV) or intramuscular (IM). Use once weekly. Always consult your doctor.<br/><br/>
+
+    <strong>Not Ideal For:</strong> Breast feeders, during menstruation, vitamin allergies, cardiovascular problems.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary from person to person. Consult healthcare professional before use.</em>
+    `,
+    benefits: [
+        "10 Sessions Pack",
+        "Made in Italy",
+        "8,000,000g Glutathione",
+        "Anti-Aging",
+        "Reduces Acne & Scars",
+        "Promotes Collagen",
+        "Detoxifies",
+        "UV Protection with SOD"
+    ],
+    sku: "GLUTAX-8000000GS-ULTIMATE",
+    volume: "10 Sessions"
+},
+
 ];
 
 
