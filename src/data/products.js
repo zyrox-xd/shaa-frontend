@@ -2919,7 +2919,316 @@ const PRODUCTS = [
     sku: "GLUTAX-8000000GS-ULTIMATE",
     volume: "10 Sessions"
 },
+{
+    id: 9,
+    name: "Glutax 2000gs Recombined White Injections",
+    category: "Injection",
+    brand: "Glutax",
+    price: 10600,
+    comparePrice: 15000,
+    image: "/image/glutax/gtx-2kgs-re.jpeg",
+    images: [
+        "/image/glutax/gtx-2kgs-re.jpeg",
+        "/image/glutax/glutax-2000gs-recombined-white-2.jpg",
+        "/image/glutax/glutax-2000gs-recombined-white-3.jpg",
+        "/image/glutax/glutax-2000gs-recombined-white-4.jpg"
+    ],
+    description: "Glutax 2000gs Recombined White Injections with ultrafiltration glutathione and natural ingredients for effective skin whitening and anti-aging benefits.",
+    details: `
+    <strong>Glutax 2000gs Recombined White Injections</strong><br/><br/>
+    An effective skin whitening solution from the famous dermatological cosmetics company. Uses natural ingredients including Extra pone Nutgrass root essence to help the body produce more collagen for brighter, healthier looking skin with less redness.<br/><br/>
+    
+    <strong>Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Ultrafiltrazione Glutathione - 2000G</li>
+      <li>Multivitaminico - 3500mg</li>
+      <li>Natural Collagen - 800mg</li>
+      <li>Epidermal Growth Factor - 2000mg</li>
+      <li>Acido Alfa Lipoico - 700mg</li>
+      <li>Pro Coenzyme Q10 - 600mg</li>
+      <li>Selenio - 600mg</li>
+      <li>Acido Cogico - 500mg</li>
+      <li>Cinnamomum Subavenium - 325mg</li>
+    </ul>
+    <br/>
 
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 2000mg</li>
+      <li>Country of Origin: Italy</li>
+      <li>Packaging Type: Vial & Ampoule</li>
+      <li>Dose: Every 4 days once</li>
+      <li>Expiry Date: Dec 2028</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Lightens the skin</li>
+      <li>Clear and downy skin</li>
+      <li>Anti-ageing treatment</li>
+      <li>Improves texture of skin</li>
+      <li>Reduces scars and blemishes</li>
+      <li>Eliminates acne and pimples</li>
+      <li>Removes toxins from the body</li>
+      <li>Reduces pigmentation and lines</li>
+      <li>Removes dark circles</li>
+      <li>Transforms lips and skin to pinkish and radiant</li>
+      <li>No chemicals or harmful ingredients</li>
+    </ul>
+    <br/>
+
+    <strong>Dosage:</strong> One injection session every 4 days for 1-2 months depending on body metabolism. One box lasts about 40 days. Then reduce to 1 session every week for maintenance.<br/><br/>
+
+    <strong>Not Suitable For:</strong> Breast feeders, vitamin allergies, pregnant women.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary from person to person. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Made in Italy",
+        "Lightens Skin",
+        "Anti-Aging",
+        "Reduces Scars & Blemishes",
+        "Eliminates Acne",
+        "Detoxifies Body",
+        "Removes Dark Circles",
+        "Chemical-Free"
+    ],
+    sku: "GLUTAX-2000GS-RECOMBINED",
+    volume: "1 Box"
+},
+{
+    id: 10,
+    name: "Glutax 2000000GX DualNA Premium Recombined Cell 10 Sessions Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Glutax",
+    price: 10500,
+    comparePrice: 15000,
+    image: "/image/glutax/gtx-20mgx.jpeg",
+    images: [
+        "/image/glutax/gtx-20mgx.jpeg",
+        "/image/glutax/glutax-2000000gx-dualna-2.jpg",
+        "/image/glutax/glutax-2000000gx-dualna-3.jpg",
+        "/image/glutax/glutax-2000000gx-dualna-4.jpg"
+    ],
+    description: "High-quality glutathione skin whitening injection with DualNA Premium Recombined Cell technology for flawless, brighter, and healthier skin.",
+    details: `
+    <strong>Glutax 2000000GX DualNA Premium Recombined Cell Glutathione Injection</strong><br/><br/>
+    A high-quality product with a high amount of important chemicals that help to give you flawless, brighter, and healthier skin. One of the most current ground-breaking innovations from the renowned cosmetics brand, featuring advanced engineering and technologies for superior results.<br/><br/>
+    
+    <strong>Ingredients (DNA & RNA Formula):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>DNA & RNA Glutathione - 2,000,000g</li>
+      <li>DNA & RNA Multivitaminico - 250,000mg</li>
+      <li>DNA & RNA Premium Recombined (Grape, Apple, Argan Fruit, Rose) - 30,000mg</li>
+      <li>DNA & RNA Collagene Naturale - 12,000mg</li>
+      <li>DNA & RNA Epidermal Growth Factor - 8,000mg</li>
+      <li>DNA & RNA Ultra White Elements - 6,000mg</li>
+      <li>DNA & RNA Selenio - 5,000mg</li>
+      <li>DNA & RNA PDRN Hyal - 4,800mg</li>
+      <li>DNA & RNA ProEnzyme Q10 - 3,700mg</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>10 Sessions Pack</li>
+      <li>Country of Origin: Italy</li>
+      <li>High-dose L-Glutathione formula</li>
+      <li>Popular choice among spas and skin clinics worldwide</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Anti-aging & skin lightening</li>
+      <li>Whiter and brighter skin</li>
+      <li>Reduces pimples and acne</li>
+      <li>Lightens dark spots</li>
+      <li>Stimulates collagen production</li>
+      <li>Detoxifies the body</li>
+      <li>Even skin tone</li>
+      <li>Minimizes pores</li>
+      <li>Hydrates and firms skin</li>
+      <li>Removes dark spots and scars</li>
+      <li>Regenerates skin cells</li>
+      <li>Repairs damaged skin</li>
+    </ul>
+    <br/>
+
+    <strong>Why It Works:</strong> Contains high doses of L-glutathione and Vitamin C. The added oral booster helps maintain high levels of Glutathione in the body even when not undergoing treatment.<br/><br/>
+
+    <strong>Made in Origin Country:</strong> Italy<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary from person to person. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "10 Sessions Pack",
+        "Made in Italy",
+        "2,000,000g Glutathione",
+        "Anti-Aging",
+        "Reduces Acne",
+        "Stimulates Collagen",
+        "Detoxifies",
+        "Minimizes Pores"
+    ],
+    sku: "GLUTAX-2000000GX-DUALNA",
+    volume: "10 Sessions"
+},
+{
+    id: 11,
+    name: "Glutax 75GX TCRP Glutathione Skin Whitening Injection - 14 Sessions",
+    category: "Injection",
+    brand: "Glutax",
+    price: 14000,
+    comparePrice: 18000,
+    image: "/image/glutax/gtx-75gx-2.png",
+    images: [
+        "/image/glutax/gtx-75gx-2.png",
+        "/image/glutax/gtx-75gx.jpeg",
+        "/image/glutax/glutax-75gx-tcrp-3.jpg",
+        "/image/glutax/glutax-75gx-tcrp-4.jpg"
+    ],
+    description: "Next-generation Glutathione skin whitening injection with advanced Tri-Cell Repair Power (TCRP) technology for visible transformation and cellular rejuvenation.",
+    details: `
+    <strong>Glutax 75GX TCRP Glutathione Skin Whitening Injection</strong><br/><br/>
+    A next-generation Glutathione skin whitening injection infused with advanced Tri-Cell Repair Power (TCRP) technology. Formulated for visible transformation, it works deep within skin layers to reduce pigmentation, reverse aging signs, and restore natural glow with medical-grade skin science.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>14 Sessions Treatment Cycle</li>
+      <li>Advanced TCRP Technology for faster skin repair</li>
+      <li>High Glutathione strength</li>
+      <li>Made in Italy</li>
+      <li>Safe, certified formulation</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Intense skin brightening by targeting melanin production</li>
+      <li>Reduces dark spots and hyperpigmentation</li>
+      <li>Youth-boosting effects - firms skin and minimizes fine lines</li>
+      <li>Deep hydration support for soft, supple skin</li>
+      <li>Detoxification at cellular level</li>
+      <li>Accelerates skin repair and collagen regeneration</li>
+      <li>Protection from environmental damage</li>
+    </ul>
+    <br/>
+
+    <strong>Dosage & Usage:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Recommended: 1 injection per week (IV or IM, under medical supervision)</li>
+      <li>Treatment Cycle: 14 sessions for full visible results</li>
+      <li>Maintenance: 1 injection every 15-20 days</li>
+    </ul>
+    <br/>
+
+    <strong>Why It Stands Out:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Advanced TCRP technology for faster absorption</li>
+      <li>Designed for Indian skin tones and climate</li>
+      <li>No harmful preservatives or additives</li>
+      <li>Trusted by dermatologists and skin clinics worldwide</li>
+    </ul>
+    <br/>
+
+    <strong>Pro Tip:</strong> Drink plenty of water, follow a nutrient-rich diet, and avoid direct sun exposure during treatment for best results.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary from person to person. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "14 Sessions Pack",
+        "Made in Italy",
+        "TCRP Technology",
+        "Intense Brightening",
+        "Reduces Dark Spots",
+        "Anti-Aging",
+        "Deep Hydration",
+        "Cellular Detox"
+    ],
+    sku: "GLUTAX-75GX-TCRP-14",
+    volume: "14 Sessions"
+},
+{
+    id: 12,
+    name: "Glutax 30000000gs Extremely Tremendous White Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Glutax",
+    price: 12000,
+    comparePrice: 17000,
+    image: "/image/glutax/gtx-30mgs-1.jpeg",
+    images: [
+        "/image/glutax/gtx-30mgs-1.jpeg",
+        "/image/glutax/gtx-30mgs.jpeg",
+        "/image/glutax/gtx-30mgs-3.jpeg",
+        "/image/glutax/gtx-30mgs-4.jpeg"
+    ],
+    description: "High quality, high dose glutathione skin whitening injection with Nano Glutathione technology for a brighter, more even-toned complexion.",
+    details: `
+    <strong>Glutax 30000000gs Extremely Tremendous White</strong><br/><br/>
+    The most high quality, high dose Glutathione skin whitening injection on the market today. Considered one of the most reliable L-Glutathione injections, it helps maintain Nano l-Glutathione at high levels in your body even when not undergoing active treatment.<br/><br/>
+    
+    <strong>Ingredients (Per 100ml Fiale):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Acido Alfa Lipico - 200,000mg</li>
+      <li>Growth Factor - 100,000mg</li>
+      <li>Multivitaminco - 100,000mg</li>
+      <li>Collagen Naturale - 50,000mg</li>
+      <li>Selenio - 50,000mg</li>
+      <li>Acido Codico - 50,000mg</li>
+      <li>Pro Co Enzyme Q10 - 10,000mg</li>
+      <li>RNA HA - 10,000mg</li>
+    </ul>
+    <br/>
+
+    <strong>Ingredients (30 Vials):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Nano Glutathione - 30,000,000mg</li>
+      <li>Grape Seed Extract - 100,000mg</li>
+      <li>Pearl Extract - 100,000mg</li>
+      <li>RNA White Cell - 50,000mg</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Country of Origin: Italy</li>
+      <li>Form: IV/Infusion</li>
+      <li>Nano Glutathione technology</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin whitening and brightening</li>
+      <li>Anti-aging effects - helps stem skin cells</li>
+      <li>Reduces acne, pimples and minimizes pores</li>
+      <li>Antioxidant and detoxifier</li>
+      <li>Anti-wrinkle properties</li>
+      <li>Heals scars and lightens dark spots</li>
+      <li>Reduces pigmentation from sun exposure</li>
+      <li>Stimulates collagen production</li>
+      <li>Nourishes and firms the skin</li>
+      <li>Enhances metabolism and boosts immune system</li>
+    </ul>
+    <br/>
+
+    <em class="text-xs text-gray-400">Note: The result depends on individual metabolism. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Made in Italy",
+        "30,000,000mg Nano Glutathione",
+        "With Grape Seed & Pearl Extract",
+        "Skin Brightening",
+        "Anti-Aging",
+        "Reduces Pigmentation",
+        "Detoxifies",
+        "Stimulates Collagen"
+    ],
+    sku: "GLUTAX-30000000GS-EXTREME",
+    volume: "1 Box"
+}
 ];
 
 
