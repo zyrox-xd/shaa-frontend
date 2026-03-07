@@ -3082,10 +3082,10 @@ const PRODUCTS = [
     brand: "Glutax",
     price: 14000,
     comparePrice: 18000,
-    image: "/image/glutax/gtx-75gx-2.png",
+    image: "/image/glutax/gtx-75gx.jpeg",
     images: [
-        "/image/glutax/gtx-75gx-2.png",
         "/image/glutax/gtx-75gx.jpeg",
+        "/image/glutax/gtx-75gx.jpg",
         "/image/glutax/glutax-75gx-tcrp-3.jpg",
         "/image/glutax/glutax-75gx-tcrp-4.jpg"
     ],
@@ -3228,6 +3228,525 @@ const PRODUCTS = [
     ],
     sku: "GLUTAX-30000000GS-EXTREME",
     volume: "1 Box"
+},
+{
+    id: 13,
+    name: "Aqua Skin Veniscy 286 TriNa Pico Cell Glutathione Injection",
+    category: "Injection",
+    brand: "Aqua Skin/Veniscy",
+    price: 12000,
+    comparePrice: 16000,
+    image: "/image/aqua/asv-286-2.jpeg",
+    images: [
+        "/image/aqua/asv-286-2.jpeg",
+        "/image/aqua/asv-286-4.jpeg",
+        "/image/aqua/asv-286-5.jpeg",
+        "/image/aqua/asv-286-3.jpeg"
+    ],
+    description: "Swiss-made glutathione injection with TriNa Pico Cell technology for powerful skin lightening, anti-aging, and deep hydration.",
+    details: `
+    <strong>Aqua Skin Veniscy 286 TriNa Pico Cell Glutathione Injection</strong><br/><br/>
+    A premium Swiss-made glutathione injection featuring advanced TriNa Pico Cell technology for maximum absorption and visible results. Designed to deliver powerful skin lightening, anti-aging benefits, and deep hydration at the cellular level.<br/><br/>
+    
+    <strong>Key Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Glutathione – Master antioxidant that reduces melanin production</li>
+      <li>Vitamin C – Enhances glutathione effects and boosts collagen</li>
+      <li>Collagen – Increases skin firmness and elasticity</li>
+      <li>Hyaluronic Acid – Locks in moisture for lasting hydration</li>
+      <li>Antioxidants – Neutralize free radicals and prevent aging</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Brand: Aqua Skin/Veniscy</li>
+      <li>Origin: Made in Switzerland</li>
+      <li>Packaging: Vial in Box</li>
+      <li>Administration: IV injection</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Powerful skin lightening and even skin tone</li>
+      <li>Anti-aging – minimizes wrinkles and fine lines</li>
+      <li>Deep hydration for soft, supple skin</li>
+      <li>Stimulates collagen for skin renewal</li>
+      <li>Reduces acne, scars, and pigmentation</li>
+      <li>Detoxifies body at cellular level</li>
+    </ul>
+    <br/>
+
+    <strong>How It Works:</strong> Administered intravenously (IV) for maximum absorption, allowing powerful antioxidants and nutrients to work at the cellular level for faster, more effective results than oral supplements.<br/><br/>
+
+    <strong>Who Can Benefit:</strong> Individuals seeking lighter skin tone, those with dark spots or melasma, people with wrinkles or sagging skin, those with dry skin needing hydration, and anyone with acne scars.<br/><br/>
+
+    <strong>Usage Instructions:</strong> Consult a dermatologist. Administered via IV by certified professional. Follow recommended treatment schedule based on skin goals. Post-treatment: avoid sun exposure, use sunscreen, maintain healthy skincare routine.<br/><br/>
+
+    <strong>Safety:</strong> Generally safe with clinically tested ingredients. Possible mild redness or swelling at injection site (temporary), slight dryness, or rare allergic reactions.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Made in Switzerland",
+        "Powerful Skin Lightening",
+        "Anti-Aging Effects",
+        "Deep Hydration",
+        "Reduces Acne & Scars",
+        "Stimulates Collagen",
+        "With Hyaluronic Acid",
+        "IV Administration"
+    ],
+    sku: "AQUA-VENISCY-286",
+    volume: "1 Box"
+},
+{
+    id: 14,
+    name: "Aqua Skin Veniscy 368 Glutathione Injection",
+    category: "Injection",
+    brand: "Aqua Skin/Veniscy",
+    price: 12500,
+    comparePrice: 15000,
+    image: "/image/aqua/asv-368-2.jpeg",
+    images: [
+        "/image/aqua/asv-368-2.jpeg",
+        "/image/aqua/asv-368-5.jpeg",
+        "/image/aqua/asv-368-4.jpeg",
+        "/image/aqua/asv-368-3.jpeg"
+    ],
+    description: "Swiss-formulated luxury skin whitening and anti-aging solution with QuadNA Pico-Cell NAD+ and Quecto-Glutathione for cellular-level transformation.",
+    details: `
+    <strong>Aqua Skin Veniscy 368 Glutathione Injection</strong><br/><br/>
+    A Swiss-formulated luxury skin whitening and anti-aging solution infused with QuadNA Pico-Cell NAD+, Quecto-Glutathione, and 14+ powerful ingredients. Works at the cellular level to brighten, rejuvenate, and deeply hydrate your skin.<br/><br/>
+    
+    <strong>Key Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Quecto-Glutathione:</strong> Ultra-high dose antioxidant for detoxification and skin lightening</li>
+      <li><strong>QuadNA Pico-Cell NAD+:</strong> Enhances cell repair and energy, slows visible aging</li>
+      <li><strong>Coenzyme Q10 (ProQ10):</strong> Protects from UV damage, stimulates collagen</li>
+      <li><strong>DMAE:</strong> Lifts, firms, and redefines facial contours</li>
+      <li><strong>Nonapeptide:</strong> Reduces fine lines by relaxing facial muscles</li>
+      <li><strong>2-in-1 HydraLift Complex:</strong> Vitamin C, Hyaluronic Acid, Collagen, EGF, Matrixyl 35000</li>
+      <li><strong>Selenium:</strong> Supports skin resilience and immune defense</li>
+      <li><strong>Blu-Cell & Multivitamin Complex:</strong> Fights oxidative stress, boosts skin renewal</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Brand: Aqua Skin</li>
+      <li>Origin: Made in Switzerland</li>
+      <li>Formulation: Premium injectable</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Brightens and evens out skin tone</li>
+      <li>Reduces pigmentation, dark spots, and dullness</li>
+      <li>Smoothens fine lines and firms sagging skin</li>
+      <li>Deeply hydrates and naturally plumps skin</li>
+      <li>Boosts cellular energy and repair mechanisms</li>
+      <li>Enhances skin texture, elasticity, and luminosity</li>
+      <li>Protects against pollution and environmental stress</li>
+      <li>Delivers long-lasting anti-aging effects</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Dosage:</strong> 1 injection every 3–7 days under certified medical supervision. Minimum 5–10 sessions advised for noticeable results. Administer via IV infusion for best results.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Consistency is key for long-term results. Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Made in Switzerland",
+        "With NAD+ & CoQ10",
+        "Ultra-High Glutathione",
+        "Brightens Skin Tone",
+        "Reduces Pigmentation",
+        "Anti-Aging Effects",
+        "Deep Hydration",
+        "Cellular Repair"
+    ],
+    sku: "AQUA-VENISCY-368",
+    volume: "1 Box"
+},
+{
+    id: 15,
+    name: "Aqua Skin Veniscy 999 Glutathione Injection",
+    category: "Injection",
+    brand: "Aqua Skin/Veniscy",
+    price: 12500,
+    comparePrice: 15000,
+    image: "/image/aqua/asv-999.jpeg",
+    images: [
+        "/image/aqua/asv-999.jpeg",
+        "/image/aqua/asv-999-2.jpeg",
+        "/image/aqua/asv-999-3.jpeg",
+        "/image/aqua/asv-999-4.jpeg"
+    ],
+    description: "Advanced skin whitening and anti-aging therapy with high-dose glutathione, vitamins, and natural extracts for brighter, smoother, and younger-looking skin.",
+    details: `
+    <strong>Aqua Skin Veniscy 999 – Advanced Glutathione Skin Whitening and Anti-Aging Therapy</strong><br/><br/>
+    A scientifically advanced skin therapy that combines the power of glutathione, vitamins, peptides, and natural extracts to deliver visible results. Designed for those who want radiant skin, improved texture, and long-lasting anti-aging benefits. Works at a deeper level to repair, rejuvenate, and restore skin cells.<br/><br/>
+    
+    <strong>Premium Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Glutathione:</strong> 29,800,000 mg – Master antioxidant that reduces pigmentation and detoxifies</li>
+      <li><strong>Vitamin C (L-Ascorbic Acid):</strong> 990,000 mg – Boosts brightness and collagen production</li>
+      <li><strong>Hyaluronic Acid:</strong> 195,750 mg – Deep hydration for plump, smooth skin</li>
+      <li><strong>Alpha Lipoic Acid:</strong> 198,250 mg – Powerful antioxidant for skin renewal</li>
+      <li><strong>Natural Collagen Extract:</strong> 190,000 mg – Improves elasticity and firmness</li>
+      <li><strong>Epidermal Growth Factor:</strong> 109,750 mg – Stimulates new cell growth</li>
+      <li>Vegetal Placenta & Kojic Acid – Target stubborn pigmentation</li>
+      <li>Multivitamins, Selenium & Copper Peptide – Nourishment and protection</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Brand: Aqua Skin/Veniscy</li>
+      <li>Origin: Made in Switzerland</li>
+      <li>Formulation: Premium injectable</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Advanced skin whitening – reduces dark spots and evens tone</li>
+      <li>Anti-aging support – minimizes wrinkles and fine lines</li>
+      <li>Deep skin repair – restores elasticity with collagen</li>
+      <li>Fades pigmentation, acne scars, and discoloration</li>
+      <li>Cellular protection against environmental damage</li>
+      <li>Deep hydration for plump, smooth skin</li>
+      <li>Visible transformation with regular use</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Mix: 1 vial of 10 ml liquid with 2 vials of lyophilized powder</li>
+      <li>Frequency: Once or twice per week as recommended by professional</li>
+      <li>Storage: Cool, dry place below 28°C</li>
+    </ul>
+    <br/>
+
+    <strong>Note:</strong> For professional use under medical guidance only.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Made in Switzerland",
+        "29.8M Glutathione",
+        "Advanced Whitening",
+        "Anti-Aging",
+        "Reduces Pigmentation",
+        "With Hyaluronic Acid",
+        "Deep Hydration",
+        "Cellular Repair"
+    ],
+    sku: "AQUA-VENISCY-999",
+    volume: "1 Box"
+},
+{
+    id: 16,
+    name: "Aqua Skin Veniscy 188 Glutathione Injection",
+    category: "Injection",
+    brand: "Aqua Skin/Veniscy",
+    price: 10000,
+    comparePrice: 15000,
+    image: "/image/aqua/asv-188.jpg",
+    images: [
+        "/image/aqua/asv-188.jpg",
+        "/image/aqua/asv-188-2.jpeg",
+        "/image/aqua/asv-188-3.jpeg",
+        "/image/aqua/asv-188-4.jpeg"
+    ],
+    description: "TriNa Pico Cell Glutathione injection for effortless skin lightening, anti-aging benefits, and youthful complexion through simple IV infusion.",
+    details: `
+    <strong>Aqua Skin Veniscy 188 TriNa Pico Glutathione Injection</strong><br/><br/>
+    A cutting-edge treatment that offers an effortless way to achieve a lighter and more youthful complexion without surgery. Infused with powerful skin-lightening effects, this injection revitalizes your skin through a simple IV infusion process, giving you a radiant appearance effortlessly.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Brand: Aqua Skin/Veniscy</li>
+      <li>Origin: Made in Switzerland</li>
+      <li>TriNa Pico Cell Technology</li>
+      <li>Safe, effective, and side-effect free</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Brightens and lightens skin for fair, radiant glow</li>
+      <li>Anti-aging benefits – reduces signs of aging</li>
+      <li>Promotes skin cell renewal</li>
+      <li>Enhances skin texture and hydration</li>
+      <li>Increases skin tightness and firmness</li>
+      <li>Repairs and rejuvenates damaged skin</li>
+      <li>Minimizes wrinkles and fine lines</li>
+      <li>Clears acne for flawless complexion</li>
+      <li>Reveals youthful radiance</li>
+    </ul>
+    <br/>
+
+    <strong>Why It Works:</strong> Administered via IV, allowing glutathione to be absorbed directly into your bloodstream for maximum effect. Some formulations include natural antioxidants like vitamin C for enhanced effectiveness.<br/><br/>
+
+    <strong>FAQs:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>How often?</strong> Frequency varies based on skin goals – consult a professional</li>
+      <li><strong>Suitable for all skin types?</strong> Yes, safe for all skin types</li>
+      <li><strong>What to expect?</strong> Quick IV treatment with minimal discomfort</li>
+    </ul>
+    <br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Made in Switzerland",
+        "Brightens & Lightens",
+        "Anti-Aging",
+        "Skin Cell Renewal",
+        "Improves Texture",
+        "Hydrates Skin",
+        "Reduces Wrinkles",
+        "Clears Acne"
+    ],
+    sku: "AQUA-VENISCY-188",
+    volume: "1 Box"
+},
+{
+    id: 17,
+    name: "Aqua Skin F30 Diamond Ultra White Glutathione Skin Whitening Injection – 30 Sessions",
+    category: "Injection",
+    brand: "Aqua Skin/Veniscy",
+    price: 9500,
+    comparePrice: 14500,
+    image: "/image/aqua/asd-f30.jpg",
+    images: [
+        "/image/aqua/asd-f30.jpg",
+        "/image/aqua/asd-f30-2.jpeg",
+        "/image/aqua/asd-f30-3.jpeg",
+        "/image/aqua/asd-f30-4.jpeg"
+    ],
+    description: "High-dose 30,000mg glutathione injection for skin whitening and anti-aging with 24hr UV protection and deep hydration.",
+    details: `
+    <strong>Aqua Skin F30 Diamond Ultra White Glutathione Injection</strong><br/><br/>
+    The most refined Ultra Whitening Glutathione 30,000 mg skin whitening injection for Skin Whitening and Anti-Ageing Treatment. Made in Switzerland and guaranteed genuine.<br/><br/>
+    
+    <strong>Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Ultrafiltration Skin Tone Structure - 30 Vials</li>
+      <li>Glutathione - 1000mg per vial (30,000mg total)</li>
+      <li>Ascorbic Acids - 1250mg</li>
+      <li>Alpha Lipoic Acid - 850mg</li>
+      <li>Amino Acids - 1250mg</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>30 Sessions Treatment</li>
+      <li>Origin: Switzerland</li>
+      <li>24hr UV Protection</li>
+      <li>24hr Hydrating</li>
+      <li>To be administered by registered nurse</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin whitening and firming</li>
+      <li>Anti-aging - reduces fine lines and wrinkles</li>
+      <li>24hr UV protection against sun damage</li>
+      <li>Deep hydration for soft, smooth skin</li>
+      <li>Renews and repairs damaged skin</li>
+      <li>Minimizes dark areas and scars</li>
+      <li>Detoxifies and purifies skin</li>
+      <li>Prevents acne and blemishes</li>
+      <li>Boosts collagen production and improves elasticity</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Dosage:</strong> Mix 1-2 vials with 5-10 ml sterile water. Administer via IV Push up to 3 times weekly. Typical course: 1-2 injections weekly for up to 2 months.<br/><br/>
+
+    <strong>Not Suitable For:</strong> Breast feeders, during menstruation, vitamin allergies, cardiovascular problems.<br/><br/>
+
+    <strong>FAQ:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>How often?</strong> 1-2 times weekly for up to 2 months</li>
+      <li><strong>Results?</strong> Visible improvements after few weeks of regular use</li>
+      <li><strong>Administration?</strong> By registered nurse only</li>
+    </ul>
+    <br/>
+
+    <em class="text-xs text-gray-400">Note: Results vary by individual. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "30 Sessions Pack",
+        "Made in Switzerland",
+        "30,000mg Glutathione",
+        "24hr UV Protection",
+        "Deep Hydration",
+        "Anti-Aging",
+        "Detoxifies",
+        "With ALA & Vitamin C"
+    ],
+    sku: "AQUA-DIAMOND-F30",
+    volume: "30 Sessions"
+},
+{
+    id: 18,
+    name: "Aqua Skin Brilliant Diamond Max Aquaism Sparkling White 10 Sessions Skin Whitening Injection",
+    category: "Injection",
+    brand: "Aqua Skin/Veniscy",
+    price: 9500,
+    comparePrice: 14500,
+    image: "/image/aqua/asd-max.png",
+    images: [
+        "/image/aqua/asd-max.png",
+        "/image/aqua/asd-max-2.jpg",
+        "/image/aqua/asd-max-3.jpg",
+        "/image/aqua/asd-max-4.jpg"
+    ],
+    description: "Premium 10-session glutathione whitening course with Aquaism Sparkling White technology for visible clarity, smoothness, and radiant brightness.",
+    details: `
+    <strong>Aqua Skin Brilliant Diamond Max Aquaism Sparkling White Injection</strong><br/><br/>
+    A premium 10-session glutathione whitening course designed for visible clarity, smoothness, and radiant brightness in a shorter treatment span. Powered by Aquaism Sparkling White technology, this formulation delivers effective whitening while preserving skin health.<br/><br/>
+    
+    <strong>Composition:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Ultrafiltration Complexion Composition</li>
+      <li>High-Dose Glutathione</li>
+      <li>Pro-Coenzyme Q10</li>
+      <li>Fibroblast Growth Factor (FGF)</li>
+      <li>Natural Collagen Extract</li>
+      <li>Hyaluronic Acid</li>
+      <li>Epidermal Growth Factor (EGF)</li>
+      <li>Kojic Acid</li>
+      <li>Multivitamin Complex</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>10 Sessions Treatment</li>
+      <li>Aquaism Sparkling White Technology</li>
+      <li>Enhanced cellular absorption</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Whitens complexion with visible results in 10 sessions</li>
+      <li>Hydrates and smooths skin for luminous glow</li>
+      <li>Reduces melasma, pigmentation, and dark spots</li>
+      <li>Improves elasticity and delays early aging signs</li>
+      <li>Detoxifies body and supports immunity</li>
+      <li>Fast yet effective whitening solution</li>
+    </ul>
+    <br/>
+
+    <strong>How It Works:</strong> Glutathione and Kojic Acid regulate melanin for clearer skin tone. Collagen, EGF, and hyaluronic acid restore firmness and hydration.<br/><br/>
+
+    <strong>FAQ:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>How many sessions?</strong> 10 sessions included</li>
+      <li><strong>Side effects?</strong> Minimal - mild fatigue or redness at injection site</li>
+      <li><strong>Combine with Vitamin C?</strong> Yes, enhances antioxidant protection</li>
+    </ul>
+    <br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "10 Sessions Pack",
+        "Aquaism Technology",
+        "Fast Visible Results",
+        "Reduces Pigmentation",
+        "With EGF & FGF",
+        "Collagen & Hyaluronic Acid",
+        "Detoxifies",
+        "Improves Elasticity"
+    ],
+    sku: "AQUA-BRILLIANT-DIAMOND-10",
+    volume: "10 Sessions"
+},
+{
+    id: 19,
+    name: "Aqua Skin Fine Gold DualNa Cell Complex Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Aqua Skin/Veniscy",
+    price: 8800,
+    comparePrice: 12000,
+    image: "/image/aqua/asfg-70k.jpg",
+    images: [
+        "/image/aqua/asv-fine-gold-1.jpeg",
+        "/image/aqua/asv-fine-gold-2.jpeg",
+        "/image/aqua/asv-fine-gold-3.jpeg",
+        "/image/aqua/asv-fine-gold-4.jpeg"
+    ],
+    description: "DualNa Cell Complex whitening injection with glutathione, FGF, and AHA to reduce pigmentation and give glowing, brighter, acne-free skin.",
+    details: `
+    <strong>Aqua Skin Fine Gold DualNa Cell Complex Glutathione Injection</strong><br/><br/>
+    A premium skin treatment that enhances your skin and gives glowing, brighter results. Rich in Glutathione which helps in reducing pigmentation and gives glowing, white skin with no pimples and acne. Suitable for all skin types.<br/><br/>
+    
+    <strong>Ingredients (24 Vials):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>DualNA Glutathione - 70,000mg</li>
+      <li>DualNA Pro-Coenzyme Q10 - 8,000mg</li>
+      <li>DualNA FGF (Fibroblast Growth Factor) - 3,500mg</li>
+      <li>DualNA Natural Collagen Extract - 2,800mg</li>
+      <li>DualNA Polypodium Leucotomos - 1,500mg</li>
+      <li>DualNA Heterotrimeric Protein - 1,300mg</li>
+      <li>DualNA Alpha Lipoic Acid (ALA) - 1,200mg</li>
+      <li>DualNA DMAE - 900mg</li>
+      <li>DualNA Alpha-Hydroxy Acid (AHA) - 900mg</li>
+      <li>DualNA Grape Seed Extract - 850mg</li>
+      <li>DualNA Beta-Hydroxy Acid (Salicylic Acid) - 800mg</li>
+      <li>DualNA Selenium - 450mg</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>24 Sessions Treatment</li>
+      <li>Origin: Made in Switzerland</li>
+      <li>DualNa Cell Complex Technology</li>
+      <li>Suitable for all skin types</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Reduces pigmentation and dark spots</li>
+      <li>Protects against free radical damage</li>
+      <li>Get glowing, smooth, and softened skin</li>
+      <li>Acne and pimple-free skin</li>
+      <li>Whitens skin and lightens scars</li>
+      <li>Improves skin complexion</li>
+      <li>Removes excess free radicals</li>
+    </ul>
+    <br/>
+
+    <strong>Why It Works:</strong> DualNA AHA works on reducing pigmentation on the face. Rich glutathione content helps achieve white, clear skin while protecting against environmental damage.<br/><br/>
+
+    <strong>Availability:</strong> Cash on Delivery (COD) available with Free Shipping in India. 100% authentic products - verify through barcode.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: The result depends on individual metabolism. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Made in Switzerland",
+        "24 Sessions Pack",
+        "70,000mg Glutathione",
+        "Reduces Pigmentation",
+        "With FGF & CoQ10",
+        "Acne-Free Skin",
+        "Contains AHA & BHA",
+        "Lightens Scars"
+    ],
+    sku: "AQUA-FINE-GOLD-24",
+    volume: "24 Sessions"
 }
 ];
 
