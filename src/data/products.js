@@ -37,7 +37,7 @@
 //     id: 2,
 //     name: "Aqua Skin Diamond Ultra White F 30",
 //     category: "Injection",
-//     brand: "Aqua Skin/Veniscy",
+//     brand: "Aqua Skin",
 //     price: 11400,
 //     image: "/image/aqua-diamond-f30.jpg",
 //     images: ["/image/aqua-diamond-f30-1.jpg", "/image/aqua-diamond-f30-2.jpg", "/image/aqua-diamond-f30-3.jpg", "/image/aqua-diamond-f30-4.jpg"],
@@ -2350,7 +2350,6 @@
 
 
 const PRODUCTS = [
-
   {
     id: 1,
     name: "Glutax 20000000GN Pico-QuadNA ReCombined White Skin Whitening Injection",
@@ -3233,7 +3232,7 @@ const PRODUCTS = [
     id: 13,
     name: "Aqua Skin Veniscy 286 TriNa Pico Cell Glutathione Injection",
     category: "Injection",
-    brand: "Aqua Skin/Veniscy",
+    brand: "Aqua Skin",
     price: 12000,
     comparePrice: 16000,
     image: "/image/aqua/asv-286-2.jpeg",
@@ -3260,7 +3259,7 @@ const PRODUCTS = [
 
     <strong>Key Features:</strong><br/>
     <ul class="list-disc pl-5 mt-2 space-y-1">
-      <li>Brand: Aqua Skin/Veniscy</li>
+      <li>Brand: Aqua Skin</li>
       <li>Origin: Made in Switzerland</li>
       <li>Packaging: Vial in Box</li>
       <li>Administration: IV injection</li>
@@ -3305,7 +3304,7 @@ const PRODUCTS = [
     id: 14,
     name: "Aqua Skin Veniscy 368 Glutathione Injection",
     category: "Injection",
-    brand: "Aqua Skin/Veniscy",
+    brand: "Aqua Skin",
     price: 12500,
     comparePrice: 15000,
     image: "/image/aqua/asv-368-2.jpeg",
@@ -3375,7 +3374,7 @@ const PRODUCTS = [
     id: 15,
     name: "Aqua Skin Veniscy 999 Glutathione Injection",
     category: "Injection",
-    brand: "Aqua Skin/Veniscy",
+    brand: "Aqua Skin",
     price: 12500,
     comparePrice: 15000,
     image: "/image/aqua/asv-999.jpeg",
@@ -3405,7 +3404,7 @@ const PRODUCTS = [
 
     <strong>Key Features:</strong><br/>
     <ul class="list-disc pl-5 mt-2 space-y-1">
-      <li>Brand: Aqua Skin/Veniscy</li>
+      <li>Brand: Aqua Skin</li>
       <li>Origin: Made in Switzerland</li>
       <li>Formulation: Premium injectable</li>
     </ul>
@@ -3452,7 +3451,7 @@ const PRODUCTS = [
     id: 16,
     name: "Aqua Skin Veniscy 188 Glutathione Injection",
     category: "Injection",
-    brand: "Aqua Skin/Veniscy",
+    brand: "Aqua Skin",
     price: 10000,
     comparePrice: 15000,
     image: "/image/aqua/asv-188.jpg",
@@ -3469,7 +3468,7 @@ const PRODUCTS = [
     
     <strong>Key Features:</strong><br/>
     <ul class="list-disc pl-5 mt-2 space-y-1">
-      <li>Brand: Aqua Skin/Veniscy</li>
+      <li>Brand: Aqua Skin</li>
       <li>Origin: Made in Switzerland</li>
       <li>TriNa Pico Cell Technology</li>
       <li>Safe, effective, and side-effect free</li>
@@ -3519,7 +3518,7 @@ const PRODUCTS = [
     id: 17,
     name: "Aqua Skin F30 Diamond Ultra White Glutathione Skin Whitening Injection – 30 Sessions",
     category: "Injection",
-    brand: "Aqua Skin/Veniscy",
+    brand: "Aqua Skin",
     price: 9500,
     comparePrice: 14500,
     image: "/image/aqua/asd-f30.jpg",
@@ -3599,7 +3598,7 @@ const PRODUCTS = [
     id: 18,
     name: "Aqua Skin Brilliant Diamond Max Aquaism Sparkling White 10 Sessions Skin Whitening Injection",
     category: "Injection",
-    brand: "Aqua Skin/Veniscy",
+    brand: "Aqua Skin",
     price: 9500,
     comparePrice: 14500,
     image: "/image/aqua/asd-max.png",
@@ -3676,7 +3675,7 @@ const PRODUCTS = [
     id: 19,
     name: "Aqua Skin Fine Gold DualNa Cell Complex Glutathione Skin Whitening Injection",
     category: "Injection",
-    brand: "Aqua Skin/Veniscy",
+    brand: "Aqua Skin",
     price: 8800,
     comparePrice: 12000,
     image: "/image/aqua/asfg-70k.jpg",
@@ -3747,6 +3746,792 @@ const PRODUCTS = [
     ],
     sku: "AQUA-FINE-GOLD-24",
     volume: "24 Sessions"
+},
+{
+    id: 20,
+    name: "Aqua Skin Veniscy 8 Octa Strength Whitening Injection",
+    category: "Injection",
+    brand: "Aqua Skin",
+    price: 8800,
+    comparePrice: 12000,
+    image: "/image/aqua/asv-8.png",
+    images: [
+        "/image/aqua/asv-8.jpeg",
+        "/image/aqua/asv-8-2.jpeg",
+        "/image/aqua/asv-8-3.jpeg",
+        "/image/aqua/asv-8-4.jpeg"
+    ],
+    description: "Leading-edge skin whitening treatment with DualNa Octa Strength technology, formulated in Switzerland for luminous, youthful skin.",
+    details: `
+    <strong>Aqua Skin Veniscy 8 DualNa Octa Strength Skin Whitening Injection</strong><br/><br/>
+    A leading-edge skin whitening treatment formulated in Switzerland and developed by Skinnic Laboratory. With high dosage of L-Glutathione and Vitamin C, this premium injection stands as the ultimate choice for those seeking the most effective L-Glutathione formula for luminous, youthful skin.<br/><br/>
+    
+    <strong>Rich Ingredient Profile:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Veniscy Complex:</strong> High-grade Glutathione, Nonapeptide, Coenzyme Q10, Selenium</li>
+      <li><strong>Collagen & Hyaluronic Acid:</strong> For skin elasticity and deep hydration</li>
+      <li><strong>EGF & Alpha Lipoic Acid:</strong> Promote skin regeneration, reduce oxidative stress</li>
+      <li><strong>Matrixyl & Kojic Acid:</strong> Target fine lines and skin discoloration</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Origin: Made in Switzerland</li>
+      <li>DualNa Octa Strength Technology</li>
+      <li>Developed by Skinnic Laboratory</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Revitalizes skin with natural collagen and hyaluronic acid</li>
+      <li>Brightens complexion by reducing melanin production</li>
+      <li>Anti-aging - diminishes wrinkles and fine lines</li>
+      <li>Evens skin tone, reduces dark spots and hyperpigmentation</li>
+      <li>Enhances overall skin health with vitamins, peptides, and minerals</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Usage:</strong> Administer one Intravenous IV Infusion (Drip) weekly. Consult your dermatologist to tailor treatment to individual needs.<br/><br/>
+
+    <strong>FAQ:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Results timeline?</strong> Noticeable improvements within first few weeks of consistent use</li>
+      <li><strong>Suitable for all skin types?</strong> Yes, but consult healthcare professional for compatibility</li>
+      <li><strong>Helps with acne scars?</strong> Yes, reduces scars and pigmentation</li>
+      <li><strong>Side effects?</strong> Generally well-tolerated, discuss with doctor</li>
+      <li><strong>Storage?</strong> Keep at room temperature, away from direct sunlight</li>
+    </ul>
+    <br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Made in Switzerland",
+        "Octa Strength",
+        "With Glutathione & Vitamin C",
+        "Anti-Aging",
+        "Reduces Pigmentation",
+        "Deep Hydration",
+        "Contains EGF & CoQ10",
+        "Evens Skin Tone"
+    ],
+    sku: "AQUA-VENISCY-8-OCTA",
+    volume: "1 Box"
+},
+{
+    id: 21,
+    name: "Aqua Skin Veniscy 30 Dualna Pico Cell Absorption Skin Whitening Injection",
+    category: "Injection",
+    brand: "Aqua Skin",
+    price: 12000,
+    comparePrice: 18000,
+    image: "/image/aqua/asv-30.jpg",
+    images: [
+        "/image/aqua/asv-30.jpg",
+        "/image/aqua/asv-30-2.jpeg",
+        "/image/aqua/asv-30-3.jpeg",
+        "/image/aqua/asv-30-4.jpeg"
+    ],
+    description: "Dualna Pico Cell Absorption technology for extreme skin whitening, anti-aging, and cellular regeneration with high-dose Opti-Glutathione.",
+    details: `
+    <strong>Aqua Skin Veniscy 30 Dualna Pico Cell Absorption Extremely Ultimate Injection</strong><br/><br/>
+    Targets dark spots and acne reduction while enhancing skin whitening with anti-aging benefits. Works to neutralize harmful free radicals and combat oxidative stress, promoting glowing and youthful skin.<br/><br/>
+    
+    <strong>Complete Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Veniscy DualNA Pico-Cell Complex:</strong></li>
+      <li>Opti-Glutathione - 6,500,000 mg</li>
+      <li>Coenzyme Pro Q10 - 800,000 mg</li>
+      <li>DMAE - 67,000 mg</li>
+      <li>Nonapeptide - 23,000 mg</li>
+      <li>Selenium - 20,000 mg</li>
+      <li><strong>Aqua Skin DualNA Pico-Cell Complex:</strong></li>
+      <li>L-Ascorbic Acid - 200,000 mg</li>
+      <li>Multivitamin - 180,000 mg</li>
+      <li>Natural Collagen Extract - 80,000 mg</li>
+      <li>Hyaluronic Acid - 72,550 mg</li>
+      <li>EGF - 52,000 mg</li>
+      <li>Alpha Lipoic Acid - 48,250 mg</li>
+      <li>Vegetal Placenta - 43,975 mg</li>
+      <li>Matrixyl 9000 - 36,500 mg</li>
+      <li>Copper Peptide - 23,000 mg</li>
+      <li>Kojic Acid - 22,500 mg</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Dualna Pico Cell Absorption Technology</li>
+      <li>Origin: Made in Switzerland</li>
+      <li>Extremely Ultimate formula</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Whitening and lightening of skin tone</li>
+      <li>Anti-aging effects</li>
+      <li>Repair of damaged skin</li>
+      <li>Regeneration of new cells</li>
+      <li>Enhances skin texture</li>
+      <li>Moisturizes the skin</li>
+      <li>Minimizes wrinkles and fine lines</li>
+      <li>Fair and radiant skin tone</li>
+      <li>Eliminates skin blemishes</li>
+      <li>Lifted and tighter skin</li>
+      <li>Youthful looking skin</li>
+    </ul>
+    <br/>
+
+    <strong>Availability:</strong> Available at Magicpotions India with fastest shipping and Cash On Delivery option.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary from person to person. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Made in Switzerland",
+        "6.5M Opti-Glutathione",
+        "With CoQ10 & DMAE",
+        "Anti-Aging",
+        "Reduces Dark Spots",
+        "Cell Regeneration",
+        "Deep Hydration",
+        "Eliminates Blemishes"
+    ],
+    sku: "AQUA-VENISCY-30-PICO",
+    volume: "1 Box"
+},
+{
+    id: 22,
+    name: "Dr James Glutathione 1500mg Skin Whitening Injection - 10 Sessions",
+    category: "Injection",
+    brand: "Dr James",
+    price: 11000,
+    comparePrice: 15000,
+    image: "/image/drjames/dr-james-10sessions.jpg",
+    images: [
+        "/image/drjames/dr-james-10sessions.jpg",
+        "/image/drjames/drjames-1500-2.jpeg",
+        "/image/drjames/drjames-1500-3.jpeg",
+        "/image/drjames/drjames-1500-4.jpeg"
+    ],
+    description: "Trusted glutathione injection with 1500mg glutathione and 1000mg Vitamin C for effective skin whitening, anti-aging, and immune support.",
+    details: `
+    <strong>Dr James Glutathione 1500mg Skin Whitening Injection</strong><br/><br/>
+    A trusted and popular glutathione injection known for excellent results. Features selective high-quality ingredients with 1500mg glutathione and 1000mg Vitamin C. Vitamin C further increases glutathione levels, making it one of the best antioxidants on the market. FDA-approved and proven safe through numerous tests and expert evaluations.<br/><br/>
+    
+    <strong>Key Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Glutathione - 1500mg</li>
+      <li>Vitamin C - 1000mg</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>10 Sessions Treatment</li>
+      <li>FDA-approved</li>
+      <li>Expiry Date: Dec 2028</li>
+      <li>Clinically tested for safety</li>
+    </ul>
+    <br/>
+
+    <strong>How It Whitens Skin:</strong> Glutathione inhibits Tyrosine Kinase enzyme, preventing melanin production. This reduces hyperpigmentation, dark spots, and overall skin lightening. A study on 16 patients over 6 weeks showed significant improvement in skin tone.<br/><br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin whitening and lightening</li>
+      <li>Prevents acne outbreaks and pimples</li>
+      <li>Boosts immune system against infections</li>
+      <li>Powerful antioxidant prevents oxidative stress</li>
+      <li>Anti-aging - boosts collagen production</li>
+      <li>Reduces hyperpigmentation and dark spots</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Usage:</strong> As prescribed by dermatologist. Typically administered via IV. Consult your doctor for proper dosage and schedule.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary from person to person. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "10 Sessions Pack",
+        "1500mg Glutathione",
+        "With Vitamin C 1000mg",
+        "FDA Approved",
+        "Skin Whitening",
+        "Anti-Aging",
+        "Boosts Immunity",
+        "Prevents Acne"
+    ],
+    sku: "DRJAMES-GLUTA-1500-10S",
+    volume: "10 Sessions"
+},
+{
+    id: 23,
+    name: "Dr James Glutathione Skin Whitening Cream",
+    category: "Cream",
+    brand: "Dr James",
+    price: 2000,
+    comparePrice: 2999,
+    image: "/image/drjames/dr-james-cream.jpg",
+    images: [
+        "/image/drjames/dr-james-cream.jpg",
+        "/image/drjames/dr-james-cream-2.jpeg",
+        "/image/drjames/dr-james-cream-3.jpeg",
+        "/image/drjames/dr-james-cream-4.jpeg"
+    ],
+    description: "Authentic skin whitening cream with glutathione, vitamins, and natural extracts for topical skin lightening and care.",
+    details: `
+    <strong>Dr James Glutathione Skin Whitening Cream</strong><br/><br/>
+    Using a cream is the most authentic way of caring for your skin. Dr James Skin Whitening Cream whitens your skin through topical application of the best skincare ingredients. Formulated with a powerful blend of antioxidants, vitamins, and natural extracts for visible results.<br/><br/>
+    
+    <strong>Key Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Glutathione</li>
+      <li>Vitamin C & E</li>
+      <li>Rosehips</li>
+      <li>Alpha Lipoic Acid</li>
+      <li>Bearberry (Arbutin)</li>
+      <li>Milk Proteins</li>
+      <li>Zinc Oxide</li>
+      <li>Kojic Dipalmate</li>
+      <li>Niacinamide</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Topical application</li>
+      <li>Authentic skincare formula</li>
+      <li>With natural extracts</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Whitens skin through topical application</li>
+      <li>Reduces pigmentation and dark spots</li>
+      <li>Provides antioxidant protection</li>
+      <li>Nourishes and hydrates skin</li>
+      <li>Safe for daily use</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Apply desired amount to clean skin, gently massage until absorbed. Use regularly for best results. For external use only.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult dermatologist before use if you have sensitive skin.</em>
+    `,
+    benefits: [
+        "Topical Whitening",
+        "With Glutathione",
+        "Vitamin C & E",
+        "Contains Arbutin",
+        "Kojic Dipalmate",
+        "Niacinamide",
+        "Natural Extracts",
+        "Daily Use"
+    ],
+    sku: "DRJAMES-CREAM-WHITE",
+    volume: "1 Tube"
+},
+{
+    id: 24,
+    name: "Glowtiqa Advance Whitening Cream",
+    category: "Cream",
+    brand: "Glowtiqa Paris",
+    price: 2000,
+    comparePrice: 2999,
+    image: "/image/glowtiqa/glowtiqa-advance.jpg",
+    images: [
+        "/image/glowtiqa/glowtiqa-advance.jpg",
+        "/image/glowtiqa/advance-cream-2.jpeg",
+        "/image/glowtiqa/advance-cream-3.jpeg",
+        "/image/glowtiqa/advance-cream-4.jpeg"
+    ],
+    description: "Advanced French formulation whitening cream with TA Stem Cells to target dark spots, hyperpigmentation, and uneven skin tone.",
+    details: `
+    <strong>Glowtiqa Advance Whitening Cream</strong><br/><br/>
+    Experience the power of advanced French formulation. Our signature whitening cream is specifically designed to target dark spots, hyperpigmentation, and uneven skin tone while nourishing your skin deep within.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Enriched with powerful TA Stem Cells</li>
+      <li>Visibly reduces acne marks and dark circles</li>
+      <li>Restores natural glow and skin elasticity</li>
+      <li>Weight: 30 Grams</li>
+      <li>Dermatologist tested – safe for all skin types including sensitive skin</li>
+      <li>Paraben-free and cruelty-free</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use (Nighttime Routine):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Cleanse:</strong> Wash face thoroughly (preferably with Whitening Soap) and pat dry</li>
+      <li><strong>Apply:</strong> Take a small amount of the cream</li>
+      <li><strong>Massage:</strong> Gently massage into skin using upward circular motions until fully absorbed</li>
+      <li><strong>Rest:</strong> Leave on overnight for active ingredients to repair skin</li>
+    </ul>
+    <br/>
+
+    <strong>The Science Behind the Glow:</strong><br/>
+    Unlike traditional bleaching creams that harm the skin barrier, Glowtiqa Paris utilizes advanced TA Stem Cell technology. This formulation penetrates the dermis to inhibit excess melanin production at the source. By promoting cellular turnover, it lifts pigmented cells and replaces them with fresh, healthy skin for a natural, luminous complexion without harsh chemicals.<br/><br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Targets dark spots and hyperpigmentation</li>
+      <li>Reduces acne marks and dark circles</li>
+      <li>Restores natural glow and elasticity</li>
+      <li>French advanced formulation</li>
+      <li>Safe for sensitive skin</li>
+    </ul>
+    <br/>
+
+    <em class="text-xs text-gray-400">Note: For external use only. Avoid contact with eyes. Discontinue if irritation occurs.</em>
+    `,
+    benefits: [
+        "French Formulation",
+        "TA Stem Cells",
+        "Reduces Dark Spots",
+        "Removes Acne Marks",
+        "Reduces Dark Circles",
+        "Restores Glow & Elasticity",
+        "Dermatologist Tested",
+        "Paraben Free"
+    ],
+    sku: "GLOWTIQA-ADVANCE-CREAM-30G",
+    volume: "30 Grams"
+},
+{
+    id: 25,
+    name: "Glowtiqa Skin Whitening Soap",
+    category: "Soap",
+    brand: "Glowtiqa Paris",
+    price: 600,
+    comparePrice: 999,
+    image: "/image/glowtiqa/glowtiqa-soap.jpg",
+    images: [
+        "/image/glowtiqa/glowtiqa-soap.jpg",
+        "/image/glowtiqa/whitening-soap-2.jpeg",
+        "/image/glowtiqa/whitening-soap-3.jpeg",
+        "/image/glowtiqa/whitening-soap-4.jpeg"
+    ],
+    description: "Premium skin whitening soap with gentle micro-exfoliation to remove dead skin cells, clear pores, and visibly lighten dark spots.",
+    details: `
+    <strong>Glowtiqa Skin Whitening Soap</strong><br/><br/>
+    Reveal a brighter, cleaner complexion with every wash. Our premium skin whitening soap provides gentle micro-exfoliation to remove dead skin cells, clear congested pores, and visibly lighten dark spots.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Deeply cleanses and purifies pores</li>
+      <li>Gently exfoliates dull, dead skin</li>
+      <li>Controls acne-causing bacteria</li>
+      <li>Weight: 135 Grams</li>
+      <li>Rating: 4.7/5</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use (Daily on Face & Body):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Lather:</strong> Wet soap and rub between hands to create rich lather</li>
+      <li><strong>Apply:</strong> Gently massage lather onto face and body</li>
+      <li><strong>Wait:</strong> Leave on for 1-2 minutes for active ingredients to penetrate</li>
+      <li><strong>Rinse:</strong> Rinse thoroughly with lukewarm water and pat dry</li>
+    </ul>
+    <br/>
+
+    <strong>The Perfect Primer:</strong> Standard body washes can leave a film that blocks expensive creams. Glowtiqa Skin Whitening Soap is formulated as the ultimate primer. Its micro-exfoliating action clears barriers, balancing skin pH so that Advance Whitening Cream can penetrate deeper and work up to 3x faster.<br/><br/>
+
+    <strong>Pro Tip:</strong> For maximum whitening results, always follow up with our Advance Whitening Cream immediately after washing.<br/><br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Brightens complexion with every wash</li>
+      <li>Removes dead skin cells and impurities</li>
+      <li>Clears congested pores</li>
+      <li>Controls acne-causing bacteria</li>
+      <li>Prepares skin for better cream absorption</li>
+    </ul>
+    <br/>
+
+    <em class="text-xs text-gray-400">Note: For external use only. Avoid contact with eyes. Discontinue if irritation occurs.</em>
+    `,
+    benefits: [
+        "Brightens Complexion",
+        "Micro-Exfoliation",
+        "Clears Pores",
+        "Controls Acne Bacteria",
+        "Removes Dead Skin",
+        "Prepares Skin for Creams",
+        "135g Bar",
+        "Daily Use"
+    ],
+    sku: "GLOWTIQA-WHITE-SOAP-135G",
+    volume: "135 Grams"
+},
+{
+    id: 26,
+    name: "Glowtiqa Whitening Booster 1200MG",
+    category: "Supplement",
+    brand: "Glowtiqa Paris",
+    price: 3000,
+    comparePrice: 4499,
+    image: "/image/glowtiqa/glowtiqa-capsule.jpeg",
+    images: [
+        "/image/glowtiqa/glowtiqa-capsule.jpeg",
+        "/image/glowtiqa/whitening-booster-2.jpeg",
+        "/image/glowtiqa/whitening-booster-3.jpeg",
+        "/image/glowtiqa/whitening-booster-4.jpeg"
+    ],
+    description: "Potent 1200MG dietary supplement crafted in Paris to strengthen, protect, and brighten complexion by targeting hyperpigmentation at the cellular level.",
+    details: `
+    <strong>Glowtiqa Whitening Booster 1200MG</strong><br/><br/>
+    Unlock your skin's natural radiance from within. This potent 1200MG dietary supplement is meticulously crafted in Paris to strengthen, protect, and brighten your complexion by targeting hyperpigmentation at the cellular level.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Promotes full-body skin brightening and evens out tone</li>
+      <li>Strengthens and protects the skin's natural barrier</li>
+      <li>Rich in antioxidants to fight premature aging</li>
+      <li>Contents: 60 Premium Capsules</li>
+      <li>Rating: 4.8/5</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Dosage:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Dosage:</strong> Take 1 to 2 capsules daily</li>
+      <li><strong>Timing:</strong> Best consumed in the morning, preferably after breakfast</li>
+      <li><strong>Hydration:</strong> Drink plenty of water throughout the day to aid absorption and flush out toxins</li>
+      <li><strong>Routine:</strong> For ultimate results, pair internally with our Whitening Cream and Soap</li>
+    </ul>
+    <br/>
+
+    <strong>The Power of 1200MG:</strong> Topical creams work on the surface, but true radiance starts from within. The Whitening Booster 1200MG delivers high-grade antioxidants directly to your bloodstream. It actively inhibits the enzyme tyrosinase (responsible for melanin production), helping to fade dark spots, sun damage, and general discoloration uniformly across your entire body.<br/><br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Full-body skin brightening and even tone</li>
+      <li>Strengthens skin's natural barrier</li>
+      <li>Fights premature aging with antioxidants</li>
+      <li>Fades dark spots and sun damage</li>
+      <li>Inhibits melanin production at cellular level</li>
+    </ul>
+    <br/>
+
+    <strong>Glowtiqa Guarantee:</strong> 100% safe, meticulously tested, and formulated without harmful chemicals.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: For best results, use consistently. Consult physician before use if pregnant, nursing, or have medical conditions.</em>
+    `,
+    benefits: [
+        "Full-Body Brightening",
+        "1200MG Potency",
+        "60 Capsules",
+        "Antioxidant Rich",
+        "Inhibits Melanin",
+        "Fades Dark Spots",
+        "Strengthens Skin Barrier",
+        "Made in Paris"
+    ],
+    sku: "GLOWTIQA-BOOSTER-1200-60C",
+    volume: "60 Capsules"
+},
+{
+    id: 27,
+    name: "Advanced Vita Glow Skin Whitening Night Cream",
+    category: "Cream",
+    brand: "Vita Glow",
+    price: 2000,
+    comparePrice: 2999,
+    image: "/image/vitaglow/adv-vita-glow-night.jpg",
+    images: [
+        "/image/vitaglow/adv-vita-glow-night.jpg",
+        "/image/vitaglow/night-cream-2.jpeg",
+        "/image/vitaglow/night-cream-3.jpeg",
+        "/image/vitaglow/night-cream-4.jpeg"
+    ],
+    description: "Special formula night cream with natural ingredients, vitamins, and kojic acid to whiten skin while you sleep, remove blemishes, and reverse aging.",
+    details: `
+    <strong>Advanced Vita Glow Skin Whitening Night Cream</strong><br/><br/>
+    A night cream is the best kind of cream to use if you want to whiten your skin amidst your busy schedule. Apply the cream and go to sleep for it to take effect and whiten your skin as you sleep. This special formula consists of natural ingredients like citric acid, ionized water, and micronutrients including vitamins A, B, B3, and E, all of which whiten your skin while maintaining pH balance. Works on all skin types – dark, dusky, or oily.<br/><br/>
+    
+    <strong>Key Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Citric Acid & Ionized Water</li>
+      <li>Vitamins A, B, B3, E</li>
+      <li>Kojic Acid (from mushroom fungi) – inhibits melanin production</li>
+      <li>Natural Oils & Natural Wax</li>
+      <li>Glutathione</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Works on all three skin layers: Epidermis, Dermis, Hypodermis</li>
+      <li>Acts as a sunscreen lotion – prevents UV damage, skin tan, sunburn</li>
+      <li>Removes all types of skin blemishes</li>
+      <li>Unbranded version available for resellers (launch under own brand)</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Whitens skin to fair and pink complexion</li>
+      <li>Reverses aging signs</li>
+      <li>Removes wrinkles, freckles, dark spots, age spots, fine lines, dark circles</li>
+      <li>Clears acne and scars</li>
+      <li>Provides radiant glow</li>
+      <li>Protects from sun damage and UV rays</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Apply desired amount to clean face and neck before bedtime. Gently massage until absorbed. Leave on overnight. Rinse in the morning.<br/><br/>
+
+    <strong>Important Note:</strong> When freshly manufactured, cream has light green color. Due to oxidation and temperature changes, color may shift to mild beige. This is normal due to Glutathione content and does not affect efficacy or safety.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: For external use only. Discontinue if irritation occurs.</em>
+    `,
+    benefits: [
+        "Night Cream Action",
+        "Contains Kojic Acid",
+        "Vitamins A, B, B3, E",
+        "Removes Blemishes",
+        "Anti-Aging",
+        "Sun Protection",
+        "Works on All Skin Types",
+        "Reseller Available"
+    ],
+    sku: "VITA-NIGHT-CREAM",
+    volume: "1 Jar"
+},
+{
+    id: 28,
+    name: "Vita Glow Skin Whitening Night Cream",
+    category: "Cream",
+    brand: "Vita Glow",
+    price: 2000,
+    comparePrice: 2999,
+    image: "/image/vitaglow/vita-glow-cream.jpg",
+    images: [
+        "/image/vitaglow/vita-glow-cream.jpg",
+        "/image/vitaglow/vita-glow-night-cream-2.jpeg",
+        "/image/vitaglow/vita-glow-night-cream-3.jpeg",
+        "/image/vitaglow/vita-glow-night-cream-4.jpeg"
+    ],
+    description: "Ultimate night cream for glowing skin that whitens, improves texture, prevents wrinkles, heals sunburn, prevents acne, and moisturizes deeply.",
+    details: `
+    <strong>Vita Glow Skin Whitening Night Cream</strong><br/><br/>
+    Your ultimate solution for glowing skin. Infused with all the good things our skin craves, this product transforms your skin in just seven days. A night cream that hydrates and whitens simultaneously.<br/><br/>
+    
+    <strong>Key Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Vitamin C</li>
+      <li>Avocado & Jojoba Oil</li>
+      <li>Kojic Acid</li>
+      <li>Green Tea Extracts</li>
+      <li>Mulberry Extract</li>
+      <li>Glutathione</li>
+    </ul>
+    <br/>
+
+    <strong>Key Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Whitens skin:</strong> Turns brown, rough skin into pink, plumped, fresh skin</li>
+      <li><strong>Improves texture:</strong> Kojic acid gradually enhances skin smoothness</li>
+      <li><strong>Prevents fine lines & wrinkles:</strong> Anti-aging with green tea extracts</li>
+      <li><strong>Protects & heals from sunburn:</strong> Vitamin C defends against UV damage</li>
+      <li><strong>Prevents acne:</strong> Mulberry extract, glutathione, and avocado treat and prevent breakouts</li>
+      <li><strong>Moisturizes deeply:</strong> Complete hydration for lasting radiance</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Apply to clean face and neck before bedtime. Gently massage until absorbed. Leave on overnight. Rinse in the morning.<br/><br/>
+
+    <strong>2026 Official Upgrade:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Upgraded QR-based security seal – scan for instant authentication</li>
+      <li>Direct printing on jar (front & back) – premium look, harder to duplicate</li>
+      <li>Slightly improved texture & fragrance to identify original product</li>
+      <li>Quality and results remain the same – always amazing</li>
+    </ul>
+    <br/>
+
+    <strong>Important Note:</strong> When freshly manufactured, cream has light green color. Due to oxidation and temperature changes, color may shift to mild beige. This is normal due to Glutathione content and does not affect efficacy or safety.<br/><br/>
+
+    <strong>Reseller Opportunity:</strong> Unbranded version available – launch under your own brand name.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: For external use only. Discontinue if irritation occurs.</em>
+    `,
+    benefits: [
+        "Whitens Skin",
+        "Improves Texture",
+        "Anti-Aging",
+        "Heals Sunburn",
+        "Prevents Acne",
+        "Deep Moisturization",
+        "7-Day Transformation",
+        "QR Authentication"
+    ],
+    sku: "VITA-GLOW-NIGHT-CREAM",
+    volume: "1 Jar"
+},
+{
+    id: 29,
+    name: "Vita Glow Glutathione Skin Whitening Soap",
+    category: "Soap",
+    brand: "Vita Glow",
+    price: 600,
+    comparePrice: 999,
+    image: "/image/vitaglow/vita-glow-soap.jpg",
+    images: [
+        "/image/vitaglow/vita-glow-soap.jpg",
+        "/image/vitaglow/vita-glow-soap-2.jpeg",
+        "/image/vitaglow/vita-glow-soap-3.jpeg",
+        "/image/vitaglow/vita-glow-soap-4.jpeg"
+    ],
+    description: "Natural glutathione skin whitening soap that removes dead skin cells, moisturizes, reduces hyperpigmentation, and reveals fresh, young-looking skin.",
+    details: `
+    <strong>Vita Glow Glutathione Skin Whitening Soap</strong><br/><br/>
+    A product totally made of natural resources. Used directly on skin, it has faster effect on removing all dead skin cells, revealing fresh young-looking skin. It moisturizes the body in a balanced manner, giving users glowing skin. It removes hyperpigmentation, which is a basic cause of dark circles and scars, making your face clear and youthful.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>All-natural ingredients with zero side effects</li>
+      <li>Contains Glutathione and Vitamin C – key antioxidants</li>
+      <li>Works on all three layers of skin</li>
+      <li>Perfect alternative for those who can't take pills</li>
+      <li>Whitens skin during daily bath routine</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Removes dead skin cells and rejuvenates with new cells</li>
+      <li>Acts as a moisturizer to prevent drying and skin damage</li>
+      <li>Removes melanin pigments – prevents hyperpigmentation</li>
+      <li>Reduces dark circles, dark spots, acne, wrinkles, freckles, scars</li>
+      <li>Keeps skin clear, spotless, soft, smooth, shiny with radiant glow</li>
+      <li>Nourishes skin for healthy, glowing appearance</li>
+      <li>Adds charisma and competitive edge in career and personal life</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Use as regular bath soap. Lather generously on wet skin, massage gently, then rinse. For best results, use daily.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: For external use only. Avoid contact with eyes. Discontinue if irritation occurs.</em>
+    `,
+    benefits: [
+        "Natural Ingredients",
+        "Removes Dead Skin",
+        "Moisturizes",
+        "Reduces Hyperpigmentation",
+        "Removes Dark Spots & Acne",
+        "Glutathione & Vitamin C",
+        "Glowing Skin",
+        "Daily Bath Routine"
+    ],
+    sku: "VITA-GLOW-SOAP",
+    volume: "1 Bar"
+},
+{
+    id: 30,
+    name: "Miracle Dermal Genesis NAD+ Renewal Complex Glutathione Injection",
+    category: "Injection",
+    brand: "Miracle Dermal Genesis",
+    price: 15650,
+    comparePrice: 20000,
+    image: "/image/miracle-dermal-genesis.jpeg",
+    images: [
+        "/image/miracle-dermal-genesis.jpeg",
+        "/image/miracle-dermal-genesis/nad-renewal-2.jpeg",
+        "/image/miracle-dermal-genesis/nad-renewal-3.jpeg",
+        "/image/miracle-dermal-genesis/nad-renewal-4.jpeg"
+    ],
+    description: "Professional skin rejuvenation injection with NAD+ renewal technology, glutathione, and stem cell extracts to restore skin energy, repair damage, and revive youthful radiance.",
+    details: `
+    <strong>Miracle Dermal Genesis NAD+ Renewal Complex Glutathione Injection</strong><br/><br/>
+    A new generation professional skin rejuvenation solution from Hess & Co. Laboratories. Designed to work at the cellular level, this advanced formulation uses NAD+ renewal technology to help restore skin energy, repair daily damage, and revive youthful radiance from within.<br/><br/>
+    
+    <strong>Product Contains:</strong> 1 Box - 6 Sessions<br/><br/>
+
+    <strong>Key Ingredients & Complexes:</strong><br/>
+    
+    <strong>Whitening & Growth Factor Complex:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Pico-sized Kojic Acid – 12,500 mg</li>
+      <li>Pico-sized Ascorbic Acid (Vitamin C) – 8,950 mg</li>
+      <li>Pico-sized White Cell Enhancer – 3,900 mg</li>
+      <li>Pico-sized Epidermal Growth Factor (EGF) – 8,500 mg</li>
+    </ul>
+    
+    <strong>Antioxidant & Glutathione Complex:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Pico-sized Coenzyme Q10 – 90,000 mg</li>
+      <li>Pico-sized Concentrated Glutathione – 500,000 mg</li>
+      <li>Pico-sized Bakuchiol Extract – 5,000 mg</li>
+      <li>Pico-sized Leontopodium Alpinum Callus Culture Extract – 8,000 mg</li>
+    </ul>
+    
+    <strong>Marine & NAD+ Cellular Complex:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Pico-sized Marine Cellular Extracts – 5,000 mg</li>
+      <li>Pico-sized Phyto White Tripeptide – 2,500 mg</li>
+      <li>Pico-sized NAD+ (Nicotinamide Adenine Dinucleotide) – 3,000 mg</li>
+    </ul>
+    
+    <strong>Stem Cell & Vitamin Support:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Pico-sized Cyanocobalamin (Vitamin B12) – 8,000 mg</li>
+      <li>Pico-sized Tomato Stem Cell Extract – 3,800 mg</li>
+    </ul>
+    
+    <strong>Collagen & Longevity Complex:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Pico-sized Resveratrol – 8,000 mg</li>
+      <li>Pico-sized Peptide Collagen – 6,380 mg</li>
+    </ul>
+    
+    <strong>Detox & Melanin Control Complex:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Pico-sized Multivitamin – 3,000 mg</li>
+      <li>Pico-sized Thioctic Acid – 5,000 mg</li>
+      <li>Pico-sized SLC24A5 Inhibitor – 12,000 mg</li>
+    </ul>
+    <br/>
+
+    <strong>Key Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Cellular Skin Renewal – supports natural repair and regeneration</li>
+      <li>Improved Texture & Smoothness – softer, refined, even skin</li>
+      <li>Enhanced Firmness & Elasticity – supports youthful structure</li>
+      <li>Radiance Boost – revives dull, tired skin</li>
+      <li>Stronger Skin Defense – protects against pollution, UV stress, oxidative damage</li>
+      <li>Whitening – reduces melanin formation, brightens tone</li>
+      <li>Detoxification & Anti-aging – powerful antioxidant protection</li>
+      <li>DNA repair & cellular energy with NAD+ technology</li>
+    </ul>
+    <br/>
+
+    <strong>How It Works:</strong> Works deep within the skin's cellular matrix, supporting internal energy renewal and natural repair mechanisms. With regular professional application, skin appears clearer, firmer, smoother, and more luminous.<br/><br/>
+
+    <strong>Certifications:</strong> FDA Approved, GMP Approved, FSSAI Approved, Quality Certified.<br/><br/>
+
+    <strong>Availability:</strong> Home Delivery All Over India. Use coupon code GET100 for additional ₹100 discount (Today Only).<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "6 Sessions Pack",
+        "NAD+ Renewal Technology",
+        "500,000mg Glutathione",
+        "With EGF & CoQ10",
+        "Stem Cell Extracts",
+        "Anti-Aging",
+        "Whitening & Detox",
+        "FDA & GMP Approved"
+    ],
+    sku: "PTR000516",
+    volume: "6 Sessions"
 }
 ];
 
