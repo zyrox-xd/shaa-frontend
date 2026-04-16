@@ -4440,9 +4440,9 @@ const PRODUCTS = [
     brand: "Miracle Dermal Genesis",
     price: 15650,
     comparePrice: 20000,
-    image: "/image/miracle-dermal-genesis.jpeg",
+    image: "/image/Miracle-Nad/miracle-dermal-genesis.jpeg",
     images: [
-        "/image/miracle-dermal-genesis.jpeg",
+        "/image/Miracle-Nad/miracle-dermal-genesis.jpeg",
         "/image/miracle-dermal-genesis/nad-renewal-2.jpeg",
         "/image/miracle-dermal-genesis/nad-renewal-3.jpeg",
         "/image/miracle-dermal-genesis/nad-renewal-4.jpeg"
@@ -4532,7 +4532,614 @@ const PRODUCTS = [
     ],
     sku: "PTR000516",
     volume: "6 Sessions"
-}
+},
+{
+    id: 31,
+    name: "Cindyrella Power Drip (10 Sets) Glutathione Injection",
+    category: "Injection",
+    brand: "Cindyrella",
+    price: 13500,
+    comparePrice: 20000,
+    image: "/image/Cindyrella/power-drip-1.jpeg",
+    images: [
+        "/image/Cindyrella/power-drip-1.jpeg",
+        "/image/Cindyrella/power-drip-2.jpeg",
+        "/image/Cindyrella/power-drip-3.jpeg",
+        "/image/Cindyrella/power-drip-4.jpeg"
+    ],
+    description: "High-dose glutathione drip with CoQ10, marine collagen, placenta, apple stem cell, and vitamins for energy, skin brightening, and overall wellness.",
+    details: `
+    <strong>Cindyrella Power Drip (10 Sets)</strong><br/><br/>
+    Experience the ultimate rejuvenation with Power Drip, a high-dose blend crafted to boost your energy, brighten your skin, and enhance your overall wellness. Perfect for those who want to glow from within and feel their absolute best.<br/><br/>
+    
+    <strong>Key Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Glutathione – 800,000 mg</li>
+      <li>Coenzyme Q10 (CoQ10) – 10,000 mg</li>
+      <li>Marine Collagen – 80,000 mg</li>
+      <li>Collagen – 70,000 mg</li>
+      <li>Placenta – 25,000 mg</li>
+      <li>Apple Stem Cell – 10,000 mg</li>
+      <li>Vitamin C – 5,000 mg</li>
+      <li>Vitamin B Complex (B1, B3, B5, B6, B12) – 500 mg total</li>
+      <li>Vitamin E – 1,000 mg</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>10 Sets per pack</li>
+      <li>Powerful detoxification and whitening</li>
+      <li>Boosts cellular energy</li>
+      <li>Restores skin elasticity and glow</li>
+      <li>Promotes skin regeneration with stem cells</li>
+      <li>Supports immunity and metabolism</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin brightening and whitening</li>
+      <li>Detoxification at cellular level</li>
+      <li>Increased energy and wellness</li>
+      <li>Improved skin elasticity and firmness</li>
+      <li>Regeneration of skin cells</li>
+      <li>Radiant, glowing complexion</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Administered as intravenous drip under professional supervision. Follow healthcare provider's instructions.<br/><br/>
+
+    <strong>Important Note:</strong> For guaranteed authenticity, Cindyrella products should only come from the Philippines and be shipped directly to your country. WE DO NOT HAVE ANY AUTHORIZED DISTRIBUTORS/SELLERS IN AUSTRALIA, UK, US, VIETNAM, INDIA, JEDDAH, THAILAND OR IN ANY COUNTRY.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult healthcare professional before use. Verify authenticity by purchasing only from Philippines.</em>
+    `,
+    benefits: [
+        "10 Sets Pack",
+        "800,000mg Glutathione",
+        "With CoQ10 & Collagens",
+        "Placenta & Apple Stem Cell",
+        "Vitamins B, C, E",
+        "Energy & Wellness",
+        "Skin Brightening",
+        "Detoxification"
+    ],
+    sku: "CINDY-POWERDRIP-10",
+    volume: "10 Sets"
+},
+{
+    id: 32,
+    name: "Rejuran S Acne Scar Treatment Injection",
+    category: "Injection",
+    brand: "Rejuran",
+    price: 8800,
+    comparePrice: null,
+    image: "/image/rejuran/rejuran-s-1.jpeg",
+    images: [
+        "/image/rejuran/rejuran-s-1.jpeg",
+        "/image/rejuran/rejuran-s-2.jpeg",
+        "/image/rejuran/rejuran-s-3.jpeg",
+        "/image/rejuran/rejuran-s-4.jpeg"
+    ],
+    description: "Concentrated polynucleotide (PN) injection for treating acne scars, including boxcar, icepick, and rolling scars, by repairing damaged cells and stimulating collagen.",
+    details: `
+    <strong>Rejuran S Acne Scar Treatment</strong><br/><br/>
+    Rejuran S is a more concentrated version of Rejuran Healer, specially developed to treat acne scars. It contains Polynucleotides (PN), which are DNA fragments that help repair damaged cells and stimulate collagen. Its ability to boost skin healing and remodel collagen makes it ideal for treating various types of acne scars including boxcar scars, icepick scars, and rolling scars.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Primary Ingredient: Polynucleotide (PN) – thicker formulation for scars</li>
+      <li>Quantity: 1 mL per syringe</li>
+      <li>Packing: 1 Syringe / 1 Box</li>
+      <li>Country of Origin: Republic of Korea</li>
+      <li>Treatment Type: Acne scar treatment</li>
+      <li>No. of Sessions: 2–3 sessions recommended</li>
+    </ul>
+    <br/>
+
+    <strong>Treatment Experience:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Oral painkillers and strong numbing cream applied 30 minutes prior</li>
+      <li>Tiny needle injects Rejuran S directly under targeted scars – feels like ant bites</li>
+      <li>Small bumps form over treated areas; intensive recovery cream applied and massaged</li>
+      <li>Needle marks and bruising typically recover after 5–7 days</li>
+      <li>For deep scars, subcision may be combined before injection for superior results</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Treatment Schedule:</strong> 3 treatment sessions, 4 weeks between each treatment. Maintenance: single treatment every 6–12 months.<br/><br/>
+
+    <strong>Results:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Short-Term: Enhanced hydration and reduced redness after 1–2 sessions</li>
+      <li>Optimal Results: Achieved after 3–4 treatments</li>
+      <li>Longevity: Results last 6–12 months with maintenance and proper skincare</li>
+      <li>Long-Term: Improved elasticity and rejuvenated appearance due to ongoing collagen stimulation</li>
+    </ul>
+    <br/>
+
+    <strong>Who Should Avoid:</strong> Individuals allergic to polynucleotide, active infections or lesions in treatment area, pregnant or breastfeeding, autoimmune disorders, or on anticoagulant therapy (consult physician).<br/><br/>
+
+    <strong>Aftercare Instructions:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Avoid direct sunlight; apply broad-spectrum sunscreen diligently</li>
+      <li>Refrain from harsh products, exfoliants, or makeup for 24–48 hours</li>
+      <li>Avoid hot baths, saunas, or intense exercise for 48 hours</li>
+      <li>Keep skin moisturized to support healing</li>
+    </ul>
+    <br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult a dermatologist before treatment. Professional administration only.</em>
+    `,
+    benefits: [
+        "Treats Acne Scars",
+        "Polynucleotide (PN) Technology",
+        "Stimulates Collagen",
+        "Repairs Damaged Cells",
+        "Smooths Boxcar & Icepick Scars",
+        "Improves Skin Elasticity",
+        "Made in Korea",
+        "Professional Use"
+    ],
+    sku: "REJURAN-S-1ML",
+    volume: "1 Syringe"
+},
+{
+    id: 33,
+    name: "Nexus Pharma Glutanex 1200mg Glutathione Skin Whitening Injection - 10 Sessions",
+    category: "Injection",
+    brand: "Nexus Pharma",
+    price: 22000,
+    comparePrice: 30288,
+    image: "/image/nexus-pharma/glutanex-1200-1.jpeg",
+    images: [
+        "/image/nexus-pharma/glutanex-1200-1.jpeg",
+        "/image/nexus-pharma/glutanex-1200-2.jpeg",
+        "/image/nexus-pharma/glutanex-1200-3.jpeg",
+        "/image/nexus-pharma/glutanex-1200-4.jpeg"
+    ],
+    description: "Premium South Korean whitening therapy with pharmaceutical-grade glutathione (1200mg) for consistent brightening, hydration, and rejuvenation across 10 sessions.",
+    details: `
+    <strong>Nexus Pharma Glutanex 1200mg Glutathione Skin Whitening Injection – 10 Sessions</strong><br/><br/>
+    A premium South Korean whitening therapy formulated with pharmaceutical-grade glutathione for consistent brightening, hydration, and rejuvenation. This 10-session program is ideal for users seeking visible improvements through trusted Korean skincare science.<br/><br/>
+    
+    <strong>Composition:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Glutanex Glutathione – 1200mg</li>
+      <li>Asconex – 10g / 20ml (Vitamin C support)</li>
+      <li>Lipotocin – 300mg / 12ml (Thioctic acid / Alpha Lipoic Acid)</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Country of Origin: South Korea</li>
+      <li>Manufacturer: Nexus Pharma</li>
+      <li>10-Session Whitening Protocol</li>
+      <li>Pharmaceutical-grade purity</li>
+    </ul>
+    <br/>
+
+    <strong>How It Works:</strong> Glutathione regulates melanin activity to lighten pigmentation and even out complexion. Vitamin C enhances absorption and antioxidant protection, while supportive nutrients improve glow and firmness.<br/><br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Effective whitening with 1200mg glutathione</li>
+      <li>Visible fairness across 10 sessions</li>
+      <li>Reduces pigmentation, scars, and dark patches</li>
+      <li>Supports detoxification and skin rejuvenation</li>
+      <li>Korean-made formulation for purity and consistency</li>
+      <li>Natural-looking, balanced results</li>
+    </ul>
+    <br/>
+
+    <strong>Results Timeline:</strong> Brightness commonly appears after 3–5 sessions, with full glow after completing all 10 sessions.<br/><br/>
+
+    <strong>Suitable For:</strong> Both men and women seeking medium-strength whitening treatment.<br/><br/>
+
+    <strong>Why Buy from Skin Solution Store:</strong> Since 2009, supplying genuine Glutanex injections, trusted for originality, safety, and reliable whitening results.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional administration only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Made in South Korea",
+        "10 Sessions Pack",
+        "1200mg Glutathione",
+        "With Vitamin C Support",
+        "Reduces Pigmentation",
+        "Fades Scars & Dark Spots",
+        "Detoxifies & Rejuvenates",
+        "Trusted Korean Formulation"
+    ],
+    sku: "NEXUS-GLUTANEX-1200-10S",
+    volume: "10 Sessions"
+},
+{
+    id: 34,
+    name: "Cosdaq Cindella Luthione Vitamin C 1200mg Skin Whitening Set",
+    category: "Injection",
+    brand: "Cosdaq",
+    price: 16500,
+    comparePrice: 20000,
+    image: "/image/cosdaq/cindella-set-1.jpeg",
+    images: [
+        "/image/cosdaq/cindella-set-1.jpeg",
+        "/image/cosdaq/cindella-set-2.jpeg",
+        "/image/cosdaq/cindella-set-3.jpeg",
+        "/image/cosdaq/cindella-set-4.jpeg"
+    ],
+    description: "KFDA-approved skin whitening injection set with Glutathione 1200mg, Thioctic Acid, and Vitamin C for fair to pink complexion, detox, and anti-aging.",
+    details: `
+    <strong>Cosdaq Cindella Luthione Vitamin C 1200mg Skin Whitening Set</strong><br/><br/>
+    Achieve your dream fair to pink complexion with Cindella 1200mg KFDA Skin Whitening Injections Set. Say goodbye to all skin blemishes such as acne, wrinkles, pigments, freckles and dark spots. Also called the baby face injection, Cindella uses a multi-pronged approach transforming skin color from inside out.<br/><br/>
+    
+    <strong>Composition:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Glutathione (Luthione) – 1200mg</li>
+      <li>Thioctic Acid (Cindella) – 25mg (Alpha Lipoic Acid)</li>
+      <li>Vitamin C (DHNP) – 10g</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 1200 mg</li>
+      <li>Brand: Cosdaq</li>
+      <li>Packaging Type: Combipack (Vials)</li>
+      <li>Route of Administration: IV Use Only</li>
+      <li>Country of Origin: South Korea (KFDA approved)</li>
+      <li>No recovery period</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Fair to pink complexion from dark and brown skin</li>
+      <li>Detoxifies liver, improves blood circulation, metabolism, and energy levels</li>
+      <li>Fights cold, obesity, edema – makes you physically healthy</li>
+      <li>Regulates appetite and forms healthier daily habits</li>
+      <li>Produces Alpha-lipoic acid (400x more effective antioxidant than vitamins C/E)</li>
+      <li>Skin turns soft, elastic, smooth, shiny, radiant with even tone</li>
+      <li>Renews damaged skin cells, repairs wounds and scars</li>
+      <li>Encourages collagen production</li>
+      <li>Reverse aging – slows down aging naturally</li>
+      <li>Prevents saccharification of proteins</li>
+    </ul>
+    <br/>
+
+    <strong>Dosage:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Treatment phase: Once every 4 days for ten weeks</li>
+      <li>Maintenance phase: Once every two weeks or every month</li>
+    </ul>
+    <br/>
+
+    <strong>Note:</strong> Results may vary from person to person. Best results with diet, therapy, and exercise. Can be performed with other skin whitening procedures.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional administration only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Made in South Korea",
+        "KFDA Approved",
+        "1200mg Glutathione",
+        "With Vitamin C & Thioctic Acid",
+        "Fair to Pink Complexion",
+        "Liver Detox & Immunity",
+        "Anti-Aging & Collagen Boost",
+        "Baby Face Injection"
+    ],
+    sku: "COSDAQ-CINDELLA-1200",
+    volume: "1 Box"
+},
+{
+    id: 35,
+    name: "QR 678 NEO Anti Hair Loss Solution Injection 5mL",
+    category: "Injection",
+    brand: "QR 678 Neo",
+    price: 22500,
+    comparePrice: 30000,
+    image: "/image/qr678/qr678-neo-2.jpeg",
+    images: [
+        "/image/qr678/qr678-neo-2.jpeg",
+        "/image/qr678/qr678-neo-1.jpeg",
+        "/image/qr678/qr678-neo-3.jpeg",
+        "/image/qr678/qr678-neo-4.jpeg"
+    ],
+    description: "Revolutionary non-surgical hair regrowth treatment that stimulates dormant follicles, reduces hair fall, and promotes natural-looking regrowth for both men and women.",
+    details: `
+    <strong>QR 678 NEO Anti Hair Loss Solution Injection 5mL</strong><br/><br/>
+    A revolutionary hair regrowth treatment that provides effective, permanent and natural-looking hair regrowth benefits. This innovative advanced treatment can prevent and reverse hair loss, as well as stop hair fall and boost hair regrowth. Developed by medical professionals in India, this patented formula is used in clinical settings to treat various forms of alopecia, including male and female pattern baldness, telogen effluvium, alopecia areata, and even chemotherapy-induced hair loss.<br/><br/>
+    
+    <strong>Composition:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Polypeptides (biomimetic growth factor analogs – VEGF, bFGF, IGF-1)</li>
+      <li>Copper Tripeptide-1 – increases follicle size and strengthens hair root</li>
+      <li>Ascorbic Acid (Vitamin C)</li>
+      <li>Retinol (Vitamin A)</li>
+      <li>Pantothenic Acid (Vitamin B5)</li>
+      <li>Essential nutrients, amino acids, and minerals</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 5 mg</li>
+      <li>Form: Injection</li>
+      <li>Packaging Size: 5mL</li>
+      <li>Prescription/Non prescription: Non prescription</li>
+      <li>Ideal For: Unisex</li>
+      <li>Shelf Life: 24 Months</li>
+      <li>Manufactured By: Esthetic Centers International Private Limited</li>
+      <li>Storage: Keep under refrigeration (below 25°C) to maintain peptide stability</li>
+    </ul>
+    <br/>
+
+    <strong>How It Works:</strong> Hair doctors administer the growth factor solution directly into the scalp via mesotherapy (tiny superficial injections). The biomimetic peptides stimulate dormant hair follicles to enter the active growth phase, increasing hair density and thickness. Copper tripeptide strengthens roots while vitamins nourish the scalp.<br/><br/>
+
+    <strong>Treatment Protocol:</strong> Sessions every 2-3 weeks for 5-8 sittings. Each session takes less than 30 minutes with minimal to no downtime.<br/><br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Stimulates dormant hair follicles for active growth</li>
+      <li>Significantly reduces hair shedding – visible improvement in 3-4 weeks</li>
+      <li>Increases hair density and thickness</li>
+      <li>Treats androgenetic alopecia, telogen effluvium, alopecia areata</li>
+      <li>Non-surgical alternative to hair transplant</li>
+      <li>Quick procedure (15-20 minutes) with no downtime</li>
+    </ul>
+    <br/>
+
+    <strong>Side Effects:</strong> Generally very safe. Mild redness, itching, or temporary swelling at injection sites possible.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional administration by dermatologist only. Consult a healthcare provider before use. Must be stored refrigerated.</em>
+    `,
+    benefits: [
+        "Stimulates Hair Regrowth",
+        "Reduces Hair Fall in 3-4 Weeks",
+        "Increases Hair Density & Thickness",
+        "Treats Male & Female Pattern Baldness",
+        "Non-Surgical Alternative",
+        "Biomimetic Peptide Technology",
+        "Quick Procedure – No Downtime",
+        "Made in India"
+    ],
+    sku: "QR678-NEO-5ML",
+    volume: "5mL"
+},
+{
+    id: 36,
+    name: "Fillmed NCTF 135HA Skin Filler (Skin Booster Injection)",
+    category: "Injection",
+    brand: "Fillmed",
+    price: 16000,
+    comparePrice: 25759,
+    image: "/image/fillmed/nctf-135ha-1.jpeg",
+    images: [
+        "/image/fillmed/nctf-135ha-1.jpeg",
+        "/image/fillmed/nctf-135ha-2.jpeg",
+        "/image/fillmed/nctf-135ha-3.jpeg",
+        "/image/fillmed/nctf-135ha-4.jpeg"
+    ],
+    description: "French mesotherapy skin booster with hyaluronic acid and 59 active ingredients for deep hydration, anti-aging, and radiant glow – often called the 'Chanel Injection'.",
+    details: `
+    <strong>Fillmed NCTF 135HA Skin Filler (Skin Booster Injection)</strong><br/><br/>
+    A French innovation in dermal revitalization, designed to restore hydration, firmness, and luminosity. Unlike volumizing dermal fillers, this product is a biostimulator that improves skin quality from within. Often called the "Chanel Injection", it provides an immediate "glow" by nourishing the skin with a vitamin cocktail. Trusted by dermatologists worldwide for improving skin quality, reducing fine lines, and creating a radiant, youthful glow.<br/><br/>
+    
+    <strong>Composition – NCTF Formula (59+ Active Ingredients):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Hyaluronic Acid (5 mg/ml) – deep hydration and volume</li>
+      <li>12 Vitamins (A, B, C, E) – stimulate vital cell functions</li>
+      <li>24 Amino Acids – building blocks for collagen and elastin</li>
+      <li>6 Minerals – regulate enzyme activity</li>
+      <li>6 Coenzymes & Nucleic Acids – boost cell regeneration</li>
+      <li>Antioxidants including Glutathione – protect against free radical damage</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Made in France</li>
+      <li>Professional-grade skin booster</li>
+      <li>Non-crosslinked hyaluronic acid</li>
+      <li>Suitable for face, neck, décolleté, hands, and scalp</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Deep hydration and restored elasticity</li>
+      <li>Reduces fine lines and wrinkles</li>
+      <li>Enhances natural radiance and smoothness</li>
+      <li>Stimulates collagen and elastin production</li>
+      <li>Improves skin texture and firmness</li>
+      <li>Complements whitening treatments by boosting absorption of active ingredients</li>
+      <li>Clinically proven French formulation</li>
+    </ul>
+    <br/>
+
+    <strong>How It Works:</strong> Works at the cellular level to stimulate fibroblast activity, increase collagen synthesis, and improve circulation. Administered via micro-injections into the dermis, microneedling, or NanoSoft device.<br/><br/>
+
+    <strong>Treatment Protocol:</strong> Typically 3–5 sessions spaced 2–3 weeks apart. Results last 3–6 months; maintenance sessions twice a year recommended.<br/><br/>
+
+    <strong>Side Effects:</strong> Temporary redness, mild swelling, small bumps (papules), or minor bruising at injection sites – resolve within 24–48 hours.<br/><br/>
+
+    <strong>Customer Testimonials:</strong> "After three sessions, my skin felt plumper, hydrated, and glowing." – Reema L. "This filler gave me a refreshed look without drastic changes. Subtle yet powerful." – Kunal P.<br/><br/>
+
+    <strong>Why Buy from Skin Solution Store:</strong> Supplying authentic European skin revitalizers with expert advice and safe delivery since 2009.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional administration only. Consult dermatologist before use. Not for active infections, autoimmune disease, pregnancy, or breastfeeding.</em>
+    `,
+    benefits: [
+        "Made in France",
+        "59 Active Ingredients",
+        "Deep Hydration",
+        "Anti-Aging & Fine Lines",
+        "Stimulates Collagen",
+        "Radiant Glow",
+        "Enhances Whitening Results",
+        "Chanel Injection"
+    ],
+    sku: "FILLMED-NCTF-135HA",
+    volume: "3ml"
+},
+{
+    id: 37,
+    name: "Profhilo H Plus L Cosmetic Fillers (Skin Bio-Remodeling Injection)",
+    category: "Injection",
+    brand: "Profhilo",
+    price: 15500,
+    comparePrice: 20000,
+    image: "/image/profhilo/hplusl-1.jpeg",
+    images: [
+        "/image/profhilo/hplusl-1.jpeg",
+        "/image/profhilo/hplusl-2.jpeg",
+        "/image/profhilo/hplusl-3.jpeg",
+        "/image/profhilo/hplusl-4.jpeg"
+    ],
+    description: "Breakthrough stabilized hyaluronic acid bio-remodeling injectable that lifts, hydrates, and stimulates collagen and elastin for skin laxity and rejuvenation.",
+    details: `
+    <strong>Profhilo H Plus L Cosmetic Fillers</strong><br/><br/>
+    An innovative, breakthrough beauty enhancer from IBSA Farmaceutici Italia. This FDA-approved filler is the first stabilized hyaluronic acid-based product free from any cross-linking agents. Using proprietary NAHYCO™ Hybrid Technology, this highly concentrated formulation mixes low- and high-molecular-weight hyaluronic acid for acclaimed longevity and sustainability. It provides a lifting, volumetric effect while hydrating and stimulating collagen and elastin cells, delivering dynamic improvement in skin integrity and laxity.<br/><br/>
+    
+    <strong>Composition & Technology:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Total Hyaluronic Acid – 64mg per 2ml syringe</li>
+      <li>Low-molecular-weight HA (80-100 kDa) – 32mg for deep hydration</li>
+      <li>High-molecular-weight HA (1100-1400 kDa) – 32mg for skin tension and lifting</li>
+      <li>NAHYCO™ Hybrid Technology – thermal stabilization without chemical cross-linking (BDDE-free)</li>
+      <li>HA derived from biofermentation of Streptococcus zooepidemicus – ultrapure, sterile, high-grade</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Packaging: One 2.0ml prefilled syringe + 29G 1/2" needles + traceability labels</li>
+      <li>Manufacturer: IBSA Farmaceutici Italia Srl, ITALY</li>
+      <li>BDDE-free – high biocompatibility, low inflammatory risk</li>
+      <li>Resists enzymatic breakdown by hyaluronidase</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Stimulates production of all four types of collagen and elastin</li>
+      <li>Intense hydration – injectable moisturizer for dewy glow</li>
+      <li>Lifts and tightens sagging skin (face, neck, décolletage, hands, arms, knees)</li>
+      <li>Refines skin texture and reduces fine lines</li>
+      <li>Improves skin laxity and firmness</li>
+      <li>Subtle, natural results without altering facial shape</li>
+    </ul>
+    <br/>
+
+    <strong>Administration – BAP Technique:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Only licensed practitioners should administer</li>
+      <li>Bio Aesthetic Points (BAP) technique – 5 injection points per side of face (malar, submalar, nasolabial root, pre-tragal, marionette lines)</li>
+      <li>0.2ml injected deep dermis per point via bolus technique</li>
+      <li>Massage after injection for even distribution</li>
+    </ul>
+    <br/>
+
+    <strong>Treatment Course:</strong> Standard initial cycle requires two sessions, spaced about 30 days apart. Minimal downtime – small bumps (mosquito bites) settle within 24 hours.<br/><br/>
+
+    <strong>Contraindications:</strong> Not for use in pregnancy, breastfeeding, or known hypersensitivity to hyaluronic acid.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional administration only. Results may vary. Consult a qualified healthcare provider before treatment.</em>
+    `,
+    benefits: [
+        "Made in Italy",
+        "64mg/ml Stabilized HA",
+        "BDDE-free / No Cross-linking",
+        "Stimulates Collagen & Elastin",
+        "Lifts & Tightens Lax Skin",
+        "Deep Hydration",
+        "Refines Texture & Wrinkles",
+        "BAP Technique – Minimal Downtime"
+    ],
+    sku: "PROFHILO-HPLUSL-2ML",
+    volume: "2 ml"
+},
+{
+    id: 38,
+    name: "Laroscorbine Platinum E-UF PN PDRN Q10+ Skin Regeneration Injection",
+    category: "Injection",
+    brand: "Laroscorbine",
+    price: 5000,
+    comparePrice: 6000,
+    image: "/image/laroscorbine/platinum-1.jpeg",
+    images: [
+        "/image/laroscorbine/platinum-1.jpeg",
+        "/image/laroscorbine/platinum-2.jpeg",
+        "/image/laroscorbine/platinum-3.jpeg",
+        "/image/laroscorbine/platinum-4.jpeg"
+    ],
+    description: "Advanced skin regeneration injectable with PN/PDRN (Polynucleotides), Coenzyme Q10+, and E-UF technology for cellular repair, rejuvenation, and anti-aging.",
+    details: `
+    <strong>Laroscorbine Platinum E-UF PN PDRN Q10+</strong><br/><br/>
+    An advanced skin regeneration and revitalization injectable designed for professional aesthetic use. This high-performance formulation combines PN/PDRN (Polynucleotides), Coenzyme Q10+, and enhanced ultra-filtration (E-UF) technology to support cellular repair, skin rejuvenation, and long-term skin quality improvement. Developed to address aging, damaged, and stressed skin, it works at a cellular and dermal level to restore skin vitality, elasticity, hydration, and radiance.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Contains PN / PDRN (Polynucleotides) for cellular repair and regeneration</li>
+      <li>Enriched with Coenzyme Q10+ for antioxidant and energy support</li>
+      <li>E-UF (Enhanced Ultra-Filtration) technology for high purity and stability</li>
+      <li>Supports collagen synthesis and tissue repair</li>
+      <li>Strength: 9000 (high potency)</li>
+      <li>Pack Size: 12 x 5ml ampoules</li>
+      <li>Route: IV (Intravenous)</li>
+      <li>Grade: Pharma Grade</li>
+      <li>Shelf Life: 36 months</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Enhanced skin regeneration and repair</li>
+      <li>Improved elasticity, firmness, and skin density</li>
+      <li>Reduction in fine lines and early wrinkles</li>
+      <li>Brighter, healthier, and more radiant skin</li>
+      <li>Improved skin texture and hydration</li>
+      <li>Strengthened skin barrier and resilience</li>
+    </ul>
+    <br/>
+
+    <strong>Common Treatment Indications:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Facial skin rejuvenation and glow enhancement</li>
+      <li>Anti-aging and skin quality improvement</li>
+      <li>Dull, tired, or damaged skin</li>
+      <li>Post-procedure skin recovery (as professionally indicated)</li>
+      <li>Neck, décolletage, and under-eye rejuvenation</li>
+    </ul>
+    <br/>
+
+    <strong>Why Choose Laroscorbine Platinum:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Combines regeneration + antioxidant + energy support in one formula</li>
+      <li>Targets skin repair at cellular level</li>
+      <li>Ideal for clinics offering premium regenerative aesthetics</li>
+      <li>Delivers gradual, natural, and long-lasting results</li>
+      <li>Complements treatments like lasers, RF, microneedling, and injectables</li>
+      <li>Suitable for all skin types</li>
+    </ul>
+    <br/>
+
+    <em class="text-xs text-gray-400">Note: Professional use only. Consult a qualified practitioner before use.</em>
+    `,
+    benefits: [
+        "12 Ampoules (5ml each)",
+        "PN/PDRN Polynucleotides",
+        "Coenzyme Q10+",
+        "E-UF Purification Technology",
+        "Stimulates Collagen",
+        "Reduces Fine Lines & Wrinkles",
+        "Improves Elasticity & Hydration",
+        "Suitable for All Skin Types"
+    ],
+    sku: "LAROS-PLATINUM-PN-Q10-12X5",
+    volume: "12 Ampoules (5ml each)"
+},
+
 ];
 
 
