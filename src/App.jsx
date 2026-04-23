@@ -873,28 +873,7 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
         </div>
       </section>
 
-      {/* --- SECTION 4: TARGETED CONCERNS --- */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-xl md:text-2xl font-serif mb-10 text-gray-900 text-center uppercase tracking-widest">Targeted Concerns</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-              {[
-                { name: 'Uneven Tone', img: '/image/blog1.jpg' },
-                { name: 'Acne Control', img: '/image/blog2.jpg' },
-                { name: 'Aging', img: '/image/blog3.jpg' },
-                { name: 'Brightening', img: '/image/blog4.jpg' }
-              ].map((concern) => (
-                <div key={concern.name} onClick={() => { setShopFilter('All'); navigateTo('shop'); }} className="group cursor-pointer">
-                   <div className="aspect-[4/5] rounded-sm overflow-hidden mb-3 relative">
-                     <img src={concern.img} alt={concern.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-                     <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors"></div>
-                   </div>
-                   <p className="text-center text-[10px] font-bold uppercase tracking-widest text-gray-700">{concern.name}</p>
-                </div>
-              ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* --- SECTION 5: NEW ARRIVALS --- */}
       <section className="py-16 bg-white border-t border-gray-100">
