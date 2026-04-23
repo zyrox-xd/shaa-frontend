@@ -2412,7 +2412,7 @@ const PRODUCTS = [
     name: "Glutax 5gs Micro Advance Glutathione 5000mg 12 Sessions Skin Whitening Injection",
     category: "Injection",
     brand: "Glutax",
-    price: 12900,
+    price: 12500,
     comparePrice: 18000,
     image: "/image/glutax/gtx-5gs-adv.jpeg",
     images: [
@@ -2486,8 +2486,8 @@ const PRODUCTS = [
     name: "Glutax 5GS Micro Cellular Ultra Whitening Injection 6 Sessions",
     category: "Injection",
     brand: "Glutax",
-    price: 6800,
-    comparePrice: 9900,
+    price: 9500,
+    comparePrice: 14500,
     image: "/image/glutax/gtx-5gs-micro.jpeg",
     images: [
         "/image/glutax/gtx-5gs-micro.jpeg",
@@ -2570,8 +2570,8 @@ const PRODUCTS = [
     name: "Glutax 10000000GX DualNA Premium Recombined Cell Formula Injection",
     category: "Injection",
     brand: "Glutax",
-    price: 11500,
-    comparePrice: 16000,
+    price: 8800,
+    comparePrice: 12500,
     image: "/image/glutax/gtx-10mgx.jpg",
     images: [
         "/image/glutax/gtx-10mgx.jpg",
@@ -2630,11 +2630,11 @@ const PRODUCTS = [
 },
 {
     id: 5,
-    name: "Glutax 2000gs Advanced II Glutathione Injection",
+    name: "Glutax 2000gs Advanced II Glutathione Injection(out of stock)",
     category: "Injection",
     brand: "Glutax",
-    price: 12000,
-    comparePrice: 18000,
+    price: 9500,
+    comparePrice: 14500,
     image: "/image/glutax/gtx-2kgs.jpeg",
     images: [
         "/image/glutax/gtx-2kgs.jpeg",
@@ -2710,8 +2710,8 @@ const PRODUCTS = [
     name: "Glutax 50000000GS Advanced Glutathione Skin Whitening Injection – 10 Sessions",
     category: "Injection",
     brand: "Glutax",
-    price: 13499,
-    comparePrice: 17278,
+    price: 9800,
+    comparePrice: 14500,
     image: "/image/glutax/gtx-50mgs.jpeg",
     images: [
         "/image/glutax/gtx-50mgs.jpeg",
@@ -2769,7 +2769,7 @@ const PRODUCTS = [
     category: "Injection",
     brand: "Glutax",
     price: 9500,
-    comparePrice: 15000,
+    comparePrice: 14500,
     image: "/image/glutax/gtx-22Mgs.jpeg",
     images: [
         "/image/glutax/gtx-22Mgs.jpeg",
@@ -2845,8 +2845,8 @@ const PRODUCTS = [
     name: "Glutax 8000000GS Ultimate Recombined White Glutathione Skin Whitening Injection",
     category: "Injection",
     brand: "Glutax",
-    price: 11600,
-    comparePrice: 20000,
+    price: 9500,
+    comparePrice: 14500,
     image: "/image/glutax/gtx-80Mgs.jpeg",
     images: [
         "/image/glutax/gtx-80Mgs.jpeg",
@@ -2923,8 +2923,8 @@ const PRODUCTS = [
     name: "Glutax 2000gs Recombined White Injections",
     category: "Injection",
     brand: "Glutax",
-    price: 10600,
-    comparePrice: 15000,
+    price: 8800,
+    comparePrice: 12500,
     image: "/image/glutax/gtx-2kgs-re.jpeg",
     images: [
         "/image/glutax/gtx-2kgs-re.jpeg",
@@ -3001,8 +3001,8 @@ const PRODUCTS = [
     name: "Glutax 2000000GX DualNA Premium Recombined Cell 10 Sessions Glutathione Skin Whitening Injection",
     category: "Injection",
     brand: "Glutax",
-    price: 10500,
-    comparePrice: 15000,
+    price: 9500,
+    comparePrice: 14500,
     image: "/image/glutax/gtx-20mgx.jpeg",
     images: [
         "/image/glutax/gtx-20mgx.jpeg",
@@ -3079,8 +3079,8 @@ const PRODUCTS = [
     name: "Glutax 75GX TCRP Glutathione Skin Whitening Injection - 14 Sessions",
     category: "Injection",
     brand: "Glutax",
-    price: 14000,
-    comparePrice: 18000,
+    price: 11800,
+    comparePrice: 16500,
     image: "/image/glutax/gtx-75gx.jpeg",
     images: [
         "/image/glutax/gtx-75gx.jpeg",
@@ -3154,8 +3154,8 @@ const PRODUCTS = [
     name: "Glutax 30000000gs Extremely Tremendous White Glutathione Skin Whitening Injection",
     category: "Injection",
     brand: "Glutax",
-    price: 12000,
-    comparePrice: 17000,
+    price: 9500,
+    comparePrice: 14500,
     image: "/image/glutax/gtx-30mgs-1.jpeg",
     images: [
         "/image/glutax/gtx-30mgs-1.jpeg",
@@ -3233,8 +3233,8 @@ const PRODUCTS = [
     name: "Aqua Skin Veniscy 286 TriNa Pico Cell Glutathione Injection",
     category: "Injection",
     brand: "Aqua Skin",
-    price: 12000,
-    comparePrice: 16000,
+    price: 9500,
+    comparePrice: 14500,
     image: "/image/aqua/asv-286-2.jpeg",
     images: [
         "/image/aqua/asv-286-2.jpeg",
@@ -3305,8 +3305,8 @@ const PRODUCTS = [
     name: "Aqua Skin Veniscy 368 Glutathione Injection",
     category: "Injection",
     brand: "Aqua Skin",
-    price: 12500,
-    comparePrice: 15000,
+    price: 9500,
+    comparePrice: 14500,
     image: "/image/aqua/asv-368-2.jpeg",
     images: [
         "/image/aqua/asv-368-2.jpeg",
@@ -3375,8 +3375,8 @@ const PRODUCTS = [
     name: "Aqua Skin Veniscy 999 Glutathione Injection",
     category: "Injection",
     brand: "Aqua Skin",
-    price: 12500,
-    comparePrice: 15000,
+    price: 9500,
+    comparePrice: 14500,
     image: "/image/aqua/asv-999.jpeg",
     images: [
         "/image/aqua/asv-999.jpeg",
@@ -3452,8 +3452,8 @@ const PRODUCTS = [
     name: "Aqua Skin Veniscy 188 Glutathione Injection",
     category: "Injection",
     brand: "Aqua Skin",
-    price: 10000,
-    comparePrice: 15000,
+    price: 9500,
+    comparePrice: 14500,
     image: "/image/aqua/asv-188.jpg",
     images: [
         "/image/aqua/asv-188.jpg",
@@ -3519,7 +3519,7 @@ const PRODUCTS = [
     name: "Aqua Skin F30 Diamond Ultra White Glutathione Skin Whitening Injection – 30 Sessions",
     category: "Injection",
     brand: "Aqua Skin",
-    price: 9500,
+    price: 9800,
     comparePrice: 14500,
     image: "/image/aqua/asd-f30.jpg",
     images: [
@@ -3673,10 +3673,10 @@ const PRODUCTS = [
 },
 {
     id: 19,
-    name: "Aqua Skin Fine Gold DualNa Cell Complex Glutathione Skin Whitening Injection",
+    name: "Aqua Skin Fine Gold DualNa Cell Complex Glutathione Skin Whitening Injection(out of stock)",
     category: "Injection",
     brand: "Aqua Skin",
-    price: 8800,
+    price: 9500,
     comparePrice: 12000,
     image: "/image/aqua/asfg-70k.jpg",
     images: [
@@ -3749,7 +3749,7 @@ const PRODUCTS = [
 },
 {
     id: 20,
-    name: "Aqua Skin Veniscy 8 Octa Strength Whitening Injection",
+    name: "Aqua Skin Veniscy 8 Octa Strength Whitening Injection(out of stock)",
     category: "Injection",
     brand: "Aqua Skin",
     price: 8800,
@@ -3822,7 +3822,7 @@ const PRODUCTS = [
 },
 {
     id: 21,
-    name: "Aqua Skin Veniscy 30 Dualna Pico Cell Absorption Skin Whitening Injection",
+    name: "Aqua Skin Veniscy 30 Dualna Pico Cell Absorption Skin Whitening Injection(out of stock)",
     category: "Injection",
     brand: "Aqua Skin",
     price: 12000,
@@ -4438,8 +4438,8 @@ const PRODUCTS = [
     name: "Miracle Dermal Genesis NAD+ Renewal Complex Glutathione Injection",
     category: "Injection",
     brand: "Miracle Dermal Genesis",
-    price: 15650,
-    comparePrice: 20000,
+    price: 9800,
+    comparePrice: 14500,
     image: "/image/Miracle-Nad/miracle-dermal-genesis.jpeg",
     images: [
         "/image/Miracle-Nad/miracle-dermal-genesis.jpeg",
@@ -4538,7 +4538,7 @@ const PRODUCTS = [
     name: "Cindyrella Power Drip (10 Sets) Glutathione Injection",
     category: "Injection",
     brand: "Cindyrella",
-    price: 13500,
+    price: 13800,
     comparePrice: 20000,
     image: "/image/Cindyrella/cindella-set-1.jpeg",
     images: [
@@ -4686,7 +4686,7 @@ const PRODUCTS = [
 },
 {
     id: 33,
-    name: "Nexus Pharma Glutanex 1200mg Glutathione Skin Whitening Injection - 10 Sessions",
+    name: "Glutanex 1200mg Glutathione Skin Whitening Injection - 10 Sessions",
     category: "Injection",
     brand: "Nexus Pharma",
     price: 22000,
@@ -4756,11 +4756,11 @@ const PRODUCTS = [
 },
 {
     id: 34,
-    name: "Cosdaq Cindella Luthione Vitamin C 1200mg Skin Whitening Set",
+    name: "Cindella Luthione Vitamin C 1200mg Skin Whitening Set",
     category: "Injection",
     brand: "Cosdaq",
-    price: 16500,
-    comparePrice: 20000,
+    price: 15800,
+    comparePrice: 22500,
     image: "/image/cosdaq/cindella-set-1.jpeg",
     images: [
         "/image/cosdaq/cindella-set-1.jpeg",
@@ -4837,7 +4837,7 @@ const PRODUCTS = [
     category: "Injection",
     brand: "QR 678 Neo",
     price: 22500,
-    comparePrice: 30000,
+    comparePrice: 41300,
     image: "/image/qr678/qr678-neo-2.jpeg",
     images: [
         "/image/qr678/qr678-neo-2.jpeg",
@@ -4908,11 +4908,11 @@ const PRODUCTS = [
 },
 {
     id: 36,
-    name: "Fillmed NCTF 135HA Skin Filler (Skin Booster Injection)",
+    name: "Fillmed NCTF 135HA Filler-Skin Booster",
     category: "Injection",
     brand: "Fillmed",
     price: 16000,
-    comparePrice: 25759,
+    comparePrice: 22500,
     image: "/image/fillmed/nctf-135ha-1.jpeg",
     images: [
         "/image/fillmed/nctf-135ha-1.jpeg",
@@ -4922,7 +4922,7 @@ const PRODUCTS = [
     ],
     description: "French mesotherapy skin booster with hyaluronic acid and 59 active ingredients for deep hydration, anti-aging, and radiant glow – often called the 'Chanel Injection'.",
     details: `
-    <strong>Fillmed NCTF 135HA Skin Filler (Skin Booster Injection)</strong><br/><br/>
+    <strong>Fillmed NCTF 135HA Filler-Skin Booster</strong><br/><br/>
     A French innovation in dermal revitalization, designed to restore hydration, firmness, and luminosity. Unlike volumizing dermal fillers, this product is a biostimulator that improves skin quality from within. Often called the "Chanel Injection", it provides an immediate "glow" by nourishing the skin with a vitamin cocktail. Trusted by dermatologists worldwide for improving skin quality, reducing fine lines, and creating a radiant, youthful glow.<br/><br/>
     
     <strong>Composition – NCTF Formula (59+ Active Ingredients):</strong><br/>
@@ -4987,8 +4987,8 @@ const PRODUCTS = [
     name: "Profhilo H Plus L Cosmetic Fillers (Skin Bio-Remodeling Injection)",
     category: "Injection",
     brand: "Profhilo",
-    price: 15500,
-    comparePrice: 20000,
+    price: 16000,
+    comparePrice: 27699,
     image: "/image/profhilo/hplusl-1.jpeg",
     images: [
         "/image/profhilo/hplusl-1.jpeg",
@@ -5064,8 +5064,8 @@ const PRODUCTS = [
     name: "Laroscorbine Platinum E-UF PN PDRN Q10+ Skin Regeneration Injection",
     category: "Injection",
     brand: "Laroscorbine",
-    price: 5000,
-    comparePrice: 6000,
+    price: 4500,
+    comparePrice: 6500,
     image: "/image/laroscorbine/platinum-1.jpeg",
     images: [
         "/image/laroscorbine/platinum-1.jpeg",
