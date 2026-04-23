@@ -4540,9 +4540,9 @@ const PRODUCTS = [
     brand: "Cindyrella",
     price: 13500,
     comparePrice: 20000,
-    image: "/image/Cindyrella/power-drip-1.jpeg",
+    image: "/image/Cindyrella/cindella-set-1.jpeg",
     images: [
-        "/image/Cindyrella/power-drip-1.jpeg",
+        "/image/Cindyrella/cindella-set-1.jpeg",
         "/image/Cindyrella/power-drip-2.jpeg",
         "/image/Cindyrella/power-drip-3.jpeg",
         "/image/Cindyrella/power-drip-4.jpeg"
@@ -4613,7 +4613,7 @@ const PRODUCTS = [
     category: "Injection",
     brand: "Rejuran",
     price: 8800,
-    comparePrice: null,
+    comparePrice: 10000,
     image: "/image/rejuran/rejuran-s-1.jpeg",
     images: [
         "/image/rejuran/rejuran-s-1.jpeg",

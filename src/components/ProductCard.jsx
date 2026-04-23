@@ -1,96 +1,75 @@
 import React from 'react';
-import { ShoppingBag } from 'lucide-react';
 
-// This component encapsulates the UI for a single product.  It is
-// intentionally rendered as an <article> element to reflect its
-// role as a standalone piece of content and to make it easier to style
-// in the parent grid/list container.
 const ProductCard = ({ product, viewMode, navigateTo, addToCart }) => {
+  const isList = viewMode === 'list';
+
   return (
     <article
-      className={`group cursor-pointer bg-white rounded-xl overflow-hidden border border-transparent hover:border-gray-100 hover:shadow-2xl transition-all duration-500 ${
-        viewMode === 'list' ? 'flex gap-6 p-4 border-gray-100' : ''
+      className={`group cursor-pointer bg-white transition-all duration-500 flex flex-col h-full ${
+        isList 
+          ? 'flex-row gap-6 p-4 border border-gray-100 rounded-sm' 
+          : 'border border-gray-100 rounded-sm p-3 md:p-4 hover:shadow-md'
       }`}
       onClick={() => navigateTo('product', product)}
     >
+      {/* Image Container */}
       <div
-        className={`relative bg-[#f8f8f8] overflow-hidden ${
-          viewMode === 'list' ? 'w-32 h-32 rounded-lg shrink-0' : 'aspect-[4/5]'
+        className={`relative bg-[#f9f9f9] overflow-hidden shrink-0 ${
+          isList ? 'w-32 h-40 rounded-sm' : 'aspect-[4/5] rounded-sm mb-4'
         }`}
       >
         <img
           loading="lazy"
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-contain p-4 mix-blend-multiply transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-contain p-4 mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
         />
-
-        {viewMode === 'grid' && (
-          <div className="absolute top-3 left-3 right-3 flex justify-between items-start opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span className="bg-white/90 backdrop-blur text-[9px] px-2 py-1 rounded font-bold tracking-wider uppercase shadow-sm">
+        
+        {/* Brand Tag on Hover */}
+        {!isList && (
+          <div className="absolute top-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <span className="bg-white/90 backdrop-blur text-[8px] px-2 py-1 rounded-sm font-bold tracking-widest uppercase shadow-sm border border-gray-100">
               {product.brand}
             </span>
           </div>
         )}
-        {product.price > 12000 && viewMode === 'grid' && (
-          <div className="absolute top-3 right-3 bg-gray-800 text-white text-[8px] px-2 py-1 rounded font-bold tracking-wider uppercase shadow-sm">
-            Best Seller
-          </div>
-        )}
-
-        {/* Quick Add Overlay (Desktop) */}
-        {viewMode === 'grid' && (
-          <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out hidden md:block bg-gradient-to-t from-black/60 to-transparent pt-12">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                addToCart(product);
-              }}
-              className="w-full bg-white text-black py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors shadow-lg flex items-center justify-center gap-2 rounded-lg"
-            >
-              <ShoppingBag size={14} /> Add to Cart
-            </button>
-          </div>
-        )}
       </div>
 
-      <div
-        className={`${
-          viewMode === 'list' ? 'flex-1 flex flex-col justify-center' : 'pt-4 pb-2 px-2'
-        }`}
-      >
-        <div className="text-gray-400 text-[9px] font-bold tracking-widest uppercase mb-1.5">
+      {/* Content Area */}
+      <div className={`flex flex-col flex-1 ${isList ? 'justify-center' : ''}`}>
+        <div className="text-gray-400 text-[9px] font-bold tracking-widest uppercase mb-1">
           {product.category}
         </div>
-        <h3
-          className={`font-serif text-gray-900 leading-tight ${
-            viewMode === 'list'
-              ? 'text-xl mb-2'
-              : 'text-sm md:text-base mb-2 line-clamp-2 min-h-[2.5em]'
-          }`}
-        >
+        
+        <h3 className={`font-medium text-gray-900 leading-tight mb-1 ${isList ? 'text-lg' : 'text-sm md:text-base line-clamp-1'}`}>
           {product.name}
         </h3>
-        <div className="flex items-center justify-between mt-auto">
-          <p className="text-sm md:text-base font-medium font-serif flex items-center">
+
+        <p className="text-[11px] text-gray-500 line-clamp-2 leading-relaxed h-8 overflow-hidden">
+          {product.description.replace(/<[^>]*>?/gm, '')}
+        </p>
+
+        <div className="mt-auto pt-3">
+          <p className="text-sm font-bold text-gray-900">
             {product.comparePrice && (
-              <span className="text-gray-500 line-through mr-2">
-                ₹{product.comparePrice.toLocaleString()}
-              </span>
+              <span className="text-gray-400 line-through mr-2 font-normal">₹{product.comparePrice.toLocaleString()}</span>
             )}
-            <span>₹{product.price.toLocaleString()}</span>
+            ₹{product.price.toLocaleString()}
           </p>
         </div>
-        {/* mobile-only buy button */}
-        <button
-          className="md:hidden w-full bg-black text-white py-2 text-[10px] font-bold uppercase tracking-widest rounded-lg active:scale-95 mt-2"
-          onClick={(e) => {
-            e.stopPropagation();
-            addToCart(product);
-          }}
-        >
-          Buy
-        </button>
+
+        {/* Single Buy Button */}
+        <div className="mt-4">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              addToCart(product);
+            }}
+            className="w-full bg-black text-white py-3 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-gray-800 transition-colors rounded-sm active:scale-[0.98]"
+          >
+            Buy Now
+          </button>
+        </div>
       </div>
     </article>
   );
