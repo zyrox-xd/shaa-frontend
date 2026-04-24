@@ -357,7 +357,7 @@ const PRODUCTS = [
     ],
     sku: "GLUTAX-2000GS-ADVANCED-II",
     volume: "10 Sessions",
-    stock: 10
+    stock: 0
 },
 {
     id: 6,
@@ -1413,7 +1413,7 @@ const PRODUCTS = [
     ],
     sku: "AQUA-FINE-GOLD-24",
     volume: "24 Sessions",
-    stock: 10
+    stock: 0
 },
 {
     id: 20,
@@ -1487,7 +1487,7 @@ const PRODUCTS = [
     ],
     sku: "AQUA-VENISCY-8-OCTA",
     volume: "1 Box",
-    stock: 10
+    stock: 0
 },
 {
     id: 21,
@@ -1570,7 +1570,7 @@ const PRODUCTS = [
     ],
     sku: "AQUA-VENISCY-30-PICO",
     volume: "1 Box",
-    stock: 10
+    stock: 0
 },
 {
     id: 22,
