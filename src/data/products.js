@@ -2219,12 +2219,13 @@ const PRODUCTS = [
     brand: "Cindyrella",
     price: 13800,
     comparePrice: 20000,
-    image: "/image/Cindyrella/cindella-set-1.jpeg",
+    image: "/image/Cindyrella/power-drip-1.jpeg",
     images: [
-        "/image/Cindyrella/cindella-set-1.jpeg",
+        "/image/Cindyrella/power-drip-1.jpeg",
         "/image/Cindyrella/power-drip-2.jpeg",
         "/image/Cindyrella/power-drip-3.jpeg",
-        "/image/Cindyrella/power-drip-4.jpeg"
+        "/image/Cindyrella/power-drip-4.jpeg",
+        "/image/Cindyrella/power-drip-5.jpeg"
     ],
     description: "High-dose glutathione drip with CoQ10, marine collagen, placenta, apple stem cell, and vitamins for energy, skin brightening, and overall wellness.",
     details: `
@@ -2824,6 +2825,1428 @@ const PRODUCTS = [
     ],
     sku: "LAROS-PLATINUM-PN-Q10-12X5",
     volume: "12 Ampoules (5ml each)",
+    stock: 10
+},
+{
+    id: 39,
+    name: "Eter Glow 600mg Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Eter Glow",
+    price: 750,
+    comparePrice: 1250,
+    image: "/image/eter-glow/600mg-1.jpeg",
+    images: [
+        "/image/eter-glow/600mg-1.jpeg",
+        "/image/eter-glow/600mg-2.jpeg",
+        "/image/eter-glow/600mg-3.jpeg",
+        "/image/eter-glow/600mg-4.jpeg"
+    ],
+    description: "Glutathione antioxidant injection that neutralizes free radicals, supports liver detoxification, and may aid skin brightening by inhibiting melanin production.",
+    details: `
+    <strong>Eter Glow 600mg Glutathione Skin Whitening Injection</strong><br/><br/>
+    Eter Glow Glutathione is a key antioxidant in the body, helping neutralize reactive oxygen species (free radicals) inside cells and protecting against oxidative damage. It participates in detoxifying endogenous toxins and xenobiotics, supporting liver health. Some studies suggest GSH may reduce melanin production by inhibiting tyrosinase, potentially leading to lighter skin tone or reduced hyperpigmentation. Evidence for injectable GSH in skin lightening is limited, but it is widely used for antioxidant and detoxification benefits.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 600 mg</li>
+      <li>Packaging Size: Per Session</li>
+      <li>Manufacturer: Eter Glow</li>
+      <li>Packaging Type: Box</li>
+      <li>Usage/Application: Skin Whitening, Antioxidant, Detoxification</li>
+    </ul>
+    <br/>
+
+    <strong>Potential Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Antioxidant & cell protection – neutralizes free radicals</li>
+      <li>Detoxification / liver support – helps eliminate toxins</li>
+      <li>Skin brightening effects – may reduce melanin production (limited evidence)</li>
+      <li>May support metabolic health and insulin sensitivity</li>
+    </ul>
+    <br/>
+
+    <strong>Note:</strong> Evidence for injectable glutathione in skin whitening is weak/inconclusive. Always consult a healthcare professional before use.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: This product is currently out of stock. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "600mg Glutathione",
+        "Antioxidant Protection",
+        "Liver Detoxification",
+        "May Reduce Melanin",
+        "Per Session Pack",
+        "Antioxidant Support"
+    ],
+    sku: "ETER-GLOW-600MG",
+    volume: "Per Session",
+    stock: 0
+},
+{
+    id: 40,
+    name: "Shiro Advance Glutathione 5000mg Skin Whitening Injection",
+    category: "Injection",
+    brand: "Shiro Advance",
+    price: 13500,
+    comparePrice: 18000,
+    image: "/image/shiro/advance-5000mg-1.jpeg",
+    images: [
+        "/image/shiro/advance-5000mg-1.jpeg",
+        "/image/shiro/advance-5000mg-2.jpeg",
+        "/image/shiro/advance-5000mg-3.jpeg",
+        "/image/shiro/advance-5000mg-4.jpeg"
+    ],
+    description: "Glutathione skin whitening injection that reduces hyperpigmentation, sun spots, wrinkles, acne, and melasma by eliminating toxins and free radicals.",
+    details: `
+    <strong>Shiro Advance Glutathione 5000mg Skin Whitening Injection</strong><br/><br/>
+    Glutathione injections reduce hyperpigmentation, sun spots, wrinkles, acne, and even melasma by eliminating toxins and free radicals from the body. In addition, it possesses anti-inflammatory properties. To be effective, Glutathione injections need to be done on a weekly basis.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 5000mg</li>
+      <li>Composition: Collagen, Vitamin C, Glutathione</li>
+      <li>Form: Liquid and powder</li>
+      <li>Packaging Size: 10 Sets per Box</li>
+      <li>Manufacturer: Shiro Pharmaceutical & Co</li>
+      <li>L Glutathione: Yes</li>
+      <li>How to Use: Intravenous IV Infusion (Drip) Once a week</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Produces youthful skin, hair, and nails</li>
+      <li>Vitamin C accelerates collagen absorption</li>
+      <li>Skin whitening and brightening</li>
+      <li>Supports renewing of skin cells and repair</li>
+      <li>Fades wrinkles and fine lines</li>
+      <li>Relieves joint pain</li>
+      <li>Promotes quality sleep</li>
+    </ul>
+    <br/>
+
+    <strong>Usage:</strong> As directed by healthcare professional. Typically administered once weekly via IV drip.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: PCD Pharma also available. Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "10 Sessions Pack",
+        "5000mg Glutathione",
+        "With Collagen & Vitamin C",
+        "Reduces Hyperpigmentation",
+        "Fades Wrinkles & Fine Lines",
+        "Skin Whitening",
+        "Anti-Inflammatory",
+        "Promotes Youthful Skin"
+    ],
+    sku: "SHIRO-ADVANCE-5000-10S",
+    volume: "10 Sessions",
+    stock: 10
+},
+{
+    id: 41,
+    name: "Miracle Weight Gain Capsules With Herbal Support For Healthy Weight Gain",
+    category: "Capsules",
+    brand: "Miracle Gain",
+    price: 2200,
+    comparePrice: 3500,
+    image: "/image/miracle-gain/weight-gain-capsules-1.jpeg",
+    images: [
+        "/image/miracle-gain/weight-gain-capsules-1.jpeg",
+        "/image/miracle-gain/weight-gain-capsules-2.jpeg",
+        "/image/miracle-gain/weight-gain-capsules-3.jpeg",
+        "/image/miracle-gain/weight-gain-capsules-4.jpeg"
+    ],
+    description: "Powerful herbal supplement with Ayurvedic ingredients like Ashwagandha, Shatavari, Safed Musli, and Vidarikand to support healthy weight gain naturally.",
+    details: `
+    <strong>Miracle Weight Gain Capsules With Herbal Support For Healthy Weight Gain</strong><br/><br/>
+    Struggling with low body weight, poor appetite, or low energy? Miracle Gain Capsules are a powerful herbal supplement designed to help you gain healthy body weight naturally. Formulated with time-tested ayurvedic ingredients like Ashwagandha, Shatavari, Safed Musli, and Vidarikand, these capsules support weight gain by improving digestion, boosting appetite, enhancing nutrient absorption, and increasing muscle mass without harmful side effects or synthetic additives. Whether you're underweight, recovering from an illness, or simply want to build a fuller, stronger physique, these capsules offer a safe, natural, and effective solution.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Packaging Size: 90 Capsules</li>
+      <li>Form: Capsule</li>
+      <li>Ideal For: Unisex</li>
+      <li>Brand: Miracle Gain</li>
+      <li>Manufactured By: Miracle Gain</li>
+      <li>Herbal Formula – 100% natural, no steroids or chemicals</li>
+      <li>GMP Certified</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Improves appetite – helps eat better and absorb more nutrients</li>
+      <li>Builds lean mass – promotes healthy muscle gain and body weight</li>
+      <li>Boosts energy – increases stamina, reduces weakness and fatigue</li>
+      <li>Stress support – adaptogenic herbs reduce stress-related weight loss</li>
+      <li>Safe & non-habit forming – suitable for long-term use with no side effects</li>
+    </ul>
+    <br/>
+
+    <strong>Suggested Use:</strong> Take 2–3 capsules thrice daily after meals with warm milk or water, or as directed by a healthcare professional. Use consistently for 2–3 months for best results.<br/><br/>
+
+    <strong>Precautions:</strong> Not suitable for children below 12 years. Pregnant or breastfeeding women should consult a physician. Store in a cool, dry place away from direct sunlight.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: 90 Capsules / 30-Day Supply. 100% Herbal. Consult physician before use.</em>
+    `,
+    benefits: [
+        "90 Capsules (30-Day Supply)",
+        "100% Herbal Formula",
+        "Improves Appetite",
+        "Builds Lean Muscle Mass",
+        "Boosts Energy & Stamina",
+        "Reduces Weakness & Fatigue",
+        "Adaptogenic Stress Support",
+        "No Steroids or Chemicals"
+    ],
+    sku: "MIRACLE-GAIN-CAPSULES-90",
+    volume: "90 Capsules",
+    stock: 10
+},
+{
+    id: 42,
+    name: "Lucchini Glutathione Peptide Pico-Cell Brightening Solution For Skin Whitening Injection",
+    category: "Injection",
+    brand: "Lucchini",
+    price: 11600,
+    comparePrice: 15000,
+    image: "/image/lucchini/pico-cell-brightening-1.jpg",
+    images: [
+        "/image/lucchini/pico-cell-brightening-1.jpg",
+        "/image/lucchini/pico-cell-brightening-2.jpeg",
+        "/image/lucchini/pico-cell-brightening-3.jpeg",
+        "/image/lucchini/pico-cell-brightening-4.jpeg"
+    ],
+    description: "Advanced skin brightening and rejuvenation injection with Pico-Cell technology, combining glutathione, peptides, stem cells, and multivitamins for deep cellular activation and luminous skin.",
+    details: `
+    <strong>Lucchini Glutathione Peptide Pico-Cell Brightening Solution</strong><br/><br/>
+    An advanced skin brightening and rejuvenation formulation designed for professional aesthetic use. Engineered with pico-cell technology, this innovative solution delivers glutathione and skin-active peptides at a cellular level to support melanin regulation, antioxidant defense, and overall skin clarity. Developed for modern aesthetic protocols, it focuses on deep cellular activation, helping restore luminosity, even tone, and youthful skin vitality with gradual, natural-looking results.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 1200 mg (Glutathione complex)</li>
+      <li>Brand: Lucchini</li>
+      <li>Form: Lyophilized Powder</li>
+      <li>Packaging Type: Combipack (Box)</li>
+      <li>Route of Administration: IV Use Only</li>
+      <li>Manufactured By: Switzerland</li>
+      <li>Grade Standard: A+</li>
+      <li>L Glutathione: 15000mg (per formulation)</li>
+      <li>Epidermal Growth Factor: 4200mg</li>
+      <li>Alpha Lipoic Acid: 950mg</li>
+      <li>Vitamin B Complex: Yes</li>
+      <li>Not Suitable For: Pregnant women or allergy to any kind of vitamin</li>
+      <li>How To Use: Intravenous IV Infusion (Drip) once every 4 to 5 days</li>
+    </ul>
+    <br/>
+
+    <strong>Complete Composition (Pico-Cell Enhanced):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Pico-Cell Hexa Cell</li>
+      <li>Pico-Cell Plant Stem Cell Factor II</li>
+      <li>Embryonic Stem Cell (ESC) Placenta</li>
+      <li>Cerebrum Cell</li>
+      <li>Umbilical Cord Mesenchymal Cell</li>
+      <li>Thymus Cell</li>
+      <li>Pico-Cell Multivitamins</li>
+      <li>Pico-Cell Natural Collagen</li>
+      <li>Pico-Cell Hydra Plus</li>
+      <li>Pico-Cell Alpha Lipoic Acid</li>
+      <li>Pico-Cell Ascorbic Acid (Vitamin C)</li>
+      <li>Pico-Cell PN/PDRN</li>
+      <li>Pico-Cell Selenium</li>
+      <li>Beta Hydroxy Acid (5500mg)</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Visible skin brightening and glow enhancement</li>
+      <li>Improved skin tone uniformity</li>
+      <li>Reduction in dullness and oxidative stress</li>
+      <li>Enhanced skin repair and renewal</li>
+      <li>Improved texture, hydration, and clarity</li>
+      <li>Strengthened skin defense against environmental damage</li>
+      <li>Whitens skin and lightens scars</li>
+      <li>Antioxidant protection and detoxification</li>
+    </ul>
+    <br/>
+
+    <strong>Common Professional Applications:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin brightening and glow treatments</li>
+      <li>Anti-aging and skin rejuvenation protocols</li>
+      <li>Treatment for dull, tired, or uneven skin tone</li>
+      <li>Post-procedure skin recovery (as professionally indicated)</li>
+      <li>Face, neck, décolletage, and under-eye rejuvenation</li>
+    </ul>
+    <br/>
+
+    <strong>Why Choose Lucchini:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Combines antioxidant + peptide + advanced delivery technology</li>
+      <li>Targets skin brightness at a cellular level</li>
+      <li>Ideal for clinics offering premium skin-quality treatments</li>
+      <li>Provides gradual, natural, and long-lasting results</li>
+      <li>Complements lasers, microneedling, mesotherapy, and injectable protocols</li>
+      <li>Suitable for all skin types</li>
+    </ul>
+    <br/>
+
+    <strong>Usage:</strong> As prescribed by dermatologist. Typically one injection every 4-5 days via IV infusion. For best results, complete the full recommended session course.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: PCD Pharma, Wholesale available. Results may vary. Professional administration only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Pico-Cell Delivery Technology",
+        "Glutathione + Peptides + Stem Cells",
+        "Skin Brightening & Glow",
+        "Reduces Dullness & Oxidative Stress",
+        "Improves Texture & Hydration",
+        "Anti-Aging & Skin Renewal",
+        "Made in Switzerland",
+        "Professional Grade"
+    ],
+    sku: "LUCCHINI-PICO-CELL",
+    volume: "10 Sessions",
+    stock: 10
+},
+{
+    id: 43,
+    name: "Royal Ultra Booster With Glutathione Skin Whitening Injection 10mL",
+    category: "Injection",
+    brand: "Royal Ultra Booster",
+    price: 9800,
+    comparePrice: 12500,
+    image: "/image/royal-ultra/royal-ultra-booster-1.jpg",
+    images: [
+        "/image/royal-ultra/royal-ultra-booster-1.jpg",
+        "/image/royal-ultra/royal-ultra-booster-2.jpg",
+        "/image/royal-ultra/royal-ultra-booster-3.jpeg",
+        "/image/royal-ultra/royal-ultra-booster-4.jpeg"
+    ],
+    description: "One-time quick whitening IV injection with Cyto-6 plant stem cells and DualNA technology for immediate skin brightening, UV protection, and antioxidant benefits.",
+    details: `
+    <strong>Royal Ultra Booster With Glutathione Skin Whitening Injection 10mL</strong><br/><br/>
+    Royal Ultra Booster IV Injection is a one-time quick whitening IV injection that produces immediate results. This skin whitening solution is rapidly absorbed after administration, allowing for quick and uncomplicated results. Royal Ultra Booster reduces the appearance of dark spots and aging spots across your body. It also provides total UV radiation protection, resulting in brighter skin. Royal Ultra Booster also includes a high concentration of antioxidants, which help to cleanse essential organs while also boosting the appearance of your skin, hair, and nails.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: Skin booster</li>
+      <li>Packaging Size: 10 ml Vial</li>
+      <li>Brand Name: Royal Ultra Booster</li>
+      <li>Manufacturer: NouveauxIV</li>
+      <li>Packaging Type: Box</li>
+      <li>Usage/Application: Skin Whitening</li>
+      <li>Skin Type: Suitable for all skin types</li>
+      <li>Age Range: Adults</li>
+    </ul>
+    <br/>
+
+    <strong>Ingredients (DualNA Technology):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Cyto-6 Plant Stem Cell</li>
+      <li>DualNA Melanin Inhibit Factor</li>
+      <li>DualNA Glutathione</li>
+      <li>DualNA Ascorbic Acid (Vitamin C)</li>
+      <li>DualNA White Elements</li>
+      <li>DualNA Alpha Lipoic Acid</li>
+      <li>DualNA Multivitamins</li>
+    </ul>
+    <br/>
+
+    <strong>Key Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Quick whitening effect that lasts long</li>
+      <li>Effectively whitens skin</li>
+      <li>Restores skin brightness and improves skin condition</li>
+      <li>Brightens and evens skin tone</li>
+      <li>Reduces dark spots and aging spots</li>
+      <li>Provides total UV radiation protection</li>
+      <li>High concentration of antioxidants cleanses essential organs</li>
+      <li>Boosts appearance of skin, hair, and nails</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Dilute one vial in 250ml saline and start drip session for 20 to 30 minutes. Administer intravenously under professional supervision.<br/><br/>
+
+    <strong>Side Effects:</strong> As of current information, no noted side effects. Discontinue use and consult a doctor if any adverse reaction occurs.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional administration only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Quick & Long-Lasting Whitening",
+        "Total UV Protection",
+        "Reduces Dark & Age Spots",
+        "Antioxidant Rich",
+        "With Plant Stem Cells",
+        "DualNA Glutathione & Vitamin C",
+        "Brightens & Evens Skin Tone",
+        "Improves Skin, Hair & Nails"
+    ],
+    sku: "ROYAL-ULTRA-BOOSTER-10ML",
+    volume: "10ml Vial",
+    stock: 10
+},
+{
+    id: 44,
+    name: "Relumins 3500mg Advance Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Relumins",
+    price: 16500,
+    comparePrice: 20000,
+    image: "/image/relumins/3500mg-advance-1.jpeg",
+    images: [
+        "/image/relumins/3500mg-advance-1.jpeg",
+        "/image/relumins/3500mg-advance-2.jpeg",
+        "/image/relumins/3500mg-advance-3.jpeg",
+        "/image/relumins/3500mg-advance-4.jpeg"
+    ],
+    description: "Highest strength IV alternative glutathione injection with 3500mg L-Glutathione and Vitamin C, FDA-registered, for maximum skin whitening and antioxidant protection.",
+    details: `
+    <strong>Relumins 3500mg Advance Glutathione Skin Whitening Injection</strong><br/><br/>
+    Relumins Advanced Glutathione 3500 is the highest strength IV Alternative Glutathione on the market. It features the purest Glutathione and Vitamin C, backed up by authoritative lab tests and the Relumins reputation. Relumins is registered with the FDA to ensure the highest level of quality, purity and safety.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 3500mg (L-Glutathione 3000mg + Vitamin C 500mg)</li>
+      <li>Packaging Size: 5 Sessions per Box</li>
+      <li>Brand: Relumins</li>
+      <li>Form: Injection (Lyophilized powder + solution)</li>
+      <li>Manufactured By: USA</li>
+      <li>Grade Standard: A+</li>
+      <li>FDA Registered</li>
+      <li>Dermatologist Tested | No side effects</li>
+      <li>Vegetarian: Yes | Gender: Men & Women</li>
+      <li>Not Suitable For: Breastfeeding & pregnant women</li>
+    </ul>
+    <br/>
+
+    <strong>Composition:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Reduced L-Glutathione – 3000mg per vial</li>
+      <li>Vitamin C (Ascorbic Acid) – 500mg</li>
+      <li>Vitamin B Complex – 500mcg</li>
+    </ul>
+    <br/>
+
+    <strong>How It Works:</strong> Glutathione competitively inhibits melanin synthesis by interrupting L-DOPA's ability to bind to tyrosinase during melanin production. It is the master antioxidant that helps fight free radicals causing skin damage and supports healthy liver function.<br/><br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Maximum skin whitening and brightening</li>
+      <li>Reduces hyperpigmentation, dark spots, and melasma</li>
+      <li>Powerful antioxidant protection against free radicals</li>
+      <li>Supports liver detoxification</li>
+      <li>Promotes firm, rejuvenated skin with Vitamin C</li>
+      <li>FDA-registered for quality and safety</li>
+    </ul>
+    <br/>
+
+    <strong>Usage Instructions (IV Administration):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Mix the Vitamin C/Saline solution (5ml) with the Glutathione powder</li>
+      <li>Administer one vial per week via Intravenous IV Infusion Drip</li>
+      <li>For 7000mg per week, use two vials per week</li>
+      <li>Treatment results evaluated every 3 months</li>
+      <li>Transition to maintenance once desired skin tone is reached</li>
+    </ul>
+    <br/>
+
+    <strong>Indications:</strong> As with all supplements, pregnant and nursing mothers should consult their physician. Glutathione has cellular protective properties that make it unsuitable for chemotherapy patients.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional administration only. Consult dermatologist before use. Store refrigerated upon receipt.</em>
+    `,
+    benefits: [
+        "5 Sessions Pack",
+        "Made in USA",
+        "3500mg Glutathione Complex",
+        "FDA Registered",
+        "Maximum Skin Whitening",
+        "Reduces Hyperpigmentation",
+        "Antioxidant & Detox",
+        "Dermatologist Tested"
+    ],
+    sku: "RELUMINS-3500-ADVANCE-5S",
+    volume: "5 Sessions",
+    stock: 10
+},
+{
+    id: 45,
+    name: "Iskin SLC24A5 Chromosome Phase IX Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "iSkin",
+    price: 18700,
+    comparePrice: 25000,
+    image: "/image/iskin/slc24a5-phase9-1.jpeg",
+    images: [
+        "/image/iskin/slc24a5-phase9-1.jpeg",
+        "/image/iskin/slc24a5-phase9-2.jpeg",
+        "/image/iskin/slc24a5-phase9-3.jpeg",
+        "/image/iskin/slc24a5-phase9-4.jpeg",
+        "/image/iskin/slc24a5-phase9-5.jpeg",
+        "/image/iskin/slc24a5-phase9-6.jpeg",
+        "/image/iskin/slc24a5-phase9-7.jpeg",
+        "/image/iskin/slc24a5-phase9-8.jpeg",
+        "/image/iskin/slc24a5-phase9-9.jpeg",
+        "/image/iskin/slc24a5-phase9-10.jpeg"
+    ],
+    description: "Advanced glutathione skin whitening injection with SLC24A5 Chromosome Phase IX technology, formulated with glutathione, vitamins, and collagen for superior brightening and anti-aging.",
+    details: `
+    <strong>Iskin SLC24A5 Chromosome Phase IX Glutathione Skin Whitening Injection</strong><br/><br/>
+    Glutathione injections can improve your skin's quality immensely, giving it back its natural glow and a brighter look. It can also help you reduce signs of aging, such as wrinkles and dark spots. This advanced formulation features SLC24A5 Chromosome Phase IX technology combined with glutathione, vitamins, and collagen for superior skin brightening and rejuvenation.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 5500 (Advanced potency complex)</li>
+      <li>Packaging Size: 6 Sessions per Box</li>
+      <li>Brand: SLC24A5 / iSkin</li>
+      <li>Form: Injection</li>
+      <li>Composition: Glutathione, Vitamins, Collagen</li>
+      <li>Manufacturer: iSkin</li>
+      <li>Grade Standard: AAA+++</li>
+      <li>Packaging Type: Box</li>
+      <li>Usage: Skin Whitening</li>
+    </ul>
+    <br/>
+
+    <strong>Results Timeline & Expectations:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>One round of treatment (10 IVs) can lighten skin 1–3 shades</li>
+      <li>Light-medium brown skin: visible results in 1–3 months</li>
+      <li>Dark brown skin: 3–6 months</li>
+      <li>Very dark skin: 6–12 months</li>
+      <li>Black skin: 18 months minimum</li>
+      <li>Must be taken with Vitamin C at equal or twice dosage for efficacy</li>
+    </ul>
+    <br/>
+
+    <strong>What to Avoid:</strong> Avoid alcohol, smoking, inflammatory drugs like aspirin, and direct sun exposure during treatment. Avoid other skin treatments while taking glutathione injections.<br/><br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Improves skin quality and restores natural glow</li>
+      <li>Reduces signs of aging – wrinkles and dark spots</li>
+      <li>Brightens skin tone with advanced SLC24A5 technology</li>
+      <li>Contains collagen for improved elasticity</li>
+      <li>Vitamin-enriched formula for comprehensive skin health</li>
+    </ul>
+    <br/>
+
+    <strong>Usage:</strong> Administered intravenously under professional supervision. Typically twice weekly for 5 weeks per treatment round.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results vary by individual skin type and metabolism. Professional administration only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "6 Sessions Pack",
+        "SLC24A5 Chromosome Phase IX",
+        "Glutathione + Vitamins + Collagen",
+        "1–3 Shades Lightening",
+        "Reduces Wrinkles & Dark Spots",
+        "Restores Natural Glow",
+        "AAA+++ Grade",
+        "Advanced Brightening"
+    ],
+    sku: "ISKIN-SLC24A5-PHASE9-6S",
+    volume: "6 Sessions",
+    stock: 10
+},
+{
+    id: 46,
+    name: "L Carnitine Probio CLA 35g Advance Weight Loss Injection",
+    category: "Injection",
+    brand: "L-Carnitine",
+    price: 8000,
+    comparePrice: 10000,
+    image: "/image/l-carnitine/probio-cla-35g-1.jpeg",
+    images: [
+        "/image/l-carnitine/probio-cla-35g-1.jpeg",
+        "/image/l-carnitine/probio-cla-35g-2.jpeg",
+        "/image/l-carnitine/probio-cla-35g-3.jpeg",
+        "/image/l-carnitine/probio-cla-35g-4.jpeg",
+        "/image/l-carnitine/probio-cla-35g-5.jpeg",
+        "/image/l-carnitine/probio-cla-35g-6.jpeg",
+        "/image/l-carnitine/probio-cla-35g-7.jpeg",
+        "/image/l-carnitine/probio-cla-35g-8.jpeg",
+        "/image/l-carnitine/probio-cla-35g-9.jpeg"
+    ],
+    description: "Advanced weight loss injection with L-Carnitine, CLA, and PROBIO for enhanced lipid metabolism, fatty acid oxidation, and accelerated fat-burning process.",
+    details: `
+    <strong>L Carnitine Probio CLA 35g Advance Weight Loss Injection</strong><br/><br/>
+    L-Carnitine injections allow the amino acid to enter the blood and enhance lipid metabolism faster than when administered as an oral supplement. This advanced formulation combines L-Carnitine with CLA (Conjugated Linoleic Acid) and PROBIO for superior fat-burning and weight loss support.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 2000 mg</li>
+      <li>Packaging Size: 10 Vials (10ml each)</li>
+      <li>Form: Injection</li>
+      <li>Route of Administration: Intravenous (IV)</li>
+      <li>Pack Type: Box</li>
+      <li>Formulation: With CLA</li>
+      <li>Composition: Amino acid, CLA, PROBIO</li>
+      <li>Country of Origin: Germany</li>
+      <li>Shelf Life: 36 Months</li>
+      <li>Prescription/Non-Prescription: Non-Prescription</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Promotes fatty acid oxidation</li>
+      <li>Accelerates the fat-burning process</li>
+      <li>Enhances lipid metabolism faster than oral supplements</li>
+      <li>Supports weight loss and fat reduction</li>
+      <li>Improves energy utilization from fats</li>
+    </ul>
+    <br/>
+
+    <strong>How It Works:</strong> L-Carnitine facilitates the transport of fatty acids into mitochondria where they are oxidized for energy. Combined with CLA and PROBIO, this injection boosts metabolic rate and promotes efficient fat burning.<br/><br/>
+
+    <strong>Usage:</strong> Administered intravenously under professional supervision. Follow healthcare provider's recommendations for dosage and frequency.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult healthcare professional before use. Not a substitute for diet and exercise.</em>
+    `,
+    benefits: [
+        "10 Vials (10ml each)",
+        "Made in Germany",
+        "2000mg Strength",
+        "With CLA & PROBIO",
+        "Promotes Fatty Acid Oxidation",
+        "Accelerates Fat Burning",
+        "Enhances Lipid Metabolism",
+        "Non-Prescription"
+    ],
+    sku: "LCARNITINE-PROBIO-CLA-10ML",
+    volume: "10 Vials (10ml each)",
+    stock: 10
+},
+{
+    id: 47,
+    name: "Miracle White Royal Gold Nano Concentrated Glutathione BOOSTER 120000 mg Skin Whitening Injection",
+    category: "Injection",
+    brand: "Miracle White",
+    price: 9800,
+    comparePrice: 12500,
+    image: "/image/miracle-white/royal-gold-booster-1.jpg",
+    images: [
+        "/image/miracle-white/royal-gold-booster-1.jpg",
+        "/image/miracle-white/royal-gold-booster-2.jpeg",
+        "/image/miracle-white/royal-gold-booster-3.jpeg",
+        "/image/miracle-white/royal-gold-booster-4.jpeg"
+    ],
+    description: "Nano concentrated glutathione booster with 120,000mg glutathione, CoQ10, and collagen. Lightens skin tone, removes blemishes, dark spots, and provides anti-aging benefits.",
+    details: `
+    <strong>Miracle White Royal Gold Nano Concentrated Glutathione BOOSTER 120000 mg</strong><br/><br/>
+    A combination of innovations in skin science after years of research. Miracle White not only lightens your skin tone, makes it smooth and free of blemishes and dark spots, brightens a dull complexion, but also has anti-aging factors.<br/><br/>
+    
+    <strong>Composition:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Royal Gold Nano Concentrated Glutathione – 120,000mg</li>
+      <li>Coenzyme Q10 – 70,000mg</li>
+      <li>Ascorbic Acid (Vitamin C) – 5,000mg</li>
+      <li>Melanin Inhibitor Plus Collagen – 5,000mg</li>
+      <li>Kojic Acid – 3,600mg</li>
+      <li>Epidermal Growth Factor (EGF) – 3,000mg</li>
+      <li>Alpha Lipoic Acid (ALA) – 500mg</li>
+      <li>L-Cysteine – 700mg</li>
+      <li>Multivitamin – 1,200mg</li>
+      <li>Thioctic Acid – 1,200mg</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Packaging: 1 box contains 6 sets (1 set = 1 vial + 6 ampoules)</li>
+      <li>Manufacturer: Miracle White</li>
+      <li>Country of Origin: Switzerland</li>
+      <li>Usage: Skin Whitening</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Improves the health of every cell</li>
+      <li>Increases energy production in skin cells</li>
+      <li>Promotes antioxidant protection</li>
+      <li>Helps lower blood sugar levels</li>
+      <li>Inhibits and prevents formation of tyrosine</li>
+      <li>Prevents dark spots</li>
+      <li>Stimulates collagen production for tighter skin</li>
+      <li>Boosts production of collagen and elastin</li>
+      <li>Reduces effects of aging from inside out</li>
+      <li>Scavenges free radicals that lead to premature aging and wrinkling</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Administer one set via IV only, once or twice a week. Professional administration only.<br/><br/>
+
+    <strong>Not Suitable For:</strong> Breastfeeding and pregnant women, women during menstruation, vitamin allergies, patients with cardiovascular problems.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Made in Switzerland. Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Made in Switzerland",
+        "120,000mg Glutathione",
+        "With CoQ10 & Collagen",
+        "Anti-Aging Effects",
+        "Removes Blemishes & Dark Spots",
+        "Brightens Dull Complexion",
+        "Stimulates Collagen & Elastin",
+        "Scavenges Free Radicals"
+    ],
+    sku: "MIRACLE-ROYAL-GOLD-120K",
+    volume: "6 Sessions",
+    stock: 10
+},
+{
+    id: 48,
+    name: "Evgenis Totipotent Embryonic Stem Cell (ETESC) Injection",
+    category: "Injection",
+    brand: "Evgenis",
+    price: 25500,
+    comparePrice: 30000,
+    image: "/image/evgenis/etescinjection-1.jpeg",
+    images: [
+        "/image/evgenis/etescinjection-1.jpeg",
+        "/image/evgenis/etescinjection-2.jpeg",
+        "/image/evgenis/etescinjection-3.jpeg",
+        "/image/evgenis/etescinjection-4.jpeg"
+    ],
+    description: "WHO-GMP certified totipotent embryonic stem cell injection with glutathione for advanced skin rejuvenation, cellular repair, and anti-aging.",
+    details: `
+    <strong>Evgenis Totipotent Embryonic Stem Cell (ETESC) Injection</strong><br/><br/>
+    Totipotent stem cells are embryonic stem cells that can differentiate into all the cells of an organism. They are present in the early stages of embryonic development. This advanced formulation combines totipotent stem cells with glutathione for comprehensive skin rejuvenation, cellular repair, and anti-aging benefits.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Packaging Size: 6 Sessions per Box</li>
+      <li>Stem Cell Type: Plant stem cells / Totipotent embryonic origin</li>
+      <li>Form: Injection (IV drips)</li>
+      <li>Composition: Fertilized oocyte, First blastomeres, Glutathione, Stem Cell complex</li>
+      <li>Manufacturer: Evgenis</li>
+      <li>Grade: Cosmetic grade</li>
+      <li>Certification: WHO-GMP</li>
+      <li>Shelf Life: 36 months</li>
+      <li>Storage Condition: Cool & dry place</li>
+      <li>Application: Cosmetic / Skin rejuvenation</li>
+    </ul>
+    <br/>
+
+    <strong>Scientific Background:</strong> Totipotent cells can give rise to all embryonic and adult lineages. The development of identical twins is an example of totipotent cells differentiating into separate trajectories. Primordial germ cells (PGCs) are the founder cells of the germline responsible for creating new organisms.<br/><br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Advanced cellular repair and regeneration</li>
+      <li>Skin rejuvenation and anti-aging</li>
+      <li>Improves skin texture and elasticity</li>
+      <li>Supports overall skin health</li>
+      <li>Glutathione provides antioxidant protection</li>
+      <li>Promotes youthful, radiant complexion</li>
+    </ul>
+    <br/>
+
+    <strong>Usage:</strong> Administered intravenously under professional supervision. Follow healthcare provider's recommendations.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional use only. WHO-GMP certified. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "6 Sessions Pack",
+        "Totipotent Stem Cells",
+        "WHO-GMP Certified",
+        "Glutathione Enriched",
+        "Cellular Repair",
+        "Skin Rejuvenation",
+        "Anti-Aging",
+        "Cosmetic Grade"
+    ],
+    sku: "EVGENIS-ETESC-6S",
+    volume: "6 Sessions",
+    stock: 10
+},
+{
+    id: 49,
+    name: "ISkin Radianz Blu Cell Glutathione 1200 mg Skin Whitening Injection",
+    category: "Injection",
+    brand: "iSkin",
+    price: 16500,
+    comparePrice: 25000,
+    image: "/image/iskin/radianz-blu-cell-1.jpeg",
+    images: [
+        "/image/iskin/radianz-blu-cell-1.jpeg",
+        "/image/iskin/radianz-blu-cell-2.jpeg",
+        "/image/iskin/radianz-blu-cell-3.jpeg",
+        "/image/iskin/radianz-blu-cell-4.jpeg",
+        "/image/iskin/radianz-blu-cell-5.jpeg",
+        "/image/iskin/radianz-blu-cell-6.jpeg",
+        "/image/iskin/radianz-blu-cell-7.jpeg",
+        "/image/iskin/radianz-blu-cell-8.jpeg"
+    ],
+    description: "Advanced Swiss technology skin whitening injection with Picomized NAD+, Glutathione, and Mineral Silicate to rejuvenate, detoxify, and brighten skin.",
+    details: `
+    <strong>ISkin Radianz Blu Cell Glutathione 1200 mg Skin Whitening Injection</strong><br/><br/>
+    A groundbreaking skincare formula designed to rejuvenate, protect, and brighten your skin from the inside out. Developed with advanced Swiss technology, this powerful solution targets aging at its source, helping you achieve healthier, more radiant skin.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Brand: iSkin</li>
+      <li>Strength: 1200 mg</li>
+      <li>Packaging Size: 5 x 10 ml Vials per Box</li>
+      <li>Form: Ampules</li>
+      <li>Manufacturer: iSkin</li>
+      <li>Grade Standard: AAA+++</li>
+      <li>Usage: Skin Whitening</li>
+    </ul>
+    <br/>
+
+    <strong>Key Ingredients & Benefits:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Picomized NAD+</strong> – Boosts cell energy, repairs DNA, and reduces fine lines for a youthful look</li>
+      <li><strong>Picomized Marine Cellular Extracts</strong> – Enhances collagen, improves firmness, and reduces wrinkles</li>
+      <li><strong>Picomized Phytowhite Tripeptide</strong> – Revitalizes, brightens, hydrates, and smooths skin</li>
+      <li><strong>Picomized Mineral Silicate</strong> – Detoxifies, strengthens skin, and improves nutrient absorption</li>
+      <li><strong>Picomized Glutathione</strong> – Powerful antioxidant that detoxifies, supports immunity, and brightens skin</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Boosts cellular energy and DNA repair</li>
+      <li>Reduces fine lines and wrinkles</li>
+      <li>Enhances collagen production and skin firmness</li>
+      <li>Brightens and hydrates skin</li>
+      <li>Detoxifies and strengthens skin barrier</li>
+      <li>Provides powerful antioxidant protection</li>
+      <li>Improves overall radiance and youthful appearance</li>
+    </ul>
+    <br/>
+
+    <strong>Usage:</strong> Administered intravenously under professional supervision. As directed by healthcare provider.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Developed with Swiss technology. Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Picomized NAD+ Technology",
+        "Glutathione + Marine Extracts",
+        "DNA Repair & Cell Energy",
+        "Reduces Fine Lines & Wrinkles",
+        "Boosts Collagen & Firmness",
+        "Detoxifies & Brightens",
+        "AAA+++ Grade",
+        "Swiss Technology"
+    ],
+    sku: "ISKIN-RADIANZ-BLU-1200",
+    volume: "5 x 10 ml Vials",
+    stock: 10
+},
+{
+    id: 50,
+    name: "Miracle White 80000mg Skin Whitening Injection",
+    category: "Injection",
+    brand: "Miracle White",
+    price: 9500,
+    comparePrice: 12000,
+    image: "/image/miracle-white/80000mg-1.jpeg",
+    images: [
+        "/image/miracle-white/80000mg-1.jpeg",
+        "/image/miracle-white/80000mg-2.jpeg",
+        "/image/miracle-white/80000mg-3.jpeg",
+        "/image/miracle-white/80000mg-4.jpeg"
+    ],
+    description: "Cutting-edge skin brightening injection that reduces dark spots and hyperpigmentation with Bakuchiol and Leontopodium Alpinum Callus Culture for even, luminous complexion.",
+    details: `
+    <strong>Miracle White 80000mg Skin Whitening Injection</strong><br/><br/>
+    Unlock your skin's true radiance with the Miracle White Whitening Injection, a cutting-edge formula designed to dramatically reduce the appearance of dark spots and hyperpigmentation. This powerful treatment offers intense correction, regulating melanin production to promote a more even, luminous complexion. Infused with Bakuchiol, this formula gently diminishes hyperpigmentation and dark spots while enhancing skin brightness. The addition of Leontopodium Alpinum Callus Culture helps strengthen the skin's defenses against aging and environmental damage, restoring youthful vibrancy. With a targeted action delivery system, the Miracle White injection ensures optimal absorption of active compounds, providing heightened performance for long-lasting, noticeable results.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 1200 mg (Glutathione complex, 80,000mg formula concentration)</li>
+      <li>Packaging Size: 5 x 10 ml Vials per Box</li>
+      <li>Manufacturer: Miracle White</li>
+      <li>Usage: Skin Whitening</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Intense correction – effectively inhibits melanin production to reduce dark spots and discoloration</li>
+      <li>Regulates melanocytes – controls pigment production for even skin tone</li>
+      <li>Bakuchiol – reduces hyperpigmentation and improves skin radiance</li>
+      <li>Leontopodium Alpinum Callus Culture – strengthens skin resilience and restores youthful glow</li>
+      <li>Targeted action – ensures precise delivery of ingredients for maximum results</li>
+      <li>Heightened performance – optimized for long-lasting, visible improvements</li>
+    </ul>
+    <br/>
+
+    <strong>Usage:</strong> As directed by healthcare professional. Administered intravenously under supervision.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "5 x 10 ml Vials",
+        "Inhibits Melanin Production",
+        "Reduces Dark Spots & Hyperpigmentation",
+        "With Bakuchiol",
+        "Leontopodium Alpinum Extract",
+        "Even & Luminous Complexion",
+        "Targeted Action Delivery",
+        "Long-Lasting Results"
+    ],
+    sku: "MIRACLE-WHITE-80000-5X10",
+    volume: "5 x 10 ml Vials",
+    stock: 10
+},
+{
+    id: 51,
+    name: "ShiraYuki Snow White Japan Skin Whitening Injection - 180,000mg (40 sessions)",
+    category: "Injection",
+    brand: "ShiraYuki",
+    price: 16800,
+    comparePrice: 20000,
+    image: "/image/shirayuki/snow-white-180k-1.jpeg",
+    images: [
+        "/image/shirayuki/snow-white-180k-1.jpeg",
+        "/image/shirayuki/snow-white-180k-2.jpeg",
+        "/image/shirayuki/snow-white-180k-3.jpeg",
+        "/image/shirayuki/snow-white-180k-4.jpeg"
+    ],
+    description: "Bestselling Snow White Glutathione from Japan with 180,000mg potency. Anti-aging, reduces fine lines, melasma, uneven pigmentation, detoxifies, and stimulates collagen for youthful, glowing skin.",
+    details: `
+    <strong>ShiraYuki Snow White Japan Skin Whitening Injection - 180,000mg (40 sessions)</strong><br/><br/>
+    As we age, our skin naturally undergoes changes, making it harder to maintain that youthful glow. Shirayuki, the bestselling Snow White Glutathione from Japan, offers a powerful solution. Its advanced anti-aging properties help reduce the appearance of fine lines and wrinkles, giving your skin a smoother, more refreshed look.<br/><br/>
+    
+    Formulated to target melasma and uneven pigmentation, Shirayuki promotes a brighter, more even complexion. Its detoxifying effect works from within to flush out harmful toxins, while its skin-healing benefits help reduce acne, fade scars, minimize pores, and repair damaged cells.<br/><br/>
+    
+    What sets Shirayuki apart is its ability to stimulate collagen production, firm and lift the skin, and support overall immune health. Whether you're dealing with signs of aging or stubborn skin issues, Shirayuki can help you achieve clear, glowing, and youthful skin—naturally.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 180,000mg (total glutathione complex)</li>
+      <li>Packaging: 40 vials (10 ml each) – 40 sessions</li>
+      <li>Form: Lyophilized Powder</li>
+      <li>Composition: Glutathione, Vitamin C, Collagen, Kojic Acid, Amino Acid, Thioctic Acid, Antioxidant, B6, Ascorbic Acid, AHA, DNA & RNA Extract, Hyaluronic Acid, Tranexamic Acid</li>
+      <li>Route: IV Use Only</li>
+      <li>Manufacturer: Whitening injection (Japan)</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Reduces fine lines, wrinkles, and signs of aging</li>
+      <li>Targets melasma and uneven pigmentation for brighter, even complexion</li>
+      <li>Detoxifies body – flushes out harmful toxins</li>
+      <li>Reduces acne, fades scars, minimizes pores, repairs damaged cells</li>
+      <li>Stimulates collagen production – firms and lifts skin</li>
+      <li>Supports overall immune health</li>
+      <li>Promotes clear, glowing, youthful skin</li>
+    </ul>
+    <br/>
+
+    <strong>Ingredients:</strong> High-Dose Glutathione, Kojic Acid, Collagen Extract, Amino Acid, Thioctic Acid, Antioxidant, Vitamin B6, Ascorbic Acid (Vitamin C), AHA, DNA & RNA Extract, Hyaluronic Acid, Tranexamic Acid.<br/><br/>
+
+    <strong>Usage:</strong> Administer intravenously under professional supervision. Follow recommended protocol for 40 sessions.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Made in Japan. Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "40 Sessions Pack (40 vials)",
+        "Made in Japan",
+        "180,000mg Glutathione",
+        "Anti-Aging & Wrinkle Reduction",
+        "Targets Melasma & Hyperpigmentation",
+        "Detoxifies & Repairs Skin",
+        "Stimulates Collagen",
+        "With Hyaluronic Acid & Tranexamic Acid"
+    ],
+    sku: "SHIRAYUKI-SNOW-WHITE-40S",
+    volume: "40 Sessions",
+    stock: 10
+},
+{
+    id: 52,
+    name: "Fivita 9900000 Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Fivita",
+    price: 8800,
+    comparePrice: 20000,
+    image: "/image/fivita/9900000-1.jpeg",
+    images: [
+        "/image/fivita/9900000-1.jpeg",
+        "/image/fivita/9900000-2.jpg",
+        "/image/fivita/9900000-3.jpeg",
+        "/image/fivita/9900000-4.jpeg"
+    ],
+    description: "High-potency glutathione skin whitening injection by Dermatech Laboratories, designed to reduce hyperpigmentation, even skin tone, and provide antioxidant protection.",
+    details: `
+    <strong>Fivita 9900000 Glutathione Skin Whitening Injection</strong><br/><br/>
+    A premium quality glutathione injection manufactured by Dermatech Laboratories, formulated to help lighten skin tone, reduce dark spots, and combat oxidative stress. Glutathione works as a master antioxidant, inhibiting melanin production and promoting a brighter, more even complexion.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 1200 mg (per vial) / 9900000 IU formula strength</li>
+      <li>Packaging Size: 10 ml vials</li>
+      <li>Brand: Fivita</li>
+      <li>Manufacturer: Dermatech Laboratories</li>
+      <li>Packaging Type: Box</li>
+      <li>Usage: Skin Whitening</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Helps lighten skin and reduce hyperpigmentation</li>
+      <li>Provides powerful antioxidant protection</li>
+      <li>Supports detoxification and liver health</li>
+      <li>Promotes even skin tone and radiance</li>
+      <li>May help reduce signs of aging</li>
+    </ul>
+    <br/>
+
+    <strong>Usage:</strong> Administer intravenously under professional supervision. Follow healthcare provider's dosage recommendations.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "High Potency Glutathione",
+        "Skin Lightening & Brightening",
+        "Reduces Hyperpigmentation",
+        "Antioxidant Protection",
+        "Detoxification Support",
+        "Even Skin Tone",
+        "Manufactured by Dermatech",
+        "IV Administration"
+    ],
+    sku: "FIVITA-9900000-GLUTA",
+    volume: "10 ml Vial",
+    stock: 10
+},
+{
+    id: 53,
+    name: "Orange Vita Glow Papaya Skin Whitening Soap For Glowing Face & Body",
+    category: "Soap",
+    brand: "Vita Glow",
+    price: 600,
+    comparePrice: 800,
+    image: "/image/vitaglow/papaya-soap-1.jpeg",
+    images: [
+        "/image/vitaglow/papaya-soap-1.jpeg",
+        "/image/vitaglow/papaya-soap-2.jpeg",
+        "/image/vitaglow/papaya-soap-3.jpeg",
+        "/image/vitaglow/papaya-soap-4.jpeg"
+    ],
+    description: "Papaya-enriched skin whitening soap that exfoliates, treats acne, reduces hyperpigmentation, balances oil, and leaves skin clear, smooth, and radiant.",
+    details: `
+    <strong>Orange Vita Glow Papaya Skin Whitening Soap For Glowing Face & Body</strong><br/><br/>
+    Vita Glow Papaya Soap has vitamins that promote healthy skin. Using papaya soap regularly can exfoliate your skin, treat acne, and even reduce hyperpigmentation, resulting in clearer, smoother skin. It helps balance oil production and softens dry skin. The papaya soap helps clear blemishes and acne scars from the body, gently cleanses the skin, and leaves you refreshed.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Packaging Size: 135g</li>
+      <li>Color: Orange</li>
+      <li>Form: Soap</li>
+      <li>Type Of Packaging: Pack of 3, Single available</li>
+      <li>Manufactured By: Tibat</li>
+      <li>Ideal For: Men & Women</li>
+      <li>Usage: Face & Body</li>
+    </ul>
+    <br/>
+
+    <strong>Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Sodium Palmitate</li>
+      <li>Sodium Pal Kernelate</li>
+      <li>Fragrance</li>
+      <li>Salicylic Acid</li>
+      <li>Glycerin</li>
+      <li>Mineral Oil</li>
+      <li>Carica Papaya Enzyme</li>
+      <li>Alpha Tocopherol Acetate (Vitamin E)</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin brightening soap with great anti-aging benefits</li>
+      <li>Improves skin and lightens complexion</li>
+      <li>Promotes soft, youthful & radiant skin</li>
+      <li>Enriched with Papaya fruit extracts & Vitamin E</li>
+      <li>Suitable for all skin types</li>
+      <li>Exfoliates dead skin cells and treats acne</li>
+      <li>Reduces hyperpigmentation, blemishes, and acne scars</li>
+      <li>Balances oil production and softens dry skin</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Apply onto wet skin (both face and body), lather carefully, and rinse with lukewarm or cold water. Use daily for best results.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: For external use only. Avoid contact with eyes. Discontinue if irritation occurs.</em>
+    `,
+    benefits: [
+        "135g Bar",
+        "Papaya Enzyme Enriched",
+        "Skin Brightening",
+        "Anti-Aging Benefits",
+        "Reduces Hyperpigmentation",
+        "Treats Acne & Scars",
+        "Softens & Balances Oil",
+        "Suitable for All Skin Types"
+    ],
+    sku: "VITA-GLOW-PAPAYA-SOAP-135G",
+    volume: "135g",
+    stock: 10
+},
+{
+    id: 54,
+    name: "Botox 100 Iu",
+    category: "Injection",
+    brand: "Allergan",
+    price: 12500,
+    comparePrice: 15000,
+    image: "/image/allergan/botox-100iu-1.jpeg",
+    images: [
+        "/image/allergan/botox-100iu-1.jpeg",
+        "/image/allergan/botox-100iu-2.jpeg",
+        "/image/allergan/botox-100iu-3.jpeg",
+        "/image/allergan/botox-100iu-4.jpeg"
+    ],
+    description: "Original and most trusted botulinum toxin type A. Temporarily relaxes muscles to reduce wrinkles and treat medical conditions.",
+    details: `
+    <strong>Botox 100 Iu</strong><br/><br/>
+    Botox is the original and most trusted botulinum toxin type A brand, widely used in both aesthetic and medical treatments. It works by temporarily relaxing muscles, reducing wrinkles and treating certain medical conditions.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 100 Units per vial</li>
+      <li>Brand: Allergan</li>
+      <li>Country of Origin: Ireland</li>
+      <li>Form: Lyophilized powder for injection</li>
+      <li>Toxin Type: Type A</li>
+      <li>Packaging Type: Vial</li>
+      <li>Preservative Status: Preservative-free</li>
+    </ul>
+    <br/>
+
+    <strong>Composition:</strong> Active ingredient – Botulinum toxin type A. Needs reconstitution with preservative-free saline before injection.<br/><br/>
+
+    <strong>How It Works:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Blocks nerve signals to muscles</li>
+      <li>Prevents muscle contraction</li>
+      <li>Results in smoother skin & reduced wrinkles</li>
+      <li>Effects are temporary – muscle activity gradually returns</li>
+    </ul>
+    <br/>
+
+    <strong>Applications:</strong> Aesthetic (glabellar lines, crow's feet, forehead wrinkles) and medical (migraine, hyperhidrosis, muscle spasticity, etc.).<br/><br/>
+
+    <strong>Storage:</strong> Must be refrigerated (2°C to 8°C). Reconstituted product should be used within 24 hours.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional use only. Must be administered by licensed healthcare professional. Consult physician for suitability.</em>
+    `,
+    benefits: [
+        "100 Units per Vial",
+        "Made in Ireland",
+        "Original Allergan Botox",
+        "Reduces Wrinkles",
+        "Treats Medical Conditions",
+        "Preservative-Free",
+        "Trusted Worldwide",
+        "Professional Grade"
+    ],
+    sku: "ALLERGAN-BOTOX-100IU",
+    volume: "1 Vial",
+    stock: 10
+},
+{
+    id: 55,
+    name: "Botox Allergan 100 Iu Botox Cosmetic",
+    category: "Injection",
+    brand: "Allergan",
+    price: 9500,
+    comparePrice: 12500,
+    image: "/image/allergan/botox-cosmetic-100iu-1.jpeg",
+    images: [
+        "/image/allergan/botox-cosmetic-100iu-1.jpeg",
+        "/image/allergan/botox-cosmetic-100iu-2.jpeg",
+        "/image/allergan/botox-cosmetic-100iu-3.jpeg",
+        "/image/allergan/botox-cosmetic-100iu-4.jpeg"
+    ],
+    description: "Purified botulinum toxin type A injection used to temporarily smooth moderate-to-severe wrinkles like crow's feet, forehead lines, and frown lines.",
+    details: `
+    <strong>Botox Allergan 100 Iu Botox Cosmetic</strong><br/><br/>
+    Allergan Botox Cosmetic 100 IU is a prescription-only, purified botulinum toxin type A injection used to temporarily smooth moderate-to-severe wrinkles, such as crow's feet, forehead lines, and frown lines. It works by blocking nerve signals to relax facial muscles. Results typically last 9-12 months, with treatments administered by qualified professionals.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 100 Units per vial</li>
+      <li>Brand: Allergan</li>
+      <li>Application: Cosmetic (wrinkle reduction)</li>
+      <li>Country of Origin: USA</li>
+      <li>Form: Lyophilized powder for injection</li>
+      <li>Packaging Type: Vial</li>
+      <li>Preservative Status: Preservative-free</li>
+    </ul>
+    <br/>
+
+    <strong>Treatment Areas:</strong> Forehead lines, crow's feet, and glabella lines (frown lines).<br/><br/>
+
+    <strong>Duration:</strong> Effects generally last 3 to 6 months (cosmetic duration). Results may extend with repeat treatments.<br/><br/>
+
+    <strong>Storage:</strong> Should be stored between 20°C and 25°C (refrigerated before reconstitution). Reconstituted product should be used within 24 hours.<br/><br/>
+
+    <strong>Side Effects:</strong> Rare but can include bruising, swelling, or flu-like symptoms. Must be injected by a licensed medical professional.<br/><br/>
+
+    <strong>How It Works:</strong> Blocks nerve signals to muscles, preventing contraction, resulting in smoother skin and reduced appearance of wrinkles.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional use only. Must be administered by licensed healthcare professional. Consult physician for suitability.</em>
+    `,
+    benefits: [
+        "100 Units per Vial",
+        "Made in USA",
+        "Original Allergan",
+        "Smooths Forehead Lines",
+        "Reduces Crow's Feet",
+        "Treats Frown Lines",
+        "Preservative-Free",
+        "Professional Grade"
+    ],
+    sku: "ALLERGAN-BOTOX-COSMETIC-100",
+    volume: "1 Vial",
+    stock: 10
+},
+{
+    id: 56,
+    name: "L Carnitine 45g Weight Loss & Fat Loss Injection, 2000 mg",
+    category: "Injection",
+    brand: "Ratiopharm",
+    price: 8000,
+    comparePrice: 10000,
+    image: "/image/l-carnitine/45g-weight-loss-1.jpg",
+    images: [
+        "/image/l-carnitine/45g-weight-loss-1.jpg",
+        "/image/l-carnitine/45g-weight-loss-2.jpeg",
+        "/image/l-carnitine/45g-weight-loss-3.jpeg",
+        "/image/l-carnitine/45g-weight-loss-4.jpeg"
+    ],
+    description: "L-Carnitine + CLA 45g injection from Germany. Breaks down excess fat, tightens body, converts fat to muscle, and supports weight loss, energy, and heart health.",
+    details: `
+    <strong>L Carnitine 45g Weight Loss & Fat Loss Injection (2000 mg)</strong><br/><br/>
+    L-CARNITINE + CLA 45G (10 BOTTLE X 10 ML/BOX) – Lose weight quickly. Breaks down excess fat and tightens the body in the best way. L-Car plus CLA 45 grams, the newest from Germany. Contains CLA that will convert fat into muscle, reduce the problem of loose muscles, and help achieve a firm, well-proportioned shape. See results from the first use. Lose weight safely.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 2000 mg per vial</li>
+      <li>Pack Size: 10 ml per vial – 10 vials per box (total 45g active complex)</li>
+      <li>Form: Injection</li>
+      <li>Composition: L-Carnitine, CLA, PROBIO</li>
+      <li>Manufacturer: Ratiopharm (Germany)</li>
+      <li>Shelf Life: 36 months</li>
+      <li>Prescription/Non-Prescription: Non-Prescription</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits of L-Carnitine:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Slows down aging – makes cells last longer</li>
+      <li>Lowers triglycerides and increases HDL (good cholesterol)</li>
+      <li>Helps prevent heart disease and heart failure</li>
+      <li>Supports weight loss, especially when reducing starchy foods</li>
+      <li>Increases natural energy levels without damage</li>
+      <li>Improves exercise endurance and protects tissues from oxygen deficiency</li>
+      <li>Boosts immune system function</li>
+      <li>Reduces nerve cell damage – may help prevent Alzheimer's progression</li>
+      <li>Positive effect on mental health and stress reduction</li>
+      <li>Supports liver function and overall health</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Dosage (Injection Method):</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Weight control: 1–2 vials IV per injection every 4 days</li>
+      <li>Subcutaneous fat management: 1–2 vials subcutaneously</li>
+      <li>Anti-aging / health management: 10 vials divided over 30 days</li>
+    </ul>
+    <br/>
+
+    <strong>Product Details:</strong> L-Carnitine 45g (10 bottles x 10 ml per box). Made in Germany. More effective with CLA to convert fat into muscle.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult healthcare professional before use. Not a substitute for diet and exercise.</em>
+    `,
+    benefits: [
+        "10 Vials (10ml each)",
+        "Made in Germany",
+        "2000 mg Strength",
+        "L-Carnitine + CLA + PROBIO",
+        "Breaks Down Excess Fat",
+        "Converts Fat to Muscle",
+        "Boosts Energy & Stamina",
+        "Supports Heart & Liver Health"
+    ],
+    sku: "RATIOPHARM-LCARNITINE-45G",
+    volume: "10 Vials (10ml each)",
+    stock: 10
+},
+{
+    id: 57,
+    name: "Glutax 35000000GS Sakura Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Glutax",
+    price: 9500,
+    comparePrice: 35000,
+    image: "/image/glutax/sakura-35000000gs-1.jpeg",
+    images: [
+        "/image/glutax/sakura-35000000gs-1.jpeg",
+        "/image/glutax/sakura-35000000gs-2.jpeg",
+        "/image/glutax/sakura-35000000gs-3.jpeg",
+        "/image/glutax/sakura-35000000gs-4.jpeg"
+    ],
+    description: "Sakura stem cell glutathione injection with SPF 100 UV protection. Provides whitening, anti-aging, collagen boost, and skin firming with Nano Glutathione technology.",
+    details: `
+    <strong>Glutax 35000000GS Sakura Glutathione Skin Whitening Injection</strong><br/><br/>
+    One of the most reliable L-Glutathione injections worldwide. Helps maintain Nano l-Glutathione at high levels in your body, even when you are not undergoing any skin whitening treatment. Formulated with Sakura stem cell extract and SPF 100 UV protection.<br/><br/>
+    
+    <strong>Key Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Nano Glutathione – 35,000,000 mg</li>
+      <li>Acido Alfa Lipoico (Alpha Lipoic Acid) – 250,000 mg</li>
+      <li>Growth Factor (EGF) – 150,000 mg</li>
+      <li>Multivitaminico – 150,000 mg</li>
+      <li>Grape Seed Extract – 150,000 mg</li>
+      <li>Sakura Extract Stem Cell – 100,000 mg</li>
+      <li>RNA White Cells – 100,000 mg</li>
+      <li>Acido Codico (Kojic Acid) – 50,000 mg</li>
+      <li>Collagen Natural – 50,000 mg</li>
+      <li>RNA HA – 15,000 mg</li>
+      <li>Pro Coenzyme Q10 – 15,000 mg</li>
+      <li>Selenio – 80,000 mg</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 35,000,000 mg Glutathione complex</li>
+      <li>Packaging: 10 sessions per box</li>
+      <li>Formulation: Lyophilized Powder</li>
+      <li>Injection Type: IV</li>
+      <li>Manufactured By: Switzerland | Country of Origin: Italy</li>
+      <li>Grade Standard: A+</li>
+      <li>Vegetarian: Yes | Gender: Men & Women</li>
+      <li>No Side Effects</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Anti-aging lightening along with skin lightening</li>
+      <li>Skin becomes whiter and brighter</li>
+      <li>Reduces pimples and acne</li>
+      <li>SPF 100 sun light protection (UVR)</li>
+      <li>Increases collagen – flawless, firm, elastic skin</li>
+      <li>Tightens pores and improves skin complexion</li>
+      <li>Inhibits melanocyte proliferation</li>
+      <li>Nourishes and firms the skin</li>
+      <li>Whitens skin and lightens scars</li>
+      <li>Fair and radiant skin tone</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Dosage:</strong> Intravenously (IV) once a week. Then reduce to 1 injection every 2 weeks for maintenance. For better results, use once every 4–5 days.<br/><br/>
+
+    <strong>Not Suitable For:</strong> Pregnant women.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: PCD Pharma also available. Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "10 Sessions Pack",
+        "Made in Switzerland / Italy",
+        "35,000,000mg Glutathione",
+        "Sakura Stem Cell",
+        "SPF 100 UV Protection",
+        "Anti-Aging & Whitening",
+        "Boosts Collagen & Elasticity",
+        "No Side Effects"
+    ],
+    sku: "GLUTAX-SAKURA-35M",
+    volume: "10 Sessions",
+    stock: 10
+},
+{
+    id: 58,
+    name: "Miracle White Capsule 120000mg",
+    category: "Capsules",
+    brand: "Miracle White",
+    price: 6500,
+    comparePrice: 12000,
+    image: "/image/miracle-white/capsule-120000mg-1.jpg",
+    images: [
+        "/image/miracle-white/capsule-120000mg-1.jpg",
+        "/image/miracle-white/capsule-120000mg-2.jpeg",
+        "/image/miracle-white/capsule-120000mg-3.jpeg",
+        "/image/miracle-white/capsule-120000mg-4.jpeg"
+    ],
+    description: "Nano concentrated glutathione capsules for skin whitening, anti-aging, collagen boost, and antioxidant protection. Made in Switzerland.",
+    details: `
+    <strong>Miracle White Capsule 120000mg</strong><br/><br/>
+    Miracle White Whitening Plus+ has been evolved into a capsule by Miracle White Booster 120000mg that helps accelerate to beautify our skin. Our new formulation with the highest level of brightening ingredients, including Nano Concentrated Glutathione, addresses aging spots and dull complexion. Clinically proven to improve skin tones, texture, fine lines and wrinkles. Miracle White not only lightens your skin tone, makes it smooth and free of blemishes and dark spots, brightens a dull complexion but also has anti-aging factors.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 120,000mg (total active complex)</li>
+      <li>Packaging Size: 60 Tablets per Bottle</li>
+      <li>Packaging Type: Box</li>
+      <li>Brand: Miracle White</li>
+      <li>Manufactured By: Miracle White</li>
+      <li>Country of Origin: Switzerland</li>
+    </ul>
+    <br/>
+
+    <strong>Composition:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Royal Gold Nano Concentrated Glutathione – 120,000mg</li>
+      <li>Coenzyme Q10 – 70,000mg</li>
+      <li>Melanin Inhibitor Plus Collagen – 5,000mg</li>
+      <li>Ascorbic Acid (Vitamin C) – 5,000mg</li>
+      <li>Kojic Acid – 3,600mg</li>
+      <li>Epidermal Growth Factor (EGF) – 3,000mg</li>
+      <li>Alpha Lipoic Acid (ALA) – 500mg</li>
+      <li>L-Cysteine – 700mg</li>
+      <li>Multivitamin – 1,200mg</li>
+      <li>Thioctic Acid – 1,200mg</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Improves the health of every cell</li>
+      <li>Increases energy production in skin cells</li>
+      <li>Promotes antioxidant protection</li>
+      <li>Helps lower blood sugar levels</li>
+      <li>Inhibits and prevents formation of tyrosine</li>
+      <li>Prevents dark spots</li>
+      <li>Stimulates collagen production for tighter skin</li>
+      <li>Boosts production of collagen and elastin</li>
+      <li>Reduces effect of aging from inside out</li>
+      <li>Scavenges free radicals leading to premature aging and wrinkling</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> 2 capsules a day or as directed by doctor or pharmacist.<br/><br/>
+
+    <strong>Not Suitable For:</strong> Breastfeeding and pregnant women, women during menstruation, vitamin allergies, patients with cardiovascular problems.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Made in Switzerland. Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "60 Capsules per Bottle",
+        "Made in Switzerland",
+        "120,000mg Glutathione Complex",
+        "With CoQ10 & Collagen",
+        "Anti-Aging & Antioxidant",
+        "Prevents Dark Spots",
+        "Stimulates Collagen & Elastin",
+        "Scavenges Free Radicals"
+    ],
+    sku: "MIRACLE-WHITE-CAPSULE-120K",
+    volume: "60 Capsules",
     stock: 10
 },
 
