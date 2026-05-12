@@ -4249,7 +4249,298 @@ const PRODUCTS = [
     volume: "60 Capsules",
     stock: 10
 },
+{
+    id: 60,
+    name: "Glutax 2500 Gs Elixir Essence Glutathione Skin Whitening Injection 12 Sessions",
+    category: "Injection",
+    brand: "Glutax",
+    price: 12800,
+    comparePrice: 18000,
+    image: "/image/glutax/elixir-essence-1.png",
+    images: [
+        "/image/glutax/elixir-essence-1.png",
+        "/image/glutax/elixir-essence-2.jpeg",
+        "/image/glutax/elixir-essence-3.jpeg",
+        "/image/glutax/elixir-essence-4.jpeg"
+    ],
+    description: "Glutathione skin whitening injection with recombined stem cells (grape, apple, argan, rose), collagen, multivitamins, and CoQ10 for firming, detox, anti-aging, and even skin tone.",
+    details: `
+    <strong>Glutax 2500GS Elixir Essence Glutathione Whitening Injections (12 Sessions)</strong><br/><br/>
+    Despite age and gender, people want soft plump spotless skin. Glutax 2500 GS Elixir Essence reduces melanin, making skin neat and clean. Trusted worldwide, it contains high L-Glutathione with vitamin C to restore skin texture. Efficacy approved by pathologists in Italian laboratories.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>12 Sessions per box</li>
+      <li>IV only – once weekly</li>
+      <li>Made in Italy | Grade A | Vegetarian</li>
+      <li>Dermatologist tested – no side effects</li>
+      <li>Shelf life: 36 months</li>
+      <li>Not suitable for: breastfeeding, pregnancy, vitamin allergies, cardiovascular issues</li>
+    </ul>
+    <br/>
 
+    <strong>Composition:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>L-Acido Ascorbico (Vitamin C) – 3000mg</li>
+      <li>Multivitamins – 3500mg</li>
+      <li>Natural Collagen – 900mg</li>
+      <li>UltraCell Estratto – 800mg</li>
+      <li>Epidermal Growth Factor – 2000mg</li>
+      <li>Pro Coenzyme Q10 – 600mg</li>
+      <li>Cinnamomum Subavenium Extract – 350mg</li>
+      <li>Thioctic Acid (800mg) + Selenium (600mg)</li>
+      <li>Recombined Stem Cells – 800mg (Grape, Apple, Argan Fruit, Rose Placenta Extract)</li>
+      <li>Vitamin B1 (100mg), B6 (50mg), B12 (1000mcg)</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Nourishes and firms skin</li>
+      <li>Detoxifies liver, lungs, intestine, kidneys</li>
+      <li>Removes dark spots and scars</li>
+      <li>Boosts collagen production for elasticity</li>
+      <li>Shrinks pores and prevents acne</li>
+      <li>Anti-aging – reduces fine lines and wrinkles</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Reconstitute powder with 100ml saline, administer slow IV once a week.<br/><br/>
+
+    <strong>Expiry:</strong> Jul 2027<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "12 Sessions Pack",
+        "Made in Italy",
+        "Recombined Stem Cells (Grape, Apple, Argan, Rose)",
+        "2900mg Vitamin C + Collagen",
+        "Firms & Nourishes Skin",
+        "Detoxifies & Removes Scars",
+        "Anti-Aging & Pore Minimizing",
+        "Dermatologist Tested"
+    ],
+    sku: "GLUTAX-2500GS-ELIXIR-12S",
+    volume: "12 Sessions",
+    stock: 10
+},
+{
+    id: 61,
+    name: "Glutax 35000000GS Sakura Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Glutax",
+    price: 9500,
+    comparePrice: 12500,
+    image: "/image/glutax/sakura-35000000gs-1.png",
+    images: [
+        "/image/glutax/sakura-35000000gs-1.png",
+        "/image/glutax/sakura-35000000gs-2.png",
+        "/image/glutax/sakura-35000000gs-3.png",
+        "/image/glutax/sakura-35000000gs-4.png"
+    ],
+    description: "Sakura stem cell glutathione injection with SPF 100 UV protection. Provides whitening, anti-aging, collagen boost, and skin firming with Nano Glutathione technology.",
+    details: `
+    <strong>Glutax 35000000GS Sakura Glutathione Skin Whitening Injection</strong><br/><br/>
+    One of the most reliable L-Glutathione injections worldwide. Helps maintain Nano l-Glutathione at high levels in your body, even when you are not undergoing any skin whitening treatment. Formulated with Sakura stem cell extract and SPF 100 UV protection.<br/><br/>
+    
+    <strong>Key Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Nano Glutathione – 35,000,000 mg</li>
+      <li>Acido Alfa Lipoico (Alpha Lipoic Acid) – 250,000 mg</li>
+      <li>Growth Factor (EGF) – 150,000 mg</li>
+      <li>Multivitaminico – 150,000 mg</li>
+      <li>Grape Seed Extract – 150,000 mg</li>
+      <li>Sakura Extract Stem Cell – 100,000 mg</li>
+      <li>RNA White Cells – 100,000 mg</li>
+      <li>Acido Codico (Kojic Acid) – 50,000 mg</li>
+      <li>Collagen Natural – 50,000 mg</li>
+      <li>RNA HA – 15,000 mg</li>
+      <li>Pro Coenzyme Q10 – 15,000 mg</li>
+      <li>Selenio – 80,000 mg</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 35,000,000 mg Glutathione complex</li>
+      <li>Packaging: 10 sessions per box</li>
+      <li>Formulation: Lyophilized Powder</li>
+      <li>Injection Type: IV</li>
+      <li>Manufactured By: Switzerland | Country of Origin: Italy</li>
+      <li>Grade Standard: A+</li>
+      <li>Vegetarian: Yes | Gender: Men & Women</li>
+      <li>No Side Effects</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Anti-aging lightening along with skin lightening</li>
+      <li>Skin becomes whiter and brighter</li>
+      <li>Reduces pimples and acne</li>
+      <li>SPF 100 sun light protection (UVR)</li>
+      <li>Increases collagen – flawless, firm, elastic skin</li>
+      <li>Tightens pores and improves skin complexion</li>
+      <li>Inhibits melanocyte proliferation</li>
+      <li>Nourishes and firms the skin</li>
+      <li>Whitens skin and lightens scars</li>
+      <li>Fair and radiant skin tone</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Dosage:</strong> Intravenously (IV) once a week. Then reduce to 1 injection every 2 weeks for maintenance. For better results, use once every 4–5 days.<br/><br/>
+
+    <strong>Not Suitable For:</strong> Pregnant women.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: PCD Pharma also available. Results may vary. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "10 Sessions Pack",
+        "Made in Switzerland / Italy",
+        "35,000,000mg Glutathione",
+        "Sakura Stem Cell",
+        "SPF 100 UV Protection",
+        "Anti-Aging & Whitening",
+        "Boosts Collagen & Elasticity",
+        "No Side Effects"
+    ],
+    sku: "GLUTAX-SAKURA-35M",
+    volume: "10 Sessions",
+    stock: 10
+},
+{
+    id: 62,
+    name: "Glutax 990000GH DualNA Hydra Whitening Glutathione Injection",
+    category: "Injection",
+    brand: "Glutax",
+    price: 9500,
+    comparePrice: 12500,
+    image: "/image/glutax/990000gh-hydra-1.png",
+    images: [
+        "/image/glutax/990000gh-hydra-1.png",
+        "/image/glutax/990000gh-hydra-2.jpg",
+        "/image/glutax/990000gh-hydra-3.png",
+        "/image/glutax/990000gh-hydra-4.png"
+    ],
+    description: "DualNA Hydra whitening glutathione injection with recombined stem cells, EGF, collagen, and multivitamins for deep hydration, skin brightening, and rejuvenation.",
+    details: `
+    <strong>Glutax 990000GH DualNA Hydra Whitening Glutathione Injection</strong><br/><br/>
+    Advanced DualNA Hydra formulation for deep skin whitening, hydration, and rejuvenation. Combines high-potency glutathione with recombined stem cells, epidermal growth factor, collagen, and multivitamins to brighten complexion, reduce pigmentation, and improve skin elasticity.<br/><br/>
+    
+    <strong>Composition (Per Box – 4 Sessions):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>DNA/RNA Hydra Glutathione – 990,000 g</li>
+      <li>DNA/RNA Hydra Multivitaminico – 180,000 mg</li>
+      <li>DNA/RNA Hydra Acido Cogico (Kojic Acid) – 12,500 mg</li>
+      <li>DNA/RNA Hydra Epidermal Growth Factor – 9,000 mg</li>
+      <li>DNA/RNA Hydra Natural Collagen – 9,000 mg</li>
+      <li>DNA/RNA Hydra White Elements – 5,800 mg</li>
+      <li>DNA/RNA Hydra Selenio – 5,000 mg</li>
+      <li>DNA/RNA Hydra Recombined Stem Cell – 1,880 mg (Multi Fruits & Plants Stemcell Extract)</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Packaging: 4 Sessions (4 Sets) per Box</li>
+      <li>Form: Injection (IV)</li>
+      <li>Grade Standard: AA+</li>
+      <li>Manufactured By: Dermedical Skin Science</li>
+      <li>Shelf Life: 36 Months</li>
+      <li>Usage: Skin Whitening</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Deep Hydration with DualNA technology</li>
+      <li>Whitens skin and lightens scars</li>
+      <li>Reduces pigmentation and dark spots</li>
+      <li>Stimulates collagen for firm, elastic skin</li>
+      <li>Anti-aging with EGF and stem cells</li>
+      <li>Improves overall skin radiance and tone</li>
+    </ul>
+    <br/>
+
+    <strong>Not Suitable For:</strong> Breastfeeding women, during menstruation, vitamin allergies, pregnant women, cardiovascular problems.<br/><br/>
+
+    <strong>How to Use:</strong> Administer intravenously (IV) under professional supervision. Follow healthcare provider’s dosage schedule.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "4 Sessions Pack",
+        "990,000g Glutathione",
+        "DualNA Hydra Technology",
+        "Recombined Stem Cells",
+        "With EGF & Collagen",
+        "Deep Hydration & Whitening",
+        "Reduces Pigmentation",
+        "Anti-Aging"
+    ],
+    sku: "GLUTAX-990000GH-HYDRA",
+    volume: "4 Sessions",
+    stock: 10
+},
+{
+    id: 63,
+    name: "Glutax 8800000gs Supreme Pico Cell Absorption Glutathione Injection",
+    category: "Injection",
+    brand: "Glutax",
+    price: 8800,
+    comparePrice: 12500,
+    image: "/image/glutax/supreme-pico-8800000-1.png",
+    images: [
+        "/image/glutax/supreme-pico-8800000-1.png",
+        "/image/glutax/supreme-pico-8800000-2.jpeg",
+        "/image/glutax/supreme-pico-8800000-3.jpeg",
+        "/image/glutax/supreme-pico-8800000-4.jpeg"
+    ],
+    description: "Premium skin whitening injection with Pico Cell Absorption Technology, featuring glutathione, collagen, vitamin C, placenta extract, and alpha lipoic acid for whitening, anti-aging, and rejuvenation.",
+    details: `
+    <strong>Glutax 8800000gs Supreme Pico Cell Absorption Glutathione Injection</strong><br/><br/>
+    A top-tier injectable skin whitening product from Italy, known for potent ingredients and advanced formulation to improve skin tone, texture, and overall appearance. Uses Pico Cell Absorption Technology for enhanced delivery of active ingredients.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Packaging: 10 Sessions per Box</li>
+      <li>Pico Cell Absorption Technology for efficient absorption</li>
+      <li>Contains Glutathione, Alpha Lipoic Acid, Collagen, Vitamin C, Placenta Extract, DNA Glutokines</li>
+      <li>Manufactured in Italy</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin whitening by inhibiting melanin production</li>
+      <li>Anti-aging – improves elasticity, reduces wrinkles</li>
+      <li>Skin rejuvenation – moisturizes and enhances texture</li>
+      <li>Antioxidant protection against free radicals</li>
+      <li>Quick and noticeable results with advanced absorption</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Administer intravenously under professional supervision. Follow healthcare provider's dosage schedule.<br/><br/>
+
+    <strong>FAQs:</strong> Results within few weeks; safe for all skin types; can be used with other compatible skincare products.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "10 Sessions Pack",
+        "Made in Italy",
+        "Pico Cell Absorption Technology",
+        "Glutathione + Collagen + Vitamin C",
+        "Skin Whitening & Anti-Aging",
+        "Rejuvenates & Moisturizes",
+        "Antioxidant Protection",
+        "Quick Results"
+    ],
+    sku: "GLUTAX-SUPREME-PICO-8800000",
+    volume: "10 Sessions",
+    stock: 0
+}
 ];
 
 
