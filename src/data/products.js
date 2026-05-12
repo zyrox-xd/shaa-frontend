@@ -4540,6 +4540,64 @@ const PRODUCTS = [
     sku: "GLUTAX-SUPREME-PICO-8800000",
     volume: "10 Sessions",
     stock: 0
+},
+{
+    id: 64,
+    name: "Bihaku Premium Glutathione Skin Whitening Supplement",
+    category: "Capsules",
+    brand: "Bihaku",
+    price: 13500,
+    comparePrice: 18500,
+    image: "/image/bihaku/premium-glutathione-1.jpeg",
+    images: [
+        "/image/bihaku/premium-glutathione-1.jpeg",
+        "/image/bihaku/premium-glutathione-2.jpg",
+        "/image/bihaku/premium-glutathione-3.jpg",
+        "/image/bihaku/premium-glutathione-4.jpg"
+    ],
+    description: "Japanese skin whitening supplement with L-Glutathione, Vitamin C, and Alpha-Lipoic Acid. Reduces melanin, evens skin tone, provides antioxidant protection, and supports skin rejuvenation.",
+    details: `
+    <strong>Bihaku Premium Glutathione Skin Whitening Supplement</strong><br/><br/>
+    A highly acclaimed skin whitening supplement recognized for its superior formulation and proven effectiveness. Crafted with meticulous attention to detail and quality, this product encapsulates the best of Japanese skincare innovation, offering users a safe and effective solution to achieve brighter, more radiant skin.<br/><br/>
+    
+    <strong>Key Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>L-Glutathione:</strong> Powerful antioxidant that reduces oxidative stress, detoxifies skin, and inhibits melanin production</li>
+      <li><strong>Vitamin C:</strong> Aids collagen synthesis, skin repair, and enhances glutathione effectiveness</li>
+      <li><strong>Alpha-Lipoic Acid:</strong> Antioxidant that enhances glutathione and vitamin C properties for skin rejuvenation</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Comprehensive Skin Whitening:</strong> Reduces melanin production, lightens skin naturally, evens skin tone, reduces dark spots and hyperpigmentation</li>
+      <li><strong>Antioxidant Protection:</strong> Protects cells from oxidative stress, free radicals, pollutants, UV radiation; assists liver detoxification</li>
+      <li><strong>Skin Rejuvenation & Repair:</strong> Promotes cell renewal, repairs damaged skin, enhances collagen synthesis for elasticity and firmness, reduces wrinkles and sagging</li>
+      <li><strong>Boosts Immune Function:</strong> Maintains balanced immune system, prevents skin disorders</li>
+      <li><strong>Anti-Inflammatory Properties:</strong> Reduces skin inflammation, beneficial for acne and eczema</li>
+      <li><strong>Supports Overall Well-Being:</strong> Increases energy levels, improves mental clarity</li>
+      <li><strong>Holistic Skin Care:</strong> Works from inside out, enhances other skincare products</li>
+      <li><strong>Safe for Long-Term Use:</strong> No significant side effects when used as directed</li>
+    </ul>
+    <br/>
+
+    <strong>Origin:</strong> Japan<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult physician before use.</em>
+    `,
+    benefits: [
+        "Made in Japan",
+        "L-Glutathione + Vitamin C + ALA",
+        "Reduces Melanin Production",
+        "Evens Skin Tone & Dark Spots",
+        "Antioxidant & Detox Support",
+        "Promotes Collagen & Elasticity",
+        "Anti-Inflammatory",
+        "Safe for Long-Term Use"
+    ],
+    sku: "BIHAKU-PREMIUM-GLUTA",
+    volume: "1 Bottle",
+    stock: 10
 }
 ];
 
