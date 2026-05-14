@@ -116,20 +116,25 @@ const Navigation = ({
             <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300">
              <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between gap-4">
                 
-                {/* LEFT: HAMBURGER + LOGO (mobile) / LOGO (desktop) */}
+                {/* LEFT: HAMBURGER + LOGO (desktop) */}
                 <div className="flex items-center gap-3 shrink-0">
                     <button className="lg:hidden p-2 text-gray-800 hover:bg-gray-100 rounded-full" onClick={() => setMobileMenuOpen(true)} aria-label="Open menu">
                         <Menu size={24} />
                     </button>
 
                     <div className="cursor-pointer hidden lg:block" onClick={() => setCurrentPage('home')}>
-                        <span className="text-base font-sans font-bold uppercase tracking-tight select-none">Shaa trading</span>
+                        {/* MAX BOLD + TIGHT SPACING */}
+                        <span className="text-2xl font-sans font-black uppercase tracking-tighter select-none text-black">
+                            Shaa trading
+                        </span>
                     </div>
                 </div>
 
                 {/* CENTER: LOGO (mobile centered) */}
                 <div className="cursor-pointer lg:hidden flex-1 flex justify-center" onClick={() => setCurrentPage('home')}>
-                    <span className="text-base font-sans font-bold uppercase tracking-tight select-none">Shaa trading</span>
+                    <span className="text-2xl font-sans font-black uppercase tracking-tighter select-none text-black">
+                        Shaa trading
+                    </span>
                 </div>
 
                 {/* DESKTOP NAV */}
@@ -219,11 +224,9 @@ const Navigation = ({
                                     <button onClick={() => { setCurrentPage('orders'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><ShoppingBag size={14}/> My Orders</button>
                                     <button onClick={() => { setCurrentPage('track'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><Truck size={14}/> Track Order</button>
                                     
-                                    {/* --- SECURITY CHECK HERE --- */}
                                     {user.isAdmin && (
                                         <button onClick={() => { setCurrentPage('admin'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><ShieldCheck size={14}/> Admin Panel</button>
                                     )}
-                                    {/* --------------------------- */}
 
                                     <button onClick={() => { handleLogout(); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded mt-1 flex items-center gap-2"><ArrowRight size={14}/> Logout</button>
                                 </>
@@ -242,8 +245,6 @@ const Navigation = ({
                         <ShoppingBag size={22} />
                         {cartCount > 0 && <span className="absolute -top-1 -right-1 bg-black text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full">{cartCount}</span>}
                     </button>
-                    
-
                 </div>
              </div>
             </header>
@@ -254,7 +255,8 @@ const Navigation = ({
                 <div className={`relative bg-white w-[85%] max-w-xs h-full shadow-2xl transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                     <div className="flex flex-col h-full">
                         <div className="p-6 flex justify-between items-center border-b border-gray-100">
-                            <span className="text-xl font-serif tracking-wide">Shaa trading</span>
+                            {/* MOBILE DRAWER LOGO */}
+                            <span className="text-2xl font-sans font-black uppercase tracking-tighter">Shaa trading</span>
                             <button onClick={() => setMobileMenuOpen(false)} className="text-gray-500 hover:text-black"><X size={24} /></button>
                         </div>
                         <div className="flex-1 overflow-y-auto py-4">
@@ -289,7 +291,6 @@ const Navigation = ({
 
                                 <button onClick={() => { setCurrentPage('blog'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">Blog</button>
                                 
-                                {/* Mobile Account Section */}
                                 <button onClick={() => toggleMobileSection('account')} className="w-full px-6 py-4 text-left flex justify-between items-center text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">
                                     Account {user && <span className="text-xs bg-black text-white px-2 py-0.5 rounded-full ml-2">Logged In</span>}
                                     <ChevronDown size={14} className={`transition-transform ${mobileExpanded.account ? 'rotate-180' : ''}`}/>
@@ -299,13 +300,9 @@ const Navigation = ({
                                         {user ? (
                                             <>
                                                 <button onClick={() => { setCurrentPage('track'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Track Orders</button>
-                                                
-                                                {/* --- SECURITY CHECK HERE (MOBILE) --- */}
                                                 {user.isAdmin && (
                                                     <button onClick={() => { setCurrentPage('admin'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Admin Panel</button>
                                                 )}
-                                                {/* ------------------------------------ */}
-
                                                 <button onClick={() => { handleLogout(); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-red-500">Logout</button>
                                             </>
                                         ) : (
@@ -317,7 +314,6 @@ const Navigation = ({
                                         )}
                                     </div>
                                 )}
-
                                 <button onClick={() => { setCurrentPage('contact'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">Contact</button>
                             </div>
                         </div>
@@ -326,7 +322,7 @@ const Navigation = ({
             </div>
         </>
     )
-};;
+};
 
 const PaymentSuccessView = ({ navigateTo, showToast, transactionId }) => {
     const [status, setStatus] = useState('processing');
