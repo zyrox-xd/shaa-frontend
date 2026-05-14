@@ -2115,7 +2115,7 @@ const PRODUCTS = [
     id: 30,
     name: "Miracle Dermal Genesis NAD+ Renewal Complex Glutathione Injection",
     category: "Injection",
-    brand: "Miracle Dermal Genesis",
+    brand: "Miracle White",
     price: 9800,
     comparePrice: 14500,
     image: "/image/Miracle-Nad/miracle-dermal-genesis.jpeg",
@@ -5237,6 +5237,734 @@ const PRODUCTS = [
     ],
     sku: "AQUA-VENISCY-50",
     volume: "10 Sessions",
+    stock: 10
+},
+{
+    id: 76,
+    name: "Miracle White Blue 18000mg Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Miracle White",
+    price: 8500,
+    comparePrice: 12000,
+    image: "/image/miracle-white/blue-18000mg-1.jpg",
+    images: [
+        "/image/miracle-white/blue-18000mg-1.jpg",
+        "/image/miracle-white/blue-18000mg-2.jpg",
+        "/image/miracle-white/blue-18000mg-3.jpg",
+        "/image/miracle-white/blue-18000mg-4.jpg"
+    ],
+    description: "High-dose glutathione skin whitening injection with nano concentrated glutathione, vitamin C, EGF, and CoQ10 for skin lightening, anti-aging, and detoxification.",
+    details: `
+    <strong>Miracle White Blue 18000mg Glutathione Skin Whitening Injection</strong><br/><br/>
+    The highest grade, high-dose glutathione skin lightening solution available. Includes oral booster to maintain glutathione levels between treatment sessions. Contains high-dose L-Glutathione, antioxidants, and oral glutathione boosters for maximum effectiveness. Trusted by spas and skin clinics worldwide.<br/><br/>
+    
+    <strong>Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Nano Concentrated Glutathione – 18,000 mg</li>
+      <li>Vitamin C (5ml) – 2500 mg with Kojic Acid – 2000 mg</li>
+      <li>Coenzyme Q10 – 700 mg</li>
+      <li>Epidermal Growth Factor (EGF) – 1500 mg</li>
+      <li>Vitamin B Complex (2ml) – Yes</li>
+      <li>Thioctic Acid (2ml) – Yes</li>
+      <li>Vitamin Pill (2ml) – 500 mg</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Packaging: 6 Sessions per box</li>
+      <li>Manufactured by: Switzerland | Country of Origin: Made in India</li>
+      <li>Vegetarian | No side effects</li>
+      <li>Gender: Men & Women</li>
+      <li>Not suitable for: Pregnant women, breastfeeding, menstruation, vitamin allergies, cardiovascular problems</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Whitens skin and lightens scars</li>
+      <li>Produces collagen and enhances skin elasticity</li>
+      <li>Moisturizes, hydrates, firms, smoothens, and softens skin</li>
+      <li>Reduces pigmentation caused by sun exposure</li>
+      <li>Smoothens fine lines and wrinkles</li>
+      <li>Suppresses acne, blemishes, and pimples</li>
+      <li>Minimizes pores and improves complexion</li>
+      <li>Removes excess free radicals</li>
+      <li>Prevents aging and acts as anti-wrinkle</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Dosage:</strong> Administer intravenously (IV) once a week. For better results, once every 4–5 days. Twice a week for commercial/clinical use. High glutathione content – take as per dermatologist advice.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: PCD Pharma & Wholesale available. Results vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "6 Sessions Pack",
+        "18,000mg Glutathione",
+        "With Vitamin C, EGF & CoQ10",
+        "Skin Whitening & Scar Lightening",
+        "Anti-Aging & Wrinkle Reduction",
+        "Reduces Pigmentation",
+        "Moisturizes & Firms Skin",
+        "Detoxifies & Removes Free Radicals"
+    ],
+    sku: "MIRACLE-WHITE-BLUE-18K",
+    volume: "6 Sessions",
+    stock: 10
+},
+{
+    id: 77,
+    name: "Miracle White Perfection VI Gold - Glutathione 60000mg Skin Whitening Injection",
+    category: "Injection",
+    brand: "Miracle White",
+    price: 10500,
+    comparePrice: 15000,
+    image: "/image/miracle-white/perfection-vi-gold-1.jpg",
+    images: [
+        "/image/miracle-white/perfection-vi-gold-1.jpg",
+        "/image/miracle-white/perfection-vi-gold-2.jpg",
+        "/image/miracle-white/perfection-vi-gold-3.jpg",
+        "/image/miracle-white/perfection-vi-gold-4.jpg"
+    ],
+    description: "Enhanced formula glutathione injection with kojic acid and alpha-lipoic acid. Whitens skin, reduces sun damage, removes blemishes, improves firmness, elasticity, and cell regeneration.",
+    details: `
+    <strong>Miracle White Perfection VI Gold - Glutathione 60000mg Skin Whitening Injection</strong><br/><br/>
+    The newest Miracle White with enhanced formula. Lightens visible sun damage, age spots, and scars. Provides anti-aging effect on skin. Kojic acid adds antimicrobial properties; alpha-lipoic acid offers strong antioxidant effects, reducing inflammation and skin aging.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 600 mg / 60,000 mg formula potency</li>
+      <li>Packaging: 6 Sessions per box</li>
+      <li>Made in Switzerland</li>
+      <li>Grade Standard: A+</li>
+      <li>Dermatologist tested | No side effects</li>
+      <li>Vegetarian | Men & Women</li>
+      <li>Not suitable for: Breastfeeding, pregnant women, vitamin allergies</li>
+      <li>PCD Pharma available</li>
+    </ul>
+    <br/>
+
+    <strong>Composition:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Glutathione – 60,000 mg</li>
+      <li>Epidermal Growth Factor – 600 mg</li>
+      <li>Kojic Acid – Yes</li>
+      <li>Alpha Lipoic Acid – Yes</li>
+      <li>Beta Hydroxy Acid – Yes</li>
+      <li>Vitamin B Complex – Yes</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Soothes and stabilizes the skin</li>
+      <li>Whitens skin inside and out</li>
+      <li>Reduces dull skin and repairs sun-damaged skin</li>
+      <li>Removes blemishes, maintains white and smooth skin</li>
+      <li>Moisturizes and significantly improves skin firmness and elasticity</li>
+      <li>Improves blood circulation and skin cell regeneration (anti-aging)</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> One ampoule per injection every week for 1-2 months. Administer Intravenous IV Infusion (Drip).<br/><br/>
+
+    <strong>Recommended Dosage:</strong> As prescribed by dermatologist. Once a week for treatment, then maintenance as advised.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "6 Sessions Pack",
+        "Made in Switzerland",
+        "60,000mg Glutathione",
+        "Whitens & Repairs Sun Damage",
+        "Anti-Aging & Cell Regeneration",
+        "Removes Blemishes",
+        "Improves Firmness & Elasticity",
+        "Dermatologist Tested"
+    ],
+    sku: "MIRACLE-WHITE-PERFECTION-VI-GOLD",
+    volume: "6 Sessions",
+    stock: 10
+},
+{
+    id: 78,
+    name: "Miracle White Green Tru Glutathione 25000mg Skin Whitening Injection",
+    category: "Injection",
+    brand: "Miracle White",
+    price: 8800,
+    comparePrice: 12500,
+    image: "/image/miracle-white/green-tru-25000-1.jpg",
+    images: [
+        "/image/miracle-white/green-tru-25000-1.jpg",
+        "/image/miracle-white/green-tru-25000-2.jpg",
+        "/image/miracle-white/green-tru-25000-3.jpg",
+        "/image/miracle-white/green-tru-25000-4.jpg"
+    ],
+    description: "Green Tru formula glutathione injection with kojic acid and ascorbic acid for skin whitening, pigmentation reduction, and melasma treatment. 6 sessions per box.",
+    details: `
+    <strong>Miracle White Green Tru Glutathione 25000mg Skin Whitening Injection</strong><br/><br/>
+    A powerful skin whitening injection formulated with Green Tru technology, glutathione, kojic acid, and ascorbic acid. Designed to treat pigmentation, melasma, and promote overall skin brightness. Manufactured by HESSCO Laboratories.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 25,000 mg (Glutathione complex)</li>
+      <li>Form: Liquid injection</li>
+      <li>Treatment Course: 6 Sessions per box</li>
+      <li>Packaging Size: 6 vials, 5ml ampoules x6, 3ml ampoules x6</li>
+      <li>Composition: Green Tru, Glutathione, Kojic Acid, Ascorbic Acid</li>
+      <li>Manufacturer: HESSCO Laboratories</li>
+      <li>Shelf Life: 6 Years</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin whitening and brightening</li>
+      <li>Reduces pigmentation and melasma</li>
+      <li>Antioxidant protection with glutathione and vitamin C</li>
+      <li>Kojic acid inhibits melanin production</li>
+      <li>Improves overall skin tone and clarity</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Administer intravenously (IV) with 100ml normal saline. One session per week under professional supervision.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "6 Sessions per Box",
+        "25,000mg Glutathione",
+        "Green Tru Formula",
+        "With Kojic Acid & Vitamin C",
+        "Reduces Pigmentation & Melasma",
+        "Skin Whitening & Brightening",
+        "Antioxidant Protection",
+        "Manufactured by HESSCO"
+    ],
+    sku: "MIRACLE-WHITE-GREEN-TRU-25K",
+    volume: "6 Sessions",
+    stock: 10
+},
+{
+    id: 79,
+    name: "Miracle White Advance 50000mg Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Miracle White",
+    price: 10000,
+    comparePrice: 15000,
+    image: "/image/miracle-white/advance-50000mg-1.jpg",
+    images: [
+        "/image/miracle-white/advance-50000mg-1.jpg",
+        "/image/miracle-white/advance-50000mg-2.jpg",
+        "/image/miracle-white/advance-50000mg-3.jpg",
+        "/image/miracle-white/advance-50000mg-4.jpg"
+    ],
+    description: "High-strength 50,000mg glutathione injection for powerful skin brightening, detoxification, antioxidant protection, and immunity boost. Helps reduce pigmentation, dark spots, and uneven skin tone.",
+    details: `
+    <strong>Miracle White Advance 50000mg Glutathione Skin Whitening Injection</strong><br/><br/>
+    Discover the power of Miracle White Advance 50000mg Glutathione Injections – a natural and effective way to achieve radiant, glowing skin with the master antioxidant known worldwide for skin-brightening and detoxifying benefits. Glutathione protects skin from damage caused by pollution, UV rays, and stress. With age and environmental factors, glutathione levels reduce, leading to dullness, pigmentation, and uneven skin tone. This high-strength dose of 50,000 mg helps replenish levels, promoting healthier, clearer, and more youthful skin from within.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 50,000 mg Glutathione complex</li>
+      <li>Treatment Course: 6 Sessions per box</li>
+      <li>Composition: Glutathione, Vitamin C</li>
+      <li>Route of Administration: IV Use Only</li>
+      <li>Not suitable for: Pregnant women, lactating women, vitamin allergies</li>
+      <li>Gender: Unisex</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Powerful skin brightening – lightens dark spots, reduces pigmentation, evens skin tone</li>
+      <li>Effective antioxidant protection – fights free radicals causing aging and dullness</li>
+      <li>Detoxifies your body – cleanses harmful toxins for overall wellness</li>
+      <li>Boosts immunity & energy – enhances natural defense system</li>
+      <li>Safe & trusted – formulated with highest standards, administered under medical supervision</li>
+    </ul>
+    <br/>
+
+    <strong>How It Works:</strong> Once injected, glutathione enters bloodstream and gets absorbed by skin cells. It inhibits melanin production (pigment responsible for dark spots) while neutralizing harmful free radicals.<br/><br/>
+
+    <strong>What to Expect:</strong> Visible improvement in skin clarity and brightness within a few sessions, reduction in pigmentation and dark spots, healthier radiant complexion, boost in overall energy and vitality.<br/><br/>
+
+    <strong>How to Use:</strong> Quick, minimally invasive injections given by trained healthcare professionals. Customized treatment plan designed for optimal results.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "6 Sessions per Box",
+        "50,000mg Glutathione",
+        "Powerful Skin Brightening",
+        "Reduces Pigmentation & Dark Spots",
+        "Antioxidant Protection",
+        "Detoxifies Body",
+        "Boosts Immunity & Energy",
+        "Safe & Trusted"
+    ],
+    sku: "MIRACLE-WHITE-ADVANCE-50K",
+    volume: "6 Sessions",
+    stock: 10
+},
+{
+    id: 80,
+    name: "Miracle White Purple 60000mg Skin Whitening Glutathione Injection",
+    category: "Injection",
+    brand: "Miracle White",
+    price: 8800,
+    comparePrice: 12500,
+    image: "/image/miracle-white/purple-60000mg-1.jpg",
+    images: [
+        "/image/miracle-white/purple-60000mg-1.jpg",
+        "/image/miracle-white/purple-60000mg-2.jpg",
+        "/image/miracle-white/purple-60000mg-3.jpg",
+        "/image/miracle-white/purple-60000mg-4.jpg"
+    ],
+    description: "Revolutionary formula enriched with EGF, multivitamins, and antioxidants. Brightens, rejuvenates, and protects skin for anti-aging and skin-lightening.",
+    details: `
+    <strong>Miracle White Purple 60000mg Skin Whitening Glutathione Injection</strong><br/><br/>
+    Achieve flawless, radiant skin with Miracle White Glutathione Injection, a revolutionary formula enriched with Epidermal Growth Factor (EGF), multivitamins, and powerful antioxidants. Designed to brighten, rejuvenate, and protect, it's your ultimate solution for anti-aging and skin-lightening.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 60,000 mg Glutathione complex</li>
+      <li>Packaging Size: 10 ml vials per box</li>
+      <li>Packaging Type: Box</li>
+      <li>Shelf Life: 2 Years</li>
+      <li>Enriched with EGF, multivitamins, antioxidants</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Brighter, even skin tone</li>
+      <li>Reduces dark spots, sun damage, and pigmentation</li>
+      <li>Anti-aging effects</li>
+      <li>Skin rejuvenation and protection</li>
+      <li>Visibly radiant skin</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Administer intravenously under professional supervision. Follow healthcare provider's recommended dosage.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "60,000mg Glutathione",
+        "Enriched with EGF",
+        "Reduces Dark Spots & Pigmentation",
+        "Anti-Aging & Rejuvenation",
+        "Brightens Skin Tone",
+        "Antioxidant Protection",
+        "Visibly Radiant Skin",
+        "2 Year Shelf Life"
+    ],
+    sku: "MIRACLE-WHITE-PURPLE-60K",
+    volume: "1 Box",
+    stock: 10
+},
+{
+    id: 81,
+    name: "Miracle White Gold 55000mg Exc Anti Melanogenic Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Miracle White",
+    price: 11000,
+    comparePrice: 18000,
+    image: "/image/miracle-white/gold-55000mg-exc-1.jpg",
+    images: [
+        "/image/miracle-white/gold-55000mg-exc-1.jpg",
+        "/image/miracle-white/gold-55000mg-exc-2.jpg",
+        "/image/miracle-white/gold-55000mg-exc-3.jpg",
+        "/image/miracle-white/gold-55000mg-exc-4.jpg"
+    ],
+    description: "Plant-derived extracellular anti-melanogenic agents from S. japonica naturally reduce melanin, minimize aging signs, and enhance radiance. Safe alternative to chemical whitening.",
+    details: `
+    <strong>Miracle White Gold 55000mg Exc Anti Melanogenic Glutathione Skin Whitening Injection</strong><br/><br/>
+    If you're seeking a solution to revive your skin's radiance, Miracle White EXC is worth considering. This product uses extracellular anti-melanogenic agents derived from plants, making it a natural and safe alternative to chemical-based skin-whitening products. By utilizing extracellular vesicles from S. japonica, Miracle White EXC reduces melanin content in melanoma cells without causing significant harm. By incorporating plant-derived extracellular anti-melanogenic agents, you can help minimize signs of aging and enjoy more youthful-looking skin.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>6 Sessions per box</li>
+      <li>Made in Switzerland</li>
+      <li>Paraben Free & Organic: Yes</li>
+      <li>Key Ingredients: Glutathione, plant-derived extracellular vesicles</li>
+      <li>Advanced anti-melanogenic formula</li>
+    </ul>
+    <br/>
+
+    <strong>Scientific Background:</strong> Studies show extracellular vesicles (EVs) from leaves and stems of S. japonica act as natural anti-melanogenic agents. Leaf-derived EVs (LEVs) display superior whitening effects compared to arbutin, inhibiting melanogenesis-related genes (MITF, TYR, TRP-1, TRP-2) for more potent melanin inhibition.<br/><br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Reduces melanin content without harming cells</li>
+      <li>Natural and safe alternative to chemical whitening</li>
+      <li>Minimizes signs of aging for youthful skin</li>
+      <li>Inhibits melanogenesis-related genes and proteins</li>
+      <li>Superior whitening effects compared to arbutin</li>
+      <li>Enhances skin radiance and clarity</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Administer intravenously under professional supervision. Follow healthcare provider's recommended dosage for 6 sessions.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary from person to person. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "6 Sessions Pack",
+        "Made in Switzerland",
+        "Plant-Derived Anti-Melanogenic",
+        "Natural & Safe Alternative",
+        "Superior to Arbutin",
+        "Inhibits Melanogenesis",
+        "Reduces Signs of Aging",
+        "Enhances Radiance & Clarity"
+    ],
+    sku: "MIRACLE-WHITE-GOLD-55K-EXC",
+    volume: "6 Sessions",
+    stock: 10
+},
+{
+    id: 82,
+    name: "Miracle White Enhance 90,000mg Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Miracle White",
+    price: 11000,
+    comparePrice: 18000,
+    image: "/image/miracle-white/enhance-90000mg-1.jpg",
+    images: [
+        "/image/miracle-white/enhance-90000mg-1.jpg",
+        "/image/miracle-white/enhance-90000mg-2.jpg",
+        "/image/miracle-white/enhance-90000mg-3.jpg",
+        "/image/miracle-white/enhance-90000mg-4.jpg"
+    ],
+    description: "Enhanced formulation with 90,000mg glutathione, EGF, kojic acid, alpha-lipoic acid, and multivitamins. Accelerates skin lightening, reduces dark spots, provides antioxidant protection and anti-aging benefits.",
+    details: `
+    <strong>Miracle White Enhance 90,000mg Glutathione Skin Whitening Injection</strong><br/><br/>
+    Experience the transformative power of the enhanced Miracle White 90,000 mg Glutathione Injection, fortified with a higher concentration of EGF (Epidermal Growth Factor) and a blend of essential multivitamins. This advanced formulation delivers a more potent anti-aging solution, offering remarkable skin brightening effects while combating signs of aging.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Made in Switzerland</li>
+      <li>Key Ingredients: Glutathione & Vitamin C</li>
+      <li>Enhanced with EGF, Kojic Acid, Alpha-Lipoic Acid</li>
+      <li>Contains Collagen Forte, Hyaluronic Acid, Argan Stem Cell, Coenzyme Q10</li>
+    </ul>
+    <br/>
+
+    <strong>Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Glutathione – 90,000 mg</li>
+      <li>Epidermal Growth Factor (EGF)</li>
+      <li>Kojic Acid – lightens sun damage, age spots, scars</li>
+      <li>Alpha-Lipoic Acid – potent antioxidant, reduces inflammation</li>
+      <li>Ascorbic Acid (Vitamin C)</li>
+      <li>Collagen Forte – restores youthful appearance</li>
+      <li>Essential Amino Acids, Hesperidin, Hyaluronic Acid</li>
+      <li>Argan Stem Cell (Placenta), Chromosome, Coenzyme Q10</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Accelerates skin lightening – up to 7x faster than traditional methods</li>
+      <li>Enhanced defense against damage – boosts antioxidant protection</li>
+      <li>Combat free radicals – alpha-lipoic acid minimizes oxidative damage</li>
+      <li>Skin rejuvenation – reduces visible signs of aging</li>
+      <li>Regulates pigment production – prevents dark spots</li>
+      <li>Inhibits melanin production and promotes collagen for firmer skin</li>
+      <li>Ascorbic acid offers antioxidant effects, reduces sun damage</li>
+    </ul>
+    <br/>
+
+    <strong>Usage:</strong> Administered by qualified healthcare professional via IV or IM injection. Follow recommended dosage and treatment schedule. Consult dermatologist before use.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results vary. Professional use only. Consult skincare professional before starting any injection regimen.</em>
+    `,
+    benefits: [
+        "90,000mg Glutathione",
+        "Made in Switzerland",
+        "Accelerated Skin Lightening",
+        "Reduces Dark Spots & Aging Signs",
+        "Antioxidant & Anti-Inflammatory",
+        "Boosts Collagen & Firmness",
+        "With EGF, Kojic Acid, ALA",
+        "Contains Hyaluronic Acid & Stem Cells"
+    ],
+    sku: "MIRACLE-WHITE-ENHANCE-90K",
+    volume: "1 Box",
+    stock: 10
+},
+{
+    id: 83,
+    name: "Miracle White Cell Renewal Glutathione Booster Injection",
+    category: "Injection",
+    brand: "Miracle White",
+    price: 8800,
+    comparePrice: 12500,
+    image: "/image/miracle-white/cell-renewal-1.jpg",
+    images: [
+        "/image/miracle-white/cell-renewal-1.jpg",
+        "/image/miracle-white/cell-renewal-2.jpg",
+        "/image/miracle-white/cell-renewal-3.jpg",
+        "/image/miracle-white/cell-renewal-4.jpg"
+    ],
+    description: "Revolutionary skin whitening injection with glutathione, vitamin C, cherry blossom extract, and licorice extract. Brightens complexion, boosts cell renewal, fades dark spots, and provides anti-aging benefits.",
+    details: `
+    <strong>Miracle White Cell Renewal Glutathione Booster Injection</strong><br/><br/>
+    Discover the power of Miracle White Cell Renewal Glutathione Booster Injection, a revolutionary skin whitening solution that helps brighten your complexion, boost cell renewal, and enhance your natural glow. Formulated with premium ingredients, this injection offers visible results, leaving your skin youthful, radiant, and revitalized.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>6 Sessions per box</li>
+      <li>Country of Origin: Switzerland</li>
+      <li>GMP Certified</li>
+      <li>Imported by Super Advanced General Trading Company LLC</li>
+      <li>Packed by IMBMS (Dealers Bazaar Group)</li>
+    </ul>
+    <br/>
+
+    <strong>Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Glutathione</strong> – Powerful antioxidant that detoxifies, improves skin tone, and lightens hyperpigmentation</li>
+      <li><strong>Vitamin C</strong> – Boosts collagen production, brightens skin, and enhances glutathione effects</li>
+      <li><strong>Cherry Blossom Extract</strong> – Rich in antioxidants, soothes inflammation, promotes elasticity, provides youthful glow</li>
+      <li><strong>Licorice Extract</strong> – Fades dark spots, controls melanin production, improves skin clarity</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin whitening & brightening – lighter, even-toned skin</li>
+      <li>Cell renewal – faster skin regeneration for youthful glow</li>
+      <li>Reduces dark spots – fades pigmentation, blemishes</li>
+      <li>Anti-aging – minimizes wrinkles and fine lines</li>
+      <li>Boosts skin health – protects from free radicals and pollutants</li>
+      <li>Clinically tested – safe for all skin types</li>
+      <li>Fast results – visible improvement within weeks</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Consult a skincare professional before use. Follow recommended dosage for optimal results. Pair with healthy lifestyle and proper skincare routine for long-lasting effects.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "6 Sessions per Box",
+        "Made in Switzerland",
+        "With Cherry Blossom & Licorice Extracts",
+        "Skin Whitening & Brightening",
+        "Promotes Cell Renewal",
+        "Fades Dark Spots & Pigmentation",
+        "Anti-Aging & Wrinkle Reduction",
+        "Clinically Tested"
+    ],
+    sku: "MIRACLE-WHITE-CELL-RENEWAL",
+    volume: "6 Sessions",
+    stock: 10
+},
+{
+    id: 84,
+    name: "Miracle White Pro White 18K 180,000mg Glutathione Injection",
+    category: "Injection",
+    brand: "Miracle White",
+    price: 10000,
+    comparePrice: 15000,
+    image: "/image/miracle-white/pro-white-18k-1.jpg",
+    images: [
+        "/image/miracle-white/pro-white-18k-1.jpg",
+        "/image/miracle-white/pro-white-18k-2.jpg",
+        "/image/miracle-white/pro-white-18k-3.jpg",
+        "/image/miracle-white/pro-white-18k-4.jpg"
+    ],
+    description: "High-strength 180,000mg glutathione injection with EGF and multivitamins. Rapid skin lightening, antioxidant protection, deep rejuvenation, and pigment control for radiant, youthful skin.",
+    details: `
+    <strong>Miracle White Pro White 18K 180,000mg Glutathione Injection</strong><br/><br/>
+    A high-strength formula enriched with Epidermal Growth Factor (EGF) and essential multivitamins, offering powerful anti-aging and skin-brightening benefits for a more radiant, youthful appearance.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 180,000 mg Glutathione complex</li>
+      <li>Form: Powder for injection</li>
+      <li>Manufacturer: Miracle White</li>
+      <li>Enriched with EGF and multivitamins</li>
+    </ul>
+    <br/>
+
+    <strong>Key Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Glutathione (180,000 mg) – powerful antioxidant, lightens skin</li>
+      <li>Epidermal Growth Factor (EGF) – stimulates skin cell growth, reduces fine lines</li>
+      <li>Kojic Acid – skin-brightening, antimicrobial</li>
+      <li>Alpha-Lipoic Acid – combats free radicals, reduces inflammation</li>
+      <li>Ascorbic Acid (Vitamin C) – protects from sun damage, stimulates collagen</li>
+      <li>Collagen Forte – enhances elasticity</li>
+      <li>Hyaluronic Acid – deep hydration</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Rapid skin lightening – up to 7x faster than standard treatments</li>
+      <li>Enhanced protection against environmental damage</li>
+      <li>Reduces free radicals and oxidative stress</li>
+      <li>Deep skin rejuvenation – reduces fine lines and wrinkles</li>
+      <li>Controls pigment production – prevents dark spots</li>
+      <li>Boosts collagen for firmer, elastic skin</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Administered by qualified healthcare professional via IV or IM. Follow recommended dosage and treatment schedule. Consistency and sun protection advised for best results.<br/><br/>
+
+    <strong>FAQ:</strong> Results typically visible within a few weeks. Minimal side effects when professionally administered (mild swelling/bruising possible).<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "180,000mg Glutathione",
+        "Rapid Skin Lightening (7x faster)",
+        "With EGF & Multivitamins",
+        "Antioxidant & Anti-Inflammatory",
+        "Reduces Pigmentation & Dark Spots",
+        "Boosts Collagen & Elasticity",
+        "Deep Hydration (Hyaluronic Acid)",
+        "Anti-Aging & Wrinkle Reduction"
+    ],
+    sku: "MIRACLE-WHITE-PRO-WHITE-18K",
+    volume: "1 Box",
+    stock: 10
+},
+{
+    id: 85,
+    name: "Miracle White 99,000,000mg Polypeptide Complex Glutathione 99MIL Skin Whitening Injection",
+    category: "Injection",
+    brand: "Miracle White",
+    price: 9500,
+    comparePrice: 15000,
+    image: "/image/miracle-white/99million-1.jpg",
+    images: [
+        "/image/miracle-white/99million-1.jpg",
+        "/image/miracle-white/99million-2.jpg",
+        "/image/miracle-white/99million-3.jpg",
+        "/image/miracle-white/99million-4.jpg"
+    ],
+    description: "Ultra-high potency 99 million mg Polypeptide Complex Glutathione with EGF, CoQ10, ALA, Kojic Acid, Vitamin C, and stem cell extract. Accelerates skin brightening, fights free radicals, boosts collagen, and deeply hydrates for flawless, youthful skin.",
+    details: `
+    <strong>Miracle White 99,000,000mg Polypeptide Complex Glutathione 99MIL Skin Whitening Injection</strong><br/><br/>
+    Discover the ultimate solution for skin brightening and anti-aging with this enhanced formulation infused with Epidermal Growth Factor (EGF), multivitamins, and high-potency antioxidants. This scientifically advanced product lightens skin, reduces pigmentation, fights free radicals, promotes collagen production, and deeply hydrates for overall skin health.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 99,000,000 mg Polypeptide Complex Glutathione (99 Million)</li>
+      <li>Packaging Size: 5 x 10 ml vials per box</li>
+      <li>Manufacturer: Miracle White</li>
+      <li>Form: Injection (IV)</li>
+    </ul>
+    <br/>
+
+    <strong>Powerful Ingredients (12 Active Components):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Polypeptide Complex Glutathione (99,000,000 mg) – master antioxidant, neutralizes free radicals, brightens skin</li>
+      <li>Coenzyme Q10 (5,000 mg) – boosts skin cell energy, combats aging, improves elasticity</li>
+      <li>Epidermal Growth Factor (EGF) (5,000 mg) – stimulates new cell growth, repairs damage</li>
+      <li>Alpha Lipoic Acid (8,000 mg) – potent antioxidant, reduces inflammation, slows aging</li>
+      <li>Kojic Acid (8,000 mg) – reduces pigmentation, scars, sun damage</li>
+      <li>Ascorbic Acid (Vitamin C) (8,000 mg) – boosts collagen, brightens skin, sun protection</li>
+      <li>Thioctic Acid (2,800 mg) – enhances antioxidant defense</li>
+      <li>Melanin Inhibitor (8,000 mg) – prevents dark spots and pigmentation</li>
+      <li>White Cell Enhancer (1,500 mg) – strengthens skin immunity and repair</li>
+      <li>Marine Peptide Collagen (5,000 mg) – deep hydration, improves elasticity</li>
+      <li>Multivitamin (6,000 mg) – nourishes for enhanced glow</li>
+      <li>Cyanocobalamin (Vitamin B12) (1,000 mg) – promotes healing and hydration</li>
+      <li>Tomato Stem Cell Extract (1,000 mg) – protects from environmental damage, natural glow</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Accelerates skin brightening – works up to 7x faster</li>
+      <li>Rejuvenates and firms skin – boosts collagen, repairs tissues</li>
+      <li>Strengthens skin defense – shields from environmental stressors</li>
+      <li>Hydrates and repairs – improves texture, reduces fine lines</li>
+      <li>Combats aging – reduces wrinkles, sagging, age spots</li>
+      <li>Regulates pigment – prevents melanin formation, even tone</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Administer intravenously under professional supervision. Follow healthcare provider's dosage and schedule.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "99,000,000mg Polypeptide Glutathione",
+        "With EGF, CoQ10, ALA, Kojic Acid, Vitamin C",
+        "Tomato Stem Cell & Marine Collagen",
+        "Accelerated Skin Brightening (7x faster)",
+        "Anti-Aging & Wrinkle Reduction",
+        "Boosts Collagen & Elasticity",
+        "Deep Hydration & Repair",
+        "Melanin & Pigment Control"
+    ],
+    sku: "MIRACLE-WHITE-99MIL-POLYPEPTIDE",
+    volume: "5 x 10 ml vials",
+    stock: 10
+},
+{
+    id: 86,
+    name: "Miracle White 150000mg Magic Skin Whitening Glutathione Injection",
+    category: "Injection",
+    brand: "Miracle White",
+    price: 9500,
+    comparePrice: 15000,
+    image: "/image/miracle-white/magic-150000mg-1.jpg",
+    images: [
+        "/image/miracle-white/magic-150000mg-1.jpg",
+        "/image/miracle-white/magic-150000mg-2.jpg",
+        "/image/miracle-white/magic-150000mg-3.jpg",
+        "/image/miracle-white/magic-150000mg-4.jpg"
+    ],
+    description: "High-strength 150,000mg glutathione injection for deep skin brightening, antioxidant protection, anti-aging, and full-body glow. Reduces pigmentation, dark spots, wrinkles, and promotes collagen.",
+    details: `
+    <strong>Miracle White 150000mg Magic Skin Whitening Glutathione Injection</strong><br/><br/>
+    Discover radiant skin with Miracle White Magic! Infused with 150,000mg of premium Glutathione, this natural and effective solution targets melanin to lighten and even complexion, combats free radicals as the "master antioxidant," improves elasticity and smoothness, and provides full-body brightening. Ideal for achieving a youthful, spot-free glow.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 150,000 mg Glutathione complex</li>
+      <li>Packaging Size: 10 ml vials per box</li>
+      <li>Shelf Life: 12 Months</li>
+      <li>Form: Injection (IV)</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Deep skin brightening – targets melanin for natural lightening</li>
+      <li>Ultimate antioxidant power – fights free radicals, detoxifies, slows aging</li>
+      <li>Enhanced skin texture – improves elasticity, smooths fine lines, firms skin</li>
+      <li>Full-body glow – even brightening head to toe</li>
+      <li>Reduces pigmentation, dark spots, blemishes, wrinkles, and sagging</li>
+      <li>Promotes collagen production for youthful appearance</li>
+      <li>Shields skin from pollution and sun exposure</li>
+    </ul>
+    <br/>
+
+    <strong>Usage Instructions:</strong> Administered by trained healthcare professional. Typically 1 injection per week during initial phase. Consult professional for tailored guidance.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "150,000mg Glutathione",
+        "Deep Skin Brightening",
+        "Ultimate Antioxidant Power",
+        "Reduces Pigmentation & Dark Spots",
+        "Anti-Aging & Wrinkle Reduction",
+        "Improves Elasticity & Firmness",
+        "Full-Body Glow",
+        "12 Month Shelf Life"
+    ],
+    sku: "MIRACLE-WHITE-MAGIC-150K",
+    volume: "1 Box (10 ml vials)",
     stock: 10
 }
 ];
