@@ -4514,6 +4514,730 @@ const PRODUCTS = [
     sku: "BIHAKU-PREMIUM-GLUTA",
     volume: "1 Bottle",
     stock: 10
+},
+{
+    id: 65,
+    name: "Aqua Skin Glutathione and Collagen Capsules",
+    category: "Capsules",
+    brand: "Aqua Skin",
+    price: 4000,
+    comparePrice: 7000,
+    image: "/image/aqua/glutathione-collagen-capsules-1.jpg",
+    images: [
+        "/image/aqua/glutathione-collagen-capsules-1.jpg",
+        "/image/aqua-skin/glutathione-collagen-capsules-2.jpeg",
+        "/image/aqua-skin/glutathione-collagen-capsules-3.jpeg",
+        "/image/aqua-skin/glutathione-collagen-capsules-4.jpeg"
+    ],
+    description: "Made in Japan glutathione and collagen capsules with N-Acetyl L-Cysteine and pearl powder. Supports skin whitening, hydration, elasticity, and overall wellness.",
+    details: `
+    <strong>Aqua Skin Glutathione and Collagen Capsules – Made In Japan</strong><br/><br/>
+    An efficient glutathione supplement in an elegant frosted glass bottle. Contains powerful ingredients: L-Glutathione (most effective antioxidant), Premium Collagen (for vibrant skin), N-Acetyl L-Cysteine (enhances glutathione effect and immune system). Certified by Japan Ministry of Health, FDA, GMP, HALAL, SGS, HACCP.<br/><br/>
+    
+    <strong>Key Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Premium Collagen Peptide (Bovine) – reduces wrinkles, fine lines, age spots, maintains skin moisture</li>
+      <li>Glutathione – 100mg per capsule, converts melanin to lighter color</li>
+      <li>N-Acetyl L-Cysteine – promotes stronger glutathione effect, improves fertility, brain health, reduces kidney/liver damage, supports blood sugar and immune function</li>
+      <li>Pearl Powder – rich in amino acids, trace minerals, calcium, antioxidants; lightens skin, boosts collagen, improves stress and sleep</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Country of Origin: Japan</li>
+      <li>Paraben Free & Organic: Yes</li>
+      <li>Packaging: 1 Bottle (60 Capsules)</li>
+      <li>Expiry: Dec 2026</li>
+      <li>Certified by Japan Ministry of Health, FDA, GMP, HALAL, SGS, HACCP</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Improves skin hydration and elasticity</li>
+      <li>Promotes healthier joints</li>
+      <li>Increases muscle mass</li>
+      <li>Converts melanin to lighter color</li>
+      <li>Neutralizes free radicals</li>
+      <li>Helps prevent kidney and liver damage</li>
+      <li>Increases brain and heart health</li>
+      <li>May maintain blood glucose by reducing inflammation of fat cells</li>
+      <li>Boosts glutathione levels and immune function</li>
+    </ul>
+    <br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary from person to person. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Made in Japan",
+        "60 Capsules per Bottle",
+        "Glutathione + Collagen + NAC + Pearl Powder",
+        "Skin Whitening & Hydration",
+        "Improves Elasticity & Joint Health",
+        "Neutralizes Free Radicals",
+        "Liver & Kidney Protection",
+        "Certified by Japan Ministry of Health"
+    ],
+    sku: "AQUA-SKIN-GLUTA-COLLAGEN-60C",
+    volume: "60 Capsules",
+    stock: 0
+},
+{
+    id: 66,
+    name: "Aqua Skin Veniscy 12 Pro Q10 DualNA Octa Strength Skin Whitening 10 Sessions Injection",
+    category: "Injection",
+    brand: "Aqua Skin",
+    price: 8800,
+    comparePrice: 12500,
+    image: "/image/aqua/veniscy-12-pro-q10-1.jpg",
+    images: [
+        "/image/aqua/veniscy-12-pro-q10-1.jpg",
+        "/image/aqua/veniscy-12-pro-q10-2.jpeg",
+        "/image/aqua/veniscy-12-pro-q10-3.jpeg",
+        "/image/aqua/veniscy-12-pro-q10-4.jpeg"
+    ],
+    description: "DualNA Octa Strength glutathione injection for skin whitening, anti-aging, skin regeneration, hydration, and repair. Made in Switzerland.",
+    details: `
+    <strong>Aqua Skin Veniscy 12 Pro Q10 DualNA Octa Strength Skin Whitening 10 Sessions Injection</strong><br/><br/>
+    Aqua Skin Veniscy 12 Glutathione Injections free the body from toxins that cause spots and blemishes. This anti-inflammatory formulation cures crucial skin issues and helps achieve maximum skin whitening glow with consistent use.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Made in Switzerland</li>
+      <li>10 Sessions (30 Vials per box)</li>
+      <li>DualNA Octa Strength Technology</li>
+      <li>L Glutathione, Vitamin B Complex, Alpha Lipoic Acid, Beta Hydroxy Acid</li>
+      <li>No side effects | Vegetarian | Men & Women</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Anti-ageing lightening along with skin lightening</li>
+      <li>Fair and radiant skin tone</li>
+      <li>Regeneration of skin cells</li>
+      <li>Improves the appearance of the skin</li>
+      <li>Keeps skin hydrated</li>
+      <li>Increased and tighter skin</li>
+      <li>Repairs damaged skin</li>
+      <li>Gets rid of skin acne</li>
+      <li>Skin looks lively and healthy</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Dosage:</strong> As prescribed by dermatologist. Intravenous IV Infusion (Drip) once a week. For better results, consult your doctor.<br/><br/>
+
+    <strong>Not Suitable For:</strong> Breast feeders, vitamin allergies, pregnant women, patients with cardiovascular problems.<br/><br/>
+
+    <strong>Note:</strong> The result depends on individual metabolism.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Third Party Manufacturing & PCD Pharma available. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "10 Sessions (30 Vials)",
+        "Made in Switzerland",
+        "Anti-Aging & Whitening",
+        "Skin Regeneration",
+        "Deep Hydration",
+        "Tightens & Repairs Skin",
+        "Removes Acne",
+        "Radiant & Healthy Skin"
+    ],
+    sku: "AQUA-VENISCY-12-PRO-Q10",
+    volume: "10 Sessions",
+    stock: 10
+},
+{
+    id: 67,
+    name: "Aqua Skin Veniscy 46 DualNA Pico-Cell Absorption Extremely Ultimate Skin Whitening Injection",
+    category: "Injection",
+    brand: "Aqua Skin",
+    price: 8800,
+    comparePrice: 12500,
+    image: "/image/aqua/veniscy-46-1.jpg",
+    images: [
+        "/image/aqua/veniscy-46-1.jpg",
+        "/image/aqua/veniscy-46-2.jpeg",
+        "/image/aqua/veniscy-46-3.jpeg",
+        "/image/aqua/veniscy-46-4.jpeg"
+    ],
+    description: "DualNA Pico-Cell Absorption glutathione injection for skin whitening, anti-aging, acne reduction, scar healing, collagen stimulation, and detoxification. Made in Switzerland.",
+    details: `
+    <strong>Aqua Skin Veniscy 46 DualNA Pico-Cell Absorption Extremely Ultimate</strong><br/><br/>
+    Aqua skin Veniscy 46 injections safely lighten your skin and lower the appearance of blackheads. This treatment uses IV extract as a part of the lightning treatment, featuring Glutathione as the key ingredient.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 200 mg (DualNA Pico-Cell formulation)</li>
+      <li>Packaging Type: Bottle / Box</li>
+      <li>Composition: Aqua Skin Veniscy 46</li>
+      <li>Manufactured in Switzerland</li>
+      <li>Usage: Skin Whitening</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin whitening and brightening</li>
+      <li>Anti-aging</li>
+      <li>Reduces acne and pimples</li>
+      <li>Minimizes pores</li>
+      <li>Healing of scars</li>
+      <li>Stimulates collagen production</li>
+      <li>Detoxification</li>
+      <li>Lightening dark spots</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> One ampoule per injection should be taken every week for 1-2 months. Administer Intravenous IV Infusion (Drip).<br/><br/>
+
+    <strong>Not Suitable For:</strong> Breast feeders, women during menstruation, vitamin allergies, patients with cardiovascular problems, below 18 years of age.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "DualNA Pico-Cell Absorption",
+        "Skin Whitening & Brightening",
+        "Anti-Aging",
+        "Reduces Acne & Pimples",
+        "Minimizes Pores",
+        "Heals Scars & Lightens Dark Spots",
+        "Stimulates Collagen",
+        "Detoxification"
+    ],
+    sku: "AQUA-VENISCY-46",
+    volume: "1 Box",
+    stock: 10
+},
+{
+    id: 68,
+    name: "Aqua Skin Pure Gold II 30 Sessions Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Aqua Skin",
+    price: 8800,
+    comparePrice: 12500,
+    image: "/image/aqua/pure-gold-ii-30s-1.jpg",
+    images: [
+        "/image/aqua/pure-gold-ii-30s-1.jpg",
+        "/image/aqua/pure-gold-ii-30s-2.jpg",
+        "/image/aqua/pure-gold-ii-30s-3.jpg",
+        "/image/aqua/pure-gold-ii-30s-4.jpg"
+    ],
+    description: "Gold-infused glutathione skin whitening injection with ultrafiltration pure gold technology. Dermatologist tested, IV dose, 30 sessions for skin brightening and whitening.",
+    details: `
+    <strong>Aqua Skin Pure Gold II 30 Sessions Glutathione Skin Whitening Injection</strong><br/><br/>
+    A premium gold-infused glutathione injection designed for comprehensive skin whitening and brightening. Features ultrafiltration pure gold technology for enhanced results. Dermatologist tested with no side effects.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>30 Sessions per box</li>
+      <li>Gold infused – ultrafiltration pure gold</li>
+      <li>Grade Standard: A++</li>
+      <li>Dermatologist tested | No side effects</li>
+      <li>Administration: Intravenous (IV) once weekly</li>
+      <li>Not suitable for: Breast feeders, women during menstruation, vitamin allergies</li>
+      <li>Gender: Men & Women</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin whitening and brightening</li>
+      <li>Gold infusion for enhanced glow</li>
+      <li>Reduces pigmentation and dark spots</li>
+      <li>Improves overall skin tone</li>
+      <li>Antioxidant protection</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> One ampoule per injection once a week for 1-2 months. Administer Intravenous IV Infusion (Drip) as directed by healthcare professional.<br/><br/>
+
+    <strong>Storage:</strong> Cool, dry and dark place.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Wholesale & PCD Pharma available. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "30 Sessions Pack",
+        "Gold Infused",
+        "Dermatologist Tested",
+        "Skin Whitening & Brightening",
+        "Reduces Pigmentation",
+        "Antioxidant Protection",
+        "No Side Effects",
+        "IV Administration"
+    ],
+    sku: "AQUA-PURE-GOLD-II-30S",
+    volume: "30 Sessions",
+    stock: 10
+},
+{
+    id: 69,
+    name: "Aqua Skin Pure Gold Pro Max II Dualna Pico Cell Glutathione Injection",
+    category: "Injection",
+    brand: "Aqua Skin",
+    price: 9500,
+    comparePrice: 13500,
+    image: "/image/aqua/pure-gold-pro-max-ii-1.jpg",
+    images: [
+        "/image/aqua/pure-gold-pro-max-ii-1.jpg",
+        "/image/aqua/pure-gold-pro-max-ii-2.jpg",
+        "/image/aqua/pure-gold-pro-max-ii-3.jpg",
+        "/image/aqua/pure-gold-pro-max-ii-4.jpg"
+    ],
+    description: "Swiss-made DualNA Pico Cell glutathione injection with pure gold infusion. Provides skin whitening, anti-aging, acne reduction, scar healing, collagen stimulation, and detoxification.",
+    details: `
+    <strong>Aqua Skin Pure Gold Pro Max II Dualna Pico Cell Glutathione Injection</strong><br/><br/>
+    A new generation skin care product by Aqua Skin. This skin whitening injection gives amazing results of whiter, brighter looking skin for over three months after implementation. The usage steps are effortless and give amazing outcomes on almost any skin type. Acts as a deep cleansing mask to clean daily pollution and debris, with pore-closing and skin-tightening properties.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 1200 mg (Glutathione complex)</li>
+      <li>Packaging: 30 Sets per box (2 amps per time) | 10 ml vials</li>
+      <li>L Glutathione: 30,000,000 mg</li>
+      <li>Epidermal Growth Factor: 30,000 mg</li>
+      <li>Beta Hydroxy Acid: 1800 mg</li>
+      <li>Vitamin B Complex: Yes</li>
+      <li>Origin: Switzerland</li>
+      <li>Administration: IV once a week</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin whitening and brightening</li>
+      <li>Lightening dark spots</li>
+      <li>Anti-aging</li>
+      <li>Reduces acne and pimples</li>
+      <li>Minimizes pores</li>
+      <li>Healing of scars</li>
+      <li>Stimulates collagen production</li>
+      <li>Detoxification</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Dosage:</strong> Administered once a week by intravenously (IV). Then reduce to 1 injection every 2 weeks for maintenance.<br/><br/>
+
+    <strong>Not Suitable For:</strong> Pregnant women, breastfeeding/nursing women, women during menstruation, vitamin allergies, patients with cardiovascular problems.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "30 Sets per Box",
+        "Made in Switzerland",
+        "DualNA Pico Cell Technology",
+        "Pure Gold Infused",
+        "Skin Whitening & Brightening",
+        "Anti-Aging & Acne Reduction",
+        "Scar Healing & Collagen Boost",
+        "Detoxification"
+    ],
+    sku: "AQUA-PURE-GOLD-PRO-MAX-II",
+    volume: "30 Sets",
+    stock: 10
+},
+{
+    id: 70,
+    name: "Aqua Skin Glyco White Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Aqua Skin",
+    price: 9500,
+    comparePrice: 14000,
+    image: "/image/aqua/glyco-white-1.jpg",
+    images: [
+        "/image/aqua/glyco-white-1.jpg",
+        "/image/aqua/glyco-white-2.jpg",
+        "/image/aqua/glyco-white-3.jpg",
+        "/image/aqua/glyco-white-4.jpg"
+    ],
+    description: "Advanced skin whitening injection with Glyco formula for enhanced glutathione absorption. Reduces melanin, dark spots, uneven tone, and promotes radiant, youthful skin.",
+    details: `
+    <strong>Aqua Skin Glyco White Glutathione Skin Whitening Injection</strong><br/><br/>
+    A cutting-edge skin whitening injection that combines advanced technology with the power of Glutathione, a natural antioxidant. The unique Glyco formula enhances glutathione absorption, allowing it to penetrate deeply into skin layers for more effective results. Free Shipping and COD available all over India.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Formulation: Lyophilized Powder / Injection</li>
+      <li>Packaging: 1 Box – 10 Sessions</li>
+      <li>FDA Approved | GMP Certified | FSSAI Approved</li>
+      <li>Unique Glyco formula for enhanced absorption</li>
+      <li>Targets melanin production and pigmentation</li>
+    </ul>
+    <br/>
+
+    <strong>Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Natural Collagen Extract with L-Ascorbic Acid & Ultra-Glycolic Acid</li>
+      <li>Alpha Lipoic Acid (ALA)</li>
+      <li>Cyanocobalamin (Vitamin B12)</li>
+      <li>Selenium with Dual DNA & RNA Extract</li>
+      <li>Epidermal Growth Factor (EGF)</li>
+      <li>Hyaluronic Acid</li>
+      <li>Glyco-Glutathione</li>
+      <li>Peptide Nano</li>
+      <li>Coenzyme Q10</li>
+      <li>Ginkgo Biloba Extract</li>
+      <li>White Glyco Elements</li>
+      <li>Multivitamin Complex</li>
+      <li>Kojic Acid</li>
+      <li>Thioctic Acid</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Radiant, glowing skin by reducing melanin production</li>
+      <li>Lightens dark spots and restores even skin tone</li>
+      <li>Anti-aging – boosts collagen synthesis for firmer, younger-looking skin</li>
+      <li>Addresses uneven skin tone from sun exposure or hormonal changes</li>
+      <li>Deeply hydrates and repairs skin</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Administered intravenously (IV) under professional supervision. Follow healthcare provider's recommended dosage and schedule.<br/><br/>
+
+    <strong>Note:</strong> The result depends on individual metabolism.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "10 Sessions Pack",
+        "Glyco Formula for Enhanced Absorption",
+        "Reduces Melanin & Dark Spots",
+        "Brightens & Evens Skin Tone",
+        "Anti-Aging & Collagen Boost",
+        "Deep Hydration & Repair",
+        "FDA Approved",
+        "Free Shipping & COD"
+    ],
+    sku: "PTR000426",
+    volume: "10 Sessions",
+    stock: 0
+},
+{
+    id: 71,
+    name: "Aqua Skin Veniscy 138 Trina Pico Cell Pro Max Glutathione Injection",
+    category: "Injection",
+    brand: "Aqua Skin",
+    price: 8800,
+    comparePrice: 12500,
+    image: "/image/aqua/veniscy-138-1.jpg",
+    images: [
+        "/image/aqua/veniscy-138-1.jpg",
+        "/image/aqua/veniscy-138-2.jpg",
+        "/image/aqua/veniscy-138-3.jpg",
+        "/image/aqua/veniscy-138-4.jpg"
+    ],
+    description: "TriNA Pico Cell Pro Max glutathione injection for skin brightening, anti-aging, and even tone. Highly absorbable formula with no adverse side effects.",
+    details: `
+    <strong>Aqua Skin Veniscy 138 Trina Pico Cell Pro Max Glutathione Injection</strong><br/><br/>
+    A hassle-free way to enhance skin's glow and achieve a more youthful appearance. Designed to be highly absorbable, this TriNA Pico Cell formulation ensures effective delivery of glutathione for skin brightening and anti-aging benefits. Safe and efficient solution for reducing skin darkening, especially in areas with little sun exposure.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 138 (TriNA Pico Cell Pro Max formulation)</li>
+      <li>Packaging Size: 10 ml vials</li>
+      <li>Brand: Aqua Skin / Veniscy</li>
+      <li>Form: Injection (IV Infusion)</li>
+      <li>Highly absorbable – no adverse side effects</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin brightening and even tone</li>
+      <li>Anti-aging and youthful appearance</li>
+      <li>Reduces skin darkening and blackheads</li>
+      <li>Gentle – no invasive procedures or frequent salon visits</li>
+      <li>Safe alternative with no irritation</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Administered via IV infusion under professional supervision. Follow healthcare provider's recommendations.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "TriNA Pico Cell Pro Max",
+        "Skin Brightening & Anti-Aging",
+        "Reduces Darkening & Blackheads",
+        "Highly Absorbable",
+        "No Adverse Side Effects",
+        "Gentle & Safe",
+        "IV Infusion",
+        "Youthful Glow"
+    ],
+    sku: "AQUA-VENISCY-138",
+    volume: "1 Box",
+    stock: 10
+},
+{
+    id: 72,
+    name: "Aqua Immune Booster 3 in 1 Glutathione Whitening Injection",
+    category: "Injection",
+    brand: "Aqua Immune",
+    price: 12000,
+    comparePrice: 15000,
+    image: "/image/aqua/immune-booster-1.jpg",
+    images: [
+        "/image/aqua/immune-booster-1.jpg",
+        "/image/aqua/immune-booster-2.jpg",
+        "/image/aqua/immune-booster-3.jpg",
+        "/image/aqua/immune-booster-4.jpg"
+    ],
+    description: "Triple-power glutathione injection with Vitamin C and hyaluronic acid. Protects skin, fades dark spots, boosts collagen, and provides deep hydration for radiant, youthful skin.",
+    details: `
+    <strong>Aqua Immune Booster 3 in 1 Glutathione Whitening Injection</strong><br/><br/>
+    An advanced skincare essential combining three powerful ingredients – Glutathione, Vitamin C, and Hyaluronic Acid – to rejuvenate skin from within. This triple-power formula protects against environmental damage, fades dark spots, boosts collagen synthesis, and delivers deep hydration for a plump, dewy complexion.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Triple-Power Formula: Glutathione + Vitamin C + Hyaluronic Acid</li>
+      <li>Strength: 3 in 1 complex</li>
+      <li>Packaging: Box / Pack</li>
+      <li>Form: Injection</li>
+      <li>Suitable for all skin types, including sensitive skin</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Glutathione Brilliance:</strong> Antioxidant protection for luminous complexion</li>
+      <li><strong>Vitamin C Radiance:</strong> Fades dark spots, boosts collagen for firm, youthful skin</li>
+      <li><strong>Collagen Revival:</strong> Reduces fine lines and wrinkles, restores elasticity</li>
+      <li><strong>Hyaluronic Hydration:</strong> Deep moisture for plump, dewy glow</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Usage:</strong> Administer once or twice a week via IV under professional supervision. Visible improvements in skin texture and tone often noticed within a few weeks of consistent use.<br/><br/>
+
+    <strong>Safety:</strong> Formulated with safe, high-quality ingredients suitable for long-term use. Complements other skincare products seamlessly.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Glutathione + Vitamin C + Hyaluronic Acid",
+        "Triple-Power Formula",
+        "Antioxidant & Skin Brightening",
+        "Fades Dark Spots",
+        "Boosts Collagen for Firmness",
+        "Deep Hydration",
+        "Reduces Fine Lines & Wrinkles",
+        "Suitable for All Skin Types"
+    ],
+    sku: "AQUA-IMMUNE-BOOSTER-3IN1",
+    volume: "1 Box",
+    stock: 10
+},
+{
+    id: 73,
+    name: "Aqua Skin Pure Glow New Glutathione Skin Whitening Injection",
+    category: "Injection",
+    brand: "Aqua Skin",
+    price: 8800,
+    comparePrice: 12500,
+    image: "/image/aqua/pure-glow-new-1.jpg",
+    images: [
+        "/image/aqua/pure-glow-new-1.jpg",
+        "/image/aqua/pure-glow-new-2.jpg",
+        "/image/aqua/pure-glow-new-3.jpg",
+        "/image/aqua/pure-glow-new-4.jpg"
+    ],
+    description: "Liquid glutathione injection for skin whitening therapy. Brightens complexion, reduces pigmentation, and promotes radiant skin. Suitable for adults.",
+    details: `
+    <strong>Aqua Skin Pure Glow New Glutathione Skin Whitening Injection</strong><br/><br/>
+    A premium liquid formulation designed for skin whitening therapy. Helps brighten complexion, reduce pigmentation, and promote overall skin radiance. Suitable for adult use.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Form: Liquid injection</li>
+      <li>Packaging: Multiple vials per box</li>
+      <li>Recommended for: Skin whitening and brightening</li>
+      <li>Suitable for adults</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin brightening and even tone</li>
+      <li>Reduces hyperpigmentation and dark spots</li>
+      <li>Provides antioxidant protection</li>
+      <li>Promotes radiant, glowing skin</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Administer intravenously under professional supervision. Follow healthcare provider's recommended dosage.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Liquid Formulation",
+        "Skin Whitening Therapy",
+        "Brightens Complexion",
+        "Reduces Pigmentation",
+        "Antioxidant Protection",
+        "Radiant Glow",
+        "Suitable for Adults",
+        "Multiple Vials"
+    ],
+    sku: "AQUA-PURE-GLOW-NEW",
+    volume: "1 Box",
+    stock: 10
+},
+{
+    id: 74,
+    name: "Aqua Skin Veniscy 66 Pico Cell Absorption Supreme Effective Skin Whitening Glutathione Injection",
+    category: "Injection",
+    brand: "Aqua Skin",
+    price: 9500,
+    comparePrice: 16000,
+    image: "/image/aqua/veniscy-66-1.jpg",
+    images: [
+        "/image/aqua/veniscy-66-1.jpg",
+        "/image/aqua/veniscy-66-2.jpg",
+        "/image/aqua/veniscy-66-3.jpg",
+        "/image/aqua/veniscy-66-4.jpg"
+    ],
+    description: "Next-generation whitening injection with Pico Cell Absorption technology for superior absorption, deep cellular whitening, detoxification, and skin repair.",
+    details: `
+    <strong>Aqua Skin Veniscy 66 Pico Cell Absorption Supreme Skin Whitening Glutathione Injection</strong><br/><br/>
+    A next-generation whitening and rejuvenation therapy formulated for superior absorption and faster visible results. Powered by Pico Cell Absorption technology, it delivers deep cellular whitening, detoxification, and skin repair in fewer sessions. This advanced formula suppresses melanin production while restoring hydration, elasticity, and collagen strength. With regular professional administration, users experience clearer tone, smoother texture, and long-lasting radiance.<br/><br/>
+    
+    <strong>Composition:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Ultimate Glutathione – 12,000,000 mg</li>
+      <li>Coenzyme Pro Q10 – 9,900,000 mg</li>
+      <li>L-Ascorbic Acid (Vitamin C) – 400,000 mg</li>
+      <li>Natural Collagen Extract – 150,000 mg</li>
+      <li>Hyaluronic Acid – 99,880 mg</li>
+      <li>Epidermal Growth Factor (EGF) – 95,000 mg</li>
+      <li>Alpha Lipoic Acid – 83,500 mg</li>
+      <li>Matrixyl 9000 – 69,800 mg</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Pico Cell Absorption technology for faster, deeper delivery</li>
+      <li>Ultra-high glutathione strength for visible fairness</li>
+      <li>Suitable for all skin types when administered professionally</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Delivers powerful whitening results in fewer sessions</li>
+      <li>Repairs skin damage and reduces dullness</li>
+      <li>Improves hydration, elasticity, and smoothness</li>
+      <li>Helps reduce stubborn pigmentation and melasma</li>
+      <li>Supports deep cellular detoxification</li>
+      <li>Enhances overall glow and skin clarity</li>
+    </ul>
+    <br/>
+
+    <strong>How It Works:</strong> Pico Cell Absorption technology allows active ingredients to bypass traditional metabolic barriers, resulting in faster, deeper, and longer-lasting whitening effects. When paired with collagen and antioxidants, it strengthens skin structure while enhancing glow.<br/><br/>
+
+    <strong>FAQ:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>How soon are results visible?</strong> Most users notice visible improvement after 4–5 sessions.</li>
+      <li><strong>Is this suitable for all skin types?</strong> Yes, when used under professional supervision.</li>
+      <li><strong>Can this be combined with Vitamin C?</strong> Yes, Vitamin C further enhances glutathione absorption and results.</li>
+    </ul>
+    <br/>
+
+    <strong>Why Buy from Skin Solution Store:</strong> Since 2009, trusted for delivering only authentic whitening injections with expert guidance, ensuring safety, originality, and consistent results.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "Pico Cell Absorption Technology",
+        "12,000,000mg Glutathione",
+        "Fast Visible Results (4-5 sessions)",
+        "Reduces Pigmentation & Melasma",
+        "Deep Hydration & Elasticity",
+        "Cellular Detoxification",
+        "With EGF, CoQ10 & Matrixyl",
+        "Suitable for All Skin Types"
+    ],
+    sku: "AQUA-VENISCY-66-PICO",
+    volume: "1 Box",
+    stock: 10
+},
+{
+    id: 75,
+    name: "Aqua Skin Veniscy 50 DualNA Pico-Cell Absorption Ultra Active Skin Whitening Injection",
+    category: "Injection",
+    brand: "Aqua Skin",
+    price: 8800,
+    comparePrice: 12500,
+    image: "/image/aqua/veniscy-50-1.jpg",
+    images: [
+        "/image/aqua/veniscy-50-1.jpg",
+        "/image/aqua/veniscy-50-2.jpg",
+        "/image/aqua/veniscy-50-3.jpg",
+        "/image/aqua/veniscy-50-4.jpg"
+    ],
+    description: "Swiss-made DualNA Pico-Cell absorption injection with high-potency glutathione, collagen, hyaluronic acid, and EGF for skin whitening, brightening, anti-aging, and detoxification.",
+    details: `
+    <strong>Aqua Skin Veniscy 50 DualNA Pico-Cell Absorption Ultra Active Skin Whitening Injection</strong><br/><br/>
+    A premium Swiss formulation designed for skin whitening, glowing, and anti-aging. Based on individual body metabolism, this injection provides safe and effective results with DualNA Pico-Cell absorption technology for deeper penetration and faster action.<br/><br/>
+    
+    <strong>Composition:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Ultimate Glutathione – 10,000,000 mg</li>
+      <li>Natural Collagen Extract – 120,000 mg</li>
+      <li>Hyaluronic Acid – 99,880 mg</li>
+      <li>Beta Hydroxy Acid – 99,880 mg</li>
+      <li>Epidermal Growth Factor (EGF) – 75,000 mg</li>
+      <li>Alpha Lipoic Acid (ALA) – 71,500 mg</li>
+      <li>L Glutathione – 50,000 mg</li>
+      <li>Vitamin B Complex – Yes</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>10 Sessions per box (1 amp + 2 vials per set)</li>
+      <li>Made in Switzerland</li>
+      <li>Grade Standard: A++</li>
+      <li>Dermatologist tested | No side effects</li>
+      <li>Vegetarian | Unisex</li>
+      <li>PCD Pharma available</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Skin whitening and brightening</li>
+      <li>Lightening dark spots</li>
+      <li>Anti-aging effects</li>
+      <li>Reduces acne and pimples</li>
+      <li>Minimizes pores</li>
+      <li>Healing of scars</li>
+      <li>Stimulates collagen production</li>
+      <li>Detoxification</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Dosage:</strong> Each 10 ml with 2 vials of lyophilized powder per day. Administer once or twice per week by intravenously (IV). Then reduce to 1 injection every 2 weeks for maintenance.<br/><br/>
+
+    <strong>Not Suitable For:</strong> Pregnant women, breastfeeding/nursing women, during menstruation, vitamin allergies, cardiovascular problems.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results vary based on individual metabolism. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "10 Sessions per Box",
+        "Made in Switzerland",
+        "DualNA Pico-Cell Absorption",
+        "10,000,000mg Glutathione",
+        "Skin Whitening & Brightening",
+        "Anti-Aging & Acne Reduction",
+        "Scar Healing & Collagen Boost",
+        "Detoxification"
+    ],
+    sku: "AQUA-VENISCY-50",
+    volume: "10 Sessions",
+    stock: 10
 }
 ];
 
