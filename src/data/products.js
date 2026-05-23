@@ -5966,6 +5966,68 @@ const PRODUCTS = [
     sku: "MIRACLE-WHITE-MAGIC-150K",
     volume: "1 Box (10 ml vials)",
     stock: 10
+},
+{
+    id: 87,
+    name: "NC24 9000000mg Ultra Sense Complexion Glutathione Injection",
+    category: "Injection",
+    brand: "NC24",
+    price: 8800,
+    comparePrice: 12500,
+    image: "/image/nc24/ultra-sense-9000000mg-1.jpg",
+    images: [
+        "/image/nc24/ultra-sense-9000000mg-1.jpg",
+        "/image/nc24/ultra-sense-9000000mg-2.jpg",
+        "/image/nc24/ultra-sense-9000000mg-3.jpg",
+        "/image/nc24/ultra-sense-9000000mg-4.jpg"
+    ],
+    description: "Japanese glutathione injection for skin brightening, collagen boost, hydration, anti-aging, acne treatment, and wrinkle reduction. Dermatologically tested with no side effects.",
+    details: `
+    <strong>NC24 9000000mg Ultra Sense Complexion Glutathione Injection</strong><br/><br/>
+    A Japanese injection formulated for skin brightening, boosting collagen levels for brighter, healthier skin. Contains antioxidants that reduce oxidative stress, making skin glow within weeks and improving overall skin quality. Dermatologically tested and proven safe, it removes dryness, smooths skin, and gives an everlasting smooth glowing texture.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 9,000,000 mg (9 million) Glutathione complex</li>
+      <li>Packaging Size: 10 Sessions per box</li>
+      <li>L Glutathione: 900,000 mg</li>
+      <li>Epidermal Growth Factor: 15,000 mg</li>
+      <li>Grade Standard: A+</li>
+      <li>Manufactured By: Japan</li>
+      <li>Vegetarian | No side effects | Men & Women</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Brightens skin shade by increasing collagen</li>
+      <li>Provides deep hydration for glowing skin</li>
+      <li>Removes dryness</li>
+      <li>Anti-aging effects</li>
+      <li>Treats acne, eczema, and discoloration</li>
+      <li>Reduces skin inflammation and wrinkles</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> One ampoule per injection every week for 1-2 months. Administer Intravenous IV Infusion (Drip).<br/><br/>
+
+    <strong>Not Suitable For:</strong> Breastfeeding, pregnant women, vitamin allergies, cardiovascular problems.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Professional use only. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "10 Sessions per Box",
+        "Made in Japan",
+        "9,000,000mg Glutathione",
+        "Boosts Collagen & Hydration",
+        "Anti-Aging & Wrinkle Reduction",
+        "Treats Acne, Eczema & Discoloration",
+        "Dermatologically Tested",
+        "No Side Effects"
+    ],
+    sku: "NC24-ULTRA-SENSE-9M",
+    volume: "10 Sessions",
+    stock: 10
 }
 ];
 

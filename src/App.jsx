@@ -27,15 +27,7 @@ if (!RAZORPAY_KEY_ID && import.meta.env.MODE === 'development') {
 }
 
 /* --- Data & Constants --- */
-// `BRANDS_LIST` and `FAQS` moved to `src/data/brands.js` and `src/data/faqs.js` and imported above
-
-// Blog posts moved to `src/data/blogs.js` and imported above
-
-// IDs for homepage bestselling products. Update this array to change displayed items.
 const BEST_SELLER_IDS = [1, 2, 3, 4]; 
-
-
-// Categories moved to `src/data/categories.js` and imported above
 
 const Toast = ({ message, type, onClose }) => {
   useEffect(() => {
@@ -78,6 +70,9 @@ const SectionHeader = ({ title, subtitle, center = true }) => (
   </div>
 );
 
+/* ========================================================
+   UPDATED NAVIGATION COMPONENT (FIXED & FULLY INTEGRATED)
+   ======================================================== */
 const Navigation = ({ 
   currentPage, 
   setCurrentPage, 
@@ -113,139 +108,192 @@ const Navigation = ({
             <div className="bg-[#e67e22] text-white py-2 text-center text-[11px] font-bold tracking-wider">
                 PAN INDIA SHIPPING AND COLD CHAIN DELIVERY AVAILABLE!
             </div>
-            <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300">
-             <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between gap-4">
+            <header className="sticky top-0 z-50 bg-white border-b-2 border-black">
+             {/* Main Bar */}
+             <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between gap-8">
                 
-                {/* LEFT: HAMBURGER + LOGO (desktop) */}
-                <div className="flex items-center gap-3 shrink-0">
-                    <button className="lg:hidden p-2 text-gray-800 hover:bg-gray-100 rounded-full" onClick={() => setMobileMenuOpen(true)} aria-label="Open menu">
+                {/* LEFT: HAMBURGER (mobile) + BRAND LOGO MARK */}
+                <div className="flex items-center gap-4 shrink-0">
+                    <button className="lg:hidden p-2 text-black hover:bg-gray-100 rounded-full" onClick={() => setMobileMenuOpen(true)} aria-label="Open menu">
                         <Menu size={24} />
                     </button>
 
-                    <div className="cursor-pointer hidden lg:block" onClick={() => setCurrentPage('home')}>
-                        {/* MAX BOLD + TIGHT SPACING */}
-                        <span className="text-2xl font-sans font-black uppercase tracking-tighter select-none text-black">
-                            Shaa trading
+                    <div className="cursor-pointer" onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('home'); }}>
+                        <span className="text-2xl md:text-3xl font-sans font-black uppercase tracking-tighter text-black select-none block" style={{ fontStyle: 'normal', fontWeight: 950 }}>
+                            SHAA TRADING®
                         </span>
                     </div>
                 </div>
 
-                {/* CENTER: LOGO (mobile centered) */}
-                <div className="cursor-pointer lg:hidden flex-1 flex justify-center" onClick={() => setCurrentPage('home')}>
-                    <span className="text-2xl font-sans font-black uppercase tracking-tighter select-none text-black">
-                        Shaa trading
-                    </span>
-                </div>
-
-                {/* DESKTOP NAV */}
-                <nav className="hidden lg:flex items-center gap-8 flex-1 justify-center">
-                    <button onClick={() => setCurrentPage('home')} className={`text-sm font-medium tracking-wide ${currentPage === 'home' ? 'text-black' : 'text-gray-600 hover:text-black'}`}>Home</button>
-                    
-                    {/* Shop Dropdown */}
-                    <div 
-                        className="relative group"
-                        onMouseEnter={() => setShopDropdownOpen(true)}
-                        onMouseLeave={() => setShopDropdownOpen(false)}
-                    >
-                        <button 
-                            onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('shop'); }} 
-                            className={`flex items-center gap-1 text-sm font-medium tracking-wide py-6 ${currentPage === 'shop' ? 'text-black' : 'text-gray-600 hover:text-black'}`}
-                        >
-                            Shop <ChevronDown size={14}/>
-                        </button>
-
-                        <div className={`absolute top-full left-0 md:left-1/2 md:-translate-x-1/2 w-full md:w-[600px] bg-white shadow-xl border border-gray-100 rounded-xl p-4 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 transition-all duration-200 origin-top ${shopDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}`}>
-                            <div>
-                                <h4 className="font-serif text-lg mb-4 text-gray-900 border-b border-gray-100 pb-2">Categories</h4>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                    <button onClick={() => { setShopFilter('All'); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-left text-sm text-gray-500 hover:text-black hover:bg-gray-50 p-1 rounded">View All</button>
-                                    {CATEGORIES.map(cat => (
-                                        <button key={cat.id} onClick={() => { setShopFilter(cat.name); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-left text-sm text-gray-500 hover:text-black hover:bg-gray-50 p-1 rounded">{cat.name}</button>
-                                    ))}
-                                </div>
-                            </div>
-                            <div>
-                                <h4 className="font-serif text-lg mb-4 text-gray-900 border-b border-gray-100 pb-2">Top Brands</h4>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                    <button onClick={() => { setBrandFilter('All Brands'); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-left text-sm text-gray-500 hover:text-black hover:bg-gray-50 p-1 rounded">All Brands</button>
-                                    {BRANDS_LIST.slice(1, 12).map(brand => (
-                                        <button key={brand} onClick={() => { setBrandFilter(brand); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-left text-sm text-gray-500 hover:text-black hover:bg-gray-50 p-1 rounded">{brand}</button>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button onClick={() => setCurrentPage('blog')} className={`text-sm font-medium tracking-wide ${currentPage === 'blog' ? 'text-black' : 'text-gray-600 hover:text-black'}`}>Blog</button>
-                    <button onClick={() => setCurrentPage('contact')} className={`text-sm font-medium tracking-wide ${currentPage === 'contact' ? 'text-black' : 'text-gray-600 hover:text-black'}`}>Contact</button>
-                </nav>
-
-                {/* ICONS & SEARCH */}
-                <div className="flex items-center gap-2 md:gap-4 shrink-0">
-                    <div className={`flex items-center bg-gray-100 rounded-full transition-all duration-300 overflow-hidden ${isSearchOpen ? 'w-48 md:w-64 px-3' : 'w-10 h-10 justify-center bg-transparent hover:bg-gray-100'}`}>
-                         <Search 
-                            size={20} 
-                            className="text-gray-800 cursor-pointer shrink-0" 
-                            onClick={() => {
-                                setIsSearchOpen(!isSearchOpen); 
-                                if(!isSearchOpen) setTimeout(() => document.getElementById('nav-search')?.focus(), 100);
-                            }} 
-                         />
-                         <input 
-                            id="nav-search"
+                {/* CENTER: DESKTOP SEARCH BAR */}
+                <div className="hidden lg:flex flex-1 max-w-xl relative mx-4">
+                    <div className="relative w-full flex items-center bg-gray-50 border border-gray-300 rounded-md px-4 py-2.5 transition-all focus-within:border-black focus-within:bg-white">
+                        <input 
+                            id="nav-search-desktop"
                             type="text" 
-                            placeholder="Search..." 
+                            placeholder="SEARCH FOR PRODUCTS" 
                             value={searchQuery}
                             onChange={handleSearchChange}
-                            className={`bg-transparent border-none outline-none text-sm ml-2 w-full ${isSearchOpen ? 'block' : 'hidden'}`}
-                         />
-                         {isSearchOpen && searchQuery && (
-                             <button onClick={() => setSearchQuery('')}><X size={14} className="text-gray-400"/></button>
-                         )}
+                            className="bg-transparent border-none outline-none text-xs font-bold tracking-wider text-black w-full placeholder-gray-400 uppercase"
+                        />
+                        <button className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-black transition-colors ml-2">
+                            SEARCH
+                        </button>
                     </div>
+                </div>
 
-                    {/* USER DROPDOWN (DESKTOP) */}
+                {/* RIGHT: ACCOUNT & CART CONTROLS */}
+                <div className="flex items-center gap-3 md:gap-5 shrink-0">
+                    {/* Mobile Search Toggle */}
+                    <button className="lg:hidden p-2 text-black" onClick={() => setIsSearchOpen(!isSearchOpen)}>
+                        <Search size={22} />
+                    </button>
+
+                    {/* USER PANEL DROPDOWN */}
                     <div 
-                        className="relative hidden lg:block"
+                        className="relative hidden md:block"
                         onMouseEnter={() => setUserDropdownOpen(true)}
                         onMouseLeave={() => setUserDropdownOpen(false)}
                     >
-                        <button className="p-2 text-gray-800 hover:text-black hover:bg-gray-100 rounded-full transition-colors">
-                            <User size={22} />
+                        <button className="p-2 text-black hover:bg-gray-50 rounded-sm transition-colors">
+                            <User size={24} strokeWidth={1.5} />
                         </button>
                         
-                        <div className={`absolute top-full right-0 w-48 bg-white shadow-xl border border-gray-100 rounded-xl p-2 transition-all duration-200 origin-top-right ${userDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}`}>
+                        <div className={`absolute top-full right-0 w-52 bg-white shadow-2xl border-2 border-black p-2 mt-1 transition-all duration-200 origin-top-right ${userDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}`}>
                             {user ? (
                                 <>
-                                    <div className="px-3 py-2 border-b border-gray-50 mb-1">
-                                        <p className="text-xs text-gray-500">Signed in as</p>
-                                        <p className="text-sm font-bold truncate">{user.name}</p>
+                                    <div className="px-3 py-2 border-b border-gray-100 mb-1">
+                                        <p className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">Signed in as</p>
+                                        <p className="text-xs font-black uppercase tracking-tight truncate text-black">{user.name}</p>
                                     </div>
-                                    <button onClick={() => { setCurrentPage('orders'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><ShoppingBag size={14}/> My Orders</button>
-                                    <button onClick={() => { setCurrentPage('track'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><Truck size={14}/> Track Order</button>
-                                    
+                                    <button onClick={() => { setCurrentPage('orders'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-xs font-bold uppercase tracking-wider text-gray-700 hover:bg-gray-100 rounded flex items-center gap-2"><ShoppingBag size={14}/> My Orders</button>
+                                    <button onClick={() => { setCurrentPage('track'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-xs font-bold uppercase tracking-wider text-gray-700 hover:bg-gray-100 rounded flex items-center gap-2"><Truck size={14}/> Track Order</button>
                                     {user.isAdmin && (
-                                        <button onClick={() => { setCurrentPage('admin'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><ShieldCheck size={14}/> Admin Panel</button>
+                                        <button onClick={() => { setCurrentPage('admin'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-xs font-bold uppercase tracking-wider text-gray-700 hover:bg-gray-100 rounded flex items-center gap-2"><ShieldCheck size={14}/> Admin Panel</button>
                                     )}
-
-                                    <button onClick={() => { handleLogout(); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded mt-1 flex items-center gap-2"><ArrowRight size={14}/> Logout</button>
+                                    <button onClick={() => { handleLogout(); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-xs font-bold uppercase tracking-wider text-red-600 hover:bg-red-50 rounded mt-1 flex items-center gap-2"><ArrowRight size={14}/> Logout</button>
                                 </>
                             ) : (
                                 <>
-                                    <button onClick={() => { setCurrentPage('login'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded">Login</button>
-                                    <button onClick={() => { setCurrentPage('signup'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded">Register</button>
-                                    <div className="h-px bg-gray-50 my-1"></div>
-                                    <button onClick={() => { setCurrentPage('track'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded flex items-center gap-2"><Truck size={14}/> Track Order</button>
+                                    <button onClick={() => { setCurrentPage('login'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-xs font-bold uppercase tracking-wider text-gray-700 hover:bg-gray-100 rounded">Login</button>
+                                    <button onClick={() => { setCurrentPage('signup'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-xs font-bold uppercase tracking-wider text-gray-700 hover:bg-gray-100 rounded">Register</button>
+                                    <div className="h-px bg-gray-100 my-1"></div>
+                                    <button onClick={() => { setCurrentPage('track'); setUserDropdownOpen(false); }} className="w-full text-left px-3 py-2 text-xs font-bold uppercase tracking-wider text-gray-700 hover:bg-gray-100 rounded flex items-center gap-2"><Truck size={14}/> Track Order</button>
                                 </>
                             )}
                         </div>
                     </div>
 
-                    <button className="relative p-2 text-gray-800 hover:text-black hover:bg-gray-100 rounded-full transition-colors" onClick={toggleCart}>
-                        <ShoppingBag size={22} />
-                        {cartCount > 0 && <span className="absolute -top-1 -right-1 bg-black text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full">{cartCount}</span>}
+                    {/* CART ICON */}
+                    <button className="relative p-2 text-black hover:bg-gray-50 rounded-sm transition-colors" onClick={toggleCart}>
+                        <ShoppingBag size={24} strokeWidth={1.5} />
+                        {cartCount > 0 && (
+                            <span className="absolute -top-0.5 -right-0.5 bg-red-600 text-white text-[9px] font-black w-5 h-5 flex items-center justify-center rounded-full shadow-sm">
+                                {cartCount}
+                            </span>
+                        )}
                     </button>
                 </div>
+             </div>
+
+             {/* MOBILE SEARCH CONTAINER */}
+             {isSearchOpen && (
+                 <div className="lg:hidden px-4 pb-4 animate-fade-in">
+                     <div className="flex items-center bg-gray-50 border border-gray-300 rounded-md px-3 py-2">
+                         <input 
+                             type="text" 
+                             placeholder="SEARCH FOR PRODUCTS..." 
+                             value={searchQuery}
+                             onChange={handleSearchChange}
+                             className="bg-transparent border-none outline-none text-xs font-bold w-full uppercase"
+                         />
+                         {searchQuery && <button onClick={() => setSearchQuery('')}><X size={16} className="text-gray-400"/></button>}
+                     </div>
+                 </div>
+             )}
+
+             {/* LOWER LINKS STRIP: CENTRED UNIFIED SUB NAVIGATION BAR PANEL */}
+             <div className="bg-[#f3f4f6] border-t border-b border-black hidden lg:block">
+                 <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-center gap-6 xl:gap-8">
+                     
+                     {/* Catalog Dropdown Trigger */}
+                     <div 
+                         className="relative h-full"
+                         onMouseEnter={() => setShopDropdownOpen(true)}
+                         onMouseLeave={() => setShopDropdownOpen(false)}
+                     >
+                         <button 
+                             onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('shop'); }} 
+                             className={`text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 flex items-center gap-1 border-b-2 ${
+                                 currentPage === 'shop' ? 'border-black text-black' : 'border-transparent text-gray-700 hover:text-black'
+                             }`}
+                         >
+                             CATALOG <ChevronDown size={12} strokeWidth={3}/>
+                         </button>
+
+                         {/* Dropdown Menu Panel */}
+                         <div className={`absolute top-full left-1/2 -translate-x-1/2 w-[500px] bg-white shadow-2xl border-2 border-black p-6 grid grid-cols-2 gap-6 transition-all duration-200 origin-top z-50 ${shopDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}`}>
+                             <div>
+                                 <h4 className="text-[10px] font-black uppercase tracking-wider text-black border-b border-gray-200 pb-2 mb-3">Categories</h4>
+                                 <div className="flex flex-col gap-1.5 items-start">
+                                     <button onClick={() => { setShopFilter('All'); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-xs font-bold uppercase tracking-tight text-gray-500 hover:text-black transition-colors">View All</button>
+                                     {CATEGORIES.map(cat => (
+                                         <button key={cat.id} onClick={() => { setShopFilter(cat.name); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-xs font-bold uppercase tracking-tight text-gray-500 hover:text-black transition-colors">{cat.name}</button>
+                                     ))}
+                                 </div>
+                             </div>
+                             <div>
+                                 <h4 className="text-[10px] font-black uppercase tracking-wider text-black border-b border-gray-200 pb-2 mb-3">Brands</h4>
+                                 <div className="flex flex-col gap-1.5 items-start">
+                                     <button onClick={() => { setBrandFilter('All Brands'); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-xs font-bold uppercase tracking-tight text-gray-500 hover:text-black transition-colors">All Brands</button>
+                                     {BRANDS_LIST.slice(1, 7).map(brand => (
+                                         <button key={brand} onClick={() => { setBrandFilter(brand); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-xs font-bold uppercase tracking-tight text-gray-500 hover:text-black transition-colors">{brand}</button>
+                                     ))}
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+
+                     <button 
+                         onClick={() => { setShopFilter('Injection'); setCurrentPage('shop'); }}
+                         className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
+                     >
+                         INJECTIONS
+                     </button>
+                     
+                     <button 
+                         onClick={() => { setShopFilter('Cream'); setCurrentPage('shop'); }}
+                         className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
+                     >
+                         CREAMS
+                     </button>
+                     
+                     <button 
+                         onClick={() => { setShopFilter('Weight'); setCurrentPage('shop'); }}
+                         className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
+                     >
+                         WEIGHT GAIN
+                     </button>
+
+                     <button 
+                         onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('blog'); }} 
+                         className={`text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center ${
+                             currentPage === 'blog' ? 'border-black text-black' : 'border-transparent text-gray-700 hover:text-black'
+                         }`}
+                     >
+                         BLOG
+                     </button>
+
+                     <button 
+                         onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('contact'); }} 
+                         className={`text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center ${
+                             currentPage === 'contact' ? 'border-black text-black' : 'border-transparent text-gray-700 hover:text-black'
+                         }`}
+                     >
+                         CONTACT
+                     </button>
+
+                 </div>
              </div>
             </header>
             
@@ -253,75 +301,24 @@ const Navigation = ({
             <div className={`fixed inset-0 z-[60] flex ${mobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
                 <div className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-100' : 'opacity-0'}`} onClick={() => setMobileMenuOpen(false)} />
                 <div className={`relative bg-white w-[85%] max-w-xs h-full shadow-2xl transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-                    <div className="flex flex-col h-full">
-                        <div className="p-6 flex justify-between items-center border-b border-gray-100">
-                            {/* MOBILE DRAWER LOGO */}
-                            <span className="text-2xl font-sans font-black uppercase tracking-tighter">Shaa trading</span>
-                            <button onClick={() => setMobileMenuOpen(false)} className="text-gray-500 hover:text-black"><X size={24} /></button>
+                    <div className="flex flex-col h-full border-r-2 border-black">
+                        <div className="p-6 flex justify-between items-center border-b-2 border-black">
+                            <span className="text-2xl font-sans font-black uppercase tracking-tighter">SHAA TRADING®</span>
+                            <button onClick={() => setMobileMenuOpen(false)} className="text-black"><X size={24} /></button>
                         </div>
-                        <div className="flex-1 overflow-y-auto py-4">
-                            <div className="flex flex-col">
-                                <button onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">Home</button>
-                                
-                                <div className="border-b border-gray-50">
-                                    <button onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('shop'); setMobileMenuOpen(false); }} className="w-full px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 bg-gray-50/50">Shop All</button>
-                                    
-                                    <button onClick={() => toggleMobileSection('categories')} className="w-full px-6 py-3 text-left flex justify-between items-center text-sm font-bold text-gray-500 uppercase tracking-widest bg-white">
-                                        Categories <ChevronDown size={14} className={`transition-transform ${mobileExpanded.categories ? 'rotate-180' : ''}`}/>
-                                    </button>
-                                    {mobileExpanded.categories && (
-                                        <div className="bg-gray-50 px-6 py-2 space-y-2">
-                                            {CATEGORIES.map(cat => (
-                                                <button key={cat.id} onClick={() => { setShopFilter(cat.name); setCurrentPage('shop'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600 py-1">{cat.name}</button>
-                                            ))}
-                                        </div>
-                                    )}
-
-                                    <button onClick={() => toggleMobileSection('brands')} className="w-full px-6 py-3 text-left flex justify-between items-center text-sm font-bold text-gray-500 uppercase tracking-widest bg-white border-t border-gray-50">
-                                        Brands <ChevronDown size={14} className={`transition-transform ${mobileExpanded.brands ? 'rotate-180' : ''}`}/>
-                                    </button>
-                                    {mobileExpanded.brands && (
-                                        <div className="bg-gray-50 px-6 py-2 space-y-2 max-h-60 overflow-y-auto">
-                                            {BRANDS_LIST.map(brand => (
-                                                <button key={brand} onClick={() => { setBrandFilter(brand); setCurrentPage('shop'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600 py-1">{brand}</button>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-
-                                <button onClick={() => { setCurrentPage('blog'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">Blog</button>
-                                
-                                <button onClick={() => toggleMobileSection('account')} className="w-full px-6 py-4 text-left flex justify-between items-center text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">
-                                    Account {user && <span className="text-xs bg-black text-white px-2 py-0.5 rounded-full ml-2">Logged In</span>}
-                                    <ChevronDown size={14} className={`transition-transform ${mobileExpanded.account ? 'rotate-180' : ''}`}/>
-                                </button>
-                                {mobileExpanded.account && (
-                                    <div className="bg-gray-50 px-6 py-4 space-y-3">
-                                        {user ? (
-                                            <>
-                                                <button onClick={() => { setCurrentPage('track'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Track Orders</button>
-                                                {user.isAdmin && (
-                                                    <button onClick={() => { setCurrentPage('admin'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Admin Panel</button>
-                                                )}
-                                                <button onClick={() => { handleLogout(); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-red-500">Logout</button>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <button onClick={() => { setCurrentPage('login'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Login</button>
-                                                <button onClick={() => { setCurrentPage('signup'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Register</button>
-                                                <button onClick={() => { setCurrentPage('track'); setMobileMenuOpen(false); }} className="block w-full text-left text-sm text-gray-600">Track Order</button>
-                                            </>
-                                        )}
-                                    </div>
-                                )}
-                                <button onClick={() => { setCurrentPage('contact'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 border-b border-gray-50">Contact</button>
+                        <div className="flex-1 overflow-y-auto py-4 bg-gray-50">
+                            <div className="flex flex-col font-bold uppercase tracking-wider text-xs">
+                                <button onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('home'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-black border-b border-gray-200 hover:bg-gray-100">Home</button>
+                                <button onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('shop'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-black border-b border-gray-200 hover:bg-gray-100">Catalog</button>
+                                <button onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('blog'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-black border-b border-gray-200 hover:bg-gray-100">Blog</button>
+                                <button onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('contact'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-black border-b border-gray-200 hover:bg-gray-100">Contact</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </>
-    )
+    );
 };
 
 const PaymentSuccessView = ({ navigateTo, showToast, transactionId }) => {
@@ -3192,152 +3189,151 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
     const { title, description, jsonLd, keywords, canonical, robots } = getSeoConfig(currentPage, selectedProduct, selectedPost);
     
     return (
-      <div className="font-sans text-gray-900 bg-[#fbfbfb] min-h-screen flex flex-col selection:bg-gray-800 selection:text-white">
-        <Helmet>
-          <title>{title}</title>
-          <meta name="description" content={description} />
-          {keywords && <meta name="keywords" content={keywords} />}
-          {robots && <meta name="robots" content={robots} />}
-          <link rel="canonical" href={canonical} />
-        </Helmet>
-        
-        {/* Global Styles */}
-        <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@200;300;400;500;600&display=swap');
-          .font-serif { font-family: 'Cormorant Garamond', serif; }
-          .font-sans { font-family: 'Inter', sans-serif; }
-          .scrollbar-hide::-webkit-scrollbar { display: none; }
-          .animate-fade-in { animation: fade-in 0.6s ease-out forwards; }
-          .animate-slide-up { animation: slide-up 0.8s ease-out forwards; }
-          .animate-marquee { animation: marquee 20s linear infinite; }
-          @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
-          @keyframes slide-up { from { transform: translate(0, 40px); opacity: 0; } to { transform: translate(0, 0); opacity: 1; } }
-          @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        `}</style>
-  
-        {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
-  
-        {currentPage === 'success' ? (
-          <PaymentSuccessView navigateTo={navigateTo} showToast={showToast} transactionId={transactionId} />
-        ) : (
-          <>
-            <Navigation 
-              currentPage={currentPage} 
-              setCurrentPage={navigateTo}
-              cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)}
-              toggleCart={() => navigateTo('cart')} // now opens cart page instead of drawer
-              mobileMenuOpen={mobileMenuOpen}
-              setMobileMenuOpen={setMobileMenuOpen}
-              setShopFilter={setShopFilter} 
-              setBrandFilter={setBrandFilter}
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-              user={user}                 // PASSING USER
-              handleLogout={handleLogout} // PASSING LOGOUT
-            />
-  
-           <main className="flex-grow">
-              {currentPage === 'home' && <HomeView navigateTo={navigateTo} addToCart={addToCart} setShopFilter={setShopFilter} />}
-              
-              {currentPage === 'shop' && (
-                <ShopView 
-                  navigateTo={navigateTo} 
-                  addToCart={addToCart} 
-                  filter={shopFilter} 
-                  setFilter={setShopFilter} 
-                  brandFilter={brandFilter}
-                  setBrandFilter={setBrandFilter}
-                  searchQuery={searchQuery}
-                  setSearchQuery={setSearchQuery}
-                />
-              )}
+    <div className="font-sans text-gray-900 bg-[#fbfbfb] min-h-screen flex flex-col selection:bg-gray-800 selection:text-white">
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        {keywords && <meta name="keywords" content={keywords} />}
+        {robots && <meta name="robots" content={robots} />}
+        <link rel="canonical" href={canonical} />
+      </Helmet>
+      
+      {/* Global Styles Container */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@200;300;400;500;600&display=swap');
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .animate-fade-in { animation: fade-in 0.6s ease-out forwards; }
+        .animate-slide-up { animation: slide-up 0.8s ease-out forwards; }
+        .animate-marquee { animation: marquee 20s linear infinite; }
+        @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slide-up { from { transform: translate(0, 40px); opacity: 0; } to { transform: translate(0, 0); opacity: 1; } }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+      `}</style>
 
-              {currentPage === 'product' && selectedProduct && <ProductView product={selectedProduct} addToCart={addToCart} navigateTo={navigateTo} />}
-              {currentPage === 'cart' && (
-                <CartView
-                  cart={cart}
-                  updateQuantity={updateQuantity}
-                  removeFromCart={removeFromCart}
-                  checkout={handlePayment}
-                  navigateTo={navigateTo}
-                />
-              )}
-              {currentPage === 'blog' && <BlogView navigateTo={navigateTo} />}
-              {currentPage === 'blog-post' && selectedPost && <BlogPostView post={selectedPost} navigateTo={navigateTo} />}
-              {currentPage === 'about' && <AboutView />}
-              {currentPage === 'contact' && <ContactView showToast={showToast} />}
-              {currentPage === 'privacy' && <PrivacyPolicyView />}
-              {currentPage === 'terms' && <TermsOfServiceView />}
-              {currentPage === 'shipping' && <ShippingPolicyView />}
-              
-              {currentPage === 'login' && (
-                <LoginView
-                  navigateTo={navigateTo}
-                  setAuthToken={setAuthToken}
-                  setUser={setUser}
-                  showToast={showToast}
-                />
-              )}
+      {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
 
-              {currentPage === 'signup' && (
-                <SignupView
-                  navigateTo={navigateTo}
-                  showToast={showToast}
-                />
-              )}
+      {currentPage === 'success' ? (
+        <PaymentSuccessView navigateTo={navigateTo} showToast={showToast} transactionId={transactionId} />
+      ) : (
+        <>
+          {/* CRITICAL PROP PASSTHROUGH CORRECTION */}
+          <Navigation 
+            currentPage={currentPage} 
+            setCurrentPage={navigateTo}
+            cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)}
+            toggleCart={() => navigateTo('cart')}
+            mobileMenuOpen={mobileMenuOpen}
+            setMobileMenuOpen={setMobileMenuOpen}
+            setShopFilter={setShopFilter}    // Synchronized correctly
+            setBrandFilter={setBrandFilter}  // Synchronized correctly
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            user={user}                 
+            handleLogout={handleLogout} 
+          />
 
-              {currentPage === 'track' && (
-                <TrackOrderView
-                  navigateTo={navigateTo}
-                  showToast={showToast}
-                />
-              )}
+         <main className="flex-grow">
+            {currentPage === 'home' && <HomeView navigateTo={navigateTo} addToCart={addToCart} setShopFilter={setShopFilter} />}
+            
+            {currentPage === 'shop' && (
+              <ShopView 
+                navigateTo={navigateTo} 
+                addToCart={addToCart} 
+                filter={shopFilter} 
+                setFilter={setShopFilter} 
+                brandFilter={brandFilter}
+                setBrandFilter={setBrandFilter}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+              />
+            )}
 
-              {currentPage === 'orders' && (
-                <OrderHistoryView
-                  token={authToken}
-                  user={user}
-                  showToast={showToast}
-                  navigateTo={navigateTo}
-                />
-              )}
+            {currentPage === 'product' && selectedProduct && <ProductView product={selectedProduct} addToCart={addToCart} navigateTo={navigateTo} />}
+            {currentPage === 'cart' && (
+              <CartView
+                cart={cart}
+                updateQuantity={updateQuantity}
+                removeFromCart={removeFromCart}
+                checkout={handlePayment}
+                navigateTo={navigateTo}
+              />
+            )}
+            {currentPage === 'blog' && <BlogView navigateTo={navigateTo} />}
+            {currentPage === 'blog-post' && selectedPost && <BlogPostView post={selectedPost} navigateTo={navigateTo} />}
+            {currentPage === 'about' && <AboutView />}
+            {currentPage === 'contact' && <ContactView showToast={showToast} />}
+            {currentPage === 'privacy' && <PrivacyPolicyView />}
+            {currentPage === 'terms' && <TermsOfServiceView />}
+            {currentPage === 'shipping' && <ShippingPolicyView />}
+            
+            {currentPage === 'login' && (
+              <LoginView
+                navigateTo={navigateTo}
+                setAuthToken={setAuthToken}
+                setUser={setUser}
+                showToast={showToast}
+              />
+            )}
 
-              {/* --- CORRECTED ADMIN RENDER LOGIC --- */}
-              {currentPage === 'admin' && authToken && user?.isAdmin ? (
-                <AdminView
-                  token={authToken}
-                  user={user}
-                  showToast={showToast}
-                  navigateTo={navigateTo}
-                  handleLogout={handleLogout}
-                />
-              ) : currentPage === 'admin' ? (
-                <div className="min-h-screen flex items-center justify-center bg-gray-50 pt-20">
-                  <div className="text-center">
-                    <h1 className="text-3xl font-serif text-gray-900 mb-2">Access Denied</h1>
-                    <p className="text-gray-500 mb-6">You do not have permission to access the admin dashboard.</p>
-                    <button onClick={() => navigateTo('home')} className="px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800">
-                      Back to Home
-                    </button>
-                  </div>
+            {currentPage === 'signup' && (
+              <SignupView
+                navigateTo={navigateTo}
+                showToast={showToast}
+              />
+            )}
+
+            {currentPage === 'track' && (
+              <TrackOrderView
+                navigateTo={navigateTo}
+                showToast={showToast}
+              />
+            )}
+
+            {currentPage === 'orders' && (
+              <OrderHistoryView
+                token={authToken}
+                user={user}
+                showToast={showToast}
+                navigateTo={navigateTo}
+              />
+            )}
+
+            {currentPage === 'admin' && authToken && user?.isAdmin ? (
+              <AdminView
+                token={authToken}
+                user={user}
+                showToast={showToast}
+                navigateTo={navigateTo}
+                handleLogout={handleLogout}
+              />
+            ) : currentPage === 'admin' ? (
+              <div className="min-h-screen flex items-center justify-center bg-gray-50 pt-20">
+                <div className="text-center">
+                  <h1 className="text-3xl font-serif text-gray-900 mb-2">Access Denied</h1>
+                  <p className="text-gray-500 mb-6">You do not have permission to access the admin dashboard.</p>
+                  <button onClick={() => navigateTo('home')} className="px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800">
+                    Back to Home
+                  </button>
                 </div>
-              ) : null}
-              {/* --- END CORRECTED LOGIC --- */}
+              </div>
+            ) : null}
 
-            </main>
-  
-            <Footer setCurrentPage={navigateTo} showToast={showToast} />
-  
-            <CartDrawer 
-              isOpen={cartOpen} 
-              onClose={() => setCartOpen(false)}
-              cart={cart}
-              updateQuantity={updateQuantity}
-              removeFromCart={removeFromCart}
-              checkout={handlePayment} 
-            />
-          </>
-        )}
-      </div>
-    );
-  };
+          </main>
+
+          <Footer setCurrentPage={navigateTo} showToast={showToast} />
+
+          <CartDrawer 
+            isOpen={cartOpen} 
+            onClose={() => setCartOpen(false)}
+            cart={cart}
+            updateQuantity={updateQuantity}
+            removeFromCart={removeFromCart}
+            checkout={handlePayment} 
+          />
+        </>
+      )}
+    </div>
+  );
+}
