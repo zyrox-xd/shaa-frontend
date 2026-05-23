@@ -16,7 +16,7 @@ const EMAILJS_TEMPLATE_ID = "template_5gaadeg";
 const EMAILJS_PUBLIC_KEY = "4025kcdA_kwN4-yDH";
 
 /* --- API CONFIGURATION --- */
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://api.shaatrading.in";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || (import.meta.env.MODE === 'development' ? 'http://localhost:5000' : 'https://api.shaatrading.in');
 const API_BASE_URL = BASE_URL; // existing code keeps working
 
 
@@ -3093,7 +3093,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
   
       try {
         // 1. Create Order on Server
-        const data = await fetch(`${API_BASE_URL}/api/payment/order`, {
+        const createResponse = await fetch(`${API_BASE_URL}/api/payment/order`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -3103,20 +3103,26 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
                 products: cart,
                 userId: user ? user._id : null
             })
-        }).then((t) => t.json());
+        });
+
+        const data = await createResponse.json();
+        if (!createResponse.ok) {
+          console.error('Payment order creation failed', data);
+          showToast(data.message || 'Could not create payment order.', 'error');
+          return;
+        }
 
         const options = {
-            key: RAZORPAY_KEY_ID, 
+            key: RAZORPAY_KEY_ID,
             amount: data.amount,
             currency: data.currency,
             name: "Shaa Trading",
             description: "Wholesale Healthcare Supplies",
             image: "/image/shaa-logo.png",
-            order_id: data.id, 
+            order_id: data.id,
             handler: async function (response) {
-                
                 // 2. Verify Payment on Server
-                const verifyRes = await fetch(`${API_BASE_URL}/api/payment/verify`, {
+                const verifyResponse = await fetch(`${API_BASE_URL}/api/payment/verify`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -3124,7 +3130,14 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
                         razorpay_payment_id: response.razorpay_payment_id,
                         razorpay_signature: response.razorpay_signature
                     })
-                }).then((t) => t.json());
+                });
+
+                const verifyRes = await verifyResponse.json();
+                if (!verifyResponse.ok) {
+                  console.error('Payment verification failed', verifyRes);
+                  showToast(verifyRes.message || 'Payment verification failed.', 'error');
+                  return;
+                }
 
                 if (verifyRes.success) {
                     // --- NEW STEP: SAVE ORDER TO DATABASE ---
