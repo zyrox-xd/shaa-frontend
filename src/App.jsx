@@ -27,7 +27,7 @@ if (!RAZORPAY_KEY_ID && import.meta.env.MODE === 'development') {
 }
 
 /* --- Data & Constants --- */
-const BEST_SELLER_IDS = [1, 2, 3, 4]; 
+const BEST_SELLER_IDS = [40, 45, 49, 42]; 
 
 const Toast = ({ message, type, onClose }) => {
   useEffect(() => {
@@ -216,58 +216,35 @@ const Navigation = ({
              <div className="bg-[#f3f4f6] border-t border-b border-black hidden lg:block">
                  <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-center gap-6 xl:gap-8">
                      
-                     {/* Catalog Dropdown Trigger */}
-                     <div 
-                         className="relative h-full"
-                         onMouseEnter={() => setShopDropdownOpen(true)}
-                         onMouseLeave={() => setShopDropdownOpen(false)}
-                     >
-                         <button 
-                             onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('shop'); }} 
-                             className={`text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 flex items-center gap-1 border-b-2 ${
-                                 currentPage === 'shop' ? 'border-black text-black' : 'border-transparent text-gray-700 hover:text-black'
-                             }`}
-                         >
-                             CATALOG <ChevronDown size={12} strokeWidth={3}/>
-                         </button>
-
-                         {/* Dropdown Menu Panel */}
-                         <div className={`absolute top-full left-1/2 -translate-x-1/2 w-[500px] bg-white shadow-2xl border-2 border-black p-6 grid grid-cols-2 gap-6 transition-all duration-200 origin-top z-50 ${shopDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}`}>
-                             <div>
-                                 <h4 className="text-[10px] font-black uppercase tracking-wider text-black border-b border-gray-200 pb-2 mb-3">Categories</h4>
-                                 <div className="flex flex-col gap-1.5 items-start">
-                                     <button onClick={() => { setShopFilter('All'); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-xs font-bold uppercase tracking-tight text-gray-500 hover:text-black transition-colors">View All</button>
-                                     {CATEGORIES.map(cat => (
-                                         <button key={cat.id} onClick={() => { setShopFilter(cat.name); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-xs font-bold uppercase tracking-tight text-gray-500 hover:text-black transition-colors">{cat.name}</button>
-                                     ))}
-                                 </div>
-                             </div>
-                             <div>
-                                 <h4 className="text-[10px] font-black uppercase tracking-wider text-black border-b border-gray-200 pb-2 mb-3">Brands</h4>
-                                 <div className="flex flex-col gap-1.5 items-start">
-                                     <button onClick={() => { setBrandFilter('All Brands'); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-xs font-bold uppercase tracking-tight text-gray-500 hover:text-black transition-colors">All Brands</button>
-                                     {BRANDS_LIST.slice(1, 7).map(brand => (
-                                         <button key={brand} onClick={() => { setBrandFilter(brand); setCurrentPage('shop'); setShopDropdownOpen(false); }} className="text-xs font-bold uppercase tracking-tight text-gray-500 hover:text-black transition-colors">{brand}</button>
-                                     ))}
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-
+                     
                      <button 
                          onClick={() => { setShopFilter('Injection'); setCurrentPage('shop'); }}
                          className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
                      >
-                         INJECTIONS
+                         WHITENING INJECTIONS
                      </button>
                      
                      <button 
                          onClick={() => { setShopFilter('Cream'); setCurrentPage('shop'); }}
                          className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
                      >
-                         CREAMS
+                        WHITENING CREAMS
+                     </button>
+
+                     <button 
+                         onClick={() => { setShopFilter('Capsules'); setCurrentPage('shop'); }}
+                         className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
+                     >
+                         CAPSULES
                      </button>
                      
+                      <button 
+                          onClick={() => { setShopFilter('Fillers'); setCurrentPage('shop'); }}
+                         className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
+                     >
+                         FILLERS
+                     </button>
+
                      <button 
                          onClick={() => { setShopFilter('Weight'); setCurrentPage('shop'); }}
                          className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
@@ -736,50 +713,127 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
 
   // --- SLIDER DATA ---
   const slides = [
-    {
-      id: 24, // Glowtiqa
-      desktop: "/image/glowtiqa/glowtiqa-banner.png",
-      mobile: "/image/glowtiqa/glowtiqa-banner-mobile.png",
-      alt: "Glowtiqa Advance Care Cream",
-    },
-    {
-      id: 2, // Glutax 
-      desktop: "/image/glutax/glutax-banner.png", 
-      mobile: "/image/glutax/glutax-banner-mobile.png", 
-      alt: "Glutax 5GS ADV",
-    },
-    {
-      id: 45, // Cindella
-      desktop: "/image/cosdaq/cindella-banner.png",
-      mobile: "/image/cosdaq/cindella-banner-mobile.png",
-      alt: "Cindella Whitening",
-    }
+    { id: 24, desktop: "/image/glowtiqa/glowtiqa-banner.png", mobile: "/image/glowtiqa/glowtiqa-banner-mobile.png", alt: "Glowtiqa" },
+    { id: 2, desktop: "/image/glutax/glutax-banner.png", mobile: "/image/glutax/glutax-banner-mobile.png", alt: "Glutax" },
+    { id: 45, desktop: "/image/cosdaq/cindella-banner.png", mobile: "/image/cosdaq/cindella-banner-mobile.png", alt: "Cindella" }
   ];
 
   // --- SLIDER LOGIC ---
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
-      nextSlide();
+      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
     }, 5000);
     return () => clearInterval(timer);
   }, [currentSlide, isPaused]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
+  const nextSlide = () => setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
+  return (
+    <div className="animate-fade-in bg-white">
+      
+      {/* 1. CINEMATIC FULL-WIDTH HERO SLIDER */}
+      <section className="relative w-full overflow-hidden border-b-2 border-black group">
+        <div 
+            className="relative w-full h-[300px] md:h-[450px] cursor-pointer" 
+            onMouseEnter={() => setIsPaused(true)} 
+            onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Slider Track */}
+          <div 
+            className="flex w-full h-full transition-transform duration-700 ease-in-out" 
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {slides.map((slide, index) => (
+              <div key={index} className="w-full h-full shrink-0 relative">
+                <img src={slide.desktop} alt={slide.alt} className="hidden md:block w-full h-full object-cover" />
+                <img src={slide.mobile} alt={slide.alt} className="block md:hidden w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
 
-  const handleBannerClick = () => {
-    const activeSlide = slides[currentSlide];
-    const product = PRODUCTS.find(p => p.id === activeSlide.id);
-    if (product) navigateTo('product', product);
-  };
+          {/* Glass-morphism Navigation Arrows */}
+          <button 
+            onClick={(e) => { e.stopPropagation(); prevSlide(); }} 
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/70 backdrop-blur-md border border-gray-300 flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black hover:text-white z-20 shadow-xl"
+            aria-label="Previous Slide"
+          >
+            <ArrowLeft size={20} strokeWidth={2.5} />
+          </button>
 
-  const CATEGORY_LIST = [
+          <button 
+            onClick={(e) => { e.stopPropagation(); nextSlide(); }} 
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/70 backdrop-blur-md border border-gray-300 flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black hover:text-white z-20 shadow-xl"
+            aria-label="Next Slide"
+          >
+            <ChevronRight size={20} strokeWidth={2.5} />
+          </button>
+        </div>
+      </section>
+
+      {/* 2. CATEGORY SHORTCUT STRIP */}
+      <section className="py-12 bg-[#f3f4f6] border-b border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-[10px] font-black uppercase tracking-[0.3em] mb-8 text-center text-black">Shop by Category</h2>
+          <div className="flex overflow-x-auto gap-6 pb-4 scrollbar-hide justify-start md:justify-center">
+             {CATEGORY_LIST.map((cat) => (
+               <button 
+                key={cat.id} 
+                onClick={() => { setShopFilter(cat.name); navigateTo('shop'); }} 
+                className="flex flex-col items-center group w-24 shrink-0"
+               >
+                  <div className="w-20 h-20 rounded-full bg-white border-2 border-black mb-3 overflow-hidden flex items-center justify-center group-hover:bg-black transition-colors">
+                     <img src={cat.image} alt={cat.name} className="w-10 h-10 object-contain group-hover:invert transition-all" />
+                  </div>
+                  <span className="text-[9px] font-black uppercase tracking-widest text-center">{cat.name}</span>
+               </button>
+             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. BEST SELLERS GRID */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <h2 className="text-3xl font-serif text-black uppercase tracking-tight">Best Sellers</h2>
+              <div className="h-1 w-12 bg-black mt-2"></div>
+            </div>
+            <button onClick={() => navigateTo('shop')} className="text-[10px] font-black uppercase tracking-widest border-b-2 border-black pb-1 hover:text-gray-500">
+              View All
+            </button>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {BEST_SELLERS.map((product) => (
+              <ProductCard key={product.id} product={product} navigateTo={navigateTo} addToCart={addToCart} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. NEW ARRIVALS */}
+      <section className="py-20 bg-gray-50 border-t border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl font-serif mb-12 text-center uppercase tracking-tight">New Arrivals</h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              {NEW_LAUNCHES.map(product => (
+                <ProductCard key={product.id} product={product} navigateTo={navigateTo} addToCart={addToCart} />
+              ))}
+          </div>
+          <div className="text-center mt-12">
+            <Button onClick={() => navigateTo('shop')}>Explore All Products</Button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+// Ensure your constants are defined for the component to function
+const CATEGORY_LIST = [
     { id: 1, name: 'Injection', image: '/image/injection.jpeg' },
     { id: 2, name: 'Cream', image: '/image/cream.jpeg' },
     { id: 3, name: 'Weight', image: '/image/weight.jpeg' },
@@ -788,103 +842,8 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
     { id: 6, name: 'Filler', image: '/image/filler.jpeg' },
     { id: 7, name: 'Supplement', image: '/image/supplement.jpeg' },
     { id: 8, name: 'Lotion', image: '/image/lotion.jpeg' },
-  ];
+];
 
-  return (
-    <div className="animate-fade-in bg-white">
-      {/* --- SECTION 1: HERO SLIDER --- */}
-      <section className="relative bg-white overflow-hidden border-b border-gray-50">
-        <div className="max-w-7xl mx-auto px-0 md:px-6 relative group">
-          <div 
-            className="cursor-pointer relative overflow-hidden"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
-            <div 
-              className="flex transition-transform duration-1000 ease-in-out" 
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-              onClick={handleBannerClick}
-            >
-              {slides.map((slide, index) => (
-                <div key={index} className="w-full shrink-0">
-                  <img src={slide.desktop} alt={slide.alt} className="hidden md:block w-full h-auto object-contain" />
-                  <img src={slide.mobile} alt={slide.alt} className="block md:hidden w-full h-auto object-contain" />
-                </div>
-              ))}
-            </div>
-
-            <button onClick={(e) => { e.stopPropagation(); prevSlide(); }} className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm border border-gray-100 flex items-center justify-center text-gray-800 opacity-0 group-hover:opacity-100 transition-all hover:bg-black hover:text-white z-10 shadow-sm">
-              <ArrowLeft size={18} />
-            </button>
-
-            <button onClick={(e) => { e.stopPropagation(); nextSlide(); }} className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm border border-gray-100 flex items-center justify-center text-gray-800 opacity-0 group-hover:opacity-100 transition-all hover:bg-black hover:text-white z-10 shadow-sm">
-              <ChevronRight size={18} />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* --- SECTION 2: SHOP BY CATEGORY (Moved Up) --- */}
-      <section className="py-12 md:py-16 bg-[#fcfcfc] border-b border-gray-50">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400 mb-8 text-center">Browse Collections</h2>
-          <div className="flex overflow-x-auto gap-4 md:gap-6 pb-4 scrollbar-hide snap-x justify-start md:justify-center items-start">
-             {CATEGORY_LIST.map((cat) => (
-               <div key={cat.id} onClick={() => { setShopFilter(cat.name); navigateTo('shop'); }} className="snap-start flex-shrink-0 flex flex-col items-center group cursor-pointer w-20 md:w-24">
-                 <div className="relative aspect-square w-full overflow-hidden rounded-full mb-3 bg-white border border-gray-100 transition-all duration-500 group-hover:shadow-lg group-hover:border-black/10">
-                    <div className="absolute inset-0 flex items-center justify-center p-4">
-                        <img src={cat.image} alt={cat.name} onError={(e) => {e.target.src = '/image/logo.jpg'}} className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" />
-                    </div>
-                 </div>
-                 <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-gray-400 group-hover:text-black text-center transition-colors">{cat.name}</span>
-               </div>
-             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* --- SECTION 3: BEST SELLERS --- */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-between items-end mb-8">
-            <div>
-              <h2 className="text-xl md:text-2xl font-serif text-gray-900 uppercase tracking-widest">Our Best Sellers</h2>
-              <div className="h-0.5 w-8 bg-black mt-2"></div>
-            </div>
-            <button onClick={() => navigateTo('shop')} className="text-[10px] font-bold uppercase tracking-widest border-b border-black pb-0.5 hover:text-gray-500 transition-colors">
-              View All
-            </button>
-          </div>
-          
-          <div className="flex overflow-x-auto pb-6 gap-4 scrollbar-hide snap-x items-stretch">
-            {BEST_SELLERS.map((product) => (
-              <div key={product.id} className="min-w-[200px] md:min-w-[240px] snap-start flex">
-                <ProductCard product={product} navigateTo={navigateTo} addToCart={addToCart} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* --- SECTION 5: NEW ARRIVALS --- */}
-      <section className="py-16 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-xl md:text-2xl font-serif mb-10 text-gray-900 text-center uppercase tracking-widest">New Arrivals</h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-              {NEW_LAUNCHES.map(product => (
-                <ProductCard key={product.id} product={product} navigateTo={navigateTo} addToCart={addToCart} />
-              ))}
-          </div>
-          <div className="text-center mt-12">
-            <button onClick={() => navigateTo('shop')} className="bg-black text-white px-10 py-3 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-gray-800 transition-all shadow-md">
-                Explore All Products
-            </button>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-};
   // ---------- AUTH & ORDER PAGES ----------
 
 // =========================
