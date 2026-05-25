@@ -105,8 +105,19 @@ const Navigation = ({
 
     return (
         <>
-            <div className="bg-[#e67e22] text-white py-2 text-center text-[11px] font-bold tracking-wider">
-                PAN INDIA SHIPPING AND COLD CHAIN DELIVERY AVAILABLE!
+            <div className="bg-[#e67e22] text-white py-2 text-[10px] md:text-[11px] font-bold tracking-wider">
+                <div className="max-w-7xl mx-auto relative flex flex-col items-center justify-center gap-2 px-4 md:px-6">
+                  <span className="text-center">PAN INDIA SHIPPING AND COLD CHAIN DELIVERY AVAILABLE!</span>
+                  <button
+                  onClick={() => {
+                    const msg = `Hi, I came here from your website and would like to inquire about wholesale pricing.`;
+                    window.open(`https://wa.me/919916726373?text=${encodeURIComponent(msg)}`, '_blank');
+                  }}
+                  className="inline-flex items-center justify-center rounded-full bg-white/10 px-3 py-1 text-[10px] uppercase tracking-widest text-white border border-white/30 hover:bg-white/20 transition md:absolute md:right-6 md:top-1/2 md:-translate-y-1/2 whitespace-nowrap"
+                >
+                    WHOLESALER: +91 99167 26373
+                </button>
+                </div>
             </div>
             <header className="sticky top-0 z-50 bg-white border-b-2 border-black">
              {/* Main Bar */}
@@ -123,7 +134,7 @@ const Navigation = ({
                         <span className="text-2xl md:text-3xl font-sans font-black uppercase tracking-tighter text-black select-none block" style={{ fontStyle: 'normal', fontWeight: 950 }}>
                           SHAA TRADING®
                         </span>
-                          <span className="block text-xs md:text-sm uppercase tracking-widest text-gray-500 mt-0.5">
+                          <span className="block text-[10px] md:text-[11px] uppercase tracking-widest text-gray-500 mt-0.5">
                             skin <span className="align-middle mx-1">·</span> beauty <span className="align-middle mx-1">·</span> healthcare
                           </span>
                       </div>
@@ -2140,53 +2151,47 @@ const ProductView = ({ product, addToCart, navigateTo }) => {
             </div>
 
             {/* Quantity and CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-md border-t border-gray-100 z-50 md:static md:p-0 md:border-0 md:bg-transparent">
-              <div className="flex gap-4 w-full">
-            {/* Quantity Selector - Disabled if out of stock */}
-                  <div className={`flex items-center border border-gray-200 rounded-sm h-14 w-32 bg-white ${isOutOfStock ? 'opacity-30 pointer-events-none' : ''}`}>
-                    <button 
-                      onClick={() => setQty(Math.max(1, qty - 1))} 
-                      className="flex-1 h-full flex items-center justify-center hover:bg-gray-50 text-gray-400 transition-colors"
-                    >-</button>
-                    <span className="font-bold text-sm w-8 text-center">{qty}</span>
-                    <button 
-                      onClick={() => {
-                        const maxQty = Math.min(qty + 1, product.stock);
-                        if (qty < product.stock) setQty(maxQty);
-                      }}
-                      className="flex-1 h-full flex items-center justify-center hover:bg-gray-50 text-gray-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                      disabled={qty >= product.stock}
-                    >+</button>
-                  </div>
-
-                  {/* Main Action Button */}
-                  <button 
-                    disabled={isOutOfStock}
-                    className={`flex-1 h-14 text-[10px] font-bold uppercase tracking-[0.3em] transition-all active:scale-[0.98] shadow-xl ${
-                      isOutOfStock 
-                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200 shadow-none' 
-                      : 'bg-black text-white hover:bg-gray-800 shadow-black/10'
-                    }`}
-                    onClick={handleAddToCart}
-                  >
-                    {isOutOfStock ? 'Out of Stock' : `Add ${qty} to Cart`}
-                  </button>
+            <div className="flex flex-row flex-wrap items-center gap-4 fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-md border-t border-gray-100 z-50 md:static md:p-0 md:border-0 md:bg-transparent">
+              {/* Quantity Selector - Disabled if out of stock */}
+              <div className={`flex items-center border border-gray-200 rounded-sm h-14 w-full md:w-40 bg-white ${isOutOfStock ? 'opacity-30 pointer-events-none' : ''}`}>
+                <button 
+                  onClick={() => setQty(Math.max(1, qty - 1))} 
+                  className="flex-1 h-full flex items-center justify-center hover:bg-gray-50 text-gray-400 transition-colors"
+                >-</button>
+                <span className="font-bold text-sm w-8 text-center">{qty}</span>
+                <button 
+                  onClick={() => {
+                    const maxQty = Math.min(qty + 1, product.stock);
+                    if (qty < product.stock) setQty(maxQty);
+                  }}
+                  className="flex-1 h-full flex items-center justify-center hover:bg-gray-50 text-gray-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={qty >= product.stock}
+                >+</button>
               </div>
 
-              {/* Wholesale Enquiry Button (subtle text CTA) */}
-              <div className="w-full mt-3 md:mt-4">
-                <div className="text-center">
-                  <button
-                    onClick={() => {
-                      const msg = `Hi, I'm interested in wholesale pricing for: ${product.name}. Could you please provide the rates?`;
-                      window.open(`https://wa.me/919916726373?text=${encodeURIComponent(msg)}`, '_blank');
-                    }}
-                    className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 hover:text-black border-b border-transparent hover:border-black transition-all duration-300"
-                  >
-                    Ask Wholesale Price
-                  </button>
-                </div>
-              </div>
+              {/* Main Action Button */}
+              <button 
+                disabled={isOutOfStock}
+                className={`flex-1 min-w-[120px] h-14 text-[10px] font-bold uppercase tracking-[0.3em] transition-all active:scale-[0.98] shadow-xl ${
+                  isOutOfStock 
+                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200 shadow-none' 
+                  : 'bg-black text-white hover:bg-gray-800 shadow-black/10'
+                }`}
+                onClick={handleAddToCart}
+              >
+                {isOutOfStock ? 'Out of Stock' : `Add ${qty} to Cart`}
+              </button>
+
+              {/* Wholesale Enquiry Button */}
+              <button
+                onClick={() => {
+                  const msg = `Hi, I'm interested in wholesale pricing for: ${product.name}. Could you please provide the rates?`;
+                  window.open(`https://wa.me/919916726373?text=${encodeURIComponent(msg)}`, '_blank');
+                }}
+                className="flex-1 min-w-[120px] h-14 text-[10px] font-bold uppercase tracking-[0.3em] transition-all active:scale-[0.98] shadow-xl bg-black text-white hover:bg-gray-800 shadow-black/10"
+              >
+                Ask Wholesale Price
+              </button>
             </div>
             {/* Mobile Spacer */}
             <div className="h-24 md:hidden"></div> 
@@ -3475,6 +3480,28 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
             removeFromCart={removeFromCart}
             checkout={handlePayment} 
           />
+
+          <div className="fixed right-4 bottom-6 z-50 flex flex-col gap-3">
+            <a
+              href="tel:+919916726373"
+              className="group flex items-center gap-3 rounded-full bg-[#ffebe7] text-[#b3271b] px-4 py-3 shadow-2xl shadow-red-200/60 ring-1 ring-red-100 transition transform hover:-translate-y-0.5 hover:bg-[#ffd8d1]"
+              aria-label="Call Shaa Trading"
+            >
+              <Phone size={18} className="text-[#b3271b] transition group-hover:text-[#8a1f16]" />
+              <span className="text-xs font-semibold uppercase tracking-[0.2em]">Call</span>
+            </a>
+
+            <a
+              href="https://wa.me/919916726373?text=Hi%20Shaa%20Trading%2C%20I%20would%20like%20to%20inquire%20about%20your%20products"
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center gap-3 rounded-full bg-[#e6ffed] text-[#1e7f31] px-4 py-3 shadow-2xl shadow-emerald-200/60 ring-1 ring-emerald-100 transition transform hover:-translate-y-0.5 hover:bg-[#d3f7d6]"
+              aria-label="Chat on WhatsApp"
+            >
+              <Phone size={18} className="text-[#1e7f31] transition group-hover:text-[#125625]" />
+              <span className="text-xs font-semibold uppercase tracking-[0.2em]">WhatsApp</span>
+            </a>
+          </div>
         </>
       )}
     </div>

@@ -62,7 +62,7 @@ const PRODUCTS = [
     name: "Glutax 5gs Micro Advance Glutathione 5000mg 12 Sessions Skin Whitening Injection",
     category: "Injection",
     brand: "Glutax",
-    price: 12500,
+    price: 13500,
     comparePrice: 18000,
     image: "/image/glutax/gtx-5gs-adv.jpeg",
     images: [
@@ -2219,12 +2219,12 @@ const PRODUCTS = [
     brand: "Cindyrella",
     price: 13800,
     comparePrice: 20000,
-    image: "/image/Cindyrella/power-drip-1.jpeg",
+    image: "/image/Cindyrella/power-drip-4.jpeg",
     images: [
-        "/image/Cindyrella/power-drip-1.jpeg",
+        "/image/Cindyrella/power-drip-4.jpeg",
         "/image/Cindyrella/power-drip-2.jpeg",
         "/image/Cindyrella/power-drip-3.jpeg",
-        "/image/Cindyrella/power-drip-4.jpeg",
+        "/image/Cindyrella/power-drip-1.jpeg",
         "/image/Cindyrella/power-drip-5.jpeg"
     ],
     description: "High-dose glutathione drip with CoQ10, marine collagen, placenta, apple stem cell, and vitamins for energy, skin brightening, and overall wellness.",
@@ -2291,7 +2291,7 @@ const PRODUCTS = [
 {
     id: 32,
     name: "Rejuran S Acne Scar Treatment Injection",
-    category: "Injection",
+    category: "C & D Fillers",
     brand: "Rejuran",
     price: 8800,
     comparePrice: 10000,
@@ -2518,7 +2518,7 @@ const PRODUCTS = [
 {
     id: 35,
     name: "QR 678 NEO Anti Hair Loss Solution Injection 5mL",
-    category: "Injection",
+    category: "Others",
     brand: "QR 678 Neo",
     price: 22500,
     comparePrice: 41300,
@@ -2594,7 +2594,7 @@ const PRODUCTS = [
 {
     id: 36,
     name: "Fillmed NCTF 135HA Filler-Skin Booster",
-    category: "Injection",
+    category: "C & D Fillers",
     brand: "Fillmed",
     price: 16000,
     comparePrice: 22500,
@@ -3497,7 +3497,7 @@ const PRODUCTS = [
     name: "Evgenis Totipotent Embryonic Stem Cell (ETESC) Injection",
     category: "Injection",
     brand: "Evgenis",
-    price: 25500,
+    price: 28500,
     comparePrice: 30000,
     image: "/image/evgenis/etescinjection-1.jpeg",
     images: [
@@ -6451,7 +6451,7 @@ const PRODUCTS = [
 {
     id: 94,
     name: "Rejuran Healer - Korean PN Skin Booster for Anti-Aging, Skin Repair and Regeneration",
-    category: "Injection",
+    category: "C & D Fillers",
     brand: "Rejuran",
     price: 12500,
     comparePrice: 15000,
@@ -7009,7 +7009,7 @@ const PRODUCTS = [
 {
     id: 102,
     name: "Sculptra Butt Lift - Poly-L-lactic Acid Dermal Filler for Buttock Augmentation",
-    category: "Injection",
+    category: "C & D Fillers",
     brand: "Sculptra",
     price: 6500,
     comparePrice: 9000,
