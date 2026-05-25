@@ -4459,8 +4459,8 @@ const PRODUCTS = [
 },
 {
     id: 64,
-    name: "Bihaku Premium Glutathione Skin Whitening Supplement",
-    category: "Capsules",
+    name: "Bihaku Premium Glutathione Skin Whitening Injection",
+    category: "Injection",
     brand: "Bihaku",
     price: 13500,
     comparePrice: 18500,
@@ -4471,10 +4471,10 @@ const PRODUCTS = [
         "/image/bihaku/premium-glutathione-3.jpg",
         "/image/bihaku/premium-glutathione-4.jpg"
     ],
-    description: "Japanese skin whitening supplement with L-Glutathione, Vitamin C, and Alpha-Lipoic Acid. Reduces melanin, evens skin tone, provides antioxidant protection, and supports skin rejuvenation.",
+    description: "Japanese glutathione injection with L-Glutathione, Vitamin C, and Alpha-Lipoic Acid. Reduces melanin, evens skin tone, provides antioxidant protection, and supports skin rejuvenation.",
     details: `
-    <strong>Bihaku Premium Glutathione Skin Whitening Supplement</strong><br/><br/>
-    A highly acclaimed skin whitening supplement recognized for its superior formulation and proven effectiveness. Crafted with meticulous attention to detail and quality, this product encapsulates the best of Japanese skincare innovation, offering users a safe and effective solution to achieve brighter, more radiant skin.<br/><br/>
+    <strong>Bihaku Premium Glutathione Skin Whitening Injection</strong><br/><br/>
+    A highly acclaimed skin whitening injection recognized for its superior formulation and proven effectiveness. Crafted with meticulous attention to detail and quality, this product encapsulates the best of Japanese skincare innovation, offering users a safe and effective solution to achieve brighter, more radiant skin.<br/><br/>
     
     <strong>Key Ingredients:</strong><br/>
     <ul class="list-disc pl-5 mt-2 space-y-1">
@@ -4497,9 +4497,10 @@ const PRODUCTS = [
     </ul>
     <br/>
 
-    <strong>Origin:</strong> Japan<br/><br/>
+    <strong>Origin:</strong> Japan<br/>
+    <strong>Administration:</strong> Intravenous (IV) injection under professional supervision.<br/><br/>
 
-    <em class="text-xs text-gray-400">Note: Results may vary. Consult physician before use.</em>
+    <em class="text-xs text-gray-400">Note: Professional use only. Results may vary. Consult physician before use.</em>
     `,
     benefits: [
         "Made in Japan",
@@ -4509,10 +4510,10 @@ const PRODUCTS = [
         "Antioxidant & Detox Support",
         "Promotes Collagen & Elasticity",
         "Anti-Inflammatory",
-        "Safe for Long-Term Use"
+        "IV Administration"
     ],
     sku: "BIHAKU-PREMIUM-GLUTA",
-    volume: "1 Bottle",
+    volume: "1 Vial",
     stock: 10
 },
 {
@@ -6027,6 +6028,88 @@ const PRODUCTS = [
     ],
     sku: "NC24-ULTRA-SENSE-9M",
     volume: "10 Sessions",
+    stock: 10
+},
+{
+    id: 88,
+    name: "Health Tone Weight Gain Capsules",
+    category: "Capsules",
+    brand: "Health Tone",
+    price: 2000,
+    comparePrice: 3500,
+    image: "/image/health-tone/weight-gain-capsules-1.jpg",
+    images: [
+        "/image/health-tone/weight-gain-capsules-1.jpg",
+        "/image/health-tone/weight-gain-capsules-2.jpg",
+        "/image/health-tone/weight-gain-capsules-3.jpg",
+        "/image/health-tone/weight-gain-capsules-4.jpg"
+    ],
+    description: "Natural herbal weight gain capsules formulated with Thai herbs. Enhances appetite, improves digestion, promotes muscle growth, and supports healthy weight gain. 100% herbal, no steroids.",
+    details: `
+    <strong>Health Tone Weight Gain Capsules</strong><br/><br/>
+    If you're finding it difficult to put on weight despite a nutritious diet and consistent exercise, consider Health Tone Weight Gain Capsules as a natural and effective aid. Crafted from organic, herbal ingredients, these capsules are designed to enhance your appetite, improve digestion, and promote muscle growth, contributing to healthy weight gain.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Form: Capsule</li>
+      <li>Country of Origin: Thailand</li>
+      <li>Packaging: 1 Box Pack – 90 Capsules</li>
+      <li>Strength: 500mg per capsule</li>
+      <li>Usage: Weight Gainer</li>
+      <li>Suitable for both men & women</li>
+      <li>100% Herbal & Natural – no steroids</li>
+    </ul>
+    <br/>
+
+    <strong>Ingredients (Herbal Blend):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Withania Somnifera (Ashwagandha) – 200mg</li>
+      <li>Liquorice Root – 50mg</li>
+      <li>Vitis Vinifera (Grape Seed) – 50mg</li>
+      <li>Asparagus Racemosus – 50mg</li>
+      <li>Zingiber Officinale (Ginger) – 50mg</li>
+      <li>Amoma Sulbactam – 25mg</li>
+      <li>Syzygium Aromaticum (Clove) – 25mg</li>
+      <li>Cinnamomum Ribes – 25mg</li>
+      <li>Terminalia Bellerica – 25mg</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Helps gain desired weight naturally</li>
+      <li>Increases energy levels and keeps you fit</li>
+      <li>Improves skin complexion and gives glowing skin</li>
+      <li>Boosts appetite</li>
+      <li>Increases protein synthesis and absorption</li>
+      <li>Improves stamina</li>
+      <li>Builds an attractive physique</li>
+      <li>Strengthens digestive system – better digestion and absorption</li>
+      <li>Promotes weight gain in right proportions</li>
+      <li>Enhances metabolism</li>
+      <li>Improves muscle mass and bone density</li>
+      <li>Safe for both males and females</li>
+    </ul>
+    <br/>
+
+    <strong>Dosage:</strong> 1 capsule twice daily after meals (breakfast, lunch, or dinner) with water. Beginners should take once daily to build tolerance, then increase to twice daily. For maintenance, reduce to one capsule per day in the third month, or one capsule every 2 days for an additional six months for permanent results.<br/><br/>
+
+    <strong>Expiry:</strong> Dec 2029<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary from person to person. Consult physician before use.</em>
+    `,
+    benefits: [
+        "90 Capsules per Box",
+        "Made in Thailand",
+        "100% Herbal & Natural",
+        "Increases Appetite & Digestion",
+        "Promotes Muscle Growth",
+        "Boosts Energy & Stamina",
+        "Improves Metabolism",
+        "No Steroids"
+    ],
+    sku: "HEALTH-TONE-WEIGHT-GAIN-90C",
+    volume: "90 Capsules",
     stock: 10
 }
 ];

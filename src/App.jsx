@@ -223,6 +223,13 @@ const Navigation = ({
                      >
                          WHITENING INJECTIONS
                      </button>
+
+                     <button 
+                         onClick={() => { setShopFilter('Capsules'); setCurrentPage('shop'); }}
+                         className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
+                     >
+                         CAPSULES
+                     </button>
                      
                      <button 
                          onClick={() => { setShopFilter('Cream'); setCurrentPage('shop'); }}
@@ -232,24 +239,38 @@ const Navigation = ({
                      </button>
 
                      <button 
-                         onClick={() => { setShopFilter('Capsules'); setCurrentPage('shop'); }}
+                         onClick={() => { setShopFilter('Soap'); setCurrentPage('shop'); }}
                          className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
                      >
-                         CAPSULES
-                     </button>
-                     
-                      <button 
-                          onClick={() => { setShopFilter('Fillers'); setCurrentPage('shop'); }}
-                         className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
-                     >
-                         FILLERS
+                         WHITENING SOAP
                      </button>
 
                      <button 
-                         onClick={() => { setShopFilter('Weight'); setCurrentPage('shop'); }}
+                         onClick={() => { setShopFilter('Weight Gain'); setCurrentPage('shop'); }}
                          className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
                      >
                          WEIGHT GAIN
+                     </button>
+
+                     <button 
+                         onClick={() => { setShopFilter('Weight Lose'); setCurrentPage('shop'); }}
+                         className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
+                     >
+                         WEIGHT LOSE
+                     </button>
+
+                     <button 
+                         onClick={() => { setShopFilter('Fillers'); setCurrentPage('shop'); }}
+                         className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
+                     >
+                         C & D FILLERS
+                     </button>
+
+                     <button 
+                         onClick={() => { setShopFilter('Others'); setCurrentPage('shop'); }}
+                         className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
+                     >
+                         OTHERS
                      </button>
 
                      <button 
@@ -705,7 +726,7 @@ const CartDrawer = ({ isOpen, onClose, cart, updateQuantity, removeFromCart, che
 
 const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
   const BEST_SELLERS = PRODUCTS.filter(p => BEST_SELLER_IDS.includes(p.id));
-  const NEW_LAUNCHES = [...PRODUCTS].reverse().slice(0, 4);
+  const NEW_LAUNCHES = [...PRODUCTS].reverse().slice(0, 12);
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -765,21 +786,25 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
         </div>
       </section>
 
-      {/* 2. CATEGORY STRIP - Flex Wrap for Mobile */}
-      <section className="py-10 bg-[#f3f4f6] border-b border-black">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-[10px] font-black uppercase tracking-[0.2em] mb-6 text-center text-black">Shop by Category</h2>
-          <div className="grid grid-cols-4 md:grid-cols-8 gap-4">
+    {/* 2. CATEGORY STRIP - Minimalist, No Background, No Outline */}
+      <section className="py-12 bg-white border-b border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-[10px] font-black uppercase tracking-[0.3em] mb-8 text-center text-black">Shop by Category</h2>
+          
+          <div className="flex overflow-x-auto gap-12 pb-4 scrollbar-hide justify-start md:justify-center">
              {CATEGORY_LIST.map((cat) => (
                <button 
                 key={cat.id} 
                 onClick={() => { setShopFilter(cat.name); navigateTo('shop'); }} 
-                className="flex flex-col items-center group"
+                className="flex flex-col items-center group w-24 shrink-0"
                >
-                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white border border-black mb-2 overflow-hidden flex items-center justify-center group-hover:bg-black transition-all">
-                     <img src={cat.image} alt={cat.name} className="w-8 h-8 md:w-10 md:h-10 object-contain group-hover:invert transition-all" />
+                  {/* Removed background color and outline/border */}
+                  <div className="w-20 h-20 mb-3 overflow-hidden flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+                     <img src={cat.image} alt={cat.name} className="w-16 h-16 object-contain" />
                   </div>
-                  <span className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-center">{cat.name}</span>
+                  <span className="text-[9px] font-black uppercase tracking-widest text-center text-gray-600 group-hover:text-black">
+                    {cat.name}
+                  </span>
                </button>
              ))}
           </div>
@@ -809,13 +834,22 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
       <section className="py-16 bg-gray-50 border-t border-black">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-2xl md:text-3xl font-serif mb-10 text-center uppercase tracking-tight">New Arrivals</h2>
+          
+          {/* Grid changed to 4 columns on desktop, 2 on mobile */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
               {NEW_LAUNCHES.map(product => (
                 <ProductCard key={product.id} product={product} navigateTo={navigateTo} addToCart={addToCart} />
               ))}
           </div>
-          <div className="text-center mt-12">
-            <Button onClick={() => navigateTo('shop')} className="w-full md:w-auto">Explore All Products</Button>
+          
+          {/* Expanded Explore All Button */}
+          <div className="text-center mt-16">
+            <button 
+              onClick={() => navigateTo('shop')} 
+              className="px-12 py-4 border-2 border-black text-black font-black uppercase tracking-[0.2em] text-[10px] hover:bg-black hover:text-white transition-all duration-300"
+            >
+              Explore All Formulations
+            </button>
           </div>
         </div>
       </section>
@@ -826,13 +860,13 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
 // Ensure your constants are defined for the component to function
 const CATEGORY_LIST = [
     { id: 1, name: 'Injection', image: '/image/injection.jpeg' },
-    { id: 2, name: 'Cream', image: '/image/cream.jpeg' },
-    { id: 3, name: 'Weight', image: '/image/weight.jpeg' },
+    { id: 2, name: 'Capsules', image: '/image/supplement.jpeg' },
+    { id: 3, name: 'Cream', image: '/image/cream.jpeg' },
     { id: 4, name: 'Soap', image: '/image/soap.jpeg' },
-    { id: 5, name: 'Combo', image: '/image/combo.jpeg' },
-    { id: 6, name: 'Filler', image: '/image/filler.jpeg' },
-    { id: 7, name: 'Supplement', image: '/image/supplement.jpeg' },
-    { id: 8, name: 'Lotion', image: '/image/lotion.jpeg' },
+    { id: 5, name: 'Weight Gain', image: '/image/weight.jpeg' },
+    { id: 6, name: 'Weight Lose', image: '/image/weight-lose.png' },
+    { id: 7, name: 'Fillers', image: '/image/filler.jpeg' },
+    { id: 8, name: 'Others', image: '/image/others.png' },
 ];
 
   // ---------- AUTH & ORDER PAGES ----------
