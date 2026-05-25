@@ -65,6 +65,13 @@ const Footer = ({ setCurrentPage, showToast }) => {
                 <span>Bengaluru, Karnataka<br/>Since 2012</span>
               </li>
             </ul>
+            <div className="mt-8 md:mt-10 lg:mt-14 flex justify-center md:justify-start">
+              <img
+                src="/image/razorpay.jpeg"
+                alt="Razorpay Secured"
+                className="w-44 md:w-48 lg:w-56 object-contain"
+              />
+            </div>
           </div>
 
           {/* WhatsApp Updates Column */}
@@ -99,14 +106,7 @@ const Footer = ({ setCurrentPage, showToast }) => {
               <button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors">Terms</button>
               <button onClick={() => setCurrentPage('shipping')} className="hover:text-white transition-colors">Shipping</button>
             </div>
-            {/* Razorpay Logo - Increased Size */}
-<div className="h-400 w-24 bg-white rounded flex items-center justify-center overflow-hidden border border-white/10 shadow-sm ml-0 md:ml-4">
-  <img 
-    src="/image/razorpay.jpeg" 
-    alt="Razorpay Secured" 
-    className="w-full h-full object-contain p-1 mix-blend-multiply" 
-  />
-</div>
+          
           </div>
 
           {/* ZOMAXA CREDIT */}
