@@ -21,7 +21,7 @@ const Footer = ({ setCurrentPage, showToast }) => {
 
   return (
     <footer className="bg-[#0a0a0a] text-white border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand Column */}
           <div className="space-y-6">
@@ -43,16 +43,8 @@ const Footer = ({ setCurrentPage, showToast }) => {
               <li><button onClick={() => setCurrentPage('blog')} className="hover:text-white transition-colors flex items-center gap-2"><ArrowRight size={12} /> Clinical Journal</button></li>
               <li><button onClick={() => setCurrentPage('about')} className="hover:text-white transition-colors flex items-center gap-2"><ArrowRight size={12} /> Our Story</button></li>
               <li><button onClick={() => setCurrentPage('contact')} className="hover:text-white transition-colors flex items-center gap-2"><ArrowRight size={12} /> Partner Program</button></li>
-              <li>
-                <button onClick={() => setCurrentPage('track')} className="hover:text-white transition-colors flex items-center gap-2">
-                  <ArrowRight size={12} /> Track Order
-                </button>
-              </li>
-              <li>
-                <button onClick={() => setCurrentPage('login')} className="hover:text-white transition-colors flex items-center gap-2">
-                  <ArrowRight size={12} /> Login
-                </button>
-              </li>
+              <li><button onClick={() => setCurrentPage('track')} className="hover:text-white transition-colors flex items-center gap-2"><ArrowRight size={12} /> Track Order</button></li>
+              <li><button onClick={() => setCurrentPage('login')} className="hover:text-white transition-colors flex items-center gap-2"><ArrowRight size={12} /> Login</button></li>
             </ul>
           </div>
 
@@ -99,31 +91,28 @@ const Footer = ({ setCurrentPage, showToast }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/5 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-xs text-gray-500 flex flex-col md:flex-row gap-4 items-center">
-             <p>&copy; 2025 SHAA TRADING. All rights reserved.</p>
-             <div className="flex gap-4">
-                <button onClick={() => setCurrentPage('privacy')} className="hover:text-white transition-colors">Privacy</button>
-                <button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors">Terms</button>
-                <button onClick={() => setCurrentPage('shipping')} className="hover:text-white transition-colors">Shipping</button>
-             </div>
+        <div className="border-t border-white/5 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex flex-col md:flex-row items-center gap-6 text-xs text-gray-500">
+            <p>&copy; 2026 SHAA TRADING. All rights reserved.</p>
+            <div className="flex gap-4">
+              <button onClick={() => setCurrentPage('privacy')} className="hover:text-white transition-colors">Privacy</button>
+              <button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors">Terms</button>
+              <button onClick={() => setCurrentPage('shipping')} className="hover:text-white transition-colors">Shipping</button>
+            </div>
+            {/* Razorpay Logo - Increased Size */}
+<div className="h-400 w-24 bg-white rounded flex items-center justify-center overflow-hidden border border-white/10 shadow-sm ml-0 md:ml-4">
+  <img 
+    src="/image/razorpay.jpeg" 
+    alt="Razorpay Secured" 
+    className="w-full h-full object-contain p-1 mix-blend-multiply" 
+  />
+</div>
           </div>
 
-          {/* ZOMAXA CREDIT - GOLD THEMED */}
-          <a 
-            href="https://zomaxa.co" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="flex items-center gap-2 group px-3 py-2 rounded-lg hover:bg-white/5 transition-all duration-300"
-          >
-            <span className="text-[10px] text-gray-600 uppercase tracking-wider group-hover:text-gray-400 transition-colors">
-              Designed And Developed By
-            </span>
-            <div className="flex flex-col items-start leading-none">
-                <span className="font-serif text-[#C5A059] font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase group-hover:text-[#F4CF57] group-hover:drop-shadow-[0_0_8px_rgba(197,160,89,0.5)] transition-all duration-300">
-                ZOMAXA.CO
-                </span>
-            </div>
+          {/* ZOMAXA CREDIT */}
+          <a href="https://zomaxa.co" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group px-3 py-2 rounded-lg hover:bg-white/5 transition-all duration-300">
+            <span className="text-[10px] text-gray-600 uppercase tracking-wider group-hover:text-gray-400 transition-colors">Designed And Developed By</span>
+            <span className="font-serif text-[#C5A059] font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase group-hover:text-[#F4CF57] transition-all duration-300">ZOMAXA.CO</span>
           </a>
         </div>
       </div>

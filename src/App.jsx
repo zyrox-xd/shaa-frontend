@@ -119,9 +119,14 @@ const Navigation = ({
                     </button>
 
                     <div className="cursor-pointer" onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('home'); }}>
+                      <div className="leading-none">
                         <span className="text-2xl md:text-3xl font-sans font-black uppercase tracking-tighter text-black select-none block" style={{ fontStyle: 'normal', fontWeight: 950 }}>
-                            SHAA TRADING®
+                          SHAA TRADING®
                         </span>
+                          <span className="block text-xs md:text-sm uppercase tracking-widest text-gray-500 mt-0.5">
+                            skin <span className="align-middle mx-1">·</span> beauty <span className="align-middle mx-1">·</span> healthcare
+                          </span>
+                      </div>
                     </div>
                 </div>
 
@@ -214,60 +219,60 @@ const Navigation = ({
 
              {/* LOWER LINKS STRIP: CENTRED UNIFIED SUB NAVIGATION BAR PANEL */}
              <div className="bg-[#f3f4f6] border-t border-b border-black hidden lg:block">
-                 <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-center gap-6 xl:gap-8">
+                    <div className="max-w-7xl mx-auto px-4 md:px-6 h-12 flex items-center justify-center gap-6 xl:gap-8">
                      
                      
                      <button 
-                         onClick={() => { setShopFilter('Injection'); setCurrentPage('shop'); }}
+                         onClick={() => { setShopFilter('Injection'); setCurrentPage('category', 'Injection'); }}
                          className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
                      >
                          WHITENING INJECTIONS
                      </button>
 
                      <button 
-                         onClick={() => { setShopFilter('Capsules'); setCurrentPage('shop'); }}
+                         onClick={() => { setShopFilter('Capsules'); setCurrentPage('category', 'Capsules'); }}
                          className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
                      >
-                         CAPSULES
+                      WHITENING CAPSULES
                      </button>
                      
                      <button 
-                         onClick={() => { setShopFilter('Cream'); setCurrentPage('shop'); }}
+                         onClick={() => { setShopFilter('Cream'); setCurrentPage('category', 'Cream'); }}
                          className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
                      >
                         WHITENING CREAMS
                      </button>
 
                      <button 
-                         onClick={() => { setShopFilter('Soap'); setCurrentPage('shop'); }}
+                         onClick={() => { setShopFilter('Soap'); setCurrentPage('category', 'Soap'); }}
                          className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
                      >
                          WHITENING SOAP
                      </button>
 
                      <button 
-                         onClick={() => { setShopFilter('Weight Gain'); setCurrentPage('shop'); }}
+                         onClick={() => { setShopFilter('Weight Gain'); setCurrentPage('category', 'Weight Gain'); }}
                          className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
                      >
                          WEIGHT GAIN
                      </button>
 
                      <button 
-                         onClick={() => { setShopFilter('Weight Lose'); setCurrentPage('shop'); }}
+                         onClick={() => { setShopFilter('Weight Loss'); setCurrentPage('category', 'Weight Loss'); }}
                          className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
                      >
-                         WEIGHT LOSE
+                         WEIGHT LOSS
                      </button>
 
                      <button 
-                         onClick={() => { setShopFilter('Fillers'); setCurrentPage('shop'); }}
+                         onClick={() => { setShopFilter('C & D Fillers'); setCurrentPage('category', 'C & D Fillers'); }}
                          className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
                      >
                          C & D FILLERS
                      </button>
 
                      <button 
-                         onClick={() => { setShopFilter('Others'); setCurrentPage('shop'); }}
+                         onClick={() => { setShopFilter('Others'); setCurrentPage('category', 'Others'); }}
                          className="text-[11px] font-black uppercase tracking-widest transition-colors h-full px-2 border-b-2 flex items-center border-transparent text-gray-700 hover:text-black"
                      >
                          OTHERS
@@ -528,7 +533,7 @@ const CartView = ({ cart, updateQuantity, removeFromCart, checkout, navigateTo }
         <div className="animate-fade-in bg-[#fbfbfb] min-h-screen pb-24">
             {/* Header */}
             <div className="bg-white border-b border-gray-100 py-12 mb-8">
-                <div className="max-w-7xl mx-auto px-6">
+                <div className="max-w-7xl mx-auto px-4 md:px-6">
                     <h1 className="font-serif text-4xl text-gray-900">Shopping Cart</h1>
                     <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-gray-400 mt-2">
                         <button onClick={() => navigateTo('home')} className="hover:text-black">Home</button>
@@ -540,7 +545,7 @@ const CartView = ({ cart, updateQuantity, removeFromCart, checkout, navigateTo }
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="max-w-7xl mx-auto px-4 md:px-6">
                 <div className="flex flex-col lg:flex-row gap-12">
                     
                     {/* Left Side: Product List */}
@@ -788,26 +793,25 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
 
     {/* 2. CATEGORY STRIP - Minimalist, No Background, No Outline */}
       <section className="py-12 bg-white border-b border-black">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-[10px] font-black uppercase tracking-[0.3em] mb-8 text-center text-black">Shop by Category</h2>
           
-          <div className="flex overflow-x-auto gap-12 pb-4 scrollbar-hide justify-start md:justify-center">
+           <div className="flex overflow-x-auto gap-3 pb-4 scrollbar-hide justify-start md:justify-center">
              {CATEGORY_LIST.map((cat) => (
-               <button 
-                key={cat.id} 
-                onClick={() => { setShopFilter(cat.name); navigateTo('shop'); }} 
-                className="flex flex-col items-center group w-24 shrink-0"
-               >
-                  {/* Removed background color and outline/border */}
-                  <div className="w-20 h-20 mb-3 overflow-hidden flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-                     <img src={cat.image} alt={cat.name} className="w-16 h-16 object-contain" />
-                  </div>
-                  <span className="text-[9px] font-black uppercase tracking-widest text-center text-gray-600 group-hover:text-black">
-                    {cat.name}
-                  </span>
-               </button>
+              <button 
+               key={cat.id} 
+               onClick={() => navigateTo('category', cat.id)} 
+               className="flex flex-col items-center group w-16 shrink-0"
+              >
+                <div className="w-14 h-14 mb-1 overflow-hidden flex items-center justify-center transition-all duration-200 group-hover:scale-105">
+                  <img src={cat.image} alt={cat.label} className="w-12 h-12 object-contain" />
+                </div>
+                <span className="text-[9px] font-black uppercase tracking-widest text-center text-gray-600 group-hover:text-black leading-tight">
+                  {cat.label}
+                </span>
+              </button>
              ))}
-          </div>
+           </div>
         </div>
       </section>
 
@@ -859,14 +863,14 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
 
 // Ensure your constants are defined for the component to function
 const CATEGORY_LIST = [
-    { id: 1, name: 'Injection', image: '/image/injection.jpeg' },
-    { id: 2, name: 'Capsules', image: '/image/supplement.jpeg' },
-    { id: 3, name: 'Cream', image: '/image/cream.jpeg' },
-    { id: 4, name: 'Soap', image: '/image/soap.jpeg' },
-    { id: 5, name: 'Weight Gain', image: '/image/weight.jpeg' },
-    { id: 6, name: 'Weight Lose', image: '/image/weight-lose.png' },
-    { id: 7, name: 'Fillers', image: '/image/filler.jpeg' },
-    { id: 8, name: 'Others', image: '/image/others.png' },
+    { id: 'Injection', label: 'Injection', image: '/image/injection.jpeg' },
+    { id: 'Capsules', label: 'Capsules', image: '/image/supplement.jpeg' },
+    { id: 'Cream', label: 'Cream', image: '/image/cream.jpeg' },
+    { id: 'Soap', label: 'Soap', image: '/image/soap.jpeg' },
+    { id: 'Weight Gain', label: 'Weight Gain', image: '/image/weight.jpeg' },
+    { id: 'Weight Loss', label: 'Weight Loss', image: '/image/weight-lose.png' },
+    { id: 'C & D Fillers', label: 'C & D Fillers', image: '/image/filler.jpeg' },
+    { id: 'Others', label: 'Others', image: '/image/others.png' },
 ];
 
   // ---------- AUTH & ORDER PAGES ----------
@@ -1804,8 +1808,8 @@ const ShopView = ({
                         {CATEGORIES.map(cat => (
                             <button 
                                 key={cat.id}
-                                onClick={() => setFilter(cat.name)}
-                                className={`px-5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest whitespace-nowrap transition-all border ${filter === cat.name ? 'bg-black text-white border-black shadow-sm' : 'bg-transparent text-gray-400 border-gray-200 hover:text-black hover:border-black'}`}
+                                onClick={() => setFilter(cat.id)}
+                                className={`px-5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest whitespace-nowrap transition-all border ${filter === cat.id ? 'bg-black text-white border-black shadow-sm' : 'bg-transparent text-gray-400 border-gray-200 hover:text-black hover:border-black'}`}
                             >
                                 {cat.name}
                             </button>
@@ -1864,16 +1868,57 @@ const ShopView = ({
       </div>
     );
 };
+
+const CategoryView = ({ category, navigateTo, addToCart, setShopFilter }) => {
+  const categoryData = CATEGORIES.find(cat => cat.id === category) || { name: category, image: '/image/others.png' };
+
+  useEffect(() => {
+    if (category) {
+      setShopFilter(category);
+    }
+  }, [category, setShopFilter]);
+
+  const filteredProducts = useMemo(() => {
+    return PRODUCTS.filter(p => p.category === category);
+  }, [category]);
+
+  return (
+    <div className="animate-fade-in bg-white min-h-screen pb-24">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8">
+        <div className="mb-8">
+          <h1 className="font-serif text-4xl md:text-5xl text-black">{categoryData.name}</h1>
+          <p className="text-sm text-gray-500 mt-2">{filteredProducts.length} products available</p>
+        </div>
+
+        {filteredProducts.length > 0 ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            {filteredProducts.map(product => (
+              <ProductCard key={product.id} product={product} navigateTo={navigateTo} addToCart={addToCart} />
+            ))}
+          </div>
+        ) : (
+          <div className="py-32 text-center">
+            <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Search size={24} className="text-gray-300" />
+            </div>
+            <p className="font-serif text-xl text-gray-500">No products found in this category.</p>
+            <button onClick={() => navigateTo('shop')} className="mt-4 text-[10px] font-bold uppercase tracking-[0.2em] text-black border-b border-black pb-0.5 hover:text-gray-500 hover:border-gray-500 transition-colors">Browse all categories</button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
   
   const BlogPostView = ({ post, navigateTo }) => {
-    return (
-      <div className="animate-fade-in bg-white min-h-screen pb-24">
-        {/* Navigation Breadcrumb */}
-        <div className="px-6 py-4 border-b border-gray-100 sticky top-20 bg-white z-40 flex gap-2 text-xs text-gray-500 items-center">
-            <button onClick={() => navigateTo('blog')} className="hover:text-black flex items-center gap-1"><ArrowLeft size={12}/> Journal</button> 
-            <span className="text-gray-300">/</span>
-            <span className="text-gray-800 truncate">{post.title}</span>
-        </div>
+  return (
+    <div className="animate-fade-in bg-white min-h-screen pb-24">
+      {/* Navigation Breadcrumb */}
+      <div className="px-6 py-4 border-b border-gray-100 sticky top-20 bg-white z-40 flex gap-2 text-xs text-gray-500 items-center">
+        <button onClick={() => navigateTo('blog')} className="hover:text-black flex items-center gap-1"><ArrowLeft size={12}/> Journal</button>
+        <span className="text-gray-300">/</span>
+        <span className="text-gray-800 truncate">{post.title}</span>
+      </div>
   
         <div className="max-w-3xl mx-auto px-6 py-8">
           <div className="mb-8">
@@ -1917,7 +1962,7 @@ const ShopView = ({
            </div>
         </div>
   
-        <div className="max-w-7xl mx-auto px-6 py-10">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-10">
           <div className="flex overflow-x-auto pb-4 mb-8 gap-2 scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">
               {categories.map(cat => (
                   <button 
@@ -1997,7 +2042,7 @@ const ProductView = ({ product, addToCart, navigateTo }) => {
           </button> 
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 py-8 md:py-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start">
           {/* Image Gallery */}
           <div className="space-y-4">
@@ -2126,6 +2171,21 @@ const ProductView = ({ product, addToCart, navigateTo }) => {
                   >
                     {isOutOfStock ? 'Out of Stock' : `Add ${qty} to Cart`}
                   </button>
+              </div>
+
+              {/* Wholesale Enquiry Button (subtle text CTA) */}
+              <div className="w-full mt-3 md:mt-4">
+                <div className="text-center">
+                  <button
+                    onClick={() => {
+                      const msg = `Hi, I'm interested in wholesale pricing for: ${product.name}. Could you please provide the rates?`;
+                      window.open(`https://wa.me/919916726373?text=${encodeURIComponent(msg)}`, '_blank');
+                    }}
+                    className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 hover:text-black border-b border-transparent hover:border-black transition-all duration-300"
+                  >
+                    Ask Wholesale Price
+                  </button>
+                </div>
               </div>
             </div>
             {/* Mobile Spacer */}
@@ -2328,7 +2388,7 @@ const ProductView = ({ product, addToCart, navigateTo }) => {
         </div>
    
         {/* MISSION SPLIT */}
-        <div className="max-w-7xl mx-auto px-6 py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
              <div className="relative aspect-[4/5] md:aspect-square bg-gray-100 rounded-lg overflow-hidden">
                 <img loading="lazy" src="/image/blog4.jpg" alt="Laboratory" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
@@ -2364,7 +2424,7 @@ const ProductView = ({ product, addToCart, navigateTo }) => {
    
         {/* STATS STRIP */}
         <div className="bg-black text-white py-16">
-           <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x sm:divide-x md:divide-x divide-white/10">
+           <div className="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x sm:divide-x md:divide-x divide-white/10">
               {stats.map(stat => (
                  <div key={stat.id} className="p-2">
                     <div className="font-serif text-4xl md:text-5xl text-white mb-2">{stat.val}</div>
@@ -2375,7 +2435,7 @@ const ProductView = ({ product, addToCart, navigateTo }) => {
         </div>
    
         {/* THE COLD CHAIN PROMISE */}
-        <div className="max-w-7xl mx-auto px-6 py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-20 bg-white">
           <SectionHeader title="The Quality Promise" subtitle="How we protect the efficacy of sensitive healthcare products" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               <div className="bg-gray-50 p-8 rounded-xl border border-gray-100 text-center hover:shadow-lg transition-all group">
@@ -2456,7 +2516,7 @@ const ProductView = ({ product, addToCart, navigateTo }) => {
            </div>
         </div>
   
-        <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
               
               {/* Contact Info Column */}
@@ -2587,6 +2647,10 @@ const getPostSlug = (post) => {
   return post.id != null ? `${base}-${post.id}` : base;
 };
 
+const getCategorySlug = (categoryId) => {
+  return slugify(categoryId || '');
+};
+
 const buildPathForPage = (page, opts = {}) => {
   switch (page) {
     case 'home':
@@ -2605,6 +2669,8 @@ const buildPathForPage = (page, opts = {}) => {
       return opts.post ? `/blog/${getPostSlug(opts.post)}` : '/blog';
     case 'product':
       return opts.product ? `/product/${getProductSlug(opts.product)}` : '/shop';
+    case 'category':
+      return opts.category ? `/category/${getCategorySlug(opts.category)}` : '/shop';
     case 'terms':
       return '/terms';
     case 'privacy':
@@ -2637,6 +2703,7 @@ const getRouteFromLocation = () => {
   let page = 'home';
   let product = null;
   let post = null;
+  let category = null;
 
   if (segments.length === 0) {
     // No path segments – fall back to legacy query params if present
@@ -2727,6 +2794,20 @@ const getRouteFromLocation = () => {
         page = 'shop';
       }
       break;
+    case 'category':
+      if (second) {
+        const slug = second;
+        const found = CATEGORIES.find(cat => getCategorySlug(cat.id) === slug);
+        if (found) {
+          page = 'category';
+          category = found.id;
+        } else {
+          page = 'shop';
+        }
+      } else {
+        page = 'shop';
+      }
+      break;
     case 'terms':
       page = 'terms';
       break;
@@ -2750,12 +2831,12 @@ const getRouteFromLocation = () => {
       break;
   }
 
-  const path = buildPathForPage(page, { product, post });
-  return { page, product, post, path };
+  const path = buildPathForPage(page, { product, post, category });
+  return { page, product, post, category, path };
 };
 
 /* --- SEO CONFIG (SHAA TRADING) --- */
-const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
+const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCategory) => {
   // Base defaults
   let title = 'Shaa Trading | Skin Whitening, Injectables & Aesthetic Supplies';
   let description = 'Shaa Trading is a Bengaluru-based distributor and supplier of skin whitening creams, glutathione injections, Korean injectables and aesthetic clinic essentials.';
@@ -2797,6 +2878,13 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
       description = 'Browse Aqua Skin, Glutax, Dr James, Glowtiqa and other advanced skin whitening injections, creams, soaps and supplements from Shaa Trading.';
       canonical = `https://shaatrading.in${buildPathForPage('shop')}`;
       keywords = 'buy glutathione injections, Aqua Skin India, Glutax injections, Dr James injection, Glowtiqa whitening cream, skin whitening products online, clinic supplies India';
+      break;
+
+    case 'category':
+      title = `${selectedCategory} | Shaa Trading`;
+      description = `Browse ${selectedCategory} supplies and products from Shaa Trading for clinics and professionals.`;
+      canonical = `https://shaatrading.in${buildPathForPage('category', { category: selectedCategory })}`;
+      keywords = `${selectedCategory} products, ${selectedCategory} supplier, Shaa Trading ${selectedCategory}`;
       break;
 
     case 'cart':
@@ -2956,6 +3044,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [selectedPost, setSelectedPost] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState(null);
     const [toast, setToast] = useState(null);
     const [transactionId, setTransactionId] = useState(null);
 
@@ -2990,6 +3079,12 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
       setCurrentPage(initialRoute.page);
       if (initialRoute.product) setSelectedProduct(initialRoute.product);
       if (initialRoute.post) setSelectedPost(initialRoute.post);
+      if (initialRoute.page === 'category' && initialRoute.category) {
+        setSelectedCategory(initialRoute.category);
+        setShopFilter(initialRoute.category);
+      } else {
+        setSelectedCategory(null);
+      }
 
       const initialState = {
         page: initialRoute.page,
@@ -3003,11 +3098,23 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
           setCurrentPage(event.state.page);
           setSelectedProduct(event.state.product || null);
           setSelectedPost(event.state.post || null);
+          if (event.state.page === 'category' && event.state.category) {
+            setSelectedCategory(event.state.category);
+            setShopFilter(event.state.category);
+          } else {
+            setSelectedCategory(null);
+          }
         } else {
           const route = getRouteFromLocation();
           setCurrentPage(route.page);
           setSelectedProduct(route.product || null);
           setSelectedPost(route.post || null);
+          if (route.page === 'category' && route.category) {
+            setSelectedCategory(route.category);
+            setShopFilter(route.category);
+          } else {
+            setSelectedCategory(null);
+          }
         }
         setMobileMenuOpen(false);
       };
@@ -3021,8 +3128,16 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
     };
 
     const navigateTo = (page, item = null) => {
-      if (page === 'product' && item) setSelectedProduct(item);
-      if (page === 'blog-post' && item) setSelectedPost(item); 
+      if (page === 'product' && item) {
+        setSelectedProduct(item);
+      } else if (page === 'blog-post' && item) {
+        setSelectedPost(item);
+      } else if (page === 'category' && item) {
+        setSelectedCategory(item);
+        setShopFilter(item);
+      } else if (page !== 'category') {
+        setSelectedCategory(null);
+      }
 
       setCurrentPage(page);
       setMobileMenuOpen(false);
@@ -3031,9 +3146,10 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
       const stateObj = { 
         page, 
         product: page === 'product' ? item : null,
-        post: page === 'blog-post' ? item : null
+        post: page === 'blog-post' ? item : null,
+        category: page === 'category' ? item : null,
       };
-      const path = buildPathForPage(page, { product: stateObj.product, post: stateObj.post });
+      const path = buildPathForPage(page, { product: stateObj.product, post: stateObj.post, category: stateObj.category });
       window.history.pushState(stateObj, '', path);
     };
 
@@ -3200,7 +3316,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
       }
     };
 
-    const { title, description, jsonLd, keywords, canonical, robots } = getSeoConfig(currentPage, selectedProduct, selectedPost);
+    const { title, description, jsonLd, keywords, canonical, robots } = getSeoConfig(currentPage, selectedProduct, selectedPost, selectedCategory);
     
     return (
     <div className="font-sans text-gray-900 bg-[#fbfbfb] min-h-screen flex flex-col selection:bg-gray-800 selection:text-white">
@@ -3261,6 +3377,19 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost) => {
                 setBrandFilter={setBrandFilter}
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
+              />
+            )}
+
+            {currentPage === 'category' && selectedCategory && (
+              <CategoryView
+                category={selectedCategory}
+                navigateTo={navigateTo}
+                addToCart={addToCart}
+                brandFilter={brandFilter}
+                setBrandFilter={setBrandFilter}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                setShopFilter={setShopFilter}
               />
             )}
 

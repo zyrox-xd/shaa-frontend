@@ -1846,7 +1846,7 @@ const PRODUCTS = [
 {
     id: 26,
     name: "Glowtiqa Whitening Booster 1200MG",
-    category: "Supplement",
+    category: "Capsules",
     brand: "Glowtiqa Paris",
     price: 3000,
     comparePrice: 4499,
@@ -2442,7 +2442,7 @@ const PRODUCTS = [
     name: "Cindella Luthione Vitamin C 1200mg Skin Whitening Set",
     category: "Injection",
     brand: "Cosdaq",
-    price: 15800,
+    price: 16500,
     comparePrice: 22500,
     image: "/image/cosdaq/cindella-set-1.jpeg",
     images: [
@@ -2886,7 +2886,7 @@ const PRODUCTS = [
     name: "Shiro Advance Glutathione 5000mg Skin Whitening Injection",
     category: "Injection",
     brand: "Shiro Advance",
-    price: 13500,
+    price: 12500,
     comparePrice: 18000,
     image: "/image/shiro/advance-5000mg-1.jpeg",
     images: [
@@ -2945,7 +2945,7 @@ const PRODUCTS = [
 {
     id: 41,
     name: "Miracle Weight Gain Capsules With Herbal Support For Healthy Weight Gain",
-    category: "Capsules",
+    category: "Weight Gain",
     brand: "Miracle Gain",
     price: 2200,
     comparePrice: 3500,
@@ -3116,7 +3116,7 @@ const PRODUCTS = [
     name: "Royal Ultra Booster With Glutathione Skin Whitening Injection 10mL",
     category: "Injection",
     brand: "Royal Ultra Booster",
-    price: 9800,
+    price: 8800,
     comparePrice: 12500,
     image: "/image/royal-ultra/royal-ultra-booster-1.jpg",
     images: [
@@ -3353,31 +3353,25 @@ const PRODUCTS = [
 },
 {
     id: 46,
-    name: "L Carnitine Probio CLA 35g Advance Weight Loss Injection",
-    category: "Injection",
+    name: "L Carnitine Probio CLA 75g Advance Weight Loss Injection",
+    category: "Weight Loss",
     brand: "L-Carnitine",
-    price: 8000,
+    price: 8500,
     comparePrice: 10000,
-    image: "/image/l-carnitine/probio-cla-35g-1.jpeg",
+    image: "/image/l-carnitine/probio-cla-75g-1.jpeg",
     images: [
-        "/image/l-carnitine/probio-cla-35g-1.jpeg",
-        "/image/l-carnitine/probio-cla-35g-2.jpeg",
-        "/image/l-carnitine/probio-cla-35g-3.jpeg",
-        "/image/l-carnitine/probio-cla-35g-4.jpeg",
-        "/image/l-carnitine/probio-cla-35g-5.jpeg",
-        "/image/l-carnitine/probio-cla-35g-6.jpeg",
-        "/image/l-carnitine/probio-cla-35g-7.jpeg",
-        "/image/l-carnitine/probio-cla-35g-8.jpeg",
-        "/image/l-carnitine/probio-cla-35g-9.jpeg"
+        "/image/l-carnitine/probio-cla-75g-1.jpeg",
+        "/image/l-carnitine/probio-cla-75g-2.jpeg",
+        "/image/l-carnitine/probio-cla-75g-3.jpeg"
     ],
-    description: "Advanced weight loss injection with L-Carnitine, CLA, and PROBIO for enhanced lipid metabolism, fatty acid oxidation, and accelerated fat-burning process.",
+    description: "Advanced weight loss injection with L-Carnitine, CLA, and PROBIO (75g strength) for enhanced lipid metabolism, fatty acid oxidation, and accelerated fat-burning process.",
     details: `
-    <strong>L Carnitine Probio CLA 35g Advance Weight Loss Injection</strong><br/><br/>
-    L-Carnitine injections allow the amino acid to enter the blood and enhance lipid metabolism faster than when administered as an oral supplement. This advanced formulation combines L-Carnitine with CLA (Conjugated Linoleic Acid) and PROBIO for superior fat-burning and weight loss support.<br/><br/>
+    <strong>L Carnitine Probio CLA 75g Advance Weight Loss Injection</strong><br/><br/>
+    L-Carnitine injections allow the amino acid to enter the blood and enhance lipid metabolism faster than when administered as an oral supplement. This advanced formulation combines L-Carnitine with CLA (Conjugated Linoleic Acid) and PROBIO for superior fat-burning and weight loss support. This 75g strength provides a higher concentration for more effective results.<br/><br/>
     
     <strong>Key Features:</strong><br/>
     <ul class="list-disc pl-5 mt-2 space-y-1">
-      <li>Strength: 2000 mg</li>
+      <li>Strength: 75g total active complex</li>
       <li>Packaging Size: 10 Vials (10ml each)</li>
       <li>Form: Injection</li>
       <li>Route of Administration: Intravenous (IV)</li>
@@ -3409,14 +3403,14 @@ const PRODUCTS = [
     benefits: [
         "10 Vials (10ml each)",
         "Made in Germany",
-        "2000mg Strength",
+        "75g Strength",
         "With CLA & PROBIO",
         "Promotes Fatty Acid Oxidation",
         "Accelerates Fat Burning",
         "Enhances Lipid Metabolism",
         "Non-Prescription"
     ],
-    sku: "LCARNITINE-PROBIO-CLA-10ML",
+    sku: "LCARNITINE-PROBIO-CLA-75G",
     volume: "10 Vials (10ml each)",
     stock: 10
 },
@@ -3570,9 +3564,8 @@ const PRODUCTS = [
     brand: "iSkin",
     price: 16500,
     comparePrice: 25000,
-    image: "/image/iskin/radianz-blu-cell-1.jpeg",
+    image: "/image/iskin/radianz-blu-cell-2.jpeg",
     images: [
-        "/image/iskin/radianz-blu-cell-1.jpeg",
         "/image/iskin/radianz-blu-cell-2.jpeg",
         "/image/iskin/radianz-blu-cell-3.jpeg",
         "/image/iskin/radianz-blu-cell-4.jpeg",
@@ -3897,7 +3890,7 @@ const PRODUCTS = [
 {
     id: 54,
     name: "Botox 100 Iu",
-    category: "Injection",
+    category: "C & D Fillers",
     brand: "Allergan",
     price: 12500,
     comparePrice: 15000,
@@ -3959,7 +3952,7 @@ const PRODUCTS = [
 {
     id: 55,
     name: "Botox Allergan 100 Iu Botox Cosmetic",
-    category: "Injection",
+    category: "C & D Fillers",
     brand: "Allergan",
     price: 9500,
     comparePrice: 12500,
@@ -4016,7 +4009,7 @@ const PRODUCTS = [
 {
     id: 56,
     name: "L Carnitine 45g Weight Loss & Fat Loss Injection, 2000 mg",
-    category: "Injection",
+    category: "Weight Loss",
     brand: "Ratiopharm",
     price: 8000,
     comparePrice: 10000,
@@ -6033,7 +6026,7 @@ const PRODUCTS = [
 {
     id: 88,
     name: "Health Tone Weight Gain Capsules",
-    category: "Capsules",
+    category: "Weight Gain",
     brand: "Health Tone",
     price: 2000,
     comparePrice: 3500,
@@ -6110,6 +6103,975 @@ const PRODUCTS = [
     ],
     sku: "HEALTH-TONE-WEIGHT-GAIN-90C",
     volume: "90 Capsules",
+    stock: 10
+},
+{
+    id: 89,
+    name: "Neutro Skin Grape Seed Cranberry Glutathione Skin Whitening Softgels",
+    category: "Capsules",
+    brand: "Neutro Skin",
+    price: 4500,
+    comparePrice: 10500,
+    image: "/image/neutro-skin/grape-seed-cranberry-1.jpg",
+    images: [
+        "/image/neutro-skin/grape-seed-cranberry-1.jpg",
+        "/image/neutro-skin/grape-seed-cranberry-2.jpg",
+        "/image/neutro-skin/grape-seed-cranberry-3.jpg",
+        "/image/neutro-skin/grape-seed-cranberry-4.jpg"
+    ],
+    description: "Premium dietary supplement with E-UF Glutathione, Grape Seed Extract, Nano Cranberry Extract, and advanced peptides. Supports skin brightening, antioxidant protection, collagen health, and overall wellness.",
+    details: `
+    <strong>Neutro Skin Grape Seed Cranberry Glutathione Skin Whitening Softgels</strong><br/><br/>
+    A premium dietary supplement developed to support skin health, antioxidant protection, and overall wellness through a scientifically balanced formulation. In today's fast-paced lifestyle, factors such as pollution, stress, and poor nutrition can impact skin quality, leading to dullness, uneven tone, and reduced elasticity. This supplement is designed to address these concerns by nourishing the body internally.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>100 Softgels per bottle</li>
+      <li>Made in France</li>
+      <li>FDA Approved | GMP Certified | FSSAI Approved</li>
+      <li>E-UF Technology for enhanced purity and absorption</li>
+    </ul>
+    <br/>
+
+    <strong>Ingredients & Benefits:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>E-UF Glutathione – 500,000 mg:</strong> Supports skin brightening, antioxidant protection, and detoxification</li>
+      <li><strong>E-UF Grape Seed Extract Stem Cell – 20,000 mg:</strong> Supports skin elasticity, collagen strength, protection from environmental damage</li>
+      <li><strong>E-UF Nano Cranberry Extract – 80,000 mg:</strong> Supports urinary tract health, immune function, antioxidant protection</li>
+      <li><strong>E-UF Tripeptide-10 Citrulline – 9,000 mg:</strong> Supports collagen structure, improves skin firmness and texture</li>
+      <li><strong>E-UF Tripeptide-1 – 3,800 mg:</strong> Supports skin repair and regeneration processes</li>
+      <li><strong>E-UF Fermented Extract – 900 mcg:</strong> Enhances nutrient absorption and overall effectiveness</li>
+      <li><strong>E-UF Hexapeptide-37 – 1,800 mg:</strong> Supports skin hydration, elasticity, and cellular activity</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Supports brighter and more even skin tone</li>
+      <li>Helps improve skin texture and smoothness</li>
+      <li>Provides powerful antioxidant protection</li>
+      <li>Helps reduce dullness and tired-looking skin</li>
+      <li>Promotes natural skin glow and radiance</li>
+      <li>Supports immune system health</li>
+      <li>Helps maintain urinary tract wellness</li>
+      <li>Enhances skin hydration and repair</li>
+      <li>Contributes to overall wellness and vitality</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Take 1 capsule daily with water, preferably after meals. Store at room temperature, away from direct sunlight and heat.<br/><br/>
+
+    <strong>FAQs:</strong> Results may vary; improvements often noticed with consistent use over a few weeks. Suitable for both men and women. Consult healthcare professional if needed.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional use only. Consult physician before use.</em>
+    `,
+    benefits: [
+        "Made in France",
+        "100 Softgels per Bottle",
+        "E-UF Glutathione + Grape Seed + Cranberry",
+        "Supports Skin Brightening",
+        "Antioxidant & Detox Support",
+        "Boosts Collagen & Elasticity",
+        "Supports Immunity & Urinary Health",
+        "With Advanced Peptides"
+    ],
+    sku: "PTR000522",
+    volume: "100 Softgels",
+    stock: 10
+},
+{
+    id: 90,
+    name: "Dr James GMP Glutathione Skin Whitening Pills",
+    category: "Capsules",
+    brand: "Dr James",
+    price: 1800,
+    comparePrice: 3000,
+    image: "/image/drjames/gmp-glutathione-pills-1.jpg",
+    images: [
+        "/image/drjames/gmp-glutathione-pills-1.jpg",
+        "/image/drjames/gmp-glutathione-pills-2.jpg",
+        "/image/drjames/gmp-glutathione-pills-3.jpg",
+        "/image/drjames/gmp-glutathione-pills-4.jpg"
+    ],
+    description: "Dermatologist-recommended glutathione skin whitening pills with 1000mg L-Glutathione, Alpha Lipoic Acid, and other skin-brightening ingredients. Reduces melanin, whitens skin, provides anti-aging and antioxidant benefits.",
+    details: `
+    <strong>Dr James GMP Glutathione Skin Whitening Pills</strong><br/><br/>
+    Uncover the beauty in you with Dr James Glutathione Skin Whitening Pills, specially intended for healthy white, sophisticated skin with multi-targeted action. Brightens, lightens tone, and clears skin by reducing melanin appearance and boosting the whitening process. Dermatologist-recommended formula works below the skin surface for lasting results.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>60 Capsules per bottle</li>
+      <li>GMP Certified</li>
+      <li>Made in USA</li>
+      <li>Paraben Free & Organic</li>
+      <li>Expiry: Dec 2026</li>
+    </ul>
+    <br/>
+
+    <strong>Ingredients (Per Capsule):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>L-Glutathione – 1000mg</li>
+      <li>Alpha Lipoic Acid – 50mg</li>
+      <li>Thiotic Acid – 50mg</li>
+      <li>Liquorice Root – 50mg</li>
+      <li>Malic Acid – 25mg</li>
+      <li>Niacinamide – 25mg</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Whitens Skin:</strong> Converts dark/brown pigmentation to white glowing pigmentation; gives whiter, fairer, softer skin</li>
+      <li><strong>Anti-Aging Components:</strong> Brings back youthful glow by reducing oxidized fats and increasing carbohydrate metabolism</li>
+      <li><strong>Antioxidant Properties:</strong> Reduces discoloration, empowers skin regeneration, supports immune system, helps prevent liver cancer</li>
+      <li><strong>Other Benefits:</strong> Removes pimples, age marks, dullness, heavily pigmented cells; reduces brown spots; effective for alcoholic drinkers, liver disorders, low sperm count, heart problems, asthma/allergies, weak immune system</li>
+    </ul>
+    <br/>
+
+    <strong>Dosage:</strong> Two capsules daily – one before breakfast and one before bed. For best results, take with 1000mg Vitamin C daily. After desired skin tone, maintenance dose: 500mg daily.<br/><br/>
+
+    <strong>Note:</strong> Allow at least six weeks for visible results. Consistent use and sun protection yield results within first two weeks.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary from person to person. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "60 Capsules per Bottle",
+        "Made in USA",
+        "1000mg L-Glutathione",
+        "Dermatologist Recommended",
+        "Whitens Skin & Reduces Melanin",
+        "Anti-Aging & Antioxidant",
+        "Removes Pimples & Age Marks",
+        "Supports Immune System"
+    ],
+    sku: "DRJAMES-GMP-GLUTA-60C",
+    volume: "60 Capsules",
+    stock: 10
+},
+{
+    id: 91,
+    name: "Ratiopharm L Carnitine 10G Weight Loss Injection",
+    category: "Weight Loss",
+    brand: "Ratiopharm",
+    price: 7500,
+    comparePrice: 10000,
+    image: "/image/l-carnitine/l-carnitine-10g-1.jpg",
+    images: [
+        "/image/l-carnitine/l-carnitine-10g-1.jpg",
+        "/image/ratiopharm/l-carnitine-10g-2.jpg",
+        "/image/ratiopharm/l-carnitine-10g-3.jpg",
+        "/image/ratiopharm/l-carnitine-10g-4.jpg"
+    ],
+    description: "German L-Carnitine injection for weight loss, fat burning, energy boost, heart health, and anti-aging. Helps transport fatty acids into mitochondria for energy production.",
+    details: `
+    <strong>Ratiopharm L Carnitine 10G Weight Loss Injection</strong><br/><br/>
+    Carnitine is biosynthesized from lysine and is connected to energy production from branched-chain amino acids. It exists in high concentrations in skeletal muscle and heart, regulating basal metabolism. It shifts glucose metabolism from glycolysis to glycogen storage and enhances transport of long-chain fatty acids into mitochondria for oxidation and energy production.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>10 Ampoules per box</li>
+      <li>Made in Germany</li>
+      <li>Paraben Free & Organic</li>
+      <li>Administration: IV or Subcutaneous</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Enhances cellular energy production – supports immune system, heart, and overall body function</li>
+      <li>Lowers triglycerides and increases HDL (good cholesterol)</li>
+      <li>Helps prevent heart disease and heart failure</li>
+      <li>Supports weight loss, especially when reducing carbohydrates</li>
+      <li>Boosts natural energy levels without damage</li>
+      <li>Improves exercise endurance and prevents tissue damage from oxygen deficiency</li>
+      <li>Acetyl-L-Carnitine reduces nerve cell damage and may help prevent Alzheimer's</li>
+      <li>Positive effect on mental health and stress reduction</li>
+      <li>Supports liver function and overall health</li>
+    </ul>
+    <br/>
+
+    <strong>Recommended Dosage:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Weight control: 1-2 ampoules IV every 4 days</li>
+      <li>Subcutaneous fat management: 1-2 ampoules subcutaneously</li>
+      <li>Anti-aging & wellness: 10 ampoules in divided doses over 1 month</li>
+    </ul>
+    <br/>
+
+    <strong>Not Suitable For:</strong> Breastfeeding women, during menstruation, vitamin allergies, pregnant women, cardiovascular problems.<br/><br/>
+
+    <strong>Advice:</strong> Drink 3-3.4 liters of water daily.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary from person to person. Professional use only. Consult physician before use.</em>
+    `,
+    benefits: [
+        "10 Ampoules per Box",
+        "Made in Germany",
+        "Supports Weight Loss & Fat Burning",
+        "Boosts Energy & Stamina",
+        "Improves Heart Health",
+        "Lowers Triglycerides, Increases HDL",
+        "Anti-Aging & Mental Health",
+        "IV or Subcutaneous Administration"
+    ],
+    sku: "RATIOPHARM-L-CARNITINE-10G",
+    volume: "10 Ampoules",
+    stock: 10
+},
+{
+    id: 92,
+    name: "Ratiopharm L Carnitine 20 Gram Weight & Fat Loss Injection",
+    category: "Weight Loss",
+    brand: "Ratiopharm",
+    price: 7800,
+    comparePrice: 13000,
+    image: "/image/l-carnitine/l-carnitine-20g-1.jpg",
+    images: [
+        "/image/l-carnitine/l-carnitine-20g-1.jpg",
+        "/image/l-carnitine/l-carnitine-20g-2.jpg",
+        "/image/l-carnitine/l-carnitine-20g-3.jpg",
+        "/image/l-carnitine/l-carnitine-20g-4.jpg"
+    ],
+    description: "German L-Carnitine plus CLA injection for weight loss, fat burning, energy boost, muscle tone, metabolism enhancement, and overall health support. Safe, lab-tested formula for men and women.",
+    details: `
+    <strong>Ratiopharm L Carnitine 20 Gram Weight & Fat Loss Injection</strong><br/><br/>
+    L-Carnitene plus CLA is a mix designed to boost your body's natural fat-burning process. This combo helps your body use fat as fuel, making it easier to diet and stay active. It improves exercise performance, reduces fatigue caused by lactic acid, and supports weight loss and overall health without known side effects.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>10 Injection Sets per box</li>
+      <li>Made in Germany</li>
+      <li>Paraben Free & Organic</li>
+      <li>Suitable for both men and women</li>
+      <li>Lab-tested formula focused on safe fat burning</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Prevents new fat buildup – helps keep figure lean</li>
+      <li>Weight loss and BMI reduction</li>
+      <li>Energy booster for daily tasks</li>
+      <li>Enhances muscle tone for firmer, tighter appearance</li>
+      <li>Speeds up fat breakdown in the body</li>
+      <li>Boosts metabolism and calorie burn</li>
+      <li>Blocks fat production – prevents new fat cells</li>
+      <li>Optimizes liver and kidney health</li>
+      <li>Supports heart health and minimizes heart complications</li>
+      <li>Promotes brain health and cognitive function</li>
+      <li>Helps regulate blood pressure and alleviate bodily stress</li>
+      <li>Elevates energy levels for daily dynamism</li>
+    </ul>
+    <br/>
+
+    <strong>Function:</strong> Transforms body fat into energy, enhances overall health, stimulates proper functioning of brain, kidneys, liver, and heart, boosts muscle movement.<br/><br/>
+
+    <strong>Usage:</strong> Administered under professional supervision. Follow healthcare provider's dosage recommendations.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary from person to person. Professional use only. Consult physician before use.</em>
+    `,
+    benefits: [
+        "10 Injection Sets per Box",
+        "Made in Germany",
+        "L-Carnitine + CLA Formula",
+        "Weight Loss & Fat Burning",
+        "Boosts Metabolism & Energy",
+        "Enhances Muscle Tone",
+        "Supports Heart, Liver & Kidney Health",
+        "Regulates Blood Pressure"
+    ],
+    sku: "RATIOPHARM-L-CARNITINE-20G",
+    volume: "10 Sets",
+    stock: 10
+},
+{
+    id: 93,
+    name: "L Carnitine Probio CLA 35g Advance Weight Loss Injection",
+    category: "Weight Loss",
+    brand: "L-Carnitine",
+    price: 8000,
+    comparePrice: 10000,
+    image: "/image/l-carnitine/probio-cla-35g-1.jpg",
+    images: [
+        "/image/l-carnitine/probio-cla-35g-1.jpg",
+        "/image/l-carnitine/probio-cla-35g-2.jpeg",
+        "/image/l-carnitine/probio-cla-35g-3.jpeg",
+        "/image/l-carnitine/probio-cla-35g-4.jpeg"
+    ],
+    description: "Advanced weight loss injection with L-Carnitine, CLA, and PROBIO for enhanced lipid metabolism, fatty acid oxidation, and accelerated fat-burning process.",
+    details: `
+    <strong>L Carnitine Probio CLA 35g Advance Weight Loss Injection</strong><br/><br/>
+    L-Carnitine injections allow the amino acid to enter the blood and enhance lipid metabolism faster than when administered as an oral supplement. This advanced formulation combines L-Carnitine with CLA (Conjugated Linoleic Acid) and PROBIO for superior fat-burning and weight loss support.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 2000 mg</li>
+      <li>Packaging Size: 10 Vials (10ml each)</li>
+      <li>Form: Injection</li>
+      <li>Route of Administration: Intravenous (IV)</li>
+      <li>Pack Type: Box</li>
+      <li>Formulation: With CLA</li>
+      <li>Composition: Amino acid, CLA, PROBIO</li>
+      <li>Country of Origin: Germany</li>
+      <li>Shelf Life: 36 Months</li>
+      <li>Prescription/Non-Prescription: Non-Prescription</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Promotes fatty acid oxidation</li>
+      <li>Accelerates the fat-burning process</li>
+      <li>Enhances lipid metabolism faster than oral supplements</li>
+      <li>Supports weight loss and fat reduction</li>
+      <li>Improves energy utilization from fats</li>
+    </ul>
+    <br/>
+
+    <strong>How It Works:</strong> L-Carnitine facilitates the transport of fatty acids into mitochondria where they are oxidized for energy. Combined with CLA and PROBIO, this injection boosts metabolic rate and promotes efficient fat burning.<br/><br/>
+
+    <strong>Usage:</strong> Administered intravenously under professional supervision. Follow healthcare provider's recommendations for dosage and frequency.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Results may vary. Consult healthcare professional before use. Not a substitute for diet and exercise.</em>
+    `,
+    benefits: [
+        "10 Vials (10ml each)",
+        "Made in Germany",
+        "2000mg Strength",
+        "With CLA & PROBIO",
+        "Promotes Fatty Acid Oxidation",
+        "Accelerates Fat Burning",
+        "Enhances Lipid Metabolism",
+        "Non-Prescription"
+    ],
+    sku: "LCARNITINE-PROBIO-CLA-10ML",
+    volume: "10 Vials (10ml each)",
+    stock: 10
+},
+{
+    id: 94,
+    name: "Rejuran Healer - Korean PN Skin Booster for Anti-Aging, Skin Repair and Regeneration",
+    category: "Injection",
+    brand: "Rejuran",
+    price: 12500,
+    comparePrice: 15000,
+    image: "/image/rejuran/healer-1.jpeg",
+    images: [
+        "/image/rejuran/healer-1.jpeg",
+        "/image/rejuran/healer-2.jpeg",
+        "/image/rejuran/healer-3.jpeg",
+        "/image/rejuran/healer-4.jpeg"
+    ],
+    description: "Korean PN (Polynucleotide) skin booster derived from salmon DNA. Stimulates cell regeneration, repairs damaged skin, reduces wrinkles, and restores youthful elasticity.",
+    details: `
+    <strong>Rejuran Healer - Korean PN Skin Booster</strong><br/><br/>
+    Rejuran Healer is a pioneering Korean skin booster formulated with Polynucleotides (PN) derived from salmon DNA. It stimulates cell regeneration, repairs damaged skin, reduces wrinkles, and restores youthful elasticity. Known as the "Youth Healer", it is highly trusted in anti-aging and rejuvenation treatments.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>PN-based skin healing & regeneration therapy</li>
+      <li>Repairs damaged skin cells & improves barrier function</li>
+      <li>Boosts collagen & elastin production</li>
+      <li>Reduces wrinkles, fine lines & acne scars</li>
+      <li>Improves elasticity, thickness & skin texture</li>
+      <li>Provides long-lasting anti-aging benefits</li>
+    </ul>
+    <br/>
+
+    <strong>Specifications:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Packaging Size: 2 ml (Pre-filled 2 syringes - PN solution)</li>
+      <li>Packaging Type: Syringe</li>
+      <li>Composition: Polynucleotides (PN)</li>
+      <li>Shelf Life: 24 months</li>
+      <li>Application Areas: Face, neck, décolletage, hands</li>
+    </ul>
+    <br/>
+
+    <strong>Applications:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Anti-aging & wrinkle reduction</li>
+      <li>Repair of photoaged & environmentally damaged skin</li>
+      <li>Acne scar improvement</li>
+      <li>Elasticity & skin thickness restoration</li>
+      <li>Hydration & rejuvenation of face, neck, décolletage & hands</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Administered by a licensed professional via injection into the dermis. Typically 2-3 sessions spaced 3-4 weeks apart for optimal results.<br/><br/>
+
+    <strong>Origin:</strong> Republic of Korea<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional use only. Consult dermatologist before use. Results may vary.</em>
+    `,
+    benefits: [
+        "Made in Korea",
+        "PN (Polynucleotide) Technology",
+        "Stimulates Cell Regeneration",
+        "Repairs Damaged Skin",
+        "Reduces Wrinkles & Acne Scars",
+        "Boosts Collagen & Elastin",
+        "Improves Elasticity & Texture",
+        "Long-Lasting Anti-Aging"
+    ],
+    sku: "REJURAN-HEALER-2ML",
+    volume: "2 ml (2 syringes)",
+    stock: 10
+},
+{
+    id: 95,
+    name: "Nc24 Lipolytic Solution 10,000mg - Weight Loss Injection",
+    category: "Weight Loss",
+    brand: "NC24",
+    price: 9000,
+    comparePrice: 12000,
+    image: "/image/nc24/lipolytic-solution-10000mg-1.jpeg",
+    images: [
+        "/image/nc24/lipolytic-solution-10000mg-1.jpeg",
+        "/image/nc24/lipolytic-solution-10000mg-2.jpeg",
+        "/image/nc24/lipolytic-solution-10000mg-3.jpeg",
+        "/image/nc24/lipolytic-solution-10000mg-4.jpeg"
+    ],
+    description: "Lipolytic injection for targeted fat reduction, especially on face and neck. Contains sodium deoxycholate and phosphatidylcholine to dissolve fat pads, contour areas, and improve facial proportions.",
+    details: `
+    <strong>Nc24 Lipolytic Solution 10,000mg - Weight Loss Injection</strong><br/><br/>
+    Persistence and hypertrophy of fat pads, particularly of the face and neck region, disturb beauty proportions and demand effective treatments. Phosphatidylcholine and deoxycholic acid are the most commonly used solutions for injection lipolysis. Sodium deoxycholate preparation is approved by the US Food and Drug Administration (FDA) for this purpose. This article describes the correct use of solution to achieve fat reduction and ensure safety, including patient selection, assessment, dosing, injection techniques, post-treatment care, and complications.<br/><br/>
+    
+    The demand for fat reduction injections in aesthetic therapies has always been on the rise. An effective reduction of this fat helps individuals achieve better appearance and the desired contoured face and neck.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 10,000 mg active lipolytic complex</li>
+      <li>Packaging Size: 10ml x 5 vials per box</li>
+      <li>Form: Injectable solution</li>
+      <li>Brand: NC24</li>
+      <li>Gender: Men & Women</li>
+      <li>Usage: Body contouring, fat reduction</li>
+      <li>FSSAI Certified</li>
+      <li>Dose: Can be administered once per week</li>
+    </ul>
+    <br/>
+
+    <strong>Composition & Mechanism:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Sodium Deoxycholate – FDA-approved agent that disrupts fat cell membranes</li>
+      <li>Phosphatidylcholine – Helps emulsify and dissolve adipose tissue</li>
+      <li>Synergistic lipolytic action for targeted fat reduction</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Targeted fat reduction – especially effective on face, neck, chin, and small body areas</li>
+      <li>Improves facial and neck contours</li>
+      <li>Non-surgical alternative for fat pad reduction</li>
+      <li>FDA-approved sodium deoxycholate formulation</li>
+      <li>Supports weight loss and fat burning efforts</li>
+      <li>Can be used for stubborn fat pockets</li>
+    </ul>
+    <br/>
+
+    <strong>Usage Instructions:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Administered by qualified healthcare professional</li>
+      <li>Typically injected once per week into targeted fat pads</li>
+      <li>Treatment course depends on individual needs and response</li>
+      <li>Post-treatment care: Avoid strenuous activity, apply cold compress if needed</li>
+    </ul>
+    <br/>
+
+    <strong>Note:</strong> Wholesale and PCD Pharma available. Results may vary. Professional use only.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Consult a qualified practitioner before use. Proper patient selection and technique are essential for safety and efficacy.</em>
+    `,
+    benefits: [
+        "Targeted Fat Reduction (Face & Neck)",
+        "FDA-Approved Sodium Deoxycholate",
+        "Non-Surgical Lipolysis",
+        "Improves Facial Contours",
+        "10,000 mg Strength",
+        "5 Vials per Box",
+        "FSSAI Certified",
+        "Weekly Administration"
+    ],
+    sku: "NC24-LIPOLYTIC-10K",
+    volume: "5 Vials (10ml each)",
+    stock: 10
+},
+{
+    id: 96,
+    name: "Botulax 100 Injection Botulinumtoxina 100iu",
+    category: "C & D Fillers",
+    brand: "Botulax",
+    price: 5500,
+    comparePrice: 7500,
+    image: "/image/botulax/botulax-100-1.jpeg",
+    images: [
+        "/image/botulax/botulax-100-1.jpeg",
+        "/image/botulax/botulax-100-2.jpeg",
+        "/image/botulax/botulax-100-3.jpeg",
+        "/image/botulax/botulax-100-4.jpeg"
+    ],
+    description: "Botulinum toxin type A injection for temporary relaxation of facial muscles, smoothing forehead lines, crow's feet, and frown lines. KFDA-approved with high purity and efficacy.",
+    details: `
+    <strong>Botulax 100 Injection Botulinumtoxina 100iu</strong><br/><br/>
+    BOTULAX is a peripheral muscle relaxant containing purified botulinum toxin type A (with haemagglutinin) and sodium chloride. It blocks the transmission of nerve impulses, temporarily paralyzing facial muscles to relax wrinkles. Produced from fermentation of Hall strain Clostridium botulinum.<br/><br/>
+    
+    <strong>Active Ingredient:</strong> Clostridium botulinum toxin type A – 100 units (U)<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Dose: 100 IU per vial</li>
+      <li>Potency variation tightly controlled (91-115 units/vial)</li>
+      <li>Toxin complex size: 900kDa – minimizes spread outside injection site</li>
+      <li>GMP approved by KFDA</li>
+      <li>Sterile, vacuum-dried, preservative-free</li>
+      <li>Shelf life: 3 years (freeze-dried)</li>
+      <li>Storage: +2°C to +8°C (refrigerated)</li>
+    </ul>
+    <br/>
+
+    <strong>Mode of Action:</strong> Botulinum toxin type A blocks nerve signals to muscles. Injected muscles cannot contract, which relaxes and softens wrinkles.<br/><br/>
+
+    <strong>Applications:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Forehead lines</li>
+      <li>Crow's feet (wrinkles around eyes)</li>
+      <li>Frown lines (lion's wrinkle)</li>
+      <li>Horizontal and vertical neck wrinkles</li>
+      <li>Lip contour correction</li>
+      <li>Bruxism (teeth grinding)</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Reconstitute powder with preservative-free saline. For 100 units, add 2.5 ml saline. Administer intramuscularly by qualified professional.<br/><br/>
+
+    <strong>Packaging:</strong> 1 vial per box (powder under pressure – may appear empty).<br/><br/>
+
+    <strong>Effectiveness:</strong> High patient satisfaction, precise and even effect at injection.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional use only. Prescription required. Consult dermatologist before use.</em>
+    `,
+    benefits: [
+        "100 IU Botulinum Toxin Type A",
+        "Smooths Forehead Lines",
+        "Reduces Crow's Feet",
+        "Softens Frown Lines",
+        "Corrects Lip Contour",
+        "Treats Neck Wrinkles",
+        "Helps Bruxism",
+        "KFDA Approved & GMP Certified"
+    ],
+    sku: "BOTULAX-100IU",
+    volume: "1 Vial",
+    stock: 10
+},
+{
+    id: 97,
+    name: "Nabota 100IU Vial Injection",
+    category: "C & D Fillers",
+    brand: "NABOTA",
+    price: 7500,
+    comparePrice: 9000,
+    image: "/image/nabota/nabota-100iu-1.jpeg",
+    images: [
+        "/image/nabota/nabota-100iu-1.jpeg",
+        "/image/nabota/nabota-100iu-2.jpg",
+        "/image/nabota/nabota-100iu-3.jpg",
+        "/image/nabota/nabota-100iu-4.jpg"
+    ],
+    description: "Botulinum toxin type A injection for treatment of localized muscle spasm, wry neck, blepharospasm, foot deformity in cerebral palsy, and chronic migraines.",
+    details: `
+    <strong>Nabota 100IU Vial Injection</strong><br/><br/>
+    Nabota 100IU Injection is used in the treatment of localized muscle spasm. It relieves wry neck (spasmodic torticollis) in adults, involuntary closure of eyelids (blepharospasm), and foot deformity due to spasticity in children with cerebral palsy. It may also be prescribed for chronic migraines.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 100 IU per vial</li>
+      <li>Brand: NABOTA</li>
+      <li>Product Type: Finished product (botulinum toxin type A)</li>
+      <li>Storage: Cold temperature (refrigerate)</li>
+      <li>Usage: Hospital / Professional use</li>
+    </ul>
+    <br/>
+
+    <strong>Therapeutic Indications:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Wry neck (spasmodic torticollis) in adults</li>
+      <li>Blepharospasm (involuntary eyelid closure)</li>
+      <li>Foot deformity due to spasticity in children with cerebral palsy</li>
+      <li>Chronic migraines (as prescribed)</li>
+      <li>Other localized muscle spasm conditions</li>
+    </ul>
+    <br/>
+
+    <strong>Mechanism of Action:</strong> Botulinum toxin type A blocks nerve signals to muscles, causing temporary muscle relaxation. This reduces abnormal muscle contractions, alleviating pain and improving function in affected areas.<br/><br/>
+
+    <strong>Administration:</strong> Must be reconstituted and administered by a qualified healthcare professional via intramuscular injection. Dosage depends on indication, muscle size, and patient response.<br/><br/>
+
+    <strong>Storage:</strong> Store in cold temperature (2°C to 8°C) as per manufacturer guidelines. Do not freeze.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Prescription required. Professional use only. Consult physician before use.</em>
+    `,
+    benefits: [
+        "100 IU Botulinum Toxin Type A",
+        "Treats Localized Muscle Spasm",
+        "Relieves Wry Neck (Spasmodic Torticollis)",
+        "Treats Blepharospasm",
+        "Helps Foot Deformity in Cerebral Palsy",
+        "Used for Chronic Migraines",
+        "Cold Storage Required",
+        "Professional Use Only"
+    ],
+    sku: "NABOTA-100IU-VIAL",
+    volume: "1 Vial",
+    stock: 10
+},
+{
+    id: 98,
+    name: "St Dalfour Filipina Beauty Instant Glowing Cream",
+    category: "Cream",
+    brand: "St Dalfour",
+    price: 2000,
+    comparePrice: 3000,
+    image: "/image/st-dalfour/filipina-beauty-cream-1.jpg",
+    images: [
+        "/image/st-dalfour/filipina-beauty-cream-1.jpg",
+        "/image/st-dalfour/filipina-beauty-cream-2.jpeg",
+        "/image/st-dalfour/filipina-beauty-cream-3.jpeg",
+        "/image/st-dalfour/filipina-beauty-cream-4.jpeg"
+    ],
+    description: "Premium skincare formula that lightens dark spots, evens skin tone, and enhances natural radiance. Enriched with glutathione, alpha arbutin, kojic acid, vitamin C, and vitamin B3.",
+    details: `
+    <strong>St Dalfour Filipina Beauty Instant Glowing Cream</strong><br/><br/>
+    A premium skincare formula designed to lighten dark spots, even out skin tone, and enhance natural radiance. Enriched with safe and effective brightening agents, it works by reducing excess melanin production, targeting pigmentation, acne scars, sun damage, and dullness.<br/><br/>
+    
+    <strong>Key Ingredients:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Glutathione:</strong> Robust antioxidant that reduces excess melanin production and gives radiant glow</li>
+      <li><strong>Alpha Arbutin:</strong> Rivals pigmentation, whitening attributes, revives gloomy skin</li>
+      <li><strong>Kojic Acid:</strong> Tackles discoloration, patches, and uneven skin tone</li>
+      <li><strong>Vitamin C:</strong> Rejuvenates skin and supports collagen production</li>
+      <li><strong>Vitamin B3 (Niacinamide):</strong> Powerful anti-aging, tightens skin, reduces fine lines, wrinkles, crow's feet, and pores</li>
+      <li><strong>Glycolic Acid:</strong> Removes dead skin delicately for supple, youthful, hydrated skin</li>
+      <li><strong>Azelaic Acid:</strong> Fades blemishes, inflammation, and redness for spotless, fresh skin</li>
+      <li><strong>Liquorice Root Extract:</strong> Reduces discomfort and skin irritation, soothes and relieves skin</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Pack Size: 50 g / 50 ml jar</li>
+      <li>Skin Type: For all skin types</li>
+      <li>Time Used: Night (suitable for twice daily use with sunscreen during day)</li>
+      <li>Special Features: Glow & Shine, Skin Whitening, Anti-Tan, Skin Lightening, Spot Removal</li>
+      <li>Ingredients: Natural / Herbal</li>
+      <li>Shelf Life: 36 months</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Lessens uneven skin tone – delivers velvety and dewy skin</li>
+      <li>Brightening and whitening – enhances complexion with natural glow</li>
+      <li>Removes scars and acne – clears skin concerns for healthy, confident self</li>
+      <li>Tackles hyperpigmentation – deals with discoloration and dark spots</li>
+      <li>Anti-aging attributes – reverses aging signs, provides inner glow</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Apply a small amount to cleansed skin and massage gently in circular motions until fully absorbed. For best results, use twice daily and follow with sunscreen during the day.<br/><br/>
+
+    <strong>Ideal For:</strong> All skin types looking for a fairer, clearer, and more even-toned complexion.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: For external use only. Discontinue if irritation occurs.</em>
+    `,
+    benefits: [
+        "Lightens Dark Spots & Evens Skin Tone",
+        "Reduces Excess Melanin Production",
+        "Tackles Pigmentation, Acne Scars & Sun Damage",
+        "Anti-Aging – Reduces Fine Lines & Wrinkles",
+        "Brightens & Whitens Complexion",
+        "Natural Ingredients",
+        "For All Skin Types",
+        "36 Months Shelf Life"
+    ],
+    sku: "ST-DALFOUR-FILIPINA-BEAUTY-50G",
+    volume: "50 g",
+    stock: 10
+},
+{
+    id: 99,
+    name: "Innotox 100iu Injection",
+    category: "C & D Fillers",
+    brand: "Innotox",
+    price: 6500,
+    comparePrice: 8000,
+    image: "/image/innotox/innotox-100iu-1.jpeg",
+    images: [
+        "/image/innotox/innotox-100iu-1.jpeg",
+        "/image/innotox/innotox-100iu-2.jpeg",
+        "/image/innotox/innotox-100iu-3.jpeg",
+        "/image/innotox/innotox-100iu-4.jpeg"
+    ],
+    description: "Ready-to-use liquid botulinum toxin type A from South Korea for cosmetic wrinkle reduction and therapeutic uses like muscle spasms and hyperhidrosis.",
+    details: `
+    <strong>Innotox 100iu Injection</strong><br/><br/>
+    Innotox is a ready-to-use liquid botulinum toxin type A from South Korea, primarily used for cosmetic applications like reducing wrinkles and fine lines, and sometimes for therapeutic uses like treating muscle spasms and hyperhidrosis. It is favored for its high stability and precision, typically showing effects in 2-3 days.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 100 Units (pre-mixed liquid formulation)</li>
+      <li>Brand: Innotox</li>
+      <li>Country of Origin: Korea</li>
+      <li>Toxin Type: Type A</li>
+      <li>Form: Ready-to-use liquid (no reconstitution required)</li>
+      <li>Preservative Status: Preservative-free</li>
+    </ul>
+    <br/>
+
+    <strong>Applications:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Cosmetic:</strong> Vertical glabellar lines (frown lines), crow's feet, perioral lines, other dynamic facial wrinkles</li>
+      <li><strong>Therapeutic:</strong> Localized muscle spasms (neck, eyes), hyperhidrosis (excessive sweating)</li>
+    </ul>
+    <br/>
+
+    <strong>Key Differences vs. Traditional Botox:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Faster onset:</strong> Effects in 3-5 days (vs. 5-7 days)</li>
+      <li><strong>Ready-to-use liquid:</strong> No mixing required, reduces dilution errors</li>
+      <li><strong>Formulated without complexing proteins</strong> (or minimal) for stability</li>
+      <li><strong>High-precision, localized results</strong> – reduces risk of spreading to adjacent muscles</li>
+    </ul>
+    <br/>
+
+    <strong>Mechanism:</strong> Relaxes muscles by reducing nerve signals, providing temporary smoothing effect (usually 8–12 months).<br/><br/>
+
+    <strong>Administration:</strong> Must be administered by a qualified healthcare professional. No reconstitution needed – use directly from vial.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional use only. Prescription required. Consult physician before use.</em>
+    `,
+    benefits: [
+        "100 Units Ready-to-Use Liquid",
+        "Made in Korea",
+        "Faster Onset (3-5 days)",
+        "No Reconstitution Required",
+        "Reduces Frown Lines & Crow's Feet",
+        "Treats Muscle Spasms & Hyperhidrosis",
+        "High Precision – Minimal Spread",
+        "Preservative-Free"
+    ],
+    sku: "INNOTOX-100IU",
+    volume: "1 Vial",
+    stock: 10
+},
+{
+    id: 100,
+    name: "Liztox 100iu Injection (Botulinum Toxin Type A)",
+    category: "C & D Fillers",
+    brand: "Liztox",
+    price: 6500,
+    comparePrice: 9000,
+    image: "/image/liztox/liztox-100iu-1.jpeg",
+    images: [
+        "/image/liztox/liztox-100iu-1.jpeg",
+        "/image/liztox/liztox-100iu-2.jpg",
+        "/image/liztox/liztox-100iu-3.jpg",
+        "/image/liztox/liztox-100iu-4.jpg"
+    ],
+    description: "Botulinum toxin type A injection for temporary reduction of facial wrinkles, frown lines, and crow's feet. Manufactured by Huons Biopharma.",
+    details: `
+    <strong>Liztox 100iu Injection (Botulinum Toxin Type A)</strong><br/><br/>
+    Liztox is a botulinum toxin type A product manufactured by Huons Biopharma, used for temporary improvement of moderate to severe glabellar lines (frown lines), crow's feet, and other dynamic facial wrinkles. It works by blocking nerve signals to muscles, reducing muscle activity and smoothing the overlying skin.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 100 Units per vial</li>
+      <li>Brand: Liztox</li>
+      <li>Form: Lyophilized powder for injection</li>
+      <li>Toxin Type: Type A</li>
+      <li>Packaging: Single-use vial</li>
+    </ul>
+    <br/>
+
+    <strong>Applications:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Glabellar lines (frown lines between eyebrows)</li>
+      <li>Crow's feet (wrinkles around eyes)</li>
+      <li>Forehead horizontal lines</li>
+      <li>Other dynamic facial wrinkles</li>
+    </ul>
+    <br/>
+
+    <strong>Mechanism of Action:</strong> Botulinum toxin type A inhibits the release of acetylcholine at the neuromuscular junction, temporarily preventing muscle contraction. This relaxes facial muscles, reducing the appearance of wrinkles.<br/><br/>
+
+    <strong>Administration:</strong> Must be reconstituted with preservative-free saline and administered intramuscularly by a qualified healthcare professional. Effects typically appear within 3-7 days and last 3-6 months.<br/><br/>
+
+    <strong>Storage:</strong> Refrigerate at 2°C to 8°C (36°F to 46°F) before reconstitution. Reconstituted product should be used within 24 hours.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional use only. Prescription required. Consult dermatologist or licensed injector before use.</em>
+    `,
+    benefits: [
+        "100 Units Botulinum Toxin Type A",
+        "Smooths Frown Lines & Crow's Feet",
+        "Reduces Forehead Wrinkles",
+        "Temporary Muscle Relaxation",
+        "Effects Last 3-6 Months",
+        "Korean Manufactured",
+        "Professional Use Only",
+        "Prescription Required"
+    ],
+    sku: "LIZTOX-100IU",
+    volume: "1 Vial",
+    stock: 10
+},
+{
+    id: 101,
+    name: "Sculptra (Poly-L-lactic Acid) Collagen Stimulator Injection",
+    category: "C & D Fillers",
+    brand: "Sculptra",
+    price: 7000,
+    comparePrice: 10000,
+    image: "/image/sculptra/sculptra-1.jpeg",
+    images: [
+        "/image/sculptra/sculptra-1.jpeg",
+        "/image/sculptra/sculptra-2.jpg",
+        "/image/sculptra/sculptra-3.jpg",
+        "/image/sculptra/sculptra-4.jpg"
+    ],
+    description: "FDA-approved collagen stimulator with Poly-L-lactic acid (PLLA). Restores facial volume, reduces fine lines and wrinkles, and improves skin firmness through natural collagen production.",
+    details: `
+    <strong>Sculptra (Poly-L-lactic acid) Collagen Stimulator Injection</strong><br/><br/>
+    Sculptra is an advanced, FDA-approved injectable treatment designed to restore facial volume and rejuvenate the skin using the power of collagen stimulation. Unlike traditional fillers that simply add instant volume, Sculptra works differently. Its primary ingredient is Poly-L-Lactic Acid (PLLA), a biocompatible and biodegradable substance that has been used in medical applications for decades. When injected into areas experiencing volume loss or sagging, PLLA triggers a natural process that stimulates the skin to gradually produce fresh collagen, the protein responsible for structure, firmness, elasticity, and youthfulness.<br/><br/>
+    
+    <strong>What is in the box?</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>2 vials x 5 ml of lyophilized powder</li>
+      <li>Each vial contains 150 mg Poly-L-lactic acid</li>
+      <li>Reconstitution required (sterile water not included)</li>
+    </ul>
+    <br/>
+
+    <strong>Composition (per vial):</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Poly-L-lactic acid (PLLA) – 150 mg</li>
+      <li>Sodium carboxymethylcellulose – 90 mg (stabilizer and suspension agent)</li>
+      <li>Mannitol – 127.5 mg (non-pyrogenic)</li>
+    </ul>
+    <br/>
+
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>FDA-approved for correction of fine lines and wrinkles in the cheek region</li>
+      <li>Gradual, natural-looking results over time</li>
+      <li>Long-lasting effects – up to 24 months</li>
+      <li>Biocompatible, biodegradable, synthetic polymer (PLLA)</li>
+      <li>Stimulates collagen production (Type I collagen increase by ~66.5% within three months)</li>
+      <li>Restores facial volume and improves skin structure</li>
+      <li>Galderma/Sculptra brand – world leader in aesthetic medicine</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Restores facial volume loss and corrects contour irregularities</li>
+      <li>Reduces fine lines, wrinkles, and nasolabial folds</li>
+      <li>Improves skin firmness, elasticity, and overall texture</li>
+      <li>Provides natural, progressive rejuvenation without drastic change</li>
+      <li>Enhances collagen and elastin production</li>
+      <li>Suitable for cheek wrinkles, facial lipoatrophy, and HIV-related fat loss</li>
+    </ul>
+    <br/>
+
+    <strong>How to Use:</strong> Reconstitute powder with 5 ml of sterile water for injection per vial. Administer intradermally or subcutaneously by qualified professional. Typical injection volume: ~0.05-0.2 mL per injection point. A standard treatment plan typically consists of 2-3 sessions spaced 4-6 weeks apart. Massage treated area for 5 minutes, 5 times a day, for 5 days.<br/><br/>
+
+    <strong>Not Suitable For:</strong> Pregnant or breastfeeding individuals, active skin infections/inflammation, history of keloid or hypertrophic scarring, hypersensitivity to components, severe allergies with anaphylaxis, allergy to lidocaine (when reconstituted with lidocaine).<br/><br/>
+
+    <strong>Storage:</strong> Store in original packaging. Reconstituted product should be used immediately. Do not freeze.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional use only. Prescription required. Consult physician before use.</em>
+    `,
+    benefits: [
+        "FDA-Approved Collagen Stimulator",
+        "Poly-L-lactic Acid (PLLA) Technology",
+        "Restores Facial Volume & Structure",
+        "Reduces Fine Lines & Wrinkles",
+        "Improves Skin Firmness & Elasticity",
+        "Long-Lasting Results (up to 24 months)",
+        "Gradual, Natural Rejuvenation",
+        "Biocompatible & Biodegradable"
+    ],
+    sku: "SCULPTRA-PLLA-2X5ML",
+    volume: "2 x 5 ml vials",
+    stock: 10
+},
+{
+    id: 102,
+    name: "Sculptra Butt Lift - Poly-L-lactic Acid Dermal Filler for Buttock Augmentation",
+    category: "Injection",
+    brand: "Sculptra",
+    price: 6500,
+    comparePrice: 9000,
+    image: "/image/sculptra/sculptra-butt-lift-1.jpeg",
+    images: [
+        "/image/sculptra/sculptra-butt-lift-1.jpeg",
+        "/image/sculptra/sculptra-butt-lift-2.jpg",
+        "/image/sculptra/sculptra-butt-lift-3.jpg",
+        "/image/sculptra/sculptra-butt-lift-4.jpg"
+    ],
+    description: "FDA-approved poly-L-lactic acid injectable for non-surgical buttock lift, contouring, modest volume increase, and improved skin texture. Minimally invasive alternative to butt implants.",
+    details: `
+    <strong>Sculptra Butt Lift - Poly-L-lactic Acid Dermal Filler</strong><br/><br/>
+    A minimally-invasive, surgery-free method to enhance or augment the buttocks using Sculptra, an FDA-approved dermal filler composed of poly-L-lactic acid (PLLA). Ideal for patients seeking a subtle lift, contouring, modest volume increase, and improvement in skin texture of the buttock area. Suitable for those with sagging or flat buttocks, or desiring more volume.<br/><br/>
+    
+    <strong>What is Sculptra?</strong><br/>
+    Sculptra is an FDA-approved dermal filler used for facial volume loss and wrinkle reduction, composed of poly-L-lactic acid. It works by replacing lost collagen and stimulating natural collagen production. Used worldwide since 1999 in over 30 countries with more than 200,000 patients.<br/><br/>
+    
+    <strong>How It Works:</strong><br/>
+    Through a series of treatments over several months, Sculptra is injected directly into the buttocks. It gradually stimulates collagen and fills depleted tissue, providing a fuller, more lifted appearance. Results may last up to two years, and the product is harmlessly absorbed by the body.<br/><br/>
+    
+    <strong>Procedure Details:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Buttocks are numbed and iced to reduce discomfort and swelling</li>
+      <li>Each treatment session lasts about one hour</li>
+      <li>Patients notice immediate changes, with best results after 2–4 treatments spaced at least 3 weeks apart</li>
+      <li>Post-treatment massage performed to spread product evenly</li>
+      <li>Home care instructions provided, including regular massage of treated area</li>
+    </ul>
+    <br/>
+
+    <strong>Benefits:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Non-surgical buttock lift and augmentation</li>
+      <li>Subtle lift and contouring of sagging or flat buttocks</li>
+      <li>Modest volume increase without implants or fat grafting</li>
+      <li>Improves skin texture and firmness</li>
+      <li>Gradual, natural-looking results</li>
+      <li>Results last up to two years</li>
+      <li>Minimal downtime compared to surgical alternatives</li>
+      <li>FDA-approved, safe, and widely used</li>
+    </ul>
+    <br/>
+
+    <strong>Side Effects:</strong> Minor swelling, bruising, or bumps at injection sites. Massage helps distribute product and reduce bumps.<br/><br/>
+
+    <strong>Ideal Candidates:</strong> Healthy individuals with realistic expectations, desiring subtle enhancement, not a substitute for fat grafting or implants.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional use only. Consult a qualified practitioner. Results may vary.</em>
+    `,
+    benefits: [
+        "Non-Surgical Buttock Lift",
+        "Poly-L-lactic Acid (PLLA) Technology",
+        "Restores Collagen & Volume",
+        "Subtle Lift & Contouring",
+        "Modest Volume Increase",
+        "Improves Skin Texture",
+        "Results Last Up to 2 Years",
+        "FDA-Approved"
+    ],
+    sku: "SCULPTRA-BUTT-LIFT",
+    volume: "Per Treatment Session",
     stock: 10
 }
 ];

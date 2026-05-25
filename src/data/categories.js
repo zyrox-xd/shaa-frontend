@@ -1,13 +1,12 @@
 const CATEGORIES = [
-  { name: "Injection", id: "Injection" },
-  { name: "Cream", id: "Cream" },
-  { name: "Weight", id: "Weight" },
-  { name: "Soap", id: "Soap" },
-  { name: "Combo", id: "Combo" },
-  { name: "Filler", id: "Filler" },
-  { name: "Supplement", id: "Supplement" },
-  { name: "Lotion", id: "Lotion" },
-  { name: "Treatment", id: "Treatment" }
+  { name: "Whitening Injection", id: "Injection" },
+  { name: "Whitening Capsules", id: "Capsules" },
+  { name: "Whitening Cream", id: "Cream" },
+  { name: "Whitening Soap", id: "Soap" },
+  { name: "Weight Gain", id: "Weight Gain" },
+  { name: "Weight Loss", id: "Weight Loss" },
+  { name: "C & D Fillers", id: "C & D Fillers" },
+  { name: "Others", id: "Others" }
 ];
 
 export default CATEGORIES;

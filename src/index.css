@@ -3,3 +3,16 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@200;300;400;500;600&display=swap');
+
+/* Prevent horizontal overflow on small devices */
+html, body {
+	overflow-x: hidden;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+/* Utility: ensure main app container doesn't cause horizontal scroll */
+.app-no-overflow {
+	overflow-x: hidden;
+}
