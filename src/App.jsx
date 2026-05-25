@@ -707,18 +707,15 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
   const BEST_SELLERS = PRODUCTS.filter(p => BEST_SELLER_IDS.includes(p.id));
   const NEW_LAUNCHES = [...PRODUCTS].reverse().slice(0, 4);
 
-  // --- SLIDER STATE ---
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // --- SLIDER DATA ---
   const slides = [
     { id: 24, desktop: "/image/glowtiqa/glowtiqa-banner.png", mobile: "/image/glowtiqa/glowtiqa-banner-mobile.png", alt: "Glowtiqa" },
     { id: 2, desktop: "/image/glutax/glutax-banner.png", mobile: "/image/glutax/glutax-banner-mobile.png", alt: "Glutax" },
     { id: 45, desktop: "/image/cosdaq/cindella-banner.png", mobile: "/image/cosdaq/cindella-banner-mobile.png", alt: "Cindella" }
   ];
 
-  // --- SLIDER LOGIC ---
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
@@ -731,16 +728,15 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
   const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
 
   return (
-    <div className="animate-fade-in bg-white">
+    <div className="animate-fade-in bg-white w-full">
       
-      {/* 1. CINEMATIC FULL-WIDTH HERO SLIDER */}
+      {/* 1. HERO SLIDER - Full Width & Height-Responsive */}
       <section className="relative w-full overflow-hidden border-b-2 border-black group">
         <div 
-            className="relative w-full h-[300px] md:h-[450px] cursor-pointer" 
+            className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] cursor-pointer" 
             onMouseEnter={() => setIsPaused(true)} 
             onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Slider Track */}
           <div 
             className="flex w-full h-full transition-transform duration-700 ease-in-out" 
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -753,60 +749,55 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
             ))}
           </div>
 
-          {/* Glass-morphism Navigation Arrows */}
+          {/* Navigation Arrows - Hidden on very small mobile, visible on desktop */}
           <button 
             onClick={(e) => { e.stopPropagation(); prevSlide(); }} 
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/70 backdrop-blur-md border border-gray-300 flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black hover:text-white z-20 shadow-xl"
-            aria-label="Previous Slide"
+            className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/70 backdrop-blur-md border border-black items-center justify-center text-black opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black hover:text-white z-20"
           >
             <ArrowLeft size={20} strokeWidth={2.5} />
           </button>
-
           <button 
             onClick={(e) => { e.stopPropagation(); nextSlide(); }} 
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/70 backdrop-blur-md border border-gray-300 flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black hover:text-white z-20 shadow-xl"
-            aria-label="Next Slide"
+            className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/70 backdrop-blur-md border border-black items-center justify-center text-black opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black hover:text-white z-20"
           >
             <ChevronRight size={20} strokeWidth={2.5} />
           </button>
         </div>
       </section>
 
-      {/* 2. CATEGORY SHORTCUT STRIP */}
-      <section className="py-12 bg-[#f3f4f6] border-b border-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[10px] font-black uppercase tracking-[0.3em] mb-8 text-center text-black">Shop by Category</h2>
-          <div className="flex overflow-x-auto gap-6 pb-4 scrollbar-hide justify-start md:justify-center">
+      {/* 2. CATEGORY STRIP - Flex Wrap for Mobile */}
+      <section className="py-10 bg-[#f3f4f6] border-b border-black">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-[10px] font-black uppercase tracking-[0.2em] mb-6 text-center text-black">Shop by Category</h2>
+          <div className="grid grid-cols-4 md:grid-cols-8 gap-4">
              {CATEGORY_LIST.map((cat) => (
                <button 
                 key={cat.id} 
                 onClick={() => { setShopFilter(cat.name); navigateTo('shop'); }} 
-                className="flex flex-col items-center group w-24 shrink-0"
+                className="flex flex-col items-center group"
                >
-                  <div className="w-20 h-20 rounded-full bg-white border-2 border-black mb-3 overflow-hidden flex items-center justify-center group-hover:bg-black transition-colors">
-                     <img src={cat.image} alt={cat.name} className="w-10 h-10 object-contain group-hover:invert transition-all" />
+                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white border border-black mb-2 overflow-hidden flex items-center justify-center group-hover:bg-black transition-all">
+                     <img src={cat.image} alt={cat.name} className="w-8 h-8 md:w-10 md:h-10 object-contain group-hover:invert transition-all" />
                   </div>
-                  <span className="text-[9px] font-black uppercase tracking-widest text-center">{cat.name}</span>
+                  <span className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-center">{cat.name}</span>
                </button>
              ))}
           </div>
         </div>
       </section>
 
-      {/* 3. BEST SELLERS GRID */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-between items-end mb-12">
+      {/* 3. BEST SELLERS - Grid Adjusted for Small Screens */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="flex justify-between items-end mb-8">
             <div>
-              <h2 className="text-3xl font-serif text-black uppercase tracking-tight">Best Sellers</h2>
+              <h2 className="text-2xl md:text-3xl font-serif text-black uppercase tracking-tight">Best Sellers</h2>
               <div className="h-1 w-12 bg-black mt-2"></div>
             </div>
-            <button onClick={() => navigateTo('shop')} className="text-[10px] font-black uppercase tracking-widest border-b-2 border-black pb-1 hover:text-gray-500">
-              View All
-            </button>
+            <button onClick={() => navigateTo('shop')} className="text-[10px] font-black uppercase tracking-widest border-b-2 border-black pb-1 hover:text-gray-500">View All</button>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
             {BEST_SELLERS.map((product) => (
               <ProductCard key={product.id} product={product} navigateTo={navigateTo} addToCart={addToCart} />
             ))}
@@ -815,16 +806,16 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
       </section>
 
       {/* 4. NEW ARRIVALS */}
-      <section className="py-20 bg-gray-50 border-t border-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-serif mb-12 text-center uppercase tracking-tight">New Arrivals</h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="py-16 bg-gray-50 border-t border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 className="text-2xl md:text-3xl font-serif mb-10 text-center uppercase tracking-tight">New Arrivals</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
               {NEW_LAUNCHES.map(product => (
                 <ProductCard key={product.id} product={product} navigateTo={navigateTo} addToCart={addToCart} />
               ))}
           </div>
           <div className="text-center mt-12">
-            <Button onClick={() => navigateTo('shop')}>Explore All Products</Button>
+            <Button onClick={() => navigateTo('shop')} className="w-full md:w-auto">Explore All Products</Button>
           </div>
         </div>
       </section>
@@ -1935,6 +1926,7 @@ const ShopView = ({
 const ProductView = ({ product, addToCart, navigateTo }) => {
   const [qty, setQty] = useState(1);
   const [activeImg, setActiveImg] = useState(0);
+  const [protocolOpen, setProtocolOpen] = useState(false);
   
   // Logic for Stock Status
   const isOutOfStock = product.stock <= 0;
@@ -2050,6 +2042,22 @@ const ProductView = ({ product, addToCart, navigateTo }) => {
                       </li>
                   ))}
               </ul>
+            </div>
+
+            {/* Clinical Protocol / Usage */}
+            <div className="mt-8 border-t border-gray-100 pt-8">
+                <div 
+                    className="flex justify-between items-center cursor-pointer py-4 hover:opacity-70 transition-opacity"
+                    onClick={() => setProtocolOpen(!protocolOpen)}
+                >
+                    <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-black">Clinical Protocol / Usage</h4>
+                    <ChevronDown size={14} className={`transition-transform ${protocolOpen ? 'rotate-180' : ''}`} />
+                </div>
+                <div className={`overflow-hidden transition-all duration-300 ${protocolOpen ? 'max-h-96 pb-4' : 'max-h-0'}`}>
+                    <div className="text-sm text-gray-600 leading-relaxed font-light bg-gray-50 p-4 rounded-sm">
+                        {product.protocol || "Consult with a licensed practitioner for standard administration guidelines. Recommended frequency: Apply/Administer every 7-14 days as per clinical assessment."}
+                    </div>
+                </div>
             </div>
 
             {/* Quantity and CTA */}
