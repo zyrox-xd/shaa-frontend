@@ -3574,7 +3574,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
             checkout={handlePayment} 
           />
 
-          <div className="fixed right-4 bottom-6 z-50 flex flex-col gap-3">
+          <div className="fixed bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:-translate-x-0 md:right-4 z-50 flex flex-row md:flex-col gap-3">
             <a
               href="tel:+919916726373"
               className="group flex items-center gap-3 rounded-full bg-[#ffebe7] text-[#b3271b] px-4 py-3 shadow-2xl shadow-red-200/60 ring-1 ring-red-100 transition transform hover:-translate-y-0.5 hover:bg-[#ffd8d1]"
