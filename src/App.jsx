@@ -518,7 +518,35 @@ const CartView = ({ cart, updateQuantity, removeFromCart, checkout, navigateTo }
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     const shipping = 0; // Set to 0 for Free Shipping or a fixed value
     const total = subtotal + shipping;
-    
+
+    const getAdvanceOptions = (amount) => {
+        if (amount > 15000) {
+            return {
+                requiredAdvance: 5000,
+                extraOptions: [
+                    { label: 'Pay ₹5,000 Now (Rest COD)', value: 5000 },
+                    { label: 'Pay ₹15,000 Now (Rest COD)', value: 15000 }
+                ]
+            };
+        }
+        if (amount > 10000) return { requiredAdvance: 2000, extraOptions: [] };
+        if (amount > 5000) return { requiredAdvance: 1000, extraOptions: [] };
+        if (amount >= 1000) return { requiredAdvance: 500, extraOptions: [] };
+        return { requiredAdvance: 300, extraOptions: [] };
+    };
+
+    const { requiredAdvance, extraOptions } = getAdvanceOptions(total);
+    const [paymentMode, setPaymentMode] = useState(total > 15000 ? 'cod' : 'prepaid');
+    const [selectedAdvance, setSelectedAdvance] = useState(requiredAdvance);
+
+    useEffect(() => {
+        setSelectedAdvance(getAdvanceOptions(total).requiredAdvance);
+        if (total > 15000) {
+            setPaymentMode('cod');
+        }
+    }, [total]);
+
+    const advanceAmount = paymentMode === 'prepaid' ? total : selectedAdvance;
     const isFormValid = formData.name && formData.phone && formData.address && formData.email;
     const handleInputChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
 
@@ -640,12 +668,69 @@ const CartView = ({ cart, updateQuantity, removeFromCart, checkout, navigateTo }
                                 <textarea name="address" placeholder="Detailed Clinic / Home Address" value={formData.address} onChange={handleInputChange} rows="3" className="w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-sm text-sm focus:border-black outline-none transition-colors resize-none" />
                             </div>
 
+                            <div className="space-y-4 mb-6">
+                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Payment Preference</p>
+                                <div className="grid grid-cols-2 gap-3">
+                                    {total <= 15000 ? (
+                                        <>
+                                            <button
+                                                type="button"
+                                                onClick={() => setPaymentMode('prepaid')}
+                                                className={`flex-1 p-3 border text-sm font-bold transition ${paymentMode === 'prepaid' ? 'border-black bg-black text-white' : 'border-gray-200 bg-white text-gray-800'}`}
+                                            >
+                                                Full Prepaid
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => setPaymentMode('cod')}
+                                                className={`flex-1 p-3 border text-sm font-bold transition ${paymentMode === 'cod' ? 'border-black bg-black text-white' : 'border-gray-200 bg-white text-gray-800'}`}
+                                            >
+                                                COD
+                                            </button>
+                                        </>
+                                    ) : (
+                                        <button
+                                            type="button"
+                                            className="flex-1 p-3 border border-black bg-black text-white text-sm font-bold"
+                                        >
+                                            COD only
+                                        </button>
+                                    )}
+                                </div>
+
+                                {paymentMode === 'cod' && (
+                                    <div className="p-3 bg-gray-50 border border-gray-200 text-sm rounded-sm">
+                                        {extraOptions.length > 0 ? (
+                                            <select
+                                                value={selectedAdvance}
+                                                onChange={(e) => setSelectedAdvance(Number(e.target.value))}
+                                                className="w-full bg-transparent outline-none font-bold text-sm"
+                                            >
+                                                {extraOptions.map(opt => (
+                                                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                                                ))}
+                                            </select>
+                                        ) : (
+                                            <span>
+                                                Advance Required for COD: <strong>₹{requiredAdvance.toLocaleString()}</strong>
+                                            </span>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+
                             <Button 
                                 className="w-full py-4 text-xs font-bold uppercase tracking-[0.2em]" 
-                                onClick={() => checkout(formData)} 
+                                onClick={() => checkout({
+                                    customerDetails: formData,
+                                    paymentMode,
+                                    amountToPay: advanceAmount,
+                                    totalAmount: total,
+                                    balanceDue: paymentMode === 'cod' ? Math.max(0, total - advanceAmount) : 0
+                                })} 
                                 disabled={!isFormValid}
                             >
-                                {isFormValid ? `Proceed to Pay ₹${total.toLocaleString()}` : 'Enter Details to Checkout'}
+                                {isFormValid ? `Pay ₹${advanceAmount.toLocaleString()} Now ${paymentMode === 'cod' ? '(Rest COD)' : ''}` : 'Enter Details to Checkout'}
                             </Button>
 
                             <div className="mt-6 flex items-center justify-center gap-4 opacity-40 grayscale">
@@ -3199,7 +3284,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
       });
     };
   
-   const handlePayment = async (customerDetails) => {
+   const handlePayment = async (checkoutPayload) => {
       const res = await loadRazorpay();
       
       if (!res) {
@@ -3207,20 +3292,24 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
         return;
       }
   
+      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const customerDetails = checkoutPayload && checkoutPayload.customerDetails ? checkoutPayload.customerDetails : checkoutPayload;
+      const paymentMode = checkoutPayload?.paymentMode || 'prepaid';
+      const amountToPay = typeof checkoutPayload?.amountToPay === 'number' ? checkoutPayload.amountToPay : total;
+      const totalAmount = typeof checkoutPayload?.totalAmount === 'number' ? checkoutPayload.totalAmount : total;
+      const balanceDue = typeof checkoutPayload?.balanceDue === 'number' ? checkoutPayload.balanceDue : (paymentMode === 'cod' ? Math.max(0, totalAmount - amountToPay) : 0);
+  
       // Save temp data for the Success Page View
       localStorage.setItem('temp_cart', JSON.stringify(cart));
       localStorage.setItem('temp_user', JSON.stringify(customerDetails));
   
-      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  
       try {
-        // 1. Create Order on Server
+        // 1. Create Order on Server for the selected payment amount
         const createResponse = await fetch(`${API_BASE_URL}/api/payment/order`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                // Send amount in rupees; server will convert to paise (amount * 100)
-                amount: total,
+                amount: amountToPay,
                 currency: "INR",
                 products: cart,
                 userId: user ? user._id : null
@@ -3270,8 +3359,12 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
                             razorpayOrderId: (verifyRes.order && verifyRes.order.razorpayOrderId) ? verifyRes.order.razorpayOrderId : response.razorpay_order_id,
                             razorpayPaymentId: response.razorpay_payment_id,
                             razorpaySignature: response.razorpay_signature,
-                            amount: (verifyRes.order && verifyRes.order.amount) ? verifyRes.order.amount : total * 100, // paise
+                            amount: (verifyRes.order && verifyRes.order.amount) ? verifyRes.order.amount : amountToPay * 100, // paise
                             currency: (verifyRes.order && verifyRes.order.currency) ? verifyRes.order.currency : 'INR',
+                            paymentMode,
+                            totalAmount: totalAmount,
+                            advancePaid: amountToPay,
+                            balanceDue,
                             products: cart,
                             customerName: customerDetails.name,
                             email: customerDetails.email,
