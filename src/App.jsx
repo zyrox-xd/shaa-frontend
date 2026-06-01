@@ -2102,8 +2102,8 @@ const ProductView = ({ product, addToCart, navigateTo }) => {
   const [qty, setQty] = useState(1);
   const [activeImg, setActiveImg] = useState(0);
   const [protocolOpen, setProtocolOpen] = useState(false);
+  const [showFullDetails, setShowFullDetails] = useState(false);
   
-  // Logic for Stock Status
   const isOutOfStock = product.stock <= 0;
   const isLowStock = product.stock > 0 && product.stock <= 5;
 
@@ -2113,202 +2113,114 @@ const ProductView = ({ product, addToCart, navigateTo }) => {
 
   const similarProducts = PRODUCTS.filter(
     (p) => p.category === product.category && p.id !== product.id
-  ).slice(0, 3);
+  ).slice(0, 4); // Increased to 4 for better grid balance
 
-  // Guard for Add to Cart
   const handleAddToCart = () => {
-    if (isOutOfStock) {
-      alert('This product is currently out of stock.');
-      return;
-    }
+    if (isOutOfStock) return;
     if (qty > product.stock) {
-      alert(`Only ${product.stock} unit(s) available. Please adjust the quantity.`);
-      setQty(product.stock);
+      alert(`Only ${product.stock} units available.`);
       return;
     }
     addToCart(product, qty);
   };
 
   return (
-    <div className={`animate-fade-in bg-white min-h-screen pb-24 ${isOutOfStock ? 'selection:bg-gray-200' : ''}`}>
-      {/* Navigation Breadcrumb */}
-      <div className="px-6 py-4 border-b border-gray-50 flex gap-2 text-[10px] uppercase tracking-widest text-gray-400 sticky top-14 md:top-20 bg-white/90 backdrop-blur-md z-40">
+    <div className="animate-fade-in bg-white min-h-screen pb-24">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-100 py-4 px-4 sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto flex items-center text-[10px] uppercase tracking-[0.2em] text-gray-400">
           <button onClick={() => navigateTo('shop')} className="hover:text-black flex items-center gap-1 transition-colors">
-            <ArrowLeft size={12}/> Back to Catalog
-          </button> 
+            <ArrowLeft size={12}/> Catalog
+          </button>
+          <span className="mx-2">/</span>
+          <span className="text-gray-900 font-bold truncate">{product.name}</span>
+        </div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start">
-          {/* Image Gallery */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+          {/* Left Column: Gallery */}
           <div className="space-y-4">
-              <div className="aspect-[4/5] bg-[#f9f9f9] rounded-sm overflow-hidden w-full relative group border border-gray-50">
-                <img 
-                  loading="lazy" 
-                  src={images[activeImg]} 
-                  alt={product.name} 
-                  className={`w-full h-full object-contain p-8 mix-blend-multiply transition-transform duration-1000 ${isOutOfStock ? 'grayscale opacity-60' : 'group-hover:scale-105'}`} 
-                />
-                {isOutOfStock && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-white/20">
-                    <span className="bg-black text-white text-[10px] font-bold uppercase tracking-[0.3em] px-6 py-2 shadow-2xl">Currently Unavailable</span>
-                  </div>
-                )}
-              </div>
-            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+            <div className="aspect-[4/5] bg-gray-50 rounded-2xl overflow-hidden relative border border-gray-100">
+              <img src={images[activeImg]} alt={product.name} className="w-full h-full object-contain p-8 mix-blend-multiply" />
+            </div>
+            <div className="flex gap-3 overflow-x-auto scrollbar-hide">
               {images.map((img, idx) => (
-                <div key={idx} onClick={() => setActiveImg(idx)} className={`w-20 h-24 shrink-0 rounded-sm overflow-hidden cursor-pointer border transition-all ${activeImg === idx ? 'border-black' : 'border-gray-100 opacity-60'}`}>
-                  <img loading="lazy" src={img} alt="" className="w-full h-full object-cover p-1" />
-                </div>
+                <button key={idx} onClick={() => setActiveImg(idx)} className={`w-20 h-20 rounded-xl overflow-hidden border-2 transition-all ${activeImg === idx ? 'border-black' : 'border-transparent'}`}>
+                  <img src={img} alt="" className="w-full h-full object-cover" />
+                </button>
               ))}
             </div>
           </div>
-          
-          {/* Product Info */}
+
+          {/* Right Column: Details */}
           <div className="flex flex-col">
-            <div className="text-gray-400 text-[10px] font-bold tracking-[0.3em] uppercase mb-3">
-              {product.category}
-            </div>
-            
-            <h1 className="font-sans text-2xl md:text-4xl font-bold tracking-tight text-gray-900 mb-2 uppercase leading-tight">
-              {product.name}
-            </h1>
-            
-            <div className="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-8 border-b border-gray-50 pb-4 flex justify-between items-center">
-              <span>Authorized {product.brand} Supply</span>
-              {isLowStock && !isOutOfStock && <span className="text-orange-500 text-[9px] animate-pulse">Low Stock: {product.stock} Left</span>}
-            </div>
-            
-            <div className="flex items-center gap-6 mb-8">
-                <div className="flex flex-col">
-                  {product.comparePrice && (
-                    <span className="text-gray-400 line-through text-xs mb-1">
-                      ₹{product.comparePrice.toLocaleString()}
-                    </span>
-                  )}
-                  <span className={`text-3xl font-black ${isOutOfStock ? 'text-gray-400' : 'text-gray-900'}`}>
-                    ₹{product.price.toLocaleString()}
-                  </span>
-                </div>
-                <div className="h-10 w-px bg-gray-100"></div>
-                
-                {/* Stock Status Badge */}
-                {isOutOfStock ? (
-                  <span className="text-[10px] font-bold text-red-500 uppercase tracking-widest bg-red-50 px-3 py-1.5 rounded-full border border-red-100">
-                    Out of Stock
-                  </span>
-                ) : (
-                  <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest bg-green-50 px-3 py-1.5 rounded-full border border-green-100">
-                    In Stock & Ready
-                  </span>
-                )}
-            </div>
-            
-            <div className="text-gray-600 leading-relaxed mb-10 font-light text-sm md:text-base prose prose-neutral max-w-none" dangerouslySetInnerHTML={{ __html: product.details }} />
-            
-            {/* Clinical Benefits */}
-            <div className="bg-[#fcfcfc] p-6 rounded-sm border border-gray-100 mb-10">
-              <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-4">Clinical Benefits</h3>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-6">
-                  {product.benefits.map((benefit, idx) => (
-                      <li key={idx} className="flex gap-3 text-[13px] text-gray-600 items-start">
-                        <span className="text-black text-[10px] mt-0.5 shrink-0">●</span> 
-                        {benefit}
-                      </li>
-                  ))}
-              </ul>
+            <div className="mb-6">
+              <span className="text-[10px] font-bold tracking-[0.3em] text-gray-400 uppercase">{product.category}</span>
+              <h1 className="text-3xl md:text-5xl font-serif mt-2 mb-4 leading-tight">{product.name}</h1>
+              <div className="flex items-center gap-4">
+                <span className="text-3xl font-bold tracking-tight">₹{product.price.toLocaleString()}</span>
+                {product.comparePrice && <span className="text-gray-400 line-through">₹{product.comparePrice.toLocaleString()}</span>}
+              </div>
             </div>
 
-            {/* Clinical Protocol / Usage */}
-            <div className="mt-8 border-t border-gray-100 pt-8">
-                <div 
-                    className="flex justify-between items-center cursor-pointer py-4 hover:opacity-70 transition-opacity"
-                    onClick={() => setProtocolOpen(!protocolOpen)}
+            {/* CTAs */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center border border-gray-300 rounded-full px-2">
+                  <button onClick={() => setQty(Math.max(1, qty - 1))} className="p-4 text-gray-500">−</button>
+                  <span className="w-10 text-center font-bold">{qty}</span>
+                  <button onClick={() => setQty(qty + 1)} className="p-4 text-gray-500">+</button>
+                </div>
+                <button 
+                  onClick={handleAddToCart}
+                  disabled={isOutOfStock}
+                  className="flex-1 bg-black text-white h-14 rounded-full font-bold uppercase tracking-widest hover:bg-gray-800 disabled:bg-gray-300"
                 >
-                    <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-black">Clinical Protocol / Usage</h4>
-                    <ChevronDown size={14} className={`transition-transform ${protocolOpen ? 'rotate-180' : ''}`} />
-                </div>
-                <div className={`overflow-hidden transition-all duration-300 ${protocolOpen ? 'max-h-96 pb-4' : 'max-h-0'}`}>
-                    <div className="text-sm text-gray-600 leading-relaxed font-light bg-gray-50 p-4 rounded-sm">
-                        {product.protocol || "Consult with a licensed practitioner for standard administration guidelines. Recommended frequency: Apply/Administer every 7-14 days as per clinical assessment."}
-                    </div>
-                </div>
-            </div>
-
-            {/* Quantity and CTA */}
-            <div className="flex flex-row flex-wrap items-center gap-4 fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-md border-t border-gray-100 z-50 md:static md:p-0 md:border-0 md:bg-transparent">
-              {/* Quantity Selector - Disabled if out of stock */}
-              <div className={`flex items-center border border-gray-200 rounded-sm h-14 w-full md:w-40 bg-white ${isOutOfStock ? 'opacity-30 pointer-events-none' : ''}`}>
-                <button 
-                  onClick={() => setQty(Math.max(1, qty - 1))} 
-                  className="flex-1 h-full flex items-center justify-center hover:bg-gray-50 text-gray-400 transition-colors"
-                >-</button>
-                <span className="font-bold text-sm w-8 text-center">{qty}</span>
-                <button 
-                  onClick={() => {
-                    const maxQty = Math.min(qty + 1, product.stock);
-                    if (qty < product.stock) setQty(maxQty);
-                  }}
-                  className="flex-1 h-full flex items-center justify-center hover:bg-gray-50 text-gray-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  disabled={qty >= product.stock}
-                >+</button>
+                  {isOutOfStock ? 'Sold Out' : 'Add to Cart'}
+                </button>
               </div>
 
-              {/* Main Action Button */}
               <button 
-                disabled={isOutOfStock}
-                className={`flex-1 min-w-[120px] h-14 text-[10px] font-bold uppercase tracking-[0.3em] transition-all active:scale-[0.98] shadow-xl ${
-                  isOutOfStock 
-                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200 shadow-none' 
-                  : 'bg-black text-white hover:bg-gray-800 shadow-black/10'
-                }`}
-                onClick={handleAddToCart}
-              >
-                {isOutOfStock ? 'Out of Stock' : `Add ${qty} to Cart`}
-              </button>
-
-              {/* Wholesale Enquiry Button */}
-              <button
-                onClick={() => {
-                  const msg = `Hi, I'm interested in wholesale pricing for: ${product.name}. Could you please provide the rates?`;
-                  window.open(`https://wa.me/919916726373?text=${encodeURIComponent(msg)}`, '_blank');
-                }}
-                className="flex-1 min-w-[120px] h-14 text-[10px] font-bold uppercase tracking-[0.3em] transition-all active:scale-[0.98] shadow-xl bg-black text-white hover:bg-gray-800 shadow-black/10"
+                onClick={() => window.open(`https://wa.me/919916726373?text=Wholesale inquiry for ${product.name}`, '_blank')}
+                className="w-full py-4 border border-gray-200 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-gray-50"
               >
                 Ask Wholesale Price
               </button>
             </div>
-            {/* Mobile Spacer */}
-            <div className="h-24 md:hidden"></div> 
+
+            {/* Details Accordions */}
+            <div className="mt-10 border-t border-gray-100 pt-8 space-y-6">
+              <div className="prose prose-sm text-gray-600 font-light" dangerouslySetInnerHTML={{ __html: product.details }} />
+              
+              {product.protocol ? (
+                <div className="border-t pt-4">
+                  <button onClick={() => setProtocolOpen(!protocolOpen)} className="flex w-full justify-between items-center font-bold uppercase text-[10px] tracking-widest">
+                    Clinical Protocol <ChevronDown size={16} className={protocolOpen ? 'rotate-180' : ''}/>
+                  </button>
+                  {protocolOpen && <div className="mt-4 p-4 bg-gray-50 text-sm rounded-lg" dangerouslySetInnerHTML={{ __html: product.protocol }} />}
+                </div>
+              ) : null}
+            </div>
           </div>
         </div>
 
-        {/* Similar Products */}
+        {/* Recommended Section */}
         {similarProducts.length > 0 && (
-            <div className="mt-24 border-t border-gray-100 pt-16">
-                <div className="mb-10 text-center md:text-left">
-                  <h2 className="font-serif text-2xl md:text-3xl text-gray-900">Recommended Protocols</h2>
-                  <p className="text-gray-400 text-xs mt-1 uppercase tracking-widest">Synergistic Formulations</p>
+          <div className="mt-24">
+            <h3 className="font-serif text-2xl mb-8">Related Formulations</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {similarProducts.map(similar => (
+                <div key={similar.id} onClick={() => navigateTo('product', similar)} className="cursor-pointer group">
+                  <div className="aspect-[4/5] bg-gray-50 rounded-2xl mb-3 overflow-hidden">
+                    <img src={similar.image} className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform" />
+                  </div>
+                  <p className="font-bold text-sm truncate">{similar.name}</p>
+                  <p className="text-gray-500">₹{similar.price.toLocaleString()}</p>
                 </div>
-                
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-                    {similarProducts.map(similar => (
-                          <div key={similar.id} className={`group cursor-pointer ${similar.stock <= 0 ? 'opacity-60' : ''}`} onClick={() => navigateTo('product', similar)}>
-                              <div className="relative aspect-[4/5] bg-[#f9f9f9] rounded-sm overflow-hidden mb-4 border border-gray-50">
-                                <img loading="lazy" src={similar.image} alt={similar.name} className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-105" />
-                                {similar.stock <= 0 && (
-                                  <div className="absolute inset-0 bg-white/40 flex items-center justify-center">
-                                    <span className="text-[8px] font-bold bg-white px-2 py-1 shadow-sm uppercase tracking-widest">Sold Out</span>
-                                  </div>
-                                )}
-                              </div>
-                            <div className="text-[8px] text-gray-400 font-bold uppercase tracking-widest mb-1">{similar.brand}</div>
-                            <h3 className="font-sans text-xs font-semibold leading-tight mb-2 group-hover:text-black transition-colors uppercase truncate">{similar.name}</h3>
-                            <p className="text-gray-900 font-bold text-sm">₹{similar.price.toLocaleString()}</p>
-                          </div>
-                    ))}
-                </div>
+              ))}
             </div>
+          </div>
         )}
       </div>
     </div>
