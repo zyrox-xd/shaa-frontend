@@ -356,12 +356,16 @@ const PaymentSuccessView = ({ navigateTo, showToast, transactionId }) => {
         }
 
         const totalAmount = storedCart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const advancePaid = Number(storedUser.advancePaid) || 0;
+        const balanceDue = Number(storedUser.balanceDue) || Math.max(0, totalAmount - advancePaid);
         
         // Save details to state for rendering the receipt
         setOrderDetails({
             cart: storedCart,
             user: storedUser,
             total: totalAmount,
+            advancePaid,
+            balanceDue,
             id: txnId,
             date: new Date().toLocaleDateString()
         });
@@ -378,6 +382,9 @@ const PaymentSuccessView = ({ navigateTo, showToast, transactionId }) => {
           shipping_address: storedUser.address,
           order_items: orderItemsHTML,
           total_amount: totalAmount.toLocaleString(),
+          advance_paid: advancePaid.toLocaleString(),
+          balance_due: balanceDue.toLocaleString(),
+          payment_status: advancePaid > 0 && balanceDue > 0 ? "Partial (COD Pending)" : "Full Paid",
           payment_id: txnId,
           order_id: txnId
         };
@@ -476,10 +483,24 @@ const PaymentSuccessView = ({ navigateTo, showToast, transactionId }) => {
                     </div>
                 </div>
 
-                {/* Total */}
-                <div className="flex justify-between items-center pt-6 border-t border-gray-100">
-                    <span className="text-gray-600 font-medium">Total Amount Paid</span>
-                    <span className="text-2xl font-serif text-gray-900">₹{orderDetails.total.toLocaleString()}</span>
+                {/* Order Details Body - Total Section */}
+                <div className="space-y-4 pt-6 border-t border-gray-100">
+                    <div className="flex justify-between items-center text-gray-600">
+                        <span>Total Amount</span>
+                        <span>₹{orderDetails.total.toLocaleString()}</span>
+                    </div>
+                    {orderDetails.advancePaid > 0 && (
+                        <>
+                            <div className="flex justify-between items-center text-green-700 font-bold">
+                                <span>Advance Paid</span>
+                                <span>- ₹{orderDetails.advancePaid.toLocaleString()}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-gray-900 font-bold border-t pt-2">
+                                <span>Balance Due (COD)</span>
+                                <span>₹{(orderDetails.total - orderDetails.advancePaid).toLocaleString()}</span>
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
 
@@ -3213,8 +3234,13 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
   
       // Save temp data for the Success Page View
       localStorage.setItem('temp_cart', JSON.stringify(cart));
-      localStorage.setItem('temp_user', JSON.stringify(customerDetails));
-  
+      localStorage.setItem('temp_user', JSON.stringify({
+        ...customerDetails,
+        advancePaid: amountToPay,
+        balanceDue,
+        totalAmount
+      }));
+
       try {
         // 1. Create Order on Server for the selected payment amount
         const createResponse = await fetch(`${API_BASE_URL}/api/payment/order`, {
@@ -3350,6 +3376,24 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
         @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slide-up { from { transform: translate(0, 40px); opacity: 0; } to { transform: translate(0, 0); opacity: 1; } }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @media print {
+          button, .no-print {
+            display: none !important;
+          }
+
+          body {
+            background: white;
+          }
+
+          .animate-fade-in {
+            box-shadow: none !important;
+            border: none !important;
+          }
+
+          .text-gray-500 {
+            color: #444 !important;
+          }
+        }
       `}</style>
 
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
