@@ -69,7 +69,7 @@ const Footer = ({ setCurrentPage, showToast }) => {
               <img
                 src="/image/razorpay.jpeg"
                 alt="Razorpay Secured"
-                className="w-44 md:w-48 lg:w-56 object-contain"
+                className="w-56 sm:w-60 md:w-48 lg:w-56 object-contain"
               />
             </div>
           </div>

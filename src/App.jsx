@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
-import { ShoppingBag, Menu, X, Instagram, Facebook, Linkedin, ArrowRight, Trash2, Plus, Minus, Mail, Phone, MapPin, ShieldCheck, Building2, Stethoscope, FileText, Award, Search, ChevronRight, Check, ChevronDown, Sparkles, Truck, Globe, ArrowLeft, Grid, List, ArrowUpDown, Thermometer, Clock, User, SlidersHorizontal, Printer, Download ,Quote, Package} from 'lucide-react';
+import { ShoppingBag, Menu, X, Instagram, Facebook, Linkedin, ArrowRight, Trash2, Plus, Minus, Mail, Phone, MapPin, ShieldCheck, Building2, Stethoscope, FileText, Award, Search, ChevronRight, Check, ChevronDown, Sparkles, Truck, Globe, ArrowLeft, Grid, List, ArrowUpDown, Thermometer, Clock, User, SlidersHorizontal, Printer, Download ,Quote, Package, MessageCircle } from 'lucide-react';
 import Footer from './components/Footer';
 import Ticker from './components/Ticker';
 import ProductCard from './components/ProductCard';
@@ -102,6 +102,17 @@ const Navigation = ({
     const toggleMobileSection = (section) => {
         setMobileExpanded(prev => ({ ...prev, [section]: !prev[section] }));
     };
+
+    useEffect(() => {
+        if (mobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [mobileMenuOpen]);
 
     return (
         <>
@@ -313,23 +324,53 @@ const Navigation = ({
             
             {/* MOBILE DRAWER */}
             <div className={`fixed inset-0 z-[60] flex ${mobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
-                <div className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-100' : 'opacity-0'}`} onClick={() => setMobileMenuOpen(false)} />
-                <div className={`relative bg-white w-[85%] max-w-xs h-full shadow-2xl transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-                    <div className="flex flex-col h-full border-r-2 border-black">
-                        <div className="p-6 flex justify-between items-center border-b-2 border-black">
-                            <span className="text-2xl font-sans font-black uppercase tracking-tighter">SHAA TRADING®</span>
-                            <button onClick={() => setMobileMenuOpen(false)} className="text-black"><X size={24} /></button>
-                        </div>
-                        <div className="flex-1 overflow-y-auto py-4 bg-gray-50">
-                            <div className="flex flex-col font-bold uppercase tracking-wider text-xs">
-                                <button onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('home'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-black border-b border-gray-200 hover:bg-gray-100">Home</button>
-                                <button onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('shop'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-black border-b border-gray-200 hover:bg-gray-100">Catalog</button>
-                                <button onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('blog'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-black border-b border-gray-200 hover:bg-gray-100">Blog</button>
-                                <button onClick={() => { setShopFilter('All'); setBrandFilter('All Brands'); setCurrentPage('contact'); setMobileMenuOpen(false); }} className="px-6 py-4 text-left text-black border-b border-gray-200 hover:bg-gray-100">Contact</button>
-                            </div>
-                        </div>
-                    </div>
+              {/* Overlay */}
+              <div className={`absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-100' : 'opacity-0'}`} onClick={() => setMobileMenuOpen(false)} />
+              
+              {/* Drawer Panel */}
+              <div className={`relative bg-white w-[85%] max-w-xs h-full shadow-2xl transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+                <div className="flex flex-col h-full border-r border-gray-100">
+                  {/* Header */}
+                  <div className="p-6 flex justify-between items-center border-b border-gray-100">
+                    <span className="text-xl font-black uppercase tracking-tighter text-black">Menu</span>
+                    <button onClick={() => setMobileMenuOpen(false)} className="text-black p-2 hover:bg-gray-50 rounded-full">
+                      <X size={20} />
+                    </button>
+                  </div>
+
+                  {/* Nav Links */}
+                  <nav className="flex-1 py-8">
+                    {[
+                      { name: 'Home', page: 'home' },
+                      { name: 'Catalog', page: 'shop' },
+                      { name: 'Clinical Journal', page: 'blog' },
+                      { name: 'Contact', page: 'contact' }
+                    ].map((link) => (
+                      <button 
+                        key={link.name}
+                        onClick={() => { 
+                          setShopFilter('All'); 
+                          setBrandFilter('All Brands'); 
+                          setCurrentPage(link.page); 
+                          setMobileMenuOpen(false); 
+                        }}
+                        className="w-full px-8 py-5 text-left text-sm font-bold uppercase tracking-[0.2em] text-gray-900 border-b border-gray-50 hover:bg-gray-50 transition-colors flex justify-between items-center group"
+                      >
+                        {link.name}
+                        <ChevronRight size={16} className="text-gray-300 group-hover:text-black transition-transform group-hover:translate-x-1" />
+                      </button>
+                    ))}
+                  </nav>
+
+                  {/* Footer Branding */}
+                  <div className="p-8 border-t border-gray-100 bg-gray-50">
+                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-2">Shaa Trading</p>
+                    <p className="text-[10px] text-gray-600 leading-relaxed">
+                      Bengaluru's premier healthcare and aesthetics distributor. 
+                    </p>
+                  </div>
                 </div>
+              </div>
             </div>
         </>
     );
@@ -337,7 +378,27 @@ const Navigation = ({
 
 const PaymentSuccessView = ({ navigateTo, showToast, transactionId }) => {
     const [status, setStatus] = useState('processing');
+    const [progress, setProgress] = useState(0);
     const [orderDetails, setOrderDetails] = useState(null);
+
+    useEffect(() => {
+      if (status !== 'processing') return;
+
+      const interval = setInterval(() => {
+        setProgress(prev => {
+          if (prev >= 95) return prev;
+          return prev + 2;
+        });
+      }, 800);
+
+      return () => clearInterval(interval);
+    }, [status]);
+
+    useEffect(() => {
+      if (status !== 'processing') {
+        setProgress(100);
+      }
+    }, [status]);
 
     useEffect(() => {
       const processOrder = async () => {
@@ -423,9 +484,21 @@ const PaymentSuccessView = ({ navigateTo, showToast, transactionId }) => {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4 md:p-8">
         {status === 'processing' && (
-          <div className="animate-pulse text-center">
-            <h2 className="text-2xl font-serif mb-2">Finalizing Order...</h2>
-            <p className="text-gray-500">Please do not close this window.</p>
+          <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white/95 backdrop-blur-sm p-6 text-center">
+            <div className="w-16 h-16 border-4 border-gray-100 border-t-black rounded-full animate-spin mb-8"></div>
+            <h2 className="font-serif text-2xl mb-2">Processing Your Order</h2>
+            <p className="text-gray-500 text-sm max-w-sm mb-8">
+              Please stay on this page. We are securely syncing your clinical order to our system.
+            </p>
+            <div className="w-full max-w-xs h-1.5 bg-gray-100 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-black transition-all duration-500 ease-linear"
+                style={{ width: `${progress}%` }}
+              ></div>
+            </div>
+            <p className="text-[10px] font-bold uppercase tracking-widest mt-4 text-gray-400">
+              {progress < 30 ? "Verifying Payment..." : progress < 70 ? "Generating Invoice..." : "Finalizing Dispatch..."}
+            </p>
           </div>
         )}
   
@@ -909,11 +982,11 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
       </section>
 
     {/* 2. CATEGORY STRIP - Minimalist, No Background, No Outline */}
-      <section className="py-12 bg-white border-b border-black">
+      <section className="py-4 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-[10px] font-black uppercase tracking-[0.3em] mb-8 text-center text-black">Shop by Category</h2>
+          <h2 className="text-[10px] font-black uppercase tracking-[0.3em] mb-3 text-center text-black">Shop by Category</h2>
           
-           <div className="flex overflow-x-auto gap-3 pb-4 scrollbar-hide justify-start md:justify-center">
+           <div className="flex overflow-x-auto gap-3 pb-1 scrollbar-hide justify-start md:justify-center">
              {CATEGORY_LIST.map((cat) => (
               <button 
                key={cat.id} 
@@ -933,12 +1006,12 @@ const HomeView = ({ navigateTo, addToCart, setShopFilter }) => {
       </section>
 
       {/* 3. BEST SELLERS - Grid Adjusted for Small Screens */}
-      <section className="py-16">
+      <section className="pt-0 pb-16">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="flex justify-between items-end mb-8">
+          <div className="flex justify-between items-end mb-4">
             <div>
               <h2 className="text-2xl md:text-3xl font-serif text-black uppercase tracking-tight">Best Sellers</h2>
-              <div className="h-1 w-12 bg-black mt-2"></div>
+              <div className="h-1 w-12 bg-black mt-1"></div>
             </div>
             <button onClick={() => navigateTo('shop')} className="text-[10px] font-black uppercase tracking-widest border-b-2 border-black pb-1 hover:text-gray-500">View All</button>
           </div>
@@ -3418,7 +3491,7 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
             handleLogout={handleLogout} 
           />
 
-         <main className="flex-grow">
+         <main className="flex-grow pb-20 md:pb-0">
             {currentPage === 'home' && <HomeView navigateTo={navigateTo} addToCart={addToCart} setShopFilter={setShopFilter} />}
             
             {currentPage === 'shop' && (
@@ -3530,25 +3603,45 @@ const getSeoConfig = (currentPage, selectedProduct, selectedPost, selectedCatego
             checkout={handlePayment} 
           />
 
-          <div className="fixed bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:-translate-x-0 md:right-4 z-50 flex flex-row md:flex-col gap-3">
+          <div className="fixed bottom-0 left-0 w-full z-50 flex md:hidden">
             <a
               href="tel:+919916726373"
-              className="group flex items-center gap-3 rounded-full bg-[#ffebe7] text-[#b3271b] px-4 py-3 shadow-2xl shadow-red-200/60 ring-1 ring-red-100 transition transform hover:-translate-y-0.5 hover:bg-[#ffd8d1]"
+              className="flex-1 flex items-center justify-center gap-2 py-4 bg-red-500 text-white font-bold uppercase tracking-widest text-[10px]"
               aria-label="Call Shaa Trading"
             >
-              <Phone size={18} className="text-[#b3271b] transition group-hover:text-[#8a1f16]" />
-              <span className="text-xs font-semibold uppercase tracking-[0.2em]">Call</span>
+              <Phone size={14} /> CALL NOW
             </a>
 
             <a
               href="https://wa.me/919916726373?text=Hi%20Shaa%20Trading%2C%20I%20would%20like%20to%20inquire%20about%20your%20products"
               target="_blank"
               rel="noreferrer"
-              className="group flex items-center gap-3 rounded-full bg-[#e6ffed] text-[#1e7f31] px-4 py-3 shadow-2xl shadow-emerald-200/60 ring-1 ring-emerald-100 transition transform hover:-translate-y-0.5 hover:bg-[#d3f7d6]"
+              className="flex-1 flex items-center justify-center gap-2 py-4 bg-green-600 text-white font-bold uppercase tracking-widest text-[10px]"
               aria-label="Chat on WhatsApp"
             >
-              <Phone size={18} className="text-[#1e7f31] transition group-hover:text-[#125625]" />
-              <span className="text-xs font-semibold uppercase tracking-[0.2em]">WhatsApp</span>
+              <MessageCircle size={14} /> WHATSAPP
+            </a>
+          </div>
+
+          <div className="hidden md:flex fixed bottom-6 right-6 z-50 flex-col gap-3">
+            <a
+              href="tel:+919916726373"
+              className="group flex items-center gap-3 rounded-full bg-red-500 text-white px-6 py-3 shadow-xl transition-all hover:bg-red-600 hover:scale-105"
+              aria-label="Call Shaa Trading"
+            >
+              <Phone size={16} />
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Call Now</span>
+            </a>
+
+            <a
+              href="https://wa.me/919916726373?text=Hi%20Shaa%20Trading%2C%20I%20would%20like%20to%20inquire%20about%20your%20products"
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center gap-3 rounded-full bg-green-600 text-white px-6 py-3 shadow-xl transition-all hover:bg-green-700 hover:scale-105"
+              aria-label="Chat on WhatsApp"
+            >
+              <MessageCircle size={16} />
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em]">WhatsApp</span>
             </a>
           </div>
         </>
