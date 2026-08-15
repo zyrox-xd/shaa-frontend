@@ -3951,7 +3951,7 @@ const PRODUCTS = [
 },
 {
     id: 55,
-    name: "Botox Allergan 100 Iu Botox Cosmetic",
+    name: "Botox Cosmetic 100 Iu",
     category: "C & D Fillers",
     brand: "Allergan",
     price: 9500,
@@ -3965,7 +3965,7 @@ const PRODUCTS = [
     ],
     description: "Purified botulinum toxin type A injection used to temporarily smooth moderate-to-severe wrinkles like crow's feet, forehead lines, and frown lines.",
     details: `
-    <strong>Botox Allergan 100 Iu Botox Cosmetic</strong><br/><br/>
+    <strong>Botox Cosmetic 100 Iu</strong><br/><br/>
     Allergan Botox Cosmetic 100 IU is a prescription-only, purified botulinum toxin type A injection used to temporarily smooth moderate-to-severe wrinkles, such as crow's feet, forehead lines, and frown lines. It works by blocking nerve signals to relax facial muscles. Results typically last 9-12 months, with treatments administered by qualified professionals.<br/><br/>
     
     <strong>Key Features:</strong><br/>
@@ -7072,6 +7072,72 @@ const PRODUCTS = [
     ],
     sku: "SCULPTRA-BUTT-LIFT",
     volume: "Per Treatment Session",
+    stock: 10
+},
+{
+    id: 103,
+    name: "Botox 50 Iu Injection",
+    category: "C & D Fillers",
+    brand: "Allergan",
+    price: 8800,
+    comparePrice: 12000,
+    image: "/image/allergan/botox-50iu-1.jpg",
+    images: [
+        "/image/allergan/botox-50iu-1.jpg",
+        "/image/allergan/botox-50iu-2.jpg",
+        "/image/allergan/botox-50iu-3.jpg",
+        "/image/allergan/botox-50iu-4.jpg"
+    ],
+    description: "Botulinum toxin type A injection containing 50 IU OnabotulinumtoxinA for temporary treatment of wrinkles, muscle spasms, chronic migraines, hyperhidrosis, and overactive bladder.",
+    details: `
+    <strong>Botox 50 Iu Injection - Powder Form</strong><br/><br/>
+    Botox 50IU (50 International Units) is a prescription injectable neurotoxin containing OnabotulinumtoxinA, derived from Clostridium botulinum. It is used to temporarily treat wrinkles (cosmetic) and medical conditions like muscle spasms, chronic migraines, excessive sweating (hyperhidrosis), and overactive bladder by blocking nerve signals that cause muscle contraction.<br/><br/>
+    
+    <strong>Key Features:</strong><br/>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li>Strength: 50 Units per vial</li>
+      <li>Brand: Allergan</li>
+      <li>Country of Origin: Ireland</li>
+      <li>Form: Sterile, freeze-dried powder for injection</li>
+      <li>Toxin Type: Type A</li>
+      <li>Packaging Type: Vial</li>
+      <li>Preservative Status: Preservative-free</li>
+    </ul>
+    <br/>
+
+    <strong>Composition:</strong> Sterile, freeze-dried powder containing 50 units of Type A neurotoxin (OnabotulinumtoxinA).<br/><br/>
+
+    <strong>Mechanism of Action:</strong> Inhibits the release of acetylcholine at the neuromuscular junction, causing temporary, localized muscle relaxation (flaccid paralysis). This reduces muscle activity in the treated area.<br/><br/>
+
+    <strong>Common Applications:</strong>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      <li><strong>Cosmetic:</strong> Smoothing forehead lines, crow's feet, and frown lines</li>
+      <li><strong>Medical:</strong> Cervical dystonia (neck spasms), spasticity (including cerebral palsy), blepharospasm (eye twitching), chronic migraines, and urinary incontinence</li>
+    </ul>
+    <br/>
+
+    <strong>Duration:</strong> Results are temporary, typically lasting 3 to 4 months. Repeat treatments are required to maintain effects.<br/><br/>
+
+    <strong>Administration:</strong> Must be administered by a qualified healthcare professional. Requires reconstitution with preservative-free saline before injection. Storage: Refrigerate at 2°C to 8°C (36°F to 46°F) before reconstitution. Reconstituted product should be used within 24 hours.<br/><br/>
+
+    <strong>Potential Side Effects:</strong> Injection site pain/swelling, muscle weakness, headache, flu-like symptoms, and ptosis (droopy eyelids).<br/><br/>
+
+    <strong>Prescription Status:</strong> Prescription required. Professional use only.<br/><br/>
+
+    <em class="text-xs text-gray-400">Note: Professional use only. Must be administered by licensed healthcare professional. Consult physician for suitability.</em>
+    `,
+    benefits: [
+        "50 Units Botulinum Toxin Type A",
+        "Made in Ireland",
+        "Original Allergan",
+        "Smooths Forehead Lines",
+        "Reduces Crow's Feet",
+        "Treats Frown Lines",
+        "Medical Uses for Migraines & Spasms",
+        "Preservative-Free"
+    ],
+    sku: "ALLERGAN-BOTOX-50IU",
+    volume: "1 Vial",
     stock: 10
 }
 ];
